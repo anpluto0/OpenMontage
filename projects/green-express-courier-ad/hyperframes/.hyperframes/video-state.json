@@ -132,15 +132,15 @@
   },
   "renders": {
     "latest": {
-      "id": "5c1bfaed-e042-487d-87e0-e66487460381",
-      "completedAt": 1793714152657,
-      "output": "/home/user/OpenMontage/projects/green-express-courier-ad/renders/draft_v4_silent.mp4",
+      "id": "d2124918-82df-420e-9fbb-e2d2b2f4787e",
+      "completedAt": 1793714661636,
+      "output": "/home/user/OpenMontage/projects/green-express-courier-ad/renders/draft_v5_silent.mp4",
       "status": "completed",
-      "revision": "72135bb2-3f89-4164-a420-f0662e5e9b3b"
+      "revision": "41d76156-9407-4cb3-9a9c-30f2f051622e"
     },
     "retainedRevisions": [
-      "72135bb2-3f89-4164-a420-f0662e5e9b3b",
-      "e506179f-77f5-4930-8f66-db2626f3fe05"
+      "41d76156-9407-4cb3-9a9c-30f2f051622e",
+      "72135bb2-3f89-4164-a420-f0662e5e9b3b"
     ]
   },
   "pendingArtifactCleanup": []
