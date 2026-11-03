@@ -1,0 +1,163 @@
+{
+  "version": "1.0",
+  "title": "Green Express — курьер Яндекс Еды: «Деньги нужны уже сегодня?»",
+  "total_duration_seconds": 24,
+  "voice_performance": {
+    "performance_intent": "Живой, дружелюбный голос «своего парня/девушки»: сочувствие на проблемах, подъём энергии на повороте, уверенный призыв в конце.",
+    "pacing_profile": "energetic",
+    "energy_curve": "Хук — бодро и чётко; проблемы — с иронией и сочувствием, чуть быстрее; поворот — подъём; выгоды — уверенно; CTA — тепло и напористо.",
+    "pause_policy": "Короткие паузы 0.2–0.4 с между проблемами под смену мини-сцен; 0.3 с перед «Курьер Яндекс Еды».",
+    "sample_section_id": "s2_pain"
+  },
+  "sections": [
+    {
+      "id": "s1_hook",
+      "label": "Хук",
+      "text": "Деньги нужны уже сегодня?",
+      "start_seconds": 0,
+      "end_seconds": 3,
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "high, живой вопрос",
+        "emphasis_words": [
+          "сегодня"
+        ],
+        "pause_after_seconds": 0.2,
+        "provider_text": "Деньги нужны уже сегодня?"
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Герой смотрит на настенный календарь: красный кружок «ЗАРПЛАТА» далеко, листы медленно отрываются, табличка «до зарплаты: 29 дней»; на телефоне баланс 0 ₸",
+          "timestamp_seconds": 0
+        }
+      ]
+    },
+    {
+      "id": "s2_pain",
+      "label": "Проблемы",
+      "text": "Кредит, подарок близким… или просто достала офисная рутина?",
+      "start_seconds": 3,
+      "end_seconds": 10.5,
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "medium, с иронией и сочувствием",
+        "emphasis_words": [
+          "Кредит",
+          "подарок",
+          "рутина"
+        ],
+        "pause_after_seconds": 0.3,
+        "provider_text": "Кредит... подарок близким... или просто достала офисная рутина?"
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Мини-сцена 1: герою на телефон падает уведомление «Платёж по кредиту — завтра», над головой капля пота",
+          "timestamp_seconds": 4
+        },
+        {
+          "type": "animation",
+          "description": "Мини-сцена 2: витрина с подарком и ценником, герой открывает кошелёк — оттуда вылетает моль",
+          "timestamp_seconds": 6
+        },
+        {
+          "type": "animation",
+          "description": "Мини-сцена 3: офис, стопка бумаг растёт выше героя, стрелка часов еле ползёт, герой сползает со стула",
+          "timestamp_seconds": 8.5
+        }
+      ]
+    },
+    {
+      "id": "s3_turn",
+      "label": "Поворот",
+      "text": "Стань курьером Яндекс Еды.",
+      "start_seconds": 10.5,
+      "end_seconds": 13,
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "подъём",
+        "emphasis_words": [
+          "курьером"
+        ],
+        "pause_before_seconds": 0.3,
+        "provider_text": "Стань курьером Яндекс Еды."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Герой захлопывает ноутбук, бумаги разлетаются и превращаются в жёлтую термосумку на его спине; он вылетает на велосипеде на проспект, на фоне горы Алатау",
+          "timestamp_seconds": 10.5
+        }
+      ]
+    },
+    {
+      "id": "s4_schedule",
+      "label": "Свой график",
+      "text": "Сам решаешь, когда выходить.",
+      "start_seconds": 13,
+      "end_seconds": 15.5,
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "уверенно",
+        "emphasis_words": [
+          "Сам"
+        ],
+        "provider_text": "Сам решаешь, когда выходить."
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Солнце и луна переключаются как тумблер, герой сам жмёт кнопку «Начать смену»",
+          "timestamp_seconds": 13
+        }
+      ]
+    },
+    {
+      "id": "s5_payout",
+      "label": "Выплаты каждый день",
+      "text": "Сегодня заработал — сегодня получил деньги.",
+      "start_seconds": 15.5,
+      "end_seconds": 19,
+      "delivery_cues": {
+        "pace": "conversational",
+        "energy": "радостно",
+        "emphasis_words": [
+          "Сегодня",
+          "сегодня"
+        ],
+        "pause_after_seconds": 0.3,
+        "provider_text": "Сегодня заработал — сегодня получил деньги!"
+      },
+      "enhancement_cues": [
+        {
+          "type": "animation",
+          "description": "Утро: герой развозит заказы (быстрый проезд). Вечер того же дня: монеты падают на карту в телефоне, уведомление «Выплата зачислена». Уведомление о кредите из сцены 1 зачёркивается, герой держит подарок",
+          "timestamp_seconds": 15.5
+        }
+      ]
+    },
+    {
+      "id": "s6_cta",
+      "label": "Призыв к действию",
+      "text": "Пиши в Ватсап — Green Express, официальный партнёр Яндекс Еды.",
+      "start_seconds": 19,
+      "end_seconds": 24,
+      "delivery_cues": {
+        "pace": "brisk",
+        "energy": "тепло и напористо",
+        "emphasis_words": [
+          "Ватсап"
+        ],
+        "provider_text": "Пиши в Ватсап — Green Express, официальный партнёр Яндекс Еды."
+      },
+      "enhancement_cues": [
+        {
+          "type": "overlay",
+          "description": "Пульсирующая кнопка WhatsApp, палец нажимает; логотип Green Express; плашка «Подключение 15 минут · бесплатно»; мелкий текст: «Green Express — официальный партнёр Яндекс Еды · 18+, граждане РК»",
+          "timestamp_seconds": 19
+        }
+      ]
+    }
+  ]
+}

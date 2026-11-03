@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Green Express — курьер Яндекс Еды</title>
+<script src="vendor/gsap.min.js"></script>
+<script src="content.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+@font-face{font-family:Montserrat;font-weight:700;src:url(assets/montserrat-latin-700-normal.woff2)}
+:root{--ink:#1B1B1F;--ink2:#2E2E35;--paper:#F4F1EA;--tile:#FFFFFF;--mute:#E4DFD5;--mute2:#9A958C;--yel:#FCE000;--yel2:#E3C800;--yel3:#FFF07A;--coral:#FF5A4E;--coral2:#FFE3E0;--wa:#25D366;--green:#1B4B2D}
+html,body{margin:0;padding:0;background:var(--ink)}
+body{font-family:Onest,sans-serif;color:var(--ink)}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden}
+#stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden}
+#bg{position:absolute;inset:0;background:var(--paper)}
+.scene{position:absolute;inset:0;width:1080px;height:1920px;opacity:0}
+.abs{position:absolute}
+.h1{position:absolute;left:96px;font-weight:800;font-size:96px;line-height:110px;letter-spacing:-1px;white-space:nowrap}
+.mask{overflow:hidden;height:118px}
+.mask>div{display:block;will-change:transform}
+.card{position:absolute;background:var(--tile);border-radius:32px}
+.pill{position:absolute;height:64px;border-radius:32px;font-weight:500;font-size:32px;line-height:64px;padding:0 30px;white-space:nowrap}
+.cell{position:absolute;width:96px;height:96px;border-radius:20px;background:var(--paper);font-weight:800;font-size:34px;line-height:96px;text-align:center;color:var(--mute2)}
+.hcell{position:absolute;width:112px;height:112px;border-radius:24px;background:var(--paper);font-weight:800;font-size:30px;line-height:112px;text-align:center;color:var(--mute2)}
+.coin{position:absolute;width:104px;height:104px}
+.bld{position:absolute;bottom:0;border-radius:18px 18px 0 0;background:#6FB6E8}
+.win{position:absolute;width:22px;height:22px;border-radius:6px;background:#FFE14D;opacity:0}
+.star{position:absolute;width:12px;height:12px;border-radius:3px;background:#fff;opacity:0}
+.shard{position:absolute;border-radius:12px}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="24">
+<section id="stage" class="clip" data-start="0" data-duration="24" data-track-index="1">
+  <div id="bg"></div>
+
+  <!-- shared hero drawing -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <clipPath id="torsoC"><rect x="-260" y="1010" width="520" height="490" rx="120"/></clipPath>
+      <clipPath id="headC"><rect x="-200" y="560" width="400" height="420" rx="130"/></clipPath>
+      <g id="heroBag">
+        <rect x="-300" y="884" width="620" height="580" rx="56" fill="#C9B200"/>
+        <rect x="-310" y="870" width="620" height="580" rx="56" fill="#FCE000" stroke="#1B1B1F" stroke-width="10"/>
+        <rect x="-310" y="870" width="620" height="124" rx="56" fill="#FFF07A" stroke="#1B1B1F" stroke-width="10"/>
+        <image href="assets/green_express_mark.svg" x="-292" y="894" width="72" height="72"/>
+      </g>
+      <g id="heroBody">
+        <path d="M-205 1085 L-232 1520" stroke="#2F2F37" stroke-width="130" stroke-linecap="round"/>
+        <rect x="-250" y="1000" width="500" height="580" rx="130" fill="#26262C"/>
+        <rect x="-50" y="920" width="100" height="96" rx="36" fill="#D9926B"/>
+        <rect x="-120" y="972" width="240" height="84" rx="42" fill="#34343C"/>
+        <g stroke-linecap="round">
+          <path d="M-152 1010 L-128 1600" stroke="#1B1B1F" stroke-width="74"/>
+          <path d="M-152 1010 L-128 1600" stroke="#FCE000" stroke-width="56"/>
+          <path d="M152 1010 L128 1600" stroke="#1B1B1F" stroke-width="74"/>
+          <path d="M152 1010 L128 1600" stroke="#FCE000" stroke-width="56"/>
+        </g>
+        <rect x="-140" y="1250" width="280" height="30" rx="15" fill="#1B1B1F"/>
+        <rect x="-42" y="1236" width="84" height="58" rx="18" fill="#6A6A75"/><rect x="-22" y="1252" width="44" height="26" rx="9" fill="#1B1B1F"/>
+      </g>
+      <g id="heroHead">
+        <rect x="-226" y="716" width="72" height="104" rx="32" fill="#E7A982"/>
+        <rect x="154" y="716" width="72" height="104" rx="32" fill="#E7A982"/>
+        <rect x="-200" y="560" width="400" height="420" rx="140" fill="#F1BE95"/>
+        <path d="M-210 724 L-210 650 Q-210 500 -50 500 L50 500 Q210 500 210 650 L210 706 Q196 652 128 640 Q60 632 10 662 Q-70 704 -150 664 Q-186 690 -194 736Z" fill="#2A2238"/>
+        <rect x="-110" y="522" width="190" height="24" rx="12" fill="#4B3E63"/>
+        <rect x="-132" y="732" width="96" height="24" rx="12" fill="#2A2238"/>
+        <rect x="36" y="732" width="96" height="24" rx="12" fill="#2A2238"/>
+        <rect x="-20" y="830" width="40" height="48" rx="20" fill="#E09A73"/>
+        <path d="M-80 892 H80 Q80 960 0 960 Q-80 960 -80 892Z" fill="#1B1B1F"/>
+        <path d="M-60 892 H60 V910 Q0 920 -60 910Z" fill="#FFFFFF"/>
+        <path d="M-36 944 Q0 960 36 944 Q30 932 0 932 Q-30 932 -36 944Z" fill="#FF7A6B"/>
+        <rect x="-176" y="860" width="70" height="36" rx="18" fill="#FF8A7A" opacity=".45"/><rect x="106" y="860" width="70" height="36" rx="18" fill="#FF8A7A" opacity=".45"/>
+      </g>
+      <g id="heroEyes">
+        <rect x="-110" y="776" width="52" height="72" rx="24" fill="#1B1B1F"/><rect x="58" y="776" width="52" height="72" rx="24" fill="#1B1B1F"/>
+        <rect x="-96" y="788" width="18" height="22" rx="9" fill="#FFFFFF"/><rect x="72" y="788" width="18" height="22" rx="9" fill="#FFFFFF"/>
+      </g>
+      <g id="heroArm">
+        <path d="M205 1075 L315 1365 L268 1185" stroke="#2F2F37" stroke-width="130" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <rect x="198" y="1150" width="140" height="44" rx="22" fill="#3A3A44"/>
+        <rect x="190" y="1040" width="156" height="132" rx="46" fill="#F1BE95"/>
+        <rect x="200" y="946" width="60" height="124" rx="30" fill="#F1BE95"/>
+        <rect x="268" y="1074" width="70" height="22" rx="11" fill="#E09A73"/><rect x="268" y="1116" width="70" height="22" rx="11" fill="#E09A73"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- ================= S1 · HOOK (0–3) ================= -->
+  <div id="s1" class="scene">
+    <div class="h1 mask" style="top:196px"><div id="s1-l1"><span data-k="hook.l1">Деньги нужны</span></div></div>
+    <div class="h1 mask" style="top:306px"><div id="s1-l2"><span data-k="hook.l2_pre">уже </span><span style="color:var(--coral)"><span data-k="hook.l2_accent">сегодня?</span></span></div></div>
+    <div id="cal" class="card" style="left:96px;top:520px;width:888px;height:668px">
+      <div class="abs" style="left:48px;top:40px;font-weight:800;font-size:44px"><span data-k="hook.month">Ноябрь</span></div>
+      <div id="weekdays"></div>
+      <div id="cells"></div>
+    </div>
+    <div id="t-bal" class="card" style="left:96px;top:1236px;width:432px;height:248px">
+      <div class="abs" style="left:48px;top:44px;font-weight:500;font-size:30px;color:#7A756C"><span data-k="hook.balance_label">Баланс</span></div>
+      <div id="bal-num" class="abs" style="left:48px;top:96px;font-weight:800;font-size:104px;line-height:120px"><span data-k="hook.balance_value">0 ₸</span></div>
+    </div>
+    <div id="t-days" class="card" style="left:552px;top:1236px;width:432px;height:248px;background:var(--ink)">
+      <div class="abs" style="left:48px;top:44px;font-weight:500;font-size:30px;color:#B9B4AA"><span data-k="hook.days_label">До зарплаты</span></div>
+      <div class="abs" style="left:48px;top:96px;font-weight:800;font-size:104px;line-height:120px;color:var(--coral)"><span id="days-num">25</span> <span style="font-size:56px;color:#fff"><span data-k="hook.days_unit">дней</span></span></div>
+    </div>
+  </div>
+
+  <!-- ================= S2 · PROBLEMS (3–10.5) ================= -->
+  <div id="s2" class="scene">
+    <div class="h1 mask" style="top:196px"><div id="s2-t"><span data-k="pains.title">Знакомо?</span></div></div>
+    <!-- card 1 credit -->
+    <div id="k1" class="card" style="left:96px;top:440px;width:888px;height:320px">
+      <div class="abs" style="left:48px;top:48px;width:224px;height:224px;border-radius:28px;background:var(--coral2)">
+        <svg width="224" height="224" viewBox="0 0 224 224"><g id="k1-ic"><rect x="38" y="60" width="148" height="100" rx="14" fill="#FF5A4E"/><rect x="38" y="80" width="148" height="20" fill="#1B1B1F" opacity=".85"/><rect x="56" y="122" width="44" height="14" rx="7" fill="#fff"/></g></svg>
+      </div>
+      <div class="abs" style="left:320px;top:70px;font-weight:800;font-size:64px"><span data-k="pains.c1_title">Кредит</span></div>
+      <div id="k1-pill" class="pill" style="left:320px;top:184px;background:var(--coral2);color:#C8352B"><span data-k="pains.c1_tag">платёж завтра</span></div>
+    </div>
+    <!-- card 2 gift -->
+    <div id="k2" class="card" style="left:96px;top:792px;width:888px;height:320px">
+      <div class="abs" style="left:48px;top:48px;width:224px;height:224px;border-radius:28px;background:#FFF6C2">
+        <svg width="224" height="224" viewBox="0 0 224 224"><rect x="48" y="82" width="128" height="100" rx="10" fill="#FCE000"/><rect x="102" y="82" width="20" height="100" fill="#FF5A4E"/>
+          <g id="k2-lid"><rect x="38" y="56" width="148" height="40" rx="10" fill="#E3C800"/><rect x="102" y="56" width="20" height="40" fill="#FF5A4E"/><path d="M112 56 C82 22 56 36 72 56Z M112 56 C142 22 168 36 152 56Z" fill="#FF5A4E"/></g></svg>
+      </div>
+      <div class="abs" style="left:320px;top:70px;font-weight:800;font-size:64px"><span data-k="pains.c2_title">Подарок</span></div>
+      <div class="pill" style="left:320px;top:184px;background:var(--paper);color:#6E6A62"><span data-k="pains.c2_tag">не хватает</span></div>
+    </div>
+    <!-- card 3 office -->
+    <div id="k3" class="card" style="left:96px;top:1144px;width:888px;height:320px">
+      <div class="abs" style="left:48px;top:48px;width:224px;height:224px;border-radius:28px;background:var(--mute)">
+        <svg width="224" height="224" viewBox="0 0 224 224">
+          <rect class="k3b" x="44" y="148" width="136" height="24" rx="6" fill="#9A958C"/>
+          <rect class="k3b" x="52" y="120" width="120" height="24" rx="6" fill="#B9B4AA"/>
+          <rect class="k3b" x="44" y="92" width="136" height="24" rx="6" fill="#CBC6BC"/>
+          <rect class="k3b" x="52" y="64" width="120" height="24" rx="6" fill="#B9B4AA"/>
+          <rect class="k3b" x="44" y="36" width="136" height="24" rx="6" fill="#CBC6BC"/>
+        </svg>
+      </div>
+      <div class="abs" style="left:320px;top:70px;font-weight:800;font-size:64px"><span data-k="pains.c3_title">Офис</span></div>
+      <div class="pill" style="left:320px;top:184px;background:var(--paper);color:#6E6A62"><span data-k="pains.c3_tag">с 9 до 18, каждый день</span></div>
+    </div>
+    <div class="abs" style="left:96px;top:1528px">
+      <div id="d1" class="abs" style="left:0;width:56px;height:16px;border-radius:8px;background:var(--ink)"></div>
+      <div id="d2" class="abs" style="left:80px;width:56px;height:16px;border-radius:8px;background:#CBC6BC"></div>
+      <div id="d3" class="abs" style="left:160px;width:56px;height:16px;border-radius:8px;background:#CBC6BC"></div>
+    </div>
+  </div>
+
+  <!-- shards for the turn -->
+  <div id="shards" class="scene" style="opacity:1;display:none"></div>
+  <div id="wipe" class="abs" style="left:-610px;top:-190px;width:2300px;height:2300px;border-radius:420px;background:#FCE000;transform:scale(0)"></div>
+
+  <!-- ================= S3 · TURN ================= -->
+  <div id="s3" class="scene">
+    <div id="s3-grid"></div>
+    <div class="h1 mask" style="top:196px"><div id="s3-t"><span data-k="turn.l1">Стань курьером</span></div></div>
+    <div class="h1 mask" style="top:306px"><div id="s3-t2"><span data-k="turn.l2">Яндекс Еды</span></div></div>
+    <div id="s3-panel" class="abs" style="left:96px;top:520px;width:888px;height:1500px;border-radius:56px;background:#FFF4A3"></div>
+    <div id="hero" class="abs" style="left:0;top:0;width:1080px;height:1920px;overflow:hidden">
+      <svg width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g transform="translate(540,190) scale(1.15)">
+          <g id="hero-bag"><use href="#heroBag"/></g>
+          <use href="#heroBody"/>
+          <g id="hero-head"><use href="#heroHead"/><g id="hero-eyes"><use href="#heroEyes"/></g></g>
+          <g id="hero-arm"><use href="#heroArm"/></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ================= S4 · SCHEDULE ================= -->
+  <div id="s4" class="scene">
+    <div class="h1 mask" style="top:196px"><div id="s4-l1"><span data-k="schedule.l1">Сам решаешь,</span></div></div>
+    <div class="h1 mask" style="top:306px"><div id="s4-l2"><span data-k="schedule.l2">когда выходить</span></div></div>
+    <div id="s4-card" class="card" style="left:96px;top:500px;width:888px;height:720px">
+      <div id="sky" class="abs" style="left:40px;top:40px;width:808px;height:460px;border-radius:28px;background:#9FDCFF;overflow:hidden">
+        <div id="stars"></div>
+        <div id="sun" class="abs" style="left:110px;top:70px;width:150px;height:150px;border-radius:48px;background:#FCE000"></div>
+        <svg id="moon" class="abs" style="left:560px;top:60px" width="150" height="150" viewBox="0 0 150 150"><path d="M96 8 A68 68 0 1 0 142 100 A56 56 0 0 1 96 8Z" fill="#F4F1EA"/></svg>
+        <div id="city"></div>
+      </div>
+      <div id="sw" class="abs" style="left:40px;top:540px;width:808px;height:140px;border-radius:70px;background:var(--paper)">
+        <div id="sw-k" class="abs" style="left:8px;top:8px;width:396px;height:124px;border-radius:62px;background:var(--yel)"></div>
+        <div id="sw-d" class="abs" style="left:8px;top:0;width:396px;line-height:140px;text-align:center;font-weight:800;font-size:48px;color:var(--ink)"><svg style="display:inline-block;vertical-align:-8px;margin-right:18px" width="44" height="44" viewBox="0 0 40 40"><circle cx="20" cy="20" r="9" fill="currentColor"/><g stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M20 2v5M20 33v5M2 20h5M33 20h5M7 7l3.5 3.5M29.5 29.5L33 33M7 33l3.5-3.5M29.5 10.5L33 7"/></g></svg><span data-k="schedule.day">Днём</span></div>
+        <div id="sw-n" class="abs" style="left:404px;top:0;width:396px;line-height:140px;text-align:center;font-weight:800;font-size:48px;color:var(--mute2)"><svg style="display:inline-block;vertical-align:-8px;margin-right:18px" width="44" height="44" viewBox="0 0 40 40"><path d="M27 4 A16 16 0 1 0 36 28 A13 13 0 0 1 27 4Z" fill="currentColor"/></svg><span data-k="schedule.night">Ночью</span></div>
+      </div>
+    </div>
+    <div id="s4-btn" class="card" style="left:96px;top:1268px;width:888px;height:160px;background:var(--ink)">
+      <div class="abs" style="left:0;width:888px;top:0;line-height:160px;text-align:center;font-weight:800;font-size:52px;color:var(--yel)"><span data-k="schedule.button">Начать смену</span></div>
+    </div>
+  </div>
+
+  <!-- ================= S5 · PAYOUT (15.5–19) ================= -->
+  <div id="s5" class="scene">
+    <div class="h1 mask" style="top:196px;font-size:82px"><div id="s5-l1"><span data-k="payout.l1">Сегодня заработал —</span></div></div>
+    <div class="h1 mask" style="top:306px;font-size:82px"><div id="s5-l2"><span data-k="payout.l2_pre">сегодня </span><span style="color:var(--ink)"><span data-k="payout.l2_accent">получил</span></span></div></div>
+    <div id="s5-card" class="card" style="left:96px;top:500px;width:888px;height:640px">
+      <div class="abs" style="left:48px;top:44px;font-weight:800;font-size:44px"><span data-k="payout.card_title">Сегодня</span></div>
+      <div id="o1" class="abs" style="left:48px;top:128px;width:792px;height:104px;border-radius:24px;background:var(--paper)"><div class="abs" style="left:32px;top:0;line-height:104px;font-weight:500;font-size:36px"><span data-k="payout.order">Заказ доставлен</span></div><div class="ok abs" style="right:28px;top:22px;width:60px;height:60px;border-radius:18px;background:#1C8C45;color:#fff;font-weight:800;font-size:40px;line-height:60px;text-align:center">✓</div></div>
+      <div id="o2" class="abs" style="left:48px;top:252px;width:792px;height:104px;border-radius:24px;background:var(--paper)"><div class="abs" style="left:32px;top:0;line-height:104px;font-weight:500;font-size:36px"><span data-k="payout.order">Заказ доставлен</span></div><div class="ok abs" style="right:28px;top:22px;width:60px;height:60px;border-radius:18px;background:#1C8C45;color:#fff;font-weight:800;font-size:40px;line-height:60px;text-align:center">✓</div></div>
+      <div id="o3" class="abs" style="left:48px;top:376px;width:792px;height:104px;border-radius:24px;background:var(--paper)"><div class="abs" style="left:32px;top:0;line-height:104px;font-weight:500;font-size:36px"><span data-k="payout.order">Заказ доставлен</span></div><div class="ok abs" style="right:28px;top:22px;width:60px;height:60px;border-radius:18px;background:#1C8C45;color:#fff;font-weight:800;font-size:40px;line-height:60px;text-align:center">✓</div></div>
+      <div id="notif" class="abs" style="left:48px;top:508px;width:792px;height:96px;border-radius:24px;background:var(--ink)">
+        <div id="notif-badge" class="abs" style="left:20px;top:16px;width:64px;height:64px;border-radius:32px;background:#FFD21F;box-shadow:inset 0 -6px 0 #C98A00;font-weight:800;font-size:38px;line-height:60px;text-align:center;color:#9A6400">₸</div>
+        <div class="abs" style="left:108px;top:0;line-height:96px;font-weight:800;font-size:38px;color:#fff"><span data-k="payout.notif">Выплата зачислена ✓</span></div>
+      </div>
+    </div>
+    <div id="coins"></div>
+    <div id="cb1" class="card" style="left:96px;top:1188px;width:432px;height:200px">
+      <div class="abs" style="left:40px;top:48px;font-weight:800;font-size:52px"><span data-k="payout.done1_title">Кредит</span></div>
+      <div class="abs" style="left:40px;top:118px;font-weight:500;font-size:30px;color:var(--mute2)"><span data-k="payout.done1_sub">закрыт</span></div>
+      <div class="cbok abs" style="left:320px;top:64px;width:72px;height:72px;border-radius:22px;background:#1C8C45;color:#fff;font-weight:800;font-size:46px;line-height:72px;text-align:center">✓</div>
+    </div>
+    <div id="cb2" class="card" style="left:552px;top:1188px;width:432px;height:200px">
+      <div class="abs" style="left:40px;top:48px;font-weight:800;font-size:52px"><span data-k="payout.done2_title">Подарок</span></div>
+      <div class="abs" style="left:40px;top:118px;font-weight:500;font-size:30px;color:var(--mute2)"><span data-k="payout.done2_sub">куплен</span></div>
+      <div class="cbok abs" style="left:320px;top:64px;width:72px;height:72px;border-radius:22px;background:#1C8C45;color:#fff;font-weight:800;font-size:46px;line-height:72px;text-align:center">✓</div>
+    </div>
+    <div id="s5-ava" class="abs" style="left:96px;top:1436px;width:888px;height:200px;border-radius:32px;background:var(--yel3)">
+      <svg class="abs" style="left:24px;top:8px" width="184" height="184" viewBox="-250 480 500 500"><use href="#heroHead"/><use href="#heroEyes"/></svg>
+      <div class="abs" style="left:236px;top:0;line-height:200px;font-weight:800;font-size:48px"><span data-k="payout.banner">Деньги — в тот же день</span></div>
+    </div>
+  </div>
+
+  <!-- ================= S6 · CTA ================= -->
+  <div id="s6" class="scene">
+    <div id="lg1" class="card" style="left:96px;top:150px;width:888px;height:360px;border-radius:44px">
+      <div class="abs" style="left:0;top:0;width:888px;height:224px;display:flex;align-items:center;justify-content:center;gap:34px">
+        <img src="assets/green_express_mark.svg" style="width:132px;height:132px;display:block" />
+        <div style="font-family:Montserrat;font-weight:700;font-size:70px;line-height:1;letter-spacing:-1px;white-space:nowrap;padding-bottom:6px">Green <span style="color:var(--green)">Express</span></div>
+      </div>
+      <div class="abs" style="left:72px;top:224px;width:744px;height:2px;background:#ECE8E0"></div>
+      <div id="lg2" class="abs" style="left:0;top:226px;width:888px;height:134px;display:flex;align-items:center;justify-content:center;gap:22px">
+        <div style="font-weight:500;font-size:34px;color:#8A857C;white-space:nowrap"><span data-k="cta.partner_label">официальный партнёр</span></div>
+        <img src="assets/yandex_eda_black.png" style="height:50px;width:auto;display:block" />
+      </div>
+    </div>
+    <div class="h1 mask" style="top:580px;color:#fff"><div id="s6-l1"><span data-k="cta.l1">Пиши</span></div></div>
+    <div class="h1 mask" style="top:690px;color:#fff"><div id="s6-l2"><span data-k="cta.l2_pre">в </span><span style="color:var(--wa)"><span data-k="cta.l2_accent">WhatsApp</span></span></div></div>
+    <div id="b1" class="card" style="left:96px;top:900px;width:432px;height:180px;background:var(--ink2)">
+      <div class="abs" style="left:44px;top:40px;font-weight:800;font-size:48px;color:var(--yel)"><span data-k="cta.chip1_title">15 минут</span></div>
+      <div class="abs" style="left:44px;top:110px;font-weight:500;font-size:30px;color:#B9B4AA"><span data-k="cta.chip1_sub">подключение</span></div>
+    </div>
+    <div id="b2" class="card" style="left:552px;top:900px;width:432px;height:180px;background:var(--ink2)">
+      <div class="abs" style="left:44px;top:40px;font-weight:800;font-size:48px;color:var(--yel)"><span data-k="cta.chip2_title">Бесплатно</span></div>
+      <div class="abs" style="left:44px;top:110px;font-weight:500;font-size:30px;color:#B9B4AA"><span data-k="cta.chip2_sub">без опыта</span></div>
+    </div>
+    <div id="wa-ring" class="abs" style="left:86px;top:1150px;width:908px;height:196px;border-radius:98px;background:var(--wa);opacity:.25"></div>
+    <div id="wa" class="abs" style="left:96px;top:1160px;width:888px;height:176px;border-radius:88px;background:var(--wa);overflow:hidden">
+      <div id="wa-rip" class="abs" style="left:784px;top:70px;width:40px;height:40px;border-radius:20px;background:#fff;opacity:0"></div>
+      <svg class="abs" style="left:76px;top:40px" width="96" height="96" viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+      <div class="abs" style="left:196px;top:0;line-height:176px;font-weight:800;font-size:54px;color:#fff;white-space:nowrap"><span data-k="cta.button">Написать в WhatsApp</span></div>
+    </div>
+    <div id="s6-hint" class="abs" style="left:96px;top:1380px;line-height:60px;font-weight:800;font-size:40px;color:#fff"><span data-k="cta.hint">Нажми и напиши:</span></div>
+    <div id="bubble" class="abs" style="right:96px;top:1470px;height:120px;padding:0 44px;border-radius:40px 40px 10px 40px;background:#DCF8C6;font-weight:800;font-size:48px;line-height:120px;color:var(--ink);white-space:nowrap"><span data-k="cta.message">Хочу стать курьером</span></div>
+    <svg id="hand" class="abs" style="left:896px;top:1246px" width="92" height="132" viewBox="0 0 42 60"><path d="M2 2 L2 46 L13 36 L21 55 L29 51 L21 33 L36 33 Z" fill="#FFFFFF" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/></svg>
+    <div id="s6-legal" class="abs" style="left:0;width:1080px;top:1720px;text-align:center;font-weight:500;font-size:26px;color:#8A8A93"><span data-k="cta.legal">Green Express — официальный партнёр Яндекс Еды · 18+, граждане РК</span></div>
+  </div>
+</section>
+</div>
+
+<script>
+// ---------- static DOM build (synchronous, deterministic) ----------
+const $ = s => document.querySelector(s);
+// all on-screen copy comes from content.js (window.CONTENT)
+document.querySelectorAll('[data-k]').forEach(e=>{ const v=(window.CONTENT||{})[e.dataset.k]; if (v!=null) e.textContent=v; });
+const mk = (parent, cls, css, html) => { const e = document.createElement('div'); if (cls) e.className = cls; Object.assign(e.style, css); if (html != null) e.innerHTML = html; parent.appendChild(e); return e; };
+
+// calendar
+const wd = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
+wd.forEach((d,i)=> mk($('#weekdays'),'abs',{left:(52+i*112)+'px',top:'118px',width:'96px',textAlign:'center',fontWeight:500,fontSize:'26px',color:'#9A958C'},d));
+for (let w=0; w<4; w++) for (let d=0; d<7; d++) {
+  const day = 2 + w*7 + d;
+  const c = mk($('#cells'),'cell',{left:(52+d*112)+'px',top:(176+w*112)+'px'}, String(day));
+  c.id = 'c'+day;
+  if (day < 3) c.style.color = '#CBC6BC';
+  if (day === 3) { c.style.background = '#1B1B1F'; c.style.color = '#fff'; }
+  if (day === 28) { c.style.background = '#FF5A4E'; c.style.color = '#fff'; }
+  if (day > 28) c.style.color = '#1B1B1F';
+}
+
+// shards: deterministic PRNG
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const shardCols = ['#FCE000','#FFF07A','#FFFFFF','#E3C800'];
+for (let i=0;i<28;i++){
+  const s = 28 + Math.floor(rnd()*44);
+  const x = 120 + rnd()*840, y = 460 + rnd()*1000;
+  const e = mk($('#shards'),'shard',{left:x+'px',top:y+'px',width:s+'px',height:s+'px',background:shardCols[i%4],opacity:0});
+  e.dataset.tx = (540 - x - s/2 + (rnd()-0.5)*80).toFixed(1);
+  e.dataset.ty = (1120 - y - s/2 + (rnd()-0.5)*80).toFixed(1);
+  e.dataset.r = Math.round((rnd()-0.5)*360);
+}
+
+// S3 bg tile grid
+for (let r=0;r<16;r++) for (let c=0;c<9;c++){ if ((r*7+c*3)%5) continue;
+  mk($('#s3-grid'),'abs s3g',{left:(24+c*120)+'px',top:(24+r*120)+'px',width:'96px',height:'96px',borderRadius:'20px',background:'#FFFFFF',opacity:0.22}); }
+
+// S4 city skyline + stars
+const blds=[[0,150,170],[160,120,250],[290,150,190],[450,110,280],[570,150,210],[730,100,160]];
+blds.forEach(([x,w,h],i)=>{ const b=mk($('#city'),'bld',{left:x+'px',width:w+'px',height:h+'px'});
+  for(let yy=34; yy<h-40; yy+=52) for(let xx=24; xx<w-30; xx+=44){ if((i+xx+yy)%3===0) continue; mk(b,'win',{left:xx+'px',top:yy+'px'}); } });
+[[90,60],[300,40],[420,120],[640,30],[740,150],[200,180],[520,70],[60,250]].forEach(([x,y])=>mk($('#stars'),'star',{left:x+'px',top:y+'px'}));
+
+// S5 coins: burst out of the payout badge (badge centre 196,1056)
+for (let i=0;i<8;i++){ const e = mk($('#coins'),'coin',{left:'144px',top:'1004px',opacity:0},'<svg width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="56" r="46" fill="#C98A00"/><circle cx="52" cy="50" r="46" fill="#FFD21F"/><circle cx="52" cy="50" r="33" fill="#F5B400"/><circle cx="52" cy="50" r="33" fill="none" stroke="#FFE680" stroke-width="5"/><text x="52" y="66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="44" fill="#9A6400">₸</text><path d="M22 34 Q32 14 52 10" stroke="#FFF7C2" stroke-width="7" stroke-linecap="round" fill="none"/></svg>'); e.id='coin'+i; }
+
+// ---------- timeline ----------
+window.__timelines = window.__timelines || {};
+const master = gsap.timeline({ paused: true });
+// v2 retime: pain cards tightened (no dead air after «подарок»), everything after 9.9s shifts −1.3s.
+// Positions below are written in the v1 time base and remapped here.
+const T = t => t<=3.3 ? t : t<=5.0 ? 3.3+(t-3.3)*(1.25/1.7) : t<=7.5 ? 4.55+(t-5)*(1.4/2.5) : t<=9.9 ? 5.95+(t-7.5)*(2.65/2.4) : t-1.3;
+const tl = { to:(a,b,p)=>master.to(a,b,T(p)), from:(a,b,p)=>master.from(a,b,T(p)), fromTo:(a,b,c,p)=>master.fromTo(a,b,c,T(p)), set:(a,b,p)=>master.set(a,b,T(p)) };
+const E = {o3:'power3.out', i3:'power3.in', back:'back.out(1.7)', b2:'back.out(2.2)'};
+
+// S1 · hook
+tl.set('#s1',{opacity:1},0);
+tl.from(['#s1-l1','#s1-l2'],{yPercent:110,duration:.55,ease:E.o3,stagger:.1},0.05);
+tl.from('#cal',{y:80,scale:.94,opacity:0,duration:.5,ease:E.o3},0.25);
+tl.from('#cells .cell',{scale:0,duration:.32,ease:E.b2,stagger:{each:.012,from:'start'}},0.4);
+tl.from(['#t-bal','#t-days'],{y:90,opacity:0,duration:.45,ease:E.o3,stagger:.08},0.75);
+// days "pass": 4..27 dim one by one
+const pass=[]; for(let d=4; d<28; d++) pass.push('#c'+d);
+tl.to(pass,{backgroundColor:'#E4DFD5',color:'#CBC6BC',duration:.12,stagger:.05},1.2);
+tl.fromTo('#c28',{scale:1},{scale:1.18,duration:.18,yoyo:true,repeat:3,ease:'sine.inOut'},1.3);
+tl.to('#bal-num',{x:-14,duration:.06,yoyo:true,repeat:5,ease:'sine.inOut'},2.3);
+tl.to('#s1',{x:-1080,duration:.42,ease:E.i3},2.85);
+
+// S2 · problems
+tl.set('#s2',{opacity:1,x:1080},2.95);
+tl.to('#s2',{x:0,duration:.45,ease:E.o3},2.95);
+tl.from('#s2-t',{yPercent:110,duration:.5,ease:E.o3},3.15);
+tl.from('#k1',{x:900,opacity:0,duration:.55,ease:E.back},3.35);
+tl.from('#k1-ic',{scale:0,transformOrigin:'112px 110px',duration:.4,ease:E.b2},3.55);
+tl.to('#k1-pill',{x:12,duration:.06,yoyo:true,repeat:7,ease:'sine.inOut'},4.15);
+tl.from('#k2',{x:900,opacity:0,duration:.55,ease:E.back},5.0);
+tl.to('#d1',{backgroundColor:'#CBC6BC',duration:.25},5.0); tl.to('#d2',{backgroundColor:'#1B1B1F',duration:.25},5.0);
+tl.to('#k2-lid',{y:-26,rotation:-12,transformOrigin:'40px 96px',duration:.25,yoyo:true,repeat:1,ease:'power2.out'},5.6);
+tl.from('#k3',{x:900,opacity:0,duration:.55,ease:E.back},7.5);
+tl.to('#d2',{backgroundColor:'#CBC6BC',duration:.25},7.5); tl.to('#d3',{backgroundColor:'#1B1B1F',duration:.25},7.5);
+tl.from('.k3b',{scaleY:0,transformOrigin:'50% 100%',opacity:0,duration:.22,stagger:{each:.18,from:'start'},ease:E.b2},7.85);
+// smooth hand-off: cards lift away, a yellow rounded square grows from the centre
+tl.to(['#k1','#k2','#k3'],{y:-60,opacity:0,duration:.4,ease:'power2.in',stagger:.06},9.85);
+tl.to(['#s2-t','#d1','#d2','#d3'],{opacity:0,duration:.3},9.85);
+tl.fromTo('#wipe',{scale:0,rotation:-25},{scale:1,rotation:0,duration:.6,ease:'power3.inOut'},9.95);
+tl.set('#s2',{opacity:0},10.55);
+tl.set('#bg',{backgroundColor:'#FCE000'},10.55);
+tl.set('#wipe',{opacity:0},10.56);
+
+// S3 · turn
+tl.set('#s3',{opacity:1},10.55);
+tl.from('.s3g',{scale:0,opacity:0,duration:.3,ease:E.b2,stagger:{each:.01,from:'center'}},10.55);
+tl.from('#s3-panel',{y:500,duration:.6,ease:E.o3},10.55);
+tl.from('#hero-bag',{scale:0,svgOrigin:'0 1160',duration:.45,ease:E.b2},10.65);
+tl.from('#hero',{y:900,duration:.7,ease:'back.out(1.3)'},10.7);
+tl.from(['#s3-t','#s3-t2'],{yPercent:110,duration:.5,ease:E.o3,stagger:.1},10.8);
+tl.to('#hero-head',{rotation:3,svgOrigin:'0 960',duration:.35,yoyo:true,repeat:3,ease:'sine.inOut'},11.4);
+tl.from('#hero-arm',{rotation:28,svgOrigin:'205 1075',opacity:0,duration:.45,ease:E.b2},11.55);
+tl.to('#hero-eyes',{scaleY:.1,svgOrigin:'0 812',duration:.07,yoyo:true,repeat:1},12.25);
+tl.to('#s3',{y:-260,opacity:0,duration:.4,ease:E.i3},12.9);
+
+// S4 · schedule (day → night)
+tl.set('#s4',{opacity:1},13.05);
+tl.from(['#s4-l1','#s4-l2'],{yPercent:110,duration:.5,ease:E.o3,stagger:.08},13.05);
+tl.from('#s4-card',{y:120,opacity:0,duration:.45,ease:E.o3},13.15);
+tl.from('#sun',{scale:0,duration:.4,ease:E.b2},13.3);
+tl.from('.bld',{scaleY:0,transformOrigin:'50% 100%',duration:.3,ease:E.b2,stagger:.04},13.3);
+tl.fromTo('#moon',{y:420},{y:0,duration:.45,ease:E.o3},13.95);
+tl.to('#sw-k',{x:396,duration:.3,ease:'power2.inOut'},13.85);
+tl.to('#sw-d',{color:'#9A958C',duration:.2},13.9); tl.to('#sw-n',{color:'#1B1B1F',duration:.2},13.9);
+tl.to('#sky',{backgroundColor:'#23234A',duration:.4},13.85);
+tl.to('#sun',{y:440,duration:.4,ease:E.i3},13.85);
+tl.to('.bld',{backgroundColor:'#33336B',duration:.4},13.85);
+tl.to('.win',{opacity:1,duration:.12,stagger:{each:.012,from:'random'}},14.0);
+tl.to('.star',{opacity:1,duration:.15,stagger:.03},14.05);
+tl.from('#s4-btn',{y:200,opacity:0,duration:.4,ease:E.back},14.3);
+tl.to('#s4-btn',{scale:.94,duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},14.95);
+tl.to('#s4',{x:-1080,duration:.4,ease:E.i3},15.3);
+
+// S5 · payout
+tl.set('#s5',{opacity:1,x:1080},15.4);
+tl.to('#s5',{x:0,duration:.42,ease:E.o3},15.4);
+tl.from(['#s5-l1','#s5-l2'],{yPercent:110,duration:.5,ease:E.o3,stagger:.08},15.55);
+tl.from(['#o1','#o2','#o3'],{x:-60,opacity:0,duration:.3,ease:E.o3,stagger:.22},15.8);
+tl.from('#s5-card .ok',{scale:0,duration:.25,ease:E.b2,stagger:.22},16.0);
+tl.from('#notif',{y:-80,scale:.9,opacity:0,duration:.4,ease:E.back},16.75);
+const burst=[[40,190],[150,250],[270,180],[390,260],[510,190],[630,250],[740,180],[210,330]];
+document.querySelectorAll('#coins .coin').forEach((c,i)=>{
+  const [dx,dy]=burst[i], t0=16.95+i*.04;
+  tl.fromTo(c,{x:0,y:0,scale:.2,opacity:0},{x:dx,y:dy,scale:1,opacity:1,duration:.4,ease:'back.out(1.6)'},t0);
+  tl.fromTo(c,{rotation:i%2?-28:28},{rotation:0,duration:.45,ease:'back.out(2)'},t0);
+  tl.to(c,{x:0,y:0,scale:.3,opacity:0,duration:.26,ease:'power2.in'},17.42+i*.035);
+});
+tl.to('#notif-badge',{scale:1.25,duration:.08,yoyo:true,repeat:5,ease:'power2.out'},17.66);
+tl.from(['#cb1','#cb2'],{y:120,opacity:0,duration:.4,ease:E.back,stagger:.12},17.65);
+tl.from('#s5 .cbok',{scale:0,rotation:-30,duration:.3,ease:E.b2,stagger:.12},17.95);
+tl.from('#s5-ava',{y:160,opacity:0,duration:.4,ease:E.back},18.1);
+tl.to('#s5',{scale:.94,opacity:0,duration:.35,ease:E.i3},18.85);
+tl.to('#bg',{backgroundColor:'#1B1B1F',duration:.35},18.9);
+
+// S6 · CTA (v1 base 19.05–25.3 → 17.75–24.0)
+tl.set('#s6',{opacity:1},19.05);
+tl.from('#lg1',{y:-80,opacity:0,duration:.45,ease:E.back},19.1);
+tl.from('#lg1 img',{scale:.6,opacity:0,duration:.4,ease:E.b2},19.25);
+tl.from('#lg2',{y:20,opacity:0,duration:.4,ease:E.o3},19.35);
+tl.from(['#s6-l1','#s6-l2'],{yPercent:110,duration:.5,ease:E.o3,stagger:.08},19.35);
+tl.from(['#b1','#b2'],{y:100,opacity:0,duration:.4,ease:E.back,stagger:.1},19.65);
+tl.from('#wa',{scale:0,duration:.5,ease:'back.out(1.6)'},19.9);
+tl.from('#wa-ring',{scale:.8,opacity:0,duration:.5,ease:E.o3},20.05);
+tl.from('#s6-hint',{y:40,opacity:0,duration:.4,ease:E.o3},20.3);
+tl.from('#s6-legal',{opacity:0,duration:.4},20.5);
+tl.from('#hand',{x:-160,y:260,opacity:0,duration:.5,ease:E.o3},20.55);
+tl.to('#hand',{scale:.86,transformOrigin:'4px 4px',duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},21.1);
+tl.to('#wa',{scale:.96,duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},21.12);
+tl.fromTo('#wa-rip',{scale:0,opacity:.55},{scale:30,opacity:0,duration:.6,ease:'power2.out'},21.15);
+tl.from('#bubble',{scale:0,transformOrigin:'100% 100%',duration:.4,ease:E.b2},21.4);
+tl.to('#hand',{x:60,y:220,opacity:0,duration:.4,ease:E.i3},21.8);
+tl.to('#wa-ring',{scale:1.04,opacity:.06,duration:.55,yoyo:true,repeat:5,ease:'sine.inOut'},22.0);
+tl.to('#wa',{scale:1.03,duration:.55,yoyo:true,repeat:5,ease:'sine.inOut'},22.0);
+
+window.__timelines['main'] = master;
+</script>
+</body>
+</html>

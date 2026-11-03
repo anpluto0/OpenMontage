@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+20B8}
+html,body{margin:0;background:#000}
+svg{display:block}
+</style></head><body>
+<svg width="540" height="960" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- palette: ink #24233B, wall #E9DCC9, wall-shadow #D3C2AC, accent yellow #FFD43B, coral #F26B5B, teal #2F6F73, skin #F1BE95/#D9926B -->
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE1CF"/><stop offset="1" stop-color="#DCCAB2"/></linearGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A26B"/><stop offset=".55" stop-color="#F9C98A"/><stop offset="1" stop-color="#FBE3B0"/></linearGradient>
+  <radialGradient id="lamp" cx=".82" cy=".1" r=".7"><stop offset="0" stop-color="#FFF3C4" stop-opacity=".75"/><stop offset="1" stop-color="#FFF3C4" stop-opacity="0"/></radialGradient>
+  <radialGradient id="vig" cx=".5" cy=".45" r=".75"><stop offset=".6" stop-color="#24233B" stop-opacity="0"/><stop offset="1" stop-color="#24233B" stop-opacity=".35"/></radialGradient>
+  <linearGradient id="hood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2F6F73"/><stop offset="1" stop-color="#3C8589"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EEF1F6"/></linearGradient>
+  <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+  <pattern id="grain" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="none"/><circle cx="1" cy="1" r=".8" fill="#24233B" opacity=".05"/><circle cx="4" cy="4" r=".6" fill="#fff" opacity=".07"/></pattern>
+</defs>
+
+<!-- ===== ROOM ===== -->
+<rect width="1080" height="1920" fill="url(#wall)"/>
+<!-- wallpaper stripes -->
+<g opacity=".18" stroke="#C9B394" stroke-width="3"><path d="M90 0V1400M230 0V1400M370 0V1400M510 0V1400M650 0V1400M790 0V1400M930 0V1400"/></g>
+
+<!-- window with Almaty mountains at sunset -->
+<g transform="translate(60,250)">
+  <rect x="-18" y="-18" width="416" height="556" rx="18" fill="#C9AE8C"/>
+  <rect width="380" height="520" rx="8" fill="url(#sky)"/>
+  <circle cx="270" cy="250" r="54" fill="#FFE6A8"/>
+  <path d="M0 330 L70 250 L110 280 L190 170 L240 230 L290 190 L380 290 L380 520 L0 520Z" fill="#B58BA3"/>
+  <path d="M175 190 L190 170 L208 196 L196 192 L188 204Z M280 200 L290 190 L302 206Z" fill="#FFF1E4"/>
+  <path d="M0 400 L90 330 L170 390 L260 340 L380 410 L380 520 L0 520Z" fill="#8C6E92"/>
+  <!-- city -->
+  <g fill="#5D4F78"><rect x="20" y="430" width="40" height="90"/><rect x="70" y="400" width="30" height="120"/><rect x="110" y="445" width="55" height="75"/><rect x="185" y="380" width="26" height="140"/><rect x="220" y="420" width="50" height="100"/><rect x="290" y="440" width="70" height="80"/></g>
+  <g fill="#FFD27A"><rect x="78" y="415" width="6" height="8"/><rect x="88" y="440" width="6" height="8"/><rect x="192" y="400" width="5" height="8"/><rect x="200" y="430" width="5" height="8"/><rect x="232" y="440" width="6" height="8"/><rect x="300" y="460" width="6" height="8"/><rect x="320" y="470" width="6" height="8"/></g>
+  <!-- frame bars -->
+  <rect x="182" y="0" width="16" height="520" fill="#F4ECE0"/><rect x="0" y="250" width="380" height="14" fill="#F4ECE0"/>
+  <rect width="380" height="520" rx="8" fill="none" stroke="#F4ECE0" stroke-width="18"/>
+  <!-- sill + plant -->
+  <rect x="-40" y="520" width="460" height="34" rx="8" fill="#F4ECE0"/><rect x="-40" y="548" width="460" height="10" fill="#C9AE8C" opacity=".6"/>
+  <g transform="translate(300,520)">
+    <path d="M-40 0 L40 0 L30 -70 L-30 -70Z" fill="#F26B5B" transform="scale(1,-1) translate(0,0)"/>
+    <path d="M-30 -70 L30 -70 L40 0 L-40 0Z" fill="#F26B5B"/><path d="M-30 -70 L30 -70 L32 -56 L-32 -56Z" fill="#D9564A"/>
+    <g fill="#3F8E6A"><path d="M0 -70 C-60 -110 -70 -170 -40 -210 C-20 -150 -10 -120 0 -70Z"/><path d="M0 -70 C40 -120 80 -150 110 -150 C80 -110 50 -90 0 -70Z"/><path d="M0 -70 C10 -140 30 -200 60 -230 C50 -170 30 -110 0 -70Z"/></g>
+    <g fill="#2F6F55"><path d="M0 -70 C-30 -110 -40 -150 -40 -210 C-25 -150 -15 -110 0 -70Z"/><path d="M0 -70 C20 -130 40 -190 60 -230 C35 -170 20 -120 0 -70Z"/></g>
+  </g>
+</g>
+
+<!-- shelf -->
+<g transform="translate(560,980)">
+  <rect width="460" height="22" rx="6" fill="#B48B63"/><rect y="22" width="460" height="8" fill="#8E6A4A" opacity=".5"/>
+  <rect x="30" y="-120" width="34" height="120" rx="4" fill="#2F6F73"/><rect x="66" y="-100" width="28" height="100" rx="4" fill="#F26B5B"/><rect x="96" y="-130" width="38" height="130" rx="4" fill="#FFD43B"/><rect x="136" y="-90" width="26" height="90" rx="4" fill="#E9DCC9" stroke="#C9B394" stroke-width="3"/>
+  <g transform="translate(330,0)"><circle cx="0" cy="-48" r="48" fill="#FFF8EC" stroke="#24233B" stroke-width="5"/><path d="M0 -48 V-80 M0 -48 L22 -38" stroke="#24233B" stroke-width="5" stroke-linecap="round"/><rect x="-36" y="-6" width="72" height="8" rx="4" fill="#24233B"/></g>
+</g>
+
+<!-- lamp glow -->
+<rect width="1080" height="1920" fill="url(#lamp)"/>
+
+<!-- ===== CALENDAR ===== -->
+<g transform="translate(600,250) rotate(4)">
+  <rect x="10" y="16" width="400" height="470" rx="22" fill="#24233B" opacity=".18" filter="url(#soft)"/>
+  <rect width="400" height="470" rx="22" fill="#FFFDF8" stroke="#24233B" stroke-width="7"/>
+  <path d="M0 22 Q0 0 22 0 H378 Q400 0 400 22 V100 H0Z" fill="#F26B5B" stroke="#24233B" stroke-width="7"/>
+  <circle cx="110" cy="0" r="16" fill="#24233B"/><circle cx="290" cy="0" r="16" fill="#24233B"/>
+  <rect x="104" y="-30" width="12" height="40" rx="6" fill="#9AA0AA"/><rect x="284" y="-30" width="12" height="40" rx="6" fill="#9AA0AA"/>
+  <text x="200" y="68" text-anchor="middle" font-family="Onest" font-weight="800" font-size="42" fill="#fff" letter-spacing="3">НОЯБРЬ</text>
+  <g font-family="Onest" font-weight="500" font-size="30" fill="#6B6A80" text-anchor="middle">
+    <text x="50" y="160">3</text><text x="125" y="160">4</text><text x="200" y="160">5</text><text x="275" y="160">6</text><text x="350" y="160">7</text>
+    <text x="50" y="235">10</text><text x="125" y="235">11</text><text x="200" y="235">12</text><text x="275" y="235">13</text><text x="350" y="235">14</text>
+    <text x="50" y="310">17</text><text x="125" y="310">18</text><text x="200" y="310">19</text><text x="275" y="310">20</text><text x="350" y="310">21</text>
+    <text x="50" y="385">24</text><text x="125" y="385">25</text><text x="200" y="385">26</text><text x="275" y="385">27</text><text x="350" y="385">28</text>
+  </g>
+  <!-- today crossed -->
+  <path d="M28 132 L72 170 M72 132 L28 170" stroke="#24233B" stroke-width="6" stroke-linecap="round"/>
+  <!-- payday circle -->
+  <ellipse cx="350" cy="374" rx="44" ry="38" fill="none" stroke="#F26B5B" stroke-width="7" transform="rotate(-8 350 374)"/>
+  <text x="350" y="440" text-anchor="middle" font-family="Onest" font-weight="800" font-size="24" fill="#F26B5B">ЗАРПЛАТА</text>
+  <!-- torn page flying -->
+  <g transform="translate(-150,420) rotate(-24)">
+    <rect width="120" height="100" rx="8" fill="#FFFDF8" stroke="#24233B" stroke-width="5"/>
+    <text x="60" y="68" text-anchor="middle" font-family="Onest" font-weight="800" font-size="46" fill="#24233B">2</text>
+  </g>
+</g>
+
+<!-- ===== HERO (waist-up, 3/4) ===== -->
+<g transform="translate(130,1000)">
+  <!-- back of sofa -->
+  <rect x="-180" y="560" width="1200" height="420" rx="60" fill="#C2574B"/>
+  <rect x="-180" y="560" width="1200" height="60" rx="30" fill="#D9685A"/>
+
+  <!-- torso / hoodie -->
+  <path d="M60 920 C40 760 80 600 170 540 C230 500 300 490 360 490 C430 490 500 505 560 545 C650 605 690 760 670 920 Z" fill="url(#hood)" stroke="#24233B" stroke-width="7" stroke-linejoin="round"/>
+  <!-- hoodie shadow side -->
+  <path d="M520 530 C620 590 670 740 660 920 L560 920 C580 780 560 650 500 560Z" fill="#245659" opacity=".85"/>
+  <!-- hood around neck -->
+  <path d="M220 520 C250 600 470 610 510 520 C470 480 260 480 220 520Z" fill="#24595C" stroke="#24233B" stroke-width="6"/>
+  <!-- drawstrings -->
+  <path d="M310 590 C305 640 300 690 296 730" stroke="#F4ECE0" stroke-width="9" stroke-linecap="round" fill="none"/><path d="M410 590 C418 640 424 680 428 720" stroke="#F4ECE0" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <rect x="286" y="728" width="20" height="30" rx="6" fill="#FFD43B" stroke="#24233B" stroke-width="4"/><rect x="418" y="718" width="20" height="30" rx="6" fill="#FFD43B" stroke="#24233B" stroke-width="4"/>
+  <!-- folds -->
+  <path d="M150 700 C190 720 210 760 205 810 M600 690 C580 730 585 780 600 820" stroke="#24233B" stroke-width="5" fill="none" stroke-linecap="round" opacity=".55"/>
+
+  <!-- neck -->
+  <path d="M310 440 L310 520 C340 545 395 545 420 520 L420 440Z" fill="#D9926B" stroke="#24233B" stroke-width="6"/>
+
+  <!-- head -->
+  <g transform="translate(365,300) rotate(-6)">
+    <!-- ear -->
+    <path d="M-150 10 C-185 0 -195 60 -160 80 C-150 86 -140 82 -136 70Z" fill="#E7A982" stroke="#24233B" stroke-width="6"/>
+    <path d="M-160 30 C-170 40 -168 58 -155 64" stroke="#C47E5C" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- face shape -->
+    <path d="M-148 -60 C-150 -150 -70 -195 10 -195 C100 -195 160 -140 160 -50 C160 40 140 110 90 150 C55 178 15 186 -20 180 C-80 170 -130 120 -145 60 Z" fill="#F1BE95" stroke="#24233B" stroke-width="7" stroke-linejoin="round"/>
+    <!-- face shadow (far side jaw) -->
+    <path d="M-145 60 C-130 120 -80 170 -20 180 C-60 160 -100 120 -112 60Z" fill="#D9926B" opacity=".7"/>
+    <!-- hair -->
+    <path d="M-160 -40 C-175 -140 -110 -230 0 -232 C80 -234 150 -200 172 -120 C178 -95 172 -70 160 -55 C150 -95 120 -120 85 -128 C95 -105 90 -90 80 -82 C60 -110 20 -130 -20 -126 C-5 -110 -6 -96 -14 -88 C-45 -112 -90 -110 -120 -92 C-128 -70 -140 -55 -160 -40Z" fill="#2A2238" stroke="#24233B" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M-60 -200 C-20 -215 40 -215 80 -200" stroke="#4B3E63" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <!-- brows (worried) -->
+    <path d="M-10 -58 C10 -72 40 -74 60 -64" stroke="#2A2238" stroke-width="12" fill="none" stroke-linecap="round" transform="rotate(10 25 -64)"/>
+    <path d="M95 -66 C110 -76 130 -76 145 -66" stroke="#2A2238" stroke-width="11" fill="none" stroke-linecap="round" transform="rotate(-14 120 -70)"/>
+    <!-- eyes looking up-right at calendar -->
+    <ellipse cx="30" cy="-12" rx="24" ry="30" fill="#fff" stroke="#24233B" stroke-width="5"/>
+    <ellipse cx="124" cy="-14" rx="20" ry="28" fill="#fff" stroke="#24233B" stroke-width="5"/>
+    <circle cx="40" cy="-22" r="13" fill="#24233B"/><circle cx="132" cy="-24" r="12" fill="#24233B"/>
+    <circle cx="45" cy="-27" r="4.5" fill="#fff"/><circle cx="136" cy="-29" r="4" fill="#fff"/>
+    <!-- nose -->
+    <path d="M90 0 C95 30 108 55 100 66 C94 72 80 70 74 64" stroke="#24233B" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M78 60 C84 66 92 66 98 62" stroke="#D9926B" stroke-width="8" fill="none" stroke-linecap="round" opacity=".7"/>
+    <!-- mouth (uneasy) -->
+    <path d="M30 112 C50 100 70 116 90 104 C102 98 112 102 118 108" stroke="#24233B" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- cheek -->
+    <ellipse cx="-30" cy="60" rx="34" ry="20" fill="#F2917C" opacity=".35"/>
+    <!-- sweat drop -->
+    <path d="M170 -110 C186 -80 192 -64 180 -52 C168 -42 150 -52 154 -70 C156 -84 164 -96 170 -110Z" fill="#8FD3F4" stroke="#24233B" stroke-width="5"/>
+    <path d="M166 -78 C164 -70 166 -64 170 -62" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- arm holding phone -->
+  <path d="M620 640 C690 700 720 780 700 860 C690 900 640 910 610 880 C590 820 560 760 520 720Z" fill="#2F6F73" stroke="#24233B" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M640 690 C680 740 690 800 680 850" stroke="#245659" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- cuff -->
+  <path d="M560 760 C600 740 650 750 680 780 L660 830 C630 805 590 800 560 815Z" fill="#24595C" stroke="#24233B" stroke-width="6"/>
+  <!-- phone -->
+  <g transform="translate(450,560) rotate(-12)">
+    <rect x="6" y="10" width="190" height="340" rx="30" fill="#24233B" opacity=".25" filter="url(#soft)"/>
+    <path d="M-10 250 C-30 300 -10 380 60 400 C130 415 200 390 215 320 C222 290 210 260 190 250Z" fill="#E7A982" stroke="#24233B" stroke-width="6"/>
+    <path d="M196 120 C226 128 228 160 200 166 M198 175 C230 182 230 214 200 220 M198 228 C228 236 226 266 198 270" fill="#F1BE95" stroke="#24233B" stroke-width="6" stroke-linecap="round"/>
+    <rect width="190" height="340" rx="30" fill="#24233B"/>
+    <rect x="12" y="14" width="166" height="312" rx="22" fill="url(#screen)"/>
+    <rect x="70" y="24" width="50" height="10" rx="5" fill="#24233B"/>
+    <text x="95" y="120" text-anchor="middle" font-family="Onest" font-weight="500" font-size="22" fill="#8B8BA0">Баланс</text>
+    <text x="95" y="182" text-anchor="middle" font-family="Onest" font-weight="800" font-size="64" fill="#F26B5B">0 ₸</text>
+    <rect x="36" y="220" width="118" height="14" rx="7" fill="#E1E4EC"/><rect x="36" y="246" width="80" height="14" rx="7" fill="#E1E4EC"/>
+    <path d="M-14 230 C-40 250 -36 300 -4 312 C20 320 44 306 46 284 C48 262 30 250 14 246Z" fill="#F1BE95" stroke="#24233B" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M10 270 C18 276 26 276 32 272" stroke="#C47E5C" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+</g>
+
+<!-- grain + vignette -->
+<rect width="1080" height="1920" fill="url(#grain)"/>
+<rect width="1080" height="1920" fill="url(#vig)"/>
+
+<!-- ===== OVERLAY TEXT ===== -->
+<g transform="translate(540,150)">
+  <rect x="-430" y="-78" width="860" height="200" rx="34" fill="#24233B" opacity=".2" transform="translate(8,12)"/>
+  <rect x="-430" y="-78" width="860" height="200" rx="34" fill="#FFFDF8" stroke="#24233B" stroke-width="7"/>
+  <text x="0" y="2" text-anchor="middle" font-family="Onest" font-weight="800" font-size="76" fill="#24233B">Деньги нужны</text>
+  <text x="0" y="90" text-anchor="middle" font-family="Onest" font-weight="800" font-size="76" fill="#24233B">уже <tspan fill="#F26B5B">сегодня?</tspan></text>
+</g>
+<g transform="translate(800,800) rotate(4)">
+  <rect x="-220" y="-44" width="440" height="80" rx="40" fill="#24233B"/>
+  <text x="0" y="10" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#FFD43B">до зарплаты 25 дней</text>
+</g>
+</svg>
+</body></html>

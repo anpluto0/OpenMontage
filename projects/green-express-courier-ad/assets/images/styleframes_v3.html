@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+20B8}
+html,body{margin:0;background:#0E0E10}
+.sheet{display:flex;gap:24px;padding:24px}
+svg{display:block;border-radius:8px}
+text{font-family:Onest}
+</style></head><body><div class="sheet">
+<!--
+ DESIGN SYSTEM
+ grid: 1080x1920, margins 96, 8px base unit, radius 32 (tiles) / 20 (cells)
+ palette: ink #1B1B1F · paper #F4F1EA · tile #FFFFFF · mute #E4DFD5 · yellow #FCE000 · yellow-dark #E3C800 · coral #FF5A4E · wa #25D366
+ type: H1 96/800 · H2 56/800 · body 36/500 · micro 26/500
+-->
+
+<!-- ============ FRAME 1 · HOOK ============ -->
+<svg width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#F4F1EA"/>
+  <text x="96" y="300" font-weight="800" font-size="96" fill="#1B1B1F">Деньги нужны</text>
+  <text x="96" y="410" font-weight="800" font-size="96" fill="#1B1B1F">уже <tspan fill="#FF5A4E">сегодня?</tspan></text>
+
+  <!-- calendar card -->
+  <rect x="96" y="520" width="888" height="668" rx="32" fill="#FFFFFF"/>
+  <text x="144" y="604" font-weight="800" font-size="44" fill="#1B1B1F">Ноябрь</text>
+  <g font-weight="500" font-size="26" fill="#9A958C" text-anchor="middle">
+    <text x="196" y="672">Пн</text><text x="308" y="672">Вт</text><text x="420" y="672">Ср</text><text x="532" y="672">Чт</text><text x="644" y="672">Пт</text><text x="756" y="672">Сб</text><text x="868" y="672">Вс</text>
+  </g>
+  <!-- 4 weeks x 7, cell 96, step 112, origin x=148 y=700 -->
+  <g id="cells" font-weight="800" font-size="34" text-anchor="middle"></g>
+  <!-- bottom stat tiles -->
+  <rect x="96" y="1236" width="432" height="248" rx="32" fill="#FFFFFF"/>
+  <text x="144" y="1312" font-weight="500" font-size="30" fill="#9A958C">Баланс</text>
+  <text x="144" y="1424" font-weight="800" font-size="104" fill="#1B1B1F">0 ₸</text>
+  <rect x="552" y="1236" width="432" height="248" rx="32" fill="#1B1B1F"/>
+  <text x="600" y="1312" font-weight="500" font-size="30" fill="#B9B4AA">До зарплаты</text>
+  <text x="600" y="1424" font-weight="800" font-size="104" fill="#FF5A4E">25 <tspan font-size="56" fill="#FFFFFF">дней</tspan></text>
+</svg>
+
+<!-- ============ FRAME 2 · PROBLEMS ============ -->
+<svg width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#F4F1EA"/>
+  <text x="96" y="300" font-weight="800" font-size="96" fill="#1B1B1F">Знакомо?</text>
+
+  <!-- tile 1: credit -->
+  <g transform="translate(96,440)">
+    <rect width="888" height="320" rx="32" fill="#FFFFFF"/>
+    <rect x="48" y="48" width="224" height="224" rx="28" fill="#FFE3E0"/>
+    <rect x="86" y="108" width="148" height="100" rx="14" fill="#FF5A4E"/><rect x="86" y="128" width="148" height="20" fill="#1B1B1F" opacity=".85"/><rect x="104" y="170" width="44" height="14" rx="7" fill="#FFFFFF"/>
+    <text x="320" y="142" font-weight="800" font-size="64" fill="#1B1B1F">Кредит</text>
+    <rect x="320" y="184" width="380" height="64" rx="32" fill="#FFE3E0"/>
+    <text x="350" y="228" font-weight="500" font-size="32" fill="#FF5A4E">платёж завтра</text>
+  </g>
+  <!-- tile 2: gift -->
+  <g transform="translate(96,792)">
+    <rect width="888" height="320" rx="32" fill="#FFFFFF"/>
+    <rect x="48" y="48" width="224" height="224" rx="28" fill="#FFF6C2"/>
+    <rect x="96" y="130" width="128" height="100" rx="10" fill="#FCE000"/><rect x="86" y="104" width="148" height="40" rx="10" fill="#E3C800"/>
+    <rect x="150" y="104" width="20" height="126" fill="#FF5A4E"/>
+    <path d="M160 104 C130 70 104 84 120 104Z M160 104 C190 70 216 84 200 104Z" fill="#FF5A4E"/>
+    <text x="320" y="142" font-weight="800" font-size="64" fill="#1B1B1F">Подарок</text>
+    <rect x="320" y="184" width="320" height="64" rx="32" fill="#F4F1EA"/>
+    <text x="350" y="228" font-weight="500" font-size="32" fill="#6E6A62">не хватает</text>
+  </g>
+  <!-- tile 3: office routine -->
+  <g transform="translate(96,1144)">
+    <rect width="888" height="320" rx="32" fill="#FFFFFF"/>
+    <rect x="48" y="48" width="224" height="224" rx="28" fill="#E4DFD5"/>
+    <rect x="92" y="168" width="136" height="24" rx="6" fill="#B9B4AA"/><rect x="100" y="140" width="120" height="24" rx="6" fill="#CBC6BC"/><rect x="92" y="112" width="136" height="24" rx="6" fill="#B9B4AA"/><rect x="100" y="84" width="120" height="24" rx="6" fill="#CBC6BC"/>
+    <rect x="92" y="196" width="136" height="24" rx="6" fill="#9A958C"/>
+    <text x="320" y="142" font-weight="800" font-size="64" fill="#1B1B1F">Офис</text>
+    <rect x="320" y="184" width="440" height="64" rx="32" fill="#F4F1EA"/>
+    <text x="350" y="228" font-weight="500" font-size="32" fill="#6E6A62">с 9 до 18, каждый день</text>
+  </g>
+  <!-- progress dots -->
+  <g transform="translate(96,1560)"><rect width="56" height="16" rx="8" fill="#1B1B1F"/><rect x="72" width="16" height="16" rx="8" fill="#CBC6BC"/><rect x="104" width="16" height="16" rx="8" fill="#CBC6BC"/></g>
+</svg>
+
+<!-- ============ FRAME 3 · TURN (hero appears) ============ -->
+<svg width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#FCE000"/>
+  <!-- faint tile grid -->
+  <g fill="#FFFFFF" opacity=".22" id="bggrid"></g>
+  <text x="96" y="300" font-weight="800" font-size="96" fill="#1B1B1F">Курьер</text>
+  <text x="96" y="410" font-weight="800" font-size="96" fill="#1B1B1F">Яндекс Еды</text>
+  <rect x="96" y="460" width="300" height="64" rx="32" fill="#1B1B1F"/>
+  <text x="128" y="504" font-weight="500" font-size="32" fill="#FCE000">в Алматы</text>
+
+  <!-- geometric mountains -->
+  <path d="M0 1500 L260 1180 L420 1360 L640 1080 L860 1340 L1080 1140 L1080 1920 L0 1920Z" fill="#E3C800"/>
+  <path d="M600 1130 L640 1080 L680 1130 L660 1124 L640 1144 L620 1124Z M1030 1180 L1080 1140 L1080 1196Z M228 1220 L260 1180 L292 1220 L272 1214Z" fill="#FFFFFF"/>
+  <rect x="0" y="1640" width="1080" height="280" fill="#1B1B1F"/>
+  <g fill="#FCE000"><rect x="96" y="1764" width="120" height="16" rx="8"/><rect x="312" y="1764" width="120" height="16" rx="8"/><rect x="528" y="1764" width="120" height="16" rx="8"/><rect x="744" y="1764" width="120" height="16" rx="8"/><rect x="960" y="1764" width="120" height="16" rx="8"/></g>
+
+  <!-- HERO (built from rounded shapes, no outlines) -->
+  <g transform="translate(540,1080)">
+    <!-- cube bag (isometric) behind -->
+    <g transform="translate(-40,-400)">
+      <rect x="40" y="120" width="360" height="380" fill="#1B1B1F" opacity=".12" transform="translate(24,24)"/>
+      <path d="M0 80 L200 0 L400 80 L200 160Z" fill="#FFF07A" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M0 80 L200 160 L200 480 L0 400Z" fill="#FCE000" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M400 80 L200 160 L200 480 L400 400Z" fill="#E3C800" stroke="#1B1B1F" stroke-width="8" stroke-linejoin="round"/>
+      <path d="M236 214 L364 162 L364 290 L236 342Z" fill="none" stroke="#1B1B1F" stroke-width="5" stroke-dasharray="14 10" opacity=".6"/>
+      <text x="300" y="262" text-anchor="middle" font-weight="800" font-size="26" fill="#1B1B1F" opacity=".6">ЛОГО</text>
+    </g>
+    <!-- body: hoodie -->
+    <path d="M-250 560 C-250 360 -170 250 -40 240 L40 240 C170 250 250 360 250 560Z" fill="#1B1B1F"/>
+    <path d="M-60 250 C-40 320 40 320 60 250Z" fill="#2E2E35"/>
+    <!-- straps -->
+    <path d="M-150 300 L-110 290 L-40 560 L-90 560Z" fill="#E3C800"/>
+    <path d="M150 300 L110 290 L40 560 L90 560Z" fill="#E3C800"/>
+    <!-- neck -->
+    <rect x="-40" y="170" width="80" height="90" rx="30" fill="#D9926B"/>
+    <!-- head -->
+    <rect x="-130" y="-120" width="260" height="310" rx="120" fill="#F1BE95"/>
+    <ellipse cx="-132" cy="40" rx="30" ry="42" fill="#E7A982"/><ellipse cx="132" cy="40" rx="30" ry="42" fill="#E7A982"/>
+    <!-- hair -->
+    <path d="M-138 10 C-150 -110 -80 -170 0 -170 C90 -170 150 -110 138 10 C120 -40 90 -60 40 -64 C50 -50 46 -40 36 -34 C10 -60 -40 -66 -80 -54 C-110 -40 -126 -16 -138 10Z" fill="#2A2238"/>
+    <!-- cap -->
+    <path d="M-140 -40 C-140 -150 140 -150 140 -40Z" fill="#FCE000"/><rect x="-10" y="-60" width="200" height="30" rx="15" fill="#E3C800"/>
+    <!-- face -->
+    <rect x="-82" y="-4" width="56" height="16" rx="8" fill="#2A2238"/><rect x="26" y="-4" width="56" height="16" rx="8" fill="#2A2238"/>
+    <ellipse cx="-54" cy="44" rx="16" ry="20" fill="#1B1B1F"/><ellipse cx="54" cy="44" rx="16" ry="20" fill="#1B1B1F"/>
+    <circle cx="-48" cy="38" r="6" fill="#FFFFFF"/><circle cx="60" cy="38" r="6" fill="#FFFFFF"/>
+    <path d="M-8 70 C-8 92 8 100 16 96" stroke="#C47E5C" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M-60 118 C-30 160 30 160 60 118Z" fill="#1B1B1F"/><path d="M-40 130 C-20 142 20 142 40 130 L36 122 L-36 122Z" fill="#FFFFFF"/>
+    <ellipse cx="-90" cy="100" rx="26" ry="14" fill="#FF8A7A" opacity=".45"/><ellipse cx="90" cy="100" rx="26" ry="14" fill="#FF8A7A" opacity=".45"/>
+  </g>
+  <!-- flying tiles into the cube (motion hint) -->
+  <g fill="#FFFFFF"><rect x="860" y="660" width="72" height="72" rx="16" transform="rotate(14 896 696)"/><rect x="900" y="820" width="48" height="48" rx="12" transform="rotate(-10 924 844)" opacity=".8"/><rect x="800" y="900" width="32" height="32" rx="8" opacity=".6"/></g>
+</svg>
+
+<!-- ============ FRAME 4 · CTA ============ -->
+<svg width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#1B1B1F"/>
+  <!-- logo row -->
+  <rect x="96" y="160" width="432" height="144" rx="32" fill="none" stroke="#5A5A63" stroke-width="4" stroke-dasharray="16 12"/>
+  <text x="312" y="246" text-anchor="middle" font-weight="500" font-size="30" fill="#8A8A93">лого Green Express</text>
+  <rect x="552" y="160" width="432" height="144" rx="32" fill="none" stroke="#5A5A63" stroke-width="4" stroke-dasharray="16 12"/>
+  <text x="768" y="246" text-anchor="middle" font-weight="500" font-size="30" fill="#8A8A93">лого Яндекс Еды</text>
+
+  <text x="96" y="520" font-weight="800" font-size="96" fill="#FFFFFF">Пиши</text>
+  <text x="96" y="630" font-weight="800" font-size="96" fill="#FFFFFF">в <tspan fill="#25D366">WhatsApp</tspan></text>
+
+  <!-- benefit tiles 2x1 -->
+  <rect x="96" y="720" width="432" height="200" rx="32" fill="#2A2A30"/>
+  <text x="144" y="806" font-weight="800" font-size="48" fill="#FCE000">15 минут</text>
+  <text x="144" y="864" font-weight="500" font-size="30" fill="#B9B4AA">подключение</text>
+  <rect x="552" y="720" width="432" height="200" rx="32" fill="#2A2A30"/>
+  <text x="600" y="806" font-weight="800" font-size="48" fill="#FCE000">Бесплатно</text>
+  <text x="600" y="864" font-weight="500" font-size="30" fill="#B9B4AA">без опыта</text>
+
+  <!-- big WA square button -->
+  <g transform="translate(540,1290)">
+    <rect x="-300" y="-230" width="600" height="460" rx="64" fill="#25D366" opacity=".18"/>
+    <rect x="-250" y="-190" width="500" height="380" rx="56" fill="#25D366"/>
+    <g transform="translate(-108,-108) scale(9)"><path fill="#FFFFFF" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></g>
+  </g>
+  <text x="540" y="1640" text-anchor="middle" font-weight="800" font-size="44" fill="#FFFFFF">Нажми и напиши «Хочу курьером»</text>
+  <text x="540" y="1800" text-anchor="middle" font-weight="500" font-size="26" fill="#8A8A93">Green Express — официальный партнёр Яндекс Еды · 18+, граждане РК</text>
+</svg>
+</div>
+<script>
+// calendar cells: weeks starting Mon 2 Nov 2026
+const g=document.getElementById('cells');const NS='http://www.w3.org/2000/svg';
+for(let w=0;w<4;w++)for(let d=0;d<7;d++){const day=2+w*7+d;const x=148+d*112,y=700+w*112;
+ let fill='#F4F1EA',tc='#1B1B1F';
+ if(day<3){fill='#F4F1EA';tc='#CBC6BC'}
+ if(day===3){fill='#1B1B1F';tc='#FFFFFF'}
+ if(day>3&&day<28){fill='#F4F1EA';tc='#9A958C'}
+ if(day===28){fill='#FF5A4E';tc='#FFFFFF'}
+ const r=document.createElementNS(NS,'rect');Object.entries({x,y,width:96,height:96,rx:20,fill}).forEach(([k,v])=>r.setAttribute(k,v));g.appendChild(r);
+ const t=document.createElementNS(NS,'text');t.setAttribute('x',x+48);t.setAttribute('y',y+60);t.setAttribute('fill',tc);t.textContent=day;g.appendChild(t);}
+// labels under today / payday
+const lab=(x,y,s,c)=>{const t=document.createElementNS(NS,'text');t.setAttribute('x',x);t.setAttribute('y',y);t.setAttribute('font-size','24');t.setAttribute('font-weight','800');t.setAttribute('text-anchor','middle');t.setAttribute('fill',c);t.textContent=s;g.appendChild(t)};
+
+// bg grid frame 3
+const bg=document.getElementById('bggrid');for(let r=0;r<16;r++)for(let c=0;c<9;c++){if((r*7+c*3)%5)continue;const e=document.createElementNS(NS,'rect');Object.entries({x:24+c*120,y:24+r*120,width:96,height:96,rx:20}).forEach(([k,v])=>e.setAttribute(k,v));bg.appendChild(e)}
+</script>
+</body></html>

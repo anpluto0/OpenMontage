@@ -1,0 +1,173 @@
+{
+  "version": "1.0",
+  "scenes": [
+    {
+      "id": "sc1_hook",
+      "type": "animation",
+      "description": "Герой (2D парень, худи, 22–25 лет) в своей комнате смотрит на настенный календарь: красный кружок «ЗАРПЛАТА» далеко, листы отрываются, табличка «до зарплаты: 29 дней». В руке телефон с балансом 0 ₸.",
+      "start_seconds": 0,
+      "end_seconds": 3,
+      "script_section_id": "s1_hook",
+      "framing": "medium shot, герой слева, календарь справа",
+      "movement": "лёгкий push-in камеры, листы календаря отрываются по одному",
+      "transition_in": "cut",
+      "transition_out": "whip_left",
+      "overlay_notes": "Деньги нужны уже сегодня?",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc2_credit",
+      "type": "animation",
+      "description": "Крупно телефон в руке героя: падает уведомление «Платёж по кредиту — завтра». Над головой героя капля пота.",
+      "start_seconds": 3,
+      "end_seconds": 5,
+      "script_section_id": "s2_pain",
+      "framing": "close-up телефона, лицо героя на заднем плане",
+      "movement": "уведомление выпрыгивает со squash & stretch, капля пота стекает",
+      "transition_in": "whip_left",
+      "transition_out": "whip_left",
+      "overlay_notes": "Кредит?",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc3_gift",
+      "type": "animation",
+      "description": "Витрина с подарочной коробкой и ценником. Герой открывает кошелёк — вылетает моль.",
+      "start_seconds": 5,
+      "end_seconds": 7.5,
+      "script_section_id": "s2_pain",
+      "framing": "medium shot, витрина справа, герой слева",
+      "movement": "кошелёк раскрывается, моль вылетает по дуге, герой провожает её взглядом",
+      "transition_in": "whip_left",
+      "transition_out": "whip_left",
+      "overlay_notes": "Подарок?",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc4_office",
+      "type": "animation",
+      "description": "Серый офис: стопка бумаг растёт выше героя, стрелка часов еле ползёт, герой сползает со стула.",
+      "start_seconds": 7.5,
+      "end_seconds": 10.5,
+      "script_section_id": "s2_pain",
+      "framing": "wide shot, стол по центру, часы на стене",
+      "movement": "стопка растёт рывками, стрелка тикает медленно, герой оседает (follow-through)",
+      "transition_in": "whip_left",
+      "transition_out": "transform",
+      "overlay_notes": "Офисная рутина?",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc5_turn",
+      "type": "animation",
+      "description": "Герой захлопывает ноутбук — бумаги взлетают и складываются в жёлтую термосумку у него на спине. Мир заливается цветом, герой вылетает на велосипеде на проспект Алматы на фоне гор Алатау.",
+      "start_seconds": 10.5,
+      "end_seconds": 13,
+      "script_section_id": "s3_turn",
+      "framing": "medium → wide, герой по центру, горы на заднем плане (параллакс 3 слоя)",
+      "movement": "взрыв бумаг → морф в сумку → цветовая волна от героя → выезд по диагонали",
+      "transition_in": "transform",
+      "transition_out": "slide",
+      "overlay_notes": "Курьер Яндекс Еды",
+      "hero_moment": true,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc6_schedule",
+      "type": "animation",
+      "description": "Над героем на велосипеде солнце и луна переключаются как тумблер; герой жмёт на телефоне кнопку «Начать смену».",
+      "start_seconds": 13,
+      "end_seconds": 15.5,
+      "script_section_id": "s4_schedule",
+      "framing": "medium shot, герой едет справа налево, небо-тумблер сверху",
+      "movement": "тумблер щёлкает день/ночь, фон меняет цвет, нажатие кнопки с отскоком",
+      "transition_in": "slide",
+      "transition_out": "slide",
+      "overlay_notes": "Выходишь, когда хочешь",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc7_payout",
+      "type": "animation",
+      "description": "Утро — быстрый проезд с заказами (3 двери, 3 пакета). Вечер того же дня — монеты сыплются на карту в телефоне, «Выплата зачислена ✓». Календарь из хука улетает, уведомление о кредите зачёркивается, у героя в руках подарок.",
+      "start_seconds": 15.5,
+      "end_seconds": 19,
+      "script_section_id": "s5_payout",
+      "framing": "sequence: wide проезд → close-up телефона → medium герой с подарком",
+      "movement": "быстрые доставки (time-lapse), монеты падают с отскоком, календарь улетает, зачёркивание",
+      "transition_in": "slide",
+      "transition_out": "transform",
+      "overlay_notes": "Сегодня заработал — сегодня получил",
+      "hero_moment": true,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    },
+    {
+      "id": "sc8_cta",
+      "type": "text_card",
+      "description": "Брендовый жёлтый фон: большая пульсирующая кнопка WhatsApp, палец нажимает; логотип Green Express и логотип Яндекс Еды (официальные файлы); плашка «Подключение 15 минут · бесплатно».",
+      "start_seconds": 19,
+      "end_seconds": 24,
+      "script_section_id": "s6_cta",
+      "framing": "центральная композиция, кнопка в центре, логотипы сверху, дисклеймер внизу",
+      "movement": "кнопка пульсирует, палец тапает, логотипы появляются со stagger",
+      "transition_in": "transform",
+      "transition_out": "none",
+      "overlay_notes": "Пиши в WhatsApp 👇 · Подключение 15 минут · бесплатно · Green Express — официальный партнёр Яндекс Еды · 18+, граждане РК",
+      "hero_moment": false,
+      "texture_keywords": [
+        "flat 2D",
+        "bold outlines",
+        "Yandex Eda yellow",
+        "soft shadows",
+        "squash & stretch"
+      ]
+    }
+  ]
+}

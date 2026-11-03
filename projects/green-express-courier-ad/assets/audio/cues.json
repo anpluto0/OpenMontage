@@ -1,0 +1,234 @@
+{
+ "_doc": "Звук ролика. Время — секунды на таймлайне ролика. gain_db для SFX — целевой пик (файлы нормализуются по sfx_peak_db). Реплика без файла озвучивается make_voice.py.",
+ "duration": 24,
+ "voice": {
+  "provider": "elevenlabs",
+  "voice_id": "gJEfHTTiifXEDmO687lC",
+  "voice_name": "Prince Nur",
+  "model_id": "eleven_v4",
+  "language_code": "ru",
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "seed": 7,
+  "pronunciation": "«Green Express» пишем в тексте как «Грин Экспресс», WhatsApp — «Ватсап»"
+ },
+ "lines": [
+  {
+   "id": "A",
+   "text": "Деньги нужны уже сегодня?",
+   "file": "vo/A.wav",
+   "start": 0.25,
+   "gain_db": 0
+  },
+  {
+   "id": "B",
+   "text": "Кредит...",
+   "file": "vo/B.wav",
+   "start": 3.3,
+   "gain_db": 0
+  },
+  {
+   "id": "C",
+   "text": "подарок близким...",
+   "file": "vo/C.wav",
+   "start": 4.5,
+   "gain_db": 0
+  },
+  {
+   "id": "D",
+   "text": "или просто достала офисная рутина?",
+   "file": "vo/D.wav",
+   "start": 5.85,
+   "gain_db": 0
+  },
+  {
+   "id": "E2",
+   "text": "Стань курьером Яндекс Еды.",
+   "file": "vo/E2.wav",
+   "start": 9.3,
+   "gain_db": 0.9
+  },
+  {
+   "id": "F",
+   "text": "Сам решаешь, когда выходить.",
+   "file": "vo/F.wav",
+   "start": 11.8,
+   "gain_db": 0
+  },
+  {
+   "id": "G",
+   "text": "Сегодня заработал — сегодня получил деньги!",
+   "file": "vo/G.wav",
+   "start": 14.25,
+   "gain_db": 0
+  },
+  {
+   "id": "H",
+   "text": "Пиши в Ватсап — Грин Экспресс, официальный партнёр Яндекс Еды.",
+   "file": "vo/H.wav",
+   "start": 17.85,
+   "gain_db": 0
+  }
+ ],
+ "music": {
+  "file": "music/bgm_v1_ext.mp3",
+  "gain_db": -8,
+  "fade_out_at": 23.8,
+  "duck": {
+   "threshold": 0.03,
+   "ratio": 5,
+   "attack": 15,
+   "release": 350
+  }
+ },
+ "sfx": [
+  {
+   "file": "whoosh-short",
+   "at": 2.8,
+   "gain_db": -10,
+   "note": "переход 1→2"
+  },
+  {
+   "file": "msg_tritone",
+   "at": 3.4,
+   "gain_db": -8,
+   "note": "уведомление о кредите"
+  },
+  {
+   "file": "pop",
+   "at": 4.55,
+   "gain_db": -12,
+   "note": "карточка «Подарок»"
+  },
+  {
+   "file": "pop",
+   "at": 5.95,
+   "gain_db": -12,
+   "note": "карточка «Офис»"
+  },
+  {
+   "file": "whoosh",
+   "at": 8.6,
+   "gain_db": -8,
+   "note": "заливка → поворот"
+  },
+  {
+   "file": "sparkle",
+   "at": 9.1,
+   "gain_db": -15,
+   "note": "появление героя"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 11.55,
+   "gain_db": -10,
+   "note": "переход 3→4"
+  },
+  {
+   "file": "click-soft",
+   "at": 12.55,
+   "gain_db": -8,
+   "note": "переключатель день/ночь"
+  },
+  {
+   "file": "click",
+   "at": 13.65,
+   "gain_db": -8,
+   "note": "кнопка «Начать смену»"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 13.95,
+   "gain_db": -10,
+   "note": "переход 4→5"
+  },
+  {
+   "file": "pop",
+   "at": 14.5,
+   "gain_db": -18,
+   "note": "заказ 1"
+  },
+  {
+   "file": "pop",
+   "at": 14.72,
+   "gain_db": -18,
+   "note": "заказ 2"
+  },
+  {
+   "file": "pop",
+   "at": 14.94,
+   "gain_db": -18,
+   "note": "заказ 3"
+  },
+  {
+   "file": "notif_ding",
+   "at": 15.45,
+   "gain_db": -12,
+   "note": "выплата зачислена"
+  },
+  {
+   "file": "coin_collect",
+   "at": 15.65,
+   "gain_db": -7,
+   "note": "монеты вылетают"
+  },
+  {
+   "file": "coin_single",
+   "at": 16.36,
+   "gain_db": -9,
+   "note": "монеты собраны"
+  },
+  {
+   "file": "pop",
+   "at": 16.65,
+   "gain_db": -16,
+   "note": "галочка «Кредит»"
+  },
+  {
+   "file": "pop",
+   "at": 16.77,
+   "gain_db": -16,
+   "note": "галочка «Подарок»"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 17.5,
+   "gain_db": -10,
+   "note": "переход 5→6"
+  },
+  {
+   "file": "pop",
+   "at": 18.6,
+   "gain_db": -12,
+   "note": "кнопка WhatsApp"
+  },
+  {
+   "file": "click",
+   "at": 19.82,
+   "gain_db": -8,
+   "note": "клик курсора"
+  },
+  {
+   "file": "pop",
+   "at": 20.1,
+   "gain_db": -10,
+   "note": "сообщение «Хочу стать курьером»"
+  }
+ ],
+ "sfx_peak_db": {
+  "whoosh-short": -2.1,
+  "whoosh": -2.1,
+  "sparkle": 0,
+  "pop": -3.2,
+  "msg_tritone": -0.4,
+  "click-soft": -5.4,
+  "click": -5.4,
+  "notif_ding": 0,
+  "coin_collect": -4.4,
+  "coin_single": -21.7
+ },
+ "master": {
+  "lufs": -14,
+  "true_peak": -1.5
+ }
+}

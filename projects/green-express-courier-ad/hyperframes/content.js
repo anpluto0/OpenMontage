@@ -1,0 +1,55 @@
+// Тексты на экране. Меняйте только значения справа; ключи связаны с index.html (data-k).
+// Пробелы в конце *_pre значений важны («уже », «в »).
+window.CONTENT = {
+  // Сцена 1 · хук
+  "hook.l1": "Деньги нужны",
+  "hook.l2_pre": "уже ",
+  "hook.l2_accent": "сегодня?",
+  "hook.month": "Ноябрь",
+  "hook.balance_label": "Баланс",
+  "hook.balance_value": "0 ₸",
+  "hook.days_label": "До зарплаты",
+  "hook.days_unit": "дней",
+  // Сцена 2 · проблемы
+  "pains.title": "Знакомо?",
+  "pains.c1_title": "Кредит",
+  "pains.c1_tag": "платёж завтра",
+  "pains.c2_title": "Подарок",
+  "pains.c2_tag": "не хватает",
+  "pains.c3_title": "Офис",
+  "pains.c3_tag": "с 9 до 18, каждый день",
+  // Сцена 3 · поворот
+  "turn.l1": "Стань курьером",
+  "turn.l2": "Яндекс Еды",
+  // Сцена 4 · график
+  "schedule.l1": "Сам решаешь,",
+  "schedule.l2": "когда выходить",
+  "schedule.day": "Днём",
+  "schedule.night": "Ночью",
+  "schedule.button": "Начать смену",
+  // Сцена 5 · выплаты
+  "payout.l1": "Сегодня заработал —",
+  "payout.l2_pre": "сегодня ",
+  "payout.l2_accent": "получил",
+  "payout.card_title": "Сегодня",
+  "payout.order": "Заказ доставлен",
+  "payout.notif": "Выплата зачислена ✓",
+  "payout.done1_title": "Кредит",
+  "payout.done1_sub": "закрыт",
+  "payout.done2_title": "Подарок",
+  "payout.done2_sub": "куплен",
+  "payout.banner": "Деньги — в тот же день",
+  // Сцена 6 · призыв
+  "cta.partner_label": "официальный партнёр",
+  "cta.l1": "Пиши",
+  "cta.l2_pre": "в ",
+  "cta.l2_accent": "WhatsApp",
+  "cta.chip1_title": "15 минут",
+  "cta.chip1_sub": "подключение",
+  "cta.chip2_title": "Бесплатно",
+  "cta.chip2_sub": "без опыта",
+  "cta.button": "Написать в WhatsApp",
+  "cta.hint": "Нажми и напиши:",
+  "cta.message": "Хочу стать курьером",
+  "cta.legal": "Green Express — официальный партнёр Яндекс Еды · 18+, граждане РК",
+};

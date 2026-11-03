@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF}
+html,body{margin:0;background:#0E0E10}
+.sheet{display:flex;gap:24px;padding:24px}
+svg{display:block;border-radius:8px}
+text{font-family:Onest}
+</style></head><body><div class="sheet">
+
+<!-- ===== VARIANT A · flat rounded squares ===== -->
+<svg width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#FCE000"/>
+  <text x="96" y="200" font-weight="800" font-size="64" fill="#1B1B1F">A · плоский</text>
+  <!-- square tile frame -->
+  <rect x="96" y="300" width="888" height="1200" rx="56" fill="#FFF4A3"/>
+  <g fill="#FFFFFF" opacity=".5"><rect x="150" y="360" width="96" height="96" rx="20"/><rect x="834" y="420" width="72" height="72" rx="16"/><rect x="170" y="1300" width="64" height="64" rx="14"/></g>
+  <g transform="translate(540,0)">
+    <defs>
+      <clipPath id="torsoC"><rect x="-260" y="1010" width="520" height="490" rx="120"/></clipPath>
+      <clipPath id="headC"><rect x="-200" y="560" width="400" height="420" rx="130"/></clipPath>
+    </defs>
+    <g transform="translate(-320,880)">
+      <rect width="640" height="560" rx="48" fill="#C9B200" transform="translate(16,16)"/>
+      <rect width="640" height="560" rx="48" fill="#FCE000" stroke="#1B1B1F" stroke-width="10"/>
+      <rect width="640" height="110" rx="48" fill="#FFF07A" stroke="#1B1B1F" stroke-width="10"/>
+    </g>
+    <!-- torso -->
+    <rect x="-260" y="1010" width="520" height="490" rx="120" fill="#1B1B1F"/>
+    <rect x="60" y="1010" width="220" height="490" fill="#2E2E35" clip-path="url(#torsoC)"/>
+    <path d="M140 1010 h0" />
+    <!-- straps -->
+    <rect x="-200" y="1030" width="56" height="470" rx="28" fill="#FCE000" transform="rotate(8 -172 1030)"/>
+    <rect x="144" y="1030" width="56" height="470" rx="28" fill="#FCE000" transform="rotate(-8 172 1030)"/>
+    <!-- hood collar -->
+    <rect x="-130" y="980" width="260" height="90" rx="45" fill="#2E2E35"/>
+    <!-- neck -->
+    <rect x="-56" y="920" width="112" height="110" rx="40" fill="#D9926B"/>
+    <!-- ears -->
+    <rect x="-232" y="720" width="80" height="110" rx="34" fill="#E7A982"/>
+    <rect x="152" y="720" width="80" height="110" rx="34" fill="#E7A982"/>
+    <!-- head: rounded square -->
+    <rect x="-200" y="560" width="400" height="420" rx="130" fill="#F1BE95"/>
+    <rect x="90" y="560" width="140" height="420" fill="#E7A982" opacity=".35" clip-path="url(#headC)"/>
+    <!-- hair block with angled fringe -->
+    <path d="M-212 700 L-212 640 Q-212 500 -60 500 L80 500 Q212 500 212 640 L212 690 L120 690 L60 640 L-40 680 L-120 650 L-150 710Z" fill="#2A2238"/>
+    <rect x="-120" y="520" width="200" height="26" rx="13" fill="#4B3E63"/>
+    <!-- brows -->
+    <rect x="-132" y="730" width="96" height="24" rx="12" fill="#2A2238"/>
+    <rect x="36" y="730" width="96" height="24" rx="12" fill="#2A2238"/>
+    <!-- eyes: rounded rects -->
+    <rect x="-110" y="776" width="52" height="72" rx="24" fill="#1B1B1F"/><rect x="58" y="776" width="52" height="72" rx="24" fill="#1B1B1F"/>
+    <rect x="-96" y="788" width="18" height="22" rx="9" fill="#FFFFFF"/><rect x="72" y="788" width="18" height="22" rx="9" fill="#FFFFFF"/>
+    <!-- nose -->
+    <rect x="-14" y="830" width="40" height="48" rx="20" fill="#E09A73"/>
+    <!-- smile: half rounded rect -->
+    <path d="M-80 892 H80 Q80 960 0 960 Q-80 960 -80 892Z" fill="#1B1B1F"/>
+    <path d="M-60 892 H60 V910 Q0 920 -60 910Z" fill="#FFFFFF"/>
+    <path d="M-36 944 Q0 960 36 944 Q30 932 0 932 Q-30 932 -36 944Z" fill="#FF7A6B"/>
+    <!-- cheeks -->
+    <rect x="-176" y="860" width="70" height="36" rx="18" fill="#FF8A7A" opacity=".45"/><rect x="106" y="860" width="70" height="36" rx="18" fill="#FF8A7A" opacity=".45"/>
+    <!-- arm + thumbs up -->
+    <rect x="170" y="1180" width="150" height="320" rx="64" fill="#2E2E35" transform="rotate(-12 245 1340)"/>
+    <g transform="translate(250,1070)">
+      <rect x="-60" y="0" width="150" height="140" rx="44" fill="#F1BE95"/>
+      <rect x="-44" y="-96" width="60" height="124" rx="30" fill="#F1BE95"/>
+      <rect x="20" y="36" width="70" height="22" rx="11" fill="#E09A73"/><rect x="20" y="78" width="70" height="22" rx="11" fill="#E09A73"/>
+    </g>
+  </g>
+  <text x="96" y="1620" font-weight="800" font-size="44" fill="#1B1B1F">Чистая графика, как иконки</text>
+  <text x="96" y="1680" font-weight="800" font-size="36" fill="#6B5E00">Легко анимировать мимику и жесты</text>
+</svg>
+
+<!-- ===== VARIANT B · isometric cubes ===== -->
+<svg id="iso" width="540" height="960" viewBox="0 0 1080 1920">
+  <rect width="1080" height="1920" fill="#FCE000"/>
+  <text x="96" y="200" font-weight="800" font-size="64" fill="#1B1B1F">B · из кубиков</text>
+  <rect x="96" y="300" width="888" height="1200" rx="56" fill="#FFF4A3"/>
+  <g id="isoG"></g>
+  <text x="96" y="1620" font-weight="800" font-size="44" fill="#1B1B1F">Объёмный, как сумка-куб</text>
+  <text x="96" y="1680" font-weight="800" font-size="36" fill="#6B5E00">Самый необычный, бренд-мотив везде</text>
+</svg>
+</div>
+<script>
+const NS='http://www.w3.org/2000/svg', G=document.getElementById('isoG');
+const S=46, OX=560, OY=1180, C=Math.cos(Math.PI/6), Sn=Math.sin(Math.PI/6);
+const P=(x,y,z)=>[OX+(x-y)*C*S, OY+(x+y)*Sn*S - z*S];
+function poly(pts,fill,stroke=true){const e=document.createElementNS(NS,'polygon');e.setAttribute('points',pts.map(p=>p.join(',')).join(' '));e.setAttribute('fill',fill);if(stroke){e.setAttribute('stroke','#1B1B1F');e.setAttribute('stroke-width','6');e.setAttribute('stroke-linejoin','round')}G.appendChild(e);return e}
+function box(x,y,z,w,d,h,[top,left,right],st=true){
+  poly([P(x,y,z+h),P(x+w,y,z+h),P(x+w,y+d,z+h),P(x,y+d,z+h)],top,st);
+  poly([P(x,y+d,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x,y+d,z+h)],left,st);
+  poly([P(x+w,y,z),P(x+w,y+d,z),P(x+w,y+d,z+h),P(x+w,y,z+h)],right,st);
+}
+// rectangle drawn on the front-left face plane y=Y (u along x, v along z)
+function faceRect(Y,u,v,w,h,fill){poly([P(u,Y,v),P(u+w,Y,v),P(u+w,Y,v+h),P(u,Y,v+h)],fill,false)}
+const SKIN=['#F7CFAA','#F1BE95','#D9926B'], INK=['#3A3A44','#1B1B1F','#0F0F12'], YEL=['#FFF07A','#FCE000','#E3C800'], JEAN=['#5B7FC4','#3F63A8','#2E4C86'], HAIR=['#4B3E63','#2A2238','#1C1626'];
+// bag (behind)
+box(-0.2,-3.6,3.4,6.6,3.8,6.8,YEL);
+// logo slot on bag right face
+// legs
+box(0.9,0.6,0,1.8,1.8,3.6,JEAN); box(3.5,0.6,0,1.8,1.8,3.6,JEAN);
+box(0.8,0.8,-0.2,2,2.2,0.8,INK); box(3.4,0.8,-0.2,2,2.2,0.8,INK);
+// body
+box(0.4,0.2,3.6,5.4,2.8,5.4,INK);
+// straps on front face
+faceRect(3.0,1.1,3.8,0.7,5.0,'#FCE000'); faceRect(3.0,4.4,3.8,0.7,5.0,'#FCE000');
+// arms
+const SLV=['#4A4A55','#2E2E35','#1F1F25']; box(-1.2,0.6,4.6,1.5,1.8,4.2,SLV); box(5.9,0.6,4.6,1.5,1.8,4.2,SLV);
+box(-1.1,0.7,3.7,1.3,1.6,0.9,SKIN); box(6.0,0.7,3.7,1.3,1.6,0.9,SKIN);
+// neck
+box(2.3,1.0,9.0,1.6,1.4,0.7,SKIN);
+// head
+box(-0.2,-0.6,9.6,6.6,4.6,5.8,SKIN);
+// hair cap & fringe
+box(-0.4,-0.8,15.2,7.0,5.0,1.0,HAIR);
+faceRect(4.0,-0.2,14.2,2.6,1.0,'#2A2238'); faceRect(4.0,2.4,14.6,2.2,0.6,'#2A2238'); faceRect(4.0,4.6,14.2,1.8,1.0,'#2A2238');
+// courier cap (yellow) + visor
+box(-0.5,-0.9,16.2,7.2,5.2,0.9,YEL); box(0.6,4.3,16.2,5,1.8,0.35,YEL);
+// face features on plane y=4.0
+faceRect(4.0,1.1,12.6,1.5,0.4,'#2A2238'); faceRect(4.0,3.8,12.6,1.5,0.4,'#2A2238');      // brows
+faceRect(4.0,1.5,11.1,0.8,1.2,'#1B1B1F'); faceRect(4.0,4.1,11.1,0.8,1.2,'#1B1B1F');      // eyes
+faceRect(4.0,1.7,11.8,0.3,0.35,'#FFFFFF'); faceRect(4.0,4.3,11.8,0.3,0.35,'#FFFFFF');
+faceRect(4.0,2.0,10.0,2.4,0.7,'#1B1B1F'); faceRect(4.0,2.3,10.4,1.8,0.25,'#FFFFFF');      // smile
+faceRect(4.0,0.3,10.6,1.0,0.5,'rgba(255,122,107,.5)'); faceRect(4.0,5.1,10.6,1.0,0.5,'rgba(255,122,107,.5)'); // cheeks
+// ear on right face
+poly([P(6.4,1.0,11.0),P(6.4,2.2,11.0),P(6.4,2.2,12.4),P(6.4,1.0,12.4)],'#E7A982',false);
+</script>
+</body></html>

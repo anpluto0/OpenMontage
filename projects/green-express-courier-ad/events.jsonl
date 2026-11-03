@@ -1,0 +1,12 @@
+{"ts": "2026-11-03T13:10:23.493797+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/artem_lebedev_v4.mp3"}
+{"ts": "2026-11-03T13:10:29.235573+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/artem_lebedev_v4.mp3", "success": true, "duration_s": 5.74}
+{"ts": "2026-11-03T13:10:29.236404+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/dmitry_energetic_v4.mp3"}
+{"ts": "2026-11-03T13:10:34.302817+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/dmitry_energetic_v4.mp3", "success": true, "duration_s": 5.07}
+{"ts": "2026-11-03T13:10:34.303406+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/prince_nur_v4.mp3"}
+{"ts": "2026-11-03T13:10:39.489614+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples/prince_nur_v4.mp3", "success": true, "duration_s": 5.19}
+{"ts": "2026-11-03T13:14:47.848750+00:00", "tool": "music_gen", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/music/bgm_v1.mp3"}
+{"ts": "2026-11-03T13:14:54.641961+00:00", "tool": "music_gen", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/music/bgm_v1.mp3", "success": true, "cost_usd": 0.04, "duration_s": 6.79}
+{"ts": "2026-11-03T13:33:03.091943+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed7.mp3"}
+{"ts": "2026-11-03T13:33:04.297621+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed7.mp3", "success": true, "duration_s": 1.2}
+{"ts": "2026-11-03T13:33:04.298234+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed21.mp3"}
+{"ts": "2026-11-03T13:33:05.369282+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed21.mp3", "success": true, "duration_s": 1.07}
