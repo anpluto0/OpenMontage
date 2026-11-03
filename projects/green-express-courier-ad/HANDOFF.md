@@ -49,3 +49,8 @@
 - Звук — `assets/audio/cues.json` + `make_voice.py` (озвучка недостающих реплик) + `mix.py` (сведение). `mix.py` по cues.json даёт бит-в-бит тот же микс, что `final_v4`.
 - Музыка в репозитории — `music/bgm_v1_ext.mp3` (wav-версия не коммитится).
 - Хранение: ветка `green-express-courier-ad` в anpluto0/openmontage (projects/ в .gitignore — добавлено через `git add -f`) + артефакт https://claude.ai/artifact/PbTtgDQwk7Zib5wLfvxAjb.
+
+## Правки v5
+- Переход проблемы → поворот: сквозной сдвиг вверх (s2 уезжает, жёлтая s3 въезжает снизу за 0.65 с), сцена 3 начинает собираться во время сдвига — без пустого жёлтого кадра. Заливка `#wipe` удалена.
+- С термосумки убран логотип.
+- Логотип Green Express: официальный SVG от заказчика `assets/brand/green_express_logo_official.svg`; для CTA разрезан на `hyperframes/assets/ge_mark.svg` и `ge_wordmark.svg` (вектор, фирменный шрифт). Рендер `renders/final_v5.mp4`.
