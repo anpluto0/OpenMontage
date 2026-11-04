@@ -10,3 +10,7 @@
 {"ts": "2026-11-03T13:33:04.297621+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed7.mp3", "success": true, "duration_s": 1.2}
 {"ts": "2026-11-03T13:33:04.298234+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed21.mp3"}
 {"ts": "2026-11-03T13:33:05.369282+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/vo/E2_seed21.mp3", "success": true, "duration_s": 1.07}
+{"ts": "2026-11-04T13:03:23.284750+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/yersultan_v4.mp3"}
+{"ts": "2026-11-04T13:03:30.932341+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/yersultan_v4.mp3", "success": true, "duration_s": 7.65}
+{"ts": "2026-11-04T13:03:31.300308+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/adi_v4.mp3"}
+{"ts": "2026-11-04T13:03:38.964333+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/adi_v4.mp3", "success": true, "duration_s": 7.66}
