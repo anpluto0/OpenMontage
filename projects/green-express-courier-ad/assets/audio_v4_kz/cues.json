@@ -1,83 +1,83 @@
 {
  "_doc": "Звук KZ-версии v4 (Яндекс Еда × Green Express). Время — секунды ролика.",
- "duration": 28.5,
+ "duration": 29.0,
  "voice": {
   "provider": "elevenlabs",
   "voice_id": "wbGUrCE6cHpRbU9idaMy",
   "voice_name": "Adi",
   "model_id": "eleven_v4",
   "language_code": "kk",
-  "stability": 0.35,
+  "stability": 0.0,
   "similarity_boost": 0.8,
   "seed": 7
  },
  "lines": [
   {
    "id": "K1",
-   "text": "Икемді кестемен қосымша жұмыс іздеп жүрсің бе?",
+   "text": "[excited] Бауырым, қосымша жұмыс іздеп жүрсің бе?",
    "file": "vo/K1.wav",
    "start": 0.15,
    "gain_db": 0
   },
   {
    "id": "K2",
-   "text": "Яндекс Еда курьері бол!",
+   "text": "[excited] Онда Яндекс Едаға курьер болып кел!",
    "file": "vo/K2.wav",
-   "start": 2.75,
+   "start": 2.65,
    "gain_db": 0
   },
   {
    "id": "K3",
-   "text": "Өзіңе ыңғайлы кезде шығасың — күндіз де, түнде де.",
+   "text": "[cheerful] Кестеңді өзің таңдайсың — күндіз де, түнде де.",
    "file": "vo/K3.wav",
-   "start": 4.95,
+   "start": 5.15,
    "gain_db": 0
   },
   {
    "id": "K4",
-   "text": "Жаяу, велосипедпен немесе көлікпен — қалауың бойынша.",
+   "text": "[cheerful] Жаяу ма, велосипедпен бе, әлде көлікпен бе — өзің шеш!",
    "file": "vo/K4.wav",
-   "start": 8.5,
+   "start": 8.6,
    "gain_db": 0
   },
   {
    "id": "K5",
-   "text": "Бүгін еңбек еттің — бүгін ақшаңды алдың!",
+   "text": "[excited] Бүгін жұмыс істедің — ақшаң бүгін қолыңда!",
    "file": "vo/K5.wav",
-   "start": 12.9,
+   "start": 12.85,
    "gain_db": 0
   },
   {
    "id": "K6",
-   "text": "Он сегіз жастан бастап бәрін тіркейміз — рәсімдеуге көмектесеміз!",
+   "text": "[cheerful] Он сегіз жастан бастап бәрін тіркейміз, құжатқа да көмектесеміз!",
    "file": "vo/K6.wav",
-   "start": 15.8,
+   "start": 15.9,
    "gain_db": 0
   },
   {
    "id": "K7",
-   "text": "Тәжірибесіз, тегін, он бес минутта!",
+   "text": "[excited] Тәжірибе керек емес, тегін, небәрі он бес минут!",
    "file": "vo/K7.wav",
-   "start": 20.0,
+   "start": 19.7,
    "gain_db": 0
   },
   {
    "id": "K8",
-   "text": "Ватсапқа жаз — Грин Экспресс, Яндекс Еданың ресми серіктесі!",
+   "text": "[excited] Қазір Ватсапқа жаз! Грин Экспресс — Яндекс Еданың ресми серіктесі.",
    "file": "vo/K8.wav",
-   "start": 22.9,
+   "start": 23.35,
    "gain_db": 0
   }
  ],
  "music": {
-  "file": "music/bgm_kz.mp3",
-  "gain_db": -9,
-  "fade_out_at": 27.4,
+  "file": "music/bgm_kz_v2.mp3",
+  "gain_db": -16,
+  "fade_out_at": 27.9,
   "duck": {
-   "threshold": 0.03,
-   "ratio": 5,
-   "attack": 15,
-   "release": 350
+   "threshold": 0.02,
+   "ratio": 8,
+   "attack": 10,
+   "release": 300
   }
  },
  "sfx": [
@@ -91,43 +91,43 @@
   },
   {
    "file": "whoosh-short",
-   "at": 2.6,
+   "at": 2.5,
    "gain_db": -17,
    "note": "→ бренд"
   },
   {
    "file": "pop",
-   "at": 2.9,
+   "at": 2.8,
    "gain_db": -17,
    "note": "маскот выпрыгивает"
   },
   {
    "file": "whoosh-short",
-   "at": 4.8,
+   "at": 5.0,
    "gain_db": -17,
    "note": "→ график"
   },
   {
    "file": "pop",
-   "at": 5.6,
+   "at": 5.8,
    "gain_db": -19,
    "note": "день → ночь"
   },
   {
    "file": "whoosh-short",
-   "at": 8.35,
+   "at": 8.4,
    "gain_db": -17,
    "note": "→ транспорт"
   },
   {
    "file": "pop",
-   "at": 8.7,
+   "at": 8.75,
    "gain_db": -21,
    "note": "Жаяу"
   },
   {
    "file": "bike_bell",
-   "at": 9.9,
+   "at": 9.65,
    "gain_db": -24,
    "note": "Велосипед",
    "lp": 3500,
@@ -135,31 +135,31 @@
   },
   {
    "file": "pop",
-   "at": 11.4,
+   "at": 10.95,
    "gain_db": -19,
    "note": "Көлік"
   },
   {
    "file": "whoosh-short",
-   "at": 12.75,
+   "at": 12.7,
    "gain_db": -17,
    "note": "→ выплата"
   },
   {
    "file": "pop",
-   "at": 13.2,
+   "at": 13.15,
    "gain_db": -21,
    "note": "заказы"
   },
   {
    "file": "pop",
-   "at": 13.42,
+   "at": 13.37,
    "gain_db": -21,
    "note": "галочка"
   },
   {
    "file": "coin_collect",
-   "at": 13.8,
+   "at": 13.75,
    "gain_db": -21,
    "note": "монеты на карту",
    "lp": 4000,
@@ -167,13 +167,13 @@
   },
   {
    "file": "pop",
-   "at": 14.55,
+   "at": 14.5,
    "gain_db": -19,
    "note": "карта ✓"
   },
   {
    "file": "notification",
-   "at": 14.75,
+   "at": 14.7,
    "gain_db": -18,
    "note": "Төлем түсті",
    "lp": 5000,
@@ -181,55 +181,55 @@
   },
   {
    "file": "whoosh-short",
-   "at": 15.65,
+   "at": 15.75,
    "gain_db": -17,
    "note": "→ всех"
   },
   {
    "file": "pop",
-   "at": 16.45,
+   "at": 16.55,
    "gain_db": -23,
    "note": "галочка 1"
   },
   {
    "file": "pop",
-   "at": 16.65,
+   "at": 16.75,
    "gain_db": -23,
    "note": "галочка 2"
   },
   {
    "file": "pop",
-   "at": 16.849999999999998,
+   "at": 16.95,
    "gain_db": -23,
    "note": "галочка 3"
   },
   {
    "file": "pop",
-   "at": 17.05,
+   "at": 17.15,
    "gain_db": -23,
    "note": "галочка 4"
   },
   {
    "file": "pop",
-   "at": 17.25,
+   "at": 17.35,
    "gain_db": -23,
    "note": "галочка 5"
   },
   {
    "file": "pop",
-   "at": 17.6,
+   "at": 17.7,
    "gain_db": -19,
    "note": "плашка"
   },
   {
    "file": "whoosh-short",
-   "at": 19.85,
+   "at": 19.55,
    "gain_db": -17,
    "note": "→ 15 минут"
   },
   {
    "file": "chime",
-   "at": 21.25,
+   "at": 20.95,
    "gain_db": -20,
    "note": "таймер",
    "lp": 5000,
@@ -237,37 +237,37 @@
   },
   {
    "file": "pop",
-   "at": 21.4,
+   "at": 21.1,
    "gain_db": -21,
    "note": "Тәжірибесіз"
   },
   {
    "file": "pop",
-   "at": 21.65,
+   "at": 21.35,
    "gain_db": -21,
    "note": "Тегін"
   },
   {
    "file": "whoosh-short",
-   "at": 22.7,
+   "at": 23.15,
    "gain_db": -17,
    "note": "→ призыв"
   },
   {
    "file": "pop",
-   "at": 23.45,
+   "at": 23.9,
    "gain_db": -16,
    "note": "кнопка WhatsApp"
   },
   {
    "file": "pop",
-   "at": 24.9,
+   "at": 25.35,
    "gain_db": -15,
    "note": "нажатие"
   },
   {
    "file": "notification",
-   "at": 25.2,
+   "at": 25.65,
    "gain_db": -18,
    "note": "сообщение",
    "lp": 5000,

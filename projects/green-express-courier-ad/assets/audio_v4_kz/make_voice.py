@@ -17,8 +17,8 @@ for i, ln in enumerate(lines):
     if wav.exists() and ln["id"] not in force:
         continue
     mp3 = wav.with_suffix(".mp3")
-    req = {"text": ln["text"], "voice_id": v["voice_id"], "model_id": v["model_id"], "language_code": v["language_code"],
-           "stability": v["stability"], "similarity_boost": v["similarity_boost"], "seed": v["seed"], "output_path": str(mp3)}
+    req = {"text": ln["text"], "voice_id": v["voice_id"], "model_id": v["model_id"], "language_code": ln.get("language_code", v["language_code"]),
+           "stability": ln.get("stability", v["stability"]), "similarity_boost": v["similarity_boost"], "seed": v["seed"], "output_path": str(mp3)}
     if i > 0: req["previous_text"] = lines[i-1]["text"][-100:]
     if i + 1 < len(lines): req["next_text"] = lines[i+1]["text"][:100]
     r = tts.execute(req)
