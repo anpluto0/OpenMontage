@@ -256,10 +256,10 @@ const idle=(id,t,n=3)=>tl.to(`#${id}-sq`,{scaleY:.97,scaleX:1.02,transformOrigin
 gsap.set('#t2a',{y:130}); gsap.set('#t2b',{yPercent:110});
 // visual hook: frame 0 is already full — headline + map ground + pin falling in
 tl.fromTo('#map1-home',{y:-430},{y:0,duration:.6,ease:'bounce.out'},0);
-tl.fromTo('#map1-home',{scaleY:1,scaleX:1},{scaleY:.82,scaleX:1.12,transformOrigin:'50% 100%',duration:.08,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},.27);
+tl.fromTo('#map1-home',{scaleY:1,scaleX:1},{scaleY:.82,scaleX:1.12,transformOrigin:'50% 100%',duration:.08,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},.21);
 gsap.set('#map1-hring',{opacity:0});
-tl.fromTo('#map1-hring',{opacity:.9,scale:.6,transformOrigin:'50% 50%'},{opacity:0,scale:2.6,duration:.7,ease:'power2.out',immediateRender:false},.28);
-tl.fromTo('#map1-hring2',{opacity:.6,scale:.6,transformOrigin:'50% 50%'},{opacity:0,scale:3.6,duration:.9,ease:'power2.out',immediateRender:false},.36);
+tl.fromTo('#map1-hring',{opacity:.9,scale:.6,transformOrigin:'50% 50%'},{opacity:0,scale:2.6,duration:.7,ease:'power2.out',immediateRender:false},.22);
+tl.fromTo('#map1-hring2',{opacity:.6,scale:.6,transformOrigin:'50% 50%'},{opacity:0,scale:3.6,duration:.9,ease:'power2.out',immediateRender:false},.30);
 {const H=[230,570]; document.querySelectorAll('#map1 .blk, #map1 .tree').forEach(b=>{const x=+b.getAttribute('x')||+b.getAttribute('cx'),y=+b.getAttribute('y')||+b.getAttribute('cy'),w=+(b.getAttribute('width')||0),h=+(b.getAttribute('height')||0);
   const d=Math.hypot(x+w/2-H[0],y+h/2-H[1]); tl.from(b,{scale:0,transformOrigin:'50% 50%',duration:.32,ease:E.b2},.3+d/1500);});}
 tl.from('#mA-pos',{y:'+=700',duration:.7,ease:'back.out(1.4)'},.55);
