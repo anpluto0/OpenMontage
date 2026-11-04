@@ -15,7 +15,9 @@ f.append("".join(f"[v{i}]" for i in range(n)) + f"amix=inputs={n}:normalize=0,ap
 for j, s in enumerate(cfg["sfx"]):
     peak = cfg["sfx_peak_db"].get(s["file"], 0)
     inp += ["-i", str(sfx_dir / f"{s['file']}.mp3")]
-    f.append(f"[{n+j}:a]aformat=sample_rates=44100:channel_layouts=stereo,volume={s['gain_db']-peak}dB,adelay={int(s['at']*1000)}:all=1[s{j}]")
+    lp = s.get("lp", cfg.get("sfx_lowpass"))
+    soft = f"lowpass=f={lp}," if lp else ""
+    f.append(f"[{n+j}:a]aformat=sample_rates=44100:channel_layouts=stereo,{soft}volume={s['gain_db']-peak}dB,afade=t=out:st={s.get('max',0.9)-0.15}:d=0.15,atrim=0:{s.get('max',0.9)},adelay={int(s['at']*1000)}:all=1[s{j}]")
 m = n + len(cfg["sfx"])
 f.append("".join(f"[s{j}]" for j in range(len(cfg["sfx"]))) + f"amix=inputs={len(cfg['sfx'])}:normalize=0,apad=whole_dur={D},atrim=0:{D}[sfx]")
 mu = cfg["music"]; dk = mu["duck"]

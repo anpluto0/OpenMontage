@@ -7,7 +7,7 @@
   "voice_name": "Prince Nur",
   "model_id": "eleven_v4",
   "language_code": "ru",
-  "stability": 0.45,
+  "stability": 0.3,
   "similarity_boost": 0.8,
   "seed": 7,
   "pronunciation": "«Choco» — «Чоко», «Green Express» — «Грин Экспресс», WhatsApp — «Ватсап»"
@@ -36,28 +36,28 @@
   },
   {
    "id": "L4",
-   "text": "Заказ собрали — едешь рядом, до двух километров.",
+   "text": "Заказ собрали — едешь рядом, до двух километров!",
    "file": "vo/L4.wav",
    "start": 10.95,
    "gain_db": 0
   },
   {
    "id": "L5",
-   "text": "Отвёз — и обратно, в комнату отдыха. Платят даже за ожидание.",
+   "text": "Отвёз — и обратно, в комнату отдыха. Платят даже за ожидание!",
    "file": "vo/L5.wav",
    "start": 14.6,
    "gain_db": 0
   },
   {
    "id": "L6",
-   "text": "Плюс за заказы, чаевые и бонус новичкам до сорока тысяч.",
+   "text": "Плюс за заказы, чаевые и бонус новичкам до сорока тысяч!",
    "file": "vo/L6.wav",
    "start": 19.0,
    "gain_db": 0
   },
   {
    "id": "L7",
-   "text": "Пиши в Ватсап — Грин Экспресс подберёт склад рядом с тобой.",
+   "text": "Пиши в Ватсап — Грин Экспресс подберёт склад рядом с тобой!",
    "file": "vo/L7.wav",
    "start": 23.4,
    "gain_db": 0
@@ -78,200 +78,160 @@
   {
    "file": "pop",
    "at": 0.9,
-   "gain_db": -14,
+   "gain_db": -18,
    "note": "пин «Дом»"
-  },
-  {
-   "file": "whoosh-short",
-   "at": 0.6,
-   "gain_db": -14,
-   "note": "маскот выпрыгивает"
   },
   {
    "file": "pop",
    "at": 3.35,
-   "gain_db": -11,
+   "gain_db": -15,
    "note": "склад-сердечко"
   },
   {
-   "file": "sparkle",
-   "at": 3.45,
-   "gain_db": -17,
-   "note": "склад загорается"
-  },
-  {
-   "file": "click-soft",
-   "at": 4.75,
-   "gain_db": -12,
-   "note": "прыжок маскота"
-  },
-  {
-   "file": "whoosh",
+   "file": "whoosh-short",
    "at": 6.75,
-   "gain_db": -11,
-   "note": "переход вверх → даркстор"
+   "gain_db": -17,
+   "note": "переход → даркстор"
   },
   {
    "file": "pop",
    "at": 7.5,
-   "gain_db": -15,
+   "gain_db": -19,
    "note": "вывеска"
   },
   {
    "file": "whoosh-short",
    "at": 7.95,
-   "gain_db": -15,
-   "note": "шторка поднимается"
-  },
-  {
-   "file": "click-soft",
-   "at": 9.15,
-   "gain_db": -14,
-   "note": "шаг"
-  },
-  {
-   "file": "click-soft",
-   "at": 9.57,
-   "gain_db": -14,
-   "note": "шаг"
-  },
-  {
-   "file": "click-soft",
-   "at": 9.99,
-   "gain_db": -14,
-   "note": "шаг"
+   "gain_db": -22,
+   "note": "шторка"
   },
   {
    "file": "whoosh-short",
    "at": 10.8,
-   "gain_db": -12,
-   "note": "переход влево → схема"
+   "gain_db": -17,
+   "note": "переход → схема"
   },
   {
-   "file": "click-soft",
+   "file": "pop",
    "at": 11.2,
-   "gain_db": -12,
+   "gain_db": -21,
    "note": "шаг 1"
   },
   {
-   "file": "click-soft",
+   "file": "pop",
    "at": 11.55,
-   "gain_db": -12,
+   "gain_db": -21,
    "note": "шаг 2"
   },
   {
-   "file": "click",
+   "file": "pop",
    "at": 11.9,
-   "gain_db": -11,
+   "gain_db": -19,
    "note": "шаг 3"
   },
   {
    "file": "pop",
    "at": 12.05,
-   "gain_db": -13,
+   "gain_db": -19,
    "note": "плашка «до 2 км»"
   },
   {
    "file": "bike_bell",
    "at": 12.5,
-   "gain_db": -10,
-   "note": "велосипедный звонок"
+   "gain_db": -23,
+   "note": "велосипедный звонок",
+   "lp": 3500,
+   "max": 0.8
   },
   {
    "file": "chime",
    "at": 13.5,
-   "gain_db": -13,
-   "note": "доставлено"
+   "gain_db": -19,
+   "note": "доставлено",
+   "lp": 5000,
+   "max": 1.2
   },
   {
    "file": "whoosh-short",
    "at": 14.85,
-   "gain_db": -12,
-   "note": "переход влево → отдых"
+   "gain_db": -17,
+   "note": "переход → отдых"
   },
   {
    "file": "pop",
    "at": 16.05,
-   "gain_db": -12,
+   "gain_db": -17,
    "note": "сел на диван"
   },
   {
    "file": "pop",
-   "at": 16.1,
-   "gain_db": -15,
-   "note": "плашка «в тепле»"
-  },
-  {
-   "file": "click-soft",
    "at": 16.5,
-   "gain_db": -13,
-   "note": "плашка оплаты"
+   "gain_db": -21,
+   "note": "плашки"
   },
   {
-   "file": "click-soft",
-   "at": 16.75,
-   "gain_db": -13,
-   "note": "плашка сумки"
-  },
-  {
-   "file": "whoosh",
+   "file": "whoosh-short",
    "at": 18.8,
-   "gain_db": -11,
-   "note": "переход вверх → деньги"
+   "gain_db": -17,
+   "note": "переход → деньги"
   },
   {
    "file": "pop",
    "at": 19.5,
-   "gain_db": -15,
+   "gain_db": -21,
    "note": "плашка 1"
   },
   {
    "file": "pop",
    "at": 19.85,
-   "gain_db": -15,
+   "gain_db": -21,
    "note": "плашка 2"
   },
   {
    "file": "pop",
    "at": 20.2,
-   "gain_db": -15,
+   "gain_db": -21,
    "note": "плашка 3"
   },
   {
-   "file": "sparkle",
+   "file": "pop",
    "at": 20.6,
-   "gain_db": -14,
+   "gain_db": -15,
    "note": "бонус новичкам"
   },
   {
    "file": "coin_collect",
    "at": 21.0,
-   "gain_db": -9,
-   "note": "монеты"
+   "gain_db": -21,
+   "note": "монеты",
+   "lp": 4000,
+   "max": 1.0
   },
   {
    "file": "whoosh-short",
    "at": 22.85,
-   "gain_db": -12,
-   "note": "переход влево → призыв"
+   "gain_db": -17,
+   "note": "переход → призыв"
   },
   {
    "file": "pop",
    "at": 23.6,
-   "gain_db": -12,
+   "gain_db": -16,
    "note": "кнопка WhatsApp"
   },
   {
-   "file": "click",
+   "file": "pop",
    "at": 25.0,
-   "gain_db": -9,
-   "note": "клик курсора"
+   "gain_db": -15,
+   "note": "нажатие"
   },
   {
    "file": "notification",
    "at": 25.3,
-   "gain_db": -12,
-   "note": "сообщение отправлено"
+   "gain_db": -18,
+   "note": "сообщение отправлено",
+   "lp": 5000,
+   "max": 1.4
   }
  ],
  "sfx_peak_db": {
@@ -290,5 +250,6 @@
  "master": {
   "lufs": -14,
   "true_peak": -1.5
- }
+ },
+ "sfx_lowpass": 6000
 }
