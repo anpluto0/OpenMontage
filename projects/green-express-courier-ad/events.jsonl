@@ -66,3 +66,5 @@
 {"ts": "2026-11-04T13:49:30.388116+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K7.mp3", "success": true, "duration_s": 1.81}
 {"ts": "2026-11-04T13:49:30.533981+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K8.mp3"}
 {"ts": "2026-11-04T13:49:32.958293+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K8.mp3", "success": true, "duration_s": 2.42}
+{"ts": "2026-11-04T13:58:24.404123+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K6.mp3"}
+{"ts": "2026-11-04T13:58:26.589268+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K6.mp3", "success": true, "duration_s": 2.18}
