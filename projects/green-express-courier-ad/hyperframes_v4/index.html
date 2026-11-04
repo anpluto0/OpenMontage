@@ -338,9 +338,9 @@ pushUp('#s3','#s4',6.95);
   RAW.set('#v2-pos',{opacity:1},b+1.14); RAW.to('#v2-pos',{x:330,duration:.3,ease:E.o3},b+1.16); RAW.to('#v2-pos',{x:560,duration:.84,ease:'none'},b+1.46);
   pedal('mV',b+1.16,1.4,2.8); mv(2,b+1.25);
   RAW.to('#mV-sq',{y:-6,duration:.18,yoyo:true,repeat:3,ease:'sine.inOut'},b+1.5);
-  RAW.to('#v2-pos',{x:1400,duration:.24,ease:E.i3},b+2.3);
+  RAW.to('#v2-pos',{x:1400,duration:.22,ease:E.i3},b+2.24);
   // car
-  RAW.set('#v3-pos',{opacity:1},b+2.4); RAW.to('#v3-pos',{x:444,duration:.4,ease:E.o3},b+2.42);
+  RAW.set('#v3-pos',{opacity:1},b+2.47); RAW.to('#v3-pos',{x:444,duration:.4,ease:E.o3},b+2.48);
   RAW.fromTo(['#mCar-w1','#mCar-w2'],{rotation:0},{rotation:360*3,transformOrigin:'50% 50%',duration:L-2.42,ease:'none',immediateRender:false},b+2.42); mv(3,b+2.55);
   RAW.to('#mCar',{y:-8,duration:.14,yoyo:true,repeat:7,ease:'sine.inOut'},b+2.9);
 }
