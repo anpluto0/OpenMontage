@@ -1,0 +1,294 @@
+{
+ "_doc": "Звук ролика Choco Рядом. Время — секунды ролика. gain_db SFX — целевой пик. Реплика без файла озвучивается make_voice.py.",
+ "duration": 29,
+ "voice": {
+  "provider": "elevenlabs",
+  "voice_id": "gJEfHTTiifXEDmO687lC",
+  "voice_name": "Prince Nur",
+  "model_id": "eleven_v4",
+  "language_code": "ru",
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "seed": 7,
+  "pronunciation": "«Choco» — «Чоко», «Green Express» — «Грин Экспресс», WhatsApp — «Ватсап»"
+ },
+ "lines": [
+  {
+   "id": "L1",
+   "text": "Ищешь подработку рядом с домом?",
+   "file": "vo/L1.wav",
+   "start": 0.3,
+   "gain_db": 0
+  },
+  {
+   "id": "L2",
+   "text": "Возможно, она уже в твоём районе — в даркстор Чоко Рядом.",
+   "file": "vo/L2.wav",
+   "start": 2.85,
+   "gain_db": 0
+  },
+  {
+   "id": "L3",
+   "text": "Даркстор — это магазин без покупателей, только для доставки.",
+   "file": "vo/L3.wav",
+   "start": 7.0,
+   "gain_db": 0
+  },
+  {
+   "id": "L4",
+   "text": "Заказ собрали — едешь рядом, до двух километров.",
+   "file": "vo/L4.wav",
+   "start": 10.95,
+   "gain_db": 0
+  },
+  {
+   "id": "L5",
+   "text": "Отвёз — и обратно, в комнату отдыха. Платят даже за ожидание.",
+   "file": "vo/L5.wav",
+   "start": 14.6,
+   "gain_db": 0
+  },
+  {
+   "id": "L6",
+   "text": "Плюс за заказы, чаевые и бонус новичкам до сорока тысяч.",
+   "file": "vo/L6.wav",
+   "start": 19.0,
+   "gain_db": 0
+  },
+  {
+   "id": "L7",
+   "text": "Пиши в Ватсап — Грин Экспресс подберёт склад рядом с тобой.",
+   "file": "vo/L7.wav",
+   "start": 23.4,
+   "gain_db": 0
+  }
+ ],
+ "music": {
+  "file": "music/bgm_v1_ext.mp3",
+  "gain_db": -9,
+  "fade_out_at": 28.6,
+  "duck": {
+   "threshold": 0.03,
+   "ratio": 5,
+   "attack": 15,
+   "release": 350
+  }
+ },
+ "sfx": [
+  {
+   "file": "pop",
+   "at": 0.9,
+   "gain_db": -14,
+   "note": "пин «Дом»"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 0.6,
+   "gain_db": -14,
+   "note": "маскот выпрыгивает"
+  },
+  {
+   "file": "pop",
+   "at": 3.35,
+   "gain_db": -11,
+   "note": "склад-сердечко"
+  },
+  {
+   "file": "sparkle",
+   "at": 3.45,
+   "gain_db": -17,
+   "note": "склад загорается"
+  },
+  {
+   "file": "click-soft",
+   "at": 4.75,
+   "gain_db": -12,
+   "note": "прыжок маскота"
+  },
+  {
+   "file": "whoosh",
+   "at": 6.75,
+   "gain_db": -11,
+   "note": "переход вверх → даркстор"
+  },
+  {
+   "file": "pop",
+   "at": 7.5,
+   "gain_db": -15,
+   "note": "вывеска"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 7.95,
+   "gain_db": -15,
+   "note": "шторка поднимается"
+  },
+  {
+   "file": "click-soft",
+   "at": 9.15,
+   "gain_db": -14,
+   "note": "шаг"
+  },
+  {
+   "file": "click-soft",
+   "at": 9.57,
+   "gain_db": -14,
+   "note": "шаг"
+  },
+  {
+   "file": "click-soft",
+   "at": 9.99,
+   "gain_db": -14,
+   "note": "шаг"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 10.8,
+   "gain_db": -12,
+   "note": "переход влево → схема"
+  },
+  {
+   "file": "click-soft",
+   "at": 11.2,
+   "gain_db": -12,
+   "note": "шаг 1"
+  },
+  {
+   "file": "click-soft",
+   "at": 11.55,
+   "gain_db": -12,
+   "note": "шаг 2"
+  },
+  {
+   "file": "click",
+   "at": 11.9,
+   "gain_db": -11,
+   "note": "шаг 3"
+  },
+  {
+   "file": "pop",
+   "at": 12.05,
+   "gain_db": -13,
+   "note": "плашка «до 2 км»"
+  },
+  {
+   "file": "bike_bell",
+   "at": 12.5,
+   "gain_db": -10,
+   "note": "велосипедный звонок"
+  },
+  {
+   "file": "chime",
+   "at": 13.5,
+   "gain_db": -13,
+   "note": "доставлено"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 14.85,
+   "gain_db": -12,
+   "note": "переход влево → отдых"
+  },
+  {
+   "file": "pop",
+   "at": 16.05,
+   "gain_db": -12,
+   "note": "сел на диван"
+  },
+  {
+   "file": "pop",
+   "at": 16.1,
+   "gain_db": -15,
+   "note": "плашка «в тепле»"
+  },
+  {
+   "file": "click-soft",
+   "at": 16.5,
+   "gain_db": -13,
+   "note": "плашка оплаты"
+  },
+  {
+   "file": "click-soft",
+   "at": 16.75,
+   "gain_db": -13,
+   "note": "плашка сумки"
+  },
+  {
+   "file": "whoosh",
+   "at": 18.8,
+   "gain_db": -11,
+   "note": "переход вверх → деньги"
+  },
+  {
+   "file": "pop",
+   "at": 19.5,
+   "gain_db": -15,
+   "note": "плашка 1"
+  },
+  {
+   "file": "pop",
+   "at": 19.85,
+   "gain_db": -15,
+   "note": "плашка 2"
+  },
+  {
+   "file": "pop",
+   "at": 20.2,
+   "gain_db": -15,
+   "note": "плашка 3"
+  },
+  {
+   "file": "sparkle",
+   "at": 20.6,
+   "gain_db": -14,
+   "note": "бонус новичкам"
+  },
+  {
+   "file": "coin_collect",
+   "at": 21.0,
+   "gain_db": -9,
+   "note": "монеты"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 22.85,
+   "gain_db": -12,
+   "note": "переход влево → призыв"
+  },
+  {
+   "file": "pop",
+   "at": 23.6,
+   "gain_db": -12,
+   "note": "кнопка WhatsApp"
+  },
+  {
+   "file": "click",
+   "at": 25.0,
+   "gain_db": -9,
+   "note": "клик курсора"
+  },
+  {
+   "file": "notification",
+   "at": 25.3,
+   "gain_db": -12,
+   "note": "сообщение отправлено"
+  }
+ ],
+ "sfx_peak_db": {
+  "sparkle": 0.0,
+  "whoosh": -2.1,
+  "chime": -9.3,
+  "bike_bell": -2.7,
+  "notification": -2.7,
+  "coin_collect": -4.4,
+  "click-soft": -5.4,
+  "pop": -3.2,
+  "click": -5.4,
+  "whoosh-short": -2.1,
+  "ping": -6.2
+ },
+ "master": {
+  "lufs": -14,
+  "true_peak": -1.5
+ }
+}

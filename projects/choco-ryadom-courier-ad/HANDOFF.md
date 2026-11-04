@@ -1,6 +1,6 @@
 # Choco Рядом × Green Express — таргет-ролик курьера (handoff)
 
-Статус: черновик анимации без звука `renders/draft_v1_silent.mp4` (29 с, 1080×1920). Озвучку пока не делаем (по просьбе пользователя — экономим).
+Статус: `renders/final_v1.mp4` — 29 с, 1080×1920, с голосом, SFX и музыкой (видео = `draft_v3_silent.mp4`).
 
 - Сценарий (утверждён): `artifacts/script_v4.md` — хук «Ищешь подработку рядом с домом?», познавательный стиль.
   Без 500 ₸/час, без упоминания транспорта, город не называем. Регистрация через курьерский центр Green Express.
@@ -15,3 +15,9 @@
 - Голос, если понадобится: Prince Nur (как в ролике Green Express), текст диктора — в `script_v4.md`.
 - Логотип Choco Рядом только PNG 480×150 (`hyperframes/assets/choco_logo.png`) — нужен SVG от заказчика.
 - Рендер: `cd hyperframes && npx -y hyperframes@0.9.8 render --quality standard -o ../renders/<name>.mp4`.
+
+## Звук (v1)
+- `assets/audio/cues.json` — реплики (Prince Nur, eleven_v4, seed 7), музыка, SFX с подписями; `make_voice.py` (запуск с `PYTHONPATH=<корень репо>`), `mix.py`.
+- Текст диктора сокращён под сцены: L3 «Даркстор — это магазин без покупателей, только для доставки», L5 «…Платят даже за ожидание», L6 «Плюс за заказы, чаевые и бонус новичкам до сорока тысяч». L5/L6 ускорены atempo 1.05.
+- SFX — только привычные: Pixabay из hyperframes-media (whoosh, pop, click, sparkle, chime, notification), монеты `coin_collect`, велосипедный звонок `bike_bell` (ElevenLabs).
+- Музыка: ElevenLabs Music 29 с → `music/bgm_v1_ext.mp3` (вставка 2 тактов с 17.554 с, финал ~28 с).
