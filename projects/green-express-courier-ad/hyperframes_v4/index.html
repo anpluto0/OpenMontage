@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="kz">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=1080, height=1920" />
@@ -7,9 +7,11 @@
 <script src="vendor/gsap.min.js"></script>
 <script src="content.js"></script>
 <style>
-@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-ext-800-normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
 @font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7}
-@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-ext-400-normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
 @font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7}
 :root{--ink:#1B1B1F;--ink2:#2E2E35;--paper:#F4F1EA;--white:#FFFFFF;--yel:#FCE000;--yel2:#E3C800;--coral:#FF5A4E;--wa:#25D366;--green:#1B4B2D;--mute:#8A857C}
 html,body{margin:0;padding:0;background:var(--ink)}
@@ -27,8 +29,8 @@ svg{display:block;overflow:visible}
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="24">
-<section id="stage" class="clip" data-start="0" data-duration="24" data-track-index="1">
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="28.5">
+<section id="stage" class="clip" data-start="0" data-duration="28.5" data-track-index="1">
 
   <!-- S1 · hook (0–2) — visible from frame 0 -->
   <div id="s1" class="scene" style="background:var(--paper);opacity:1">
@@ -41,8 +43,8 @@ svg{display:block;overflow:visible}
 
   <!-- S2 · brand (2–4.5) -->
   <div id="s2" class="scene" style="background:var(--ink)">
-    <div class="h1 mask" style="top:170px;color:#fff"><div id="t2a"><span data-k="brand.l1">Стань курьером</span></div></div>
-    <div class="abs mask" style="left:96px;top:290px;height:150px"><div id="t2b"><img src="assets/yandex_eda_white.png" style="display:block;width:640px;height:auto;margin-top:8px" alt="Яндекс Еда"/></div></div>
+    <div id="t2a-m" class="h1 mask" style="top:170px;color:#fff"><div id="t2a"><span data-k="brand.l1">Стань курьером</span></div></div>
+    <div id="t2b-m" class="abs mask" style="left:96px;top:290px;height:150px"><div id="t2b"><img src="assets/yandex_eda_white.png" style="display:block;width:640px;height:auto;margin-top:8px" alt="Яндекс Еда"/></div></div>
     <svg id="s2fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
@@ -88,13 +90,24 @@ svg{display:block;overflow:visible}
     <div id="phone" class="abs" style="left:240px;top:450px;width:600px;height:820px;border-radius:72px;background:var(--ink)">
       <div class="abs" style="left:30px;top:30px;width:540px;height:760px;border-radius:50px;background:var(--paper)"></div>
       <div class="abs" style="left:210px;top:48px;width:180px;height:34px;border-radius:17px;background:var(--ink)"></div>
-      <div id="bal" class="abs" style="left:70px;top:150px;width:460px;height:260px;border-radius:36px;background:var(--yel)">
-        <div class="abs" style="left:40px;top:40px;font-weight:500;font-size:32px">Баланс</div>
-        <div id="balnum" class="abs" style="left:40px;top:96px;font-weight:800;font-size:96px;line-height:110px">₸ ↑</div>
+      <div id="rowA" class="abs" style="left:60px;top:120px;width:480px;height:150px;border-radius:32px;background:#fff">
+        <svg id="bagI" class="abs" style="left:24px;top:27px" width="96" height="96" viewBox="0 0 96 96"><rect x="6" y="14" width="84" height="74" rx="18" fill="#FFB800"/><rect x="6" y="14" width="84" height="18" rx="9" fill="#E59A00"/><path d="M30 14 Q48 -4 66 14" stroke="#1B1B1F" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+        <div class="abs" style="left:138px;top:30px;width:250px;font-weight:800;font-size:32px;line-height:38px"><span data-k="pay.done">Заказы выполнены</span></div>
+        <div class="abs" style="left:138px;top:104px;font-weight:500;font-size:26px;color:#8A857C"><span data-k="pay.today">сегодня</span></div>
+        <svg id="okA" class="abs" style="left:400px;top:43px" width="64" height="64" viewBox="-32 -32 64 64"><circle r="32" fill="#1C8C45"/><path d="M-13 1 L-3 11 L14 -9" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div id="notif" class="abs" style="left:50px;top:460px;width:500px;height:120px;border-radius:30px;background:var(--ink);color:#fff">
-        <div id="nbadge" class="abs" style="left:22px;top:24px;width:72px;height:72px;border-radius:36px;background:#FFD21F;box-shadow:inset 0 -6px 0 #C98A00;font-weight:800;font-size:40px;line-height:68px;text-align:center;color:#9A6400">₸</div>
-        <div class="abs" style="left:116px;top:0;line-height:120px;font-weight:800;font-size:34px;white-space:nowrap"><span data-k="pay.notif">Выплата зачислена ✓</span></div>
+      <svg id="flow" class="abs" style="left:270px;top:282px" width="60" height="90" viewBox="0 0 60 90"><path d="M30 4 V70 M12 54 L30 74 L48 54" stroke="#D9D1C2" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div id="bal" class="abs" style="left:60px;top:384px;width:480px;height:268px;border-radius:34px;background:var(--yel);overflow:hidden">
+        <div class="abs" style="left:300px;top:-90px;width:300px;height:300px;border-radius:150px;background:#FFE95C"></div>
+        <div class="abs" style="left:36px;top:40px;width:78px;height:58px;border-radius:12px;background:#E3B800"></div>
+        <div class="abs" style="left:36px;top:40px;width:78px;height:58px;border-radius:12px;background:linear-gradient(90deg,transparent 46%,#C99E00 46%,#C99E00 54%,transparent 54%),linear-gradient(0deg,transparent 46%,#C99E00 46%,#C99E00 54%,transparent 54%)"></div>
+        <div class="abs" style="left:36px;top:132px;font-weight:800;font-size:44px;letter-spacing:4px">•••• 2024</div>
+        <div class="abs" style="left:36px;top:196px;font-weight:800;font-size:34px;white-space:nowrap"><span data-k="pay.card">Выплата — сегодня</span></div>
+        <svg id="okB" class="abs" style="left:384px;top:30px" width="72" height="72" viewBox="-36 -36 72 72"><circle r="36" fill="#1C8C45"/><path d="M-15 1 L-4 12 L16 -10" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div id="notif" class="abs" style="left:40px;top:670px;width:520px;height:100px;border-radius:30px;background:var(--ink);color:#fff;box-shadow:0 14px 30px rgba(0,0,0,.18)">
+        <div id="nbadge" class="abs" style="left:20px;top:14px;width:72px;height:72px;border-radius:36px;background:#FFD21F;box-shadow:inset 0 -6px 0 #C98A00;font-weight:800;font-size:40px;line-height:68px;text-align:center;color:#9A6400">₸</div>
+        <div class="abs" style="left:112px;top:0;line-height:100px;font-weight:800;font-size:34px;white-space:nowrap"><span data-k="pay.notif">Выплата зачислена ✓</span></div>
       </div>
     </div>
     <div id="coins"></div>
@@ -156,6 +169,10 @@ svg{display:block;overflow:visible}
 
 <script>
 document.querySelectorAll('[data-k]').forEach(e=>{const v=(window.CONTENT||{})[e.dataset.k]; if(v!=null) e.textContent=v;});
+if((window.CONTENT||{})['brand.logo_first']){document.getElementById('t2b-m').style.top='170px';document.getElementById('t2a-m').style.top='330px';}
+// headlines longer than the safe width shrink to fit (KZ lines run longer)
+function fitH1(){document.querySelectorAll('.h1').forEach(e=>{let fs=parseFloat(getComputedStyle(e).fontSize);while(e.scrollWidth>888&&fs>52){fs-=2;e.style.fontSize=fs+'px';e.style.lineHeight=Math.round(fs*1.13)+'px';}});}
+fitH1(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitH1);
 const $=s=>document.querySelector(s);
 const el=(svg,html)=>svg.insertAdjacentHTML('beforeend',html);
 const C={ink:'#1B1B1F',yel:'#FCE000',coral:'#FF5A4E',bag:'#FFB800',bag2:'#E59A00'};
@@ -167,7 +184,7 @@ function mascot({id,col='yel',cap=true,bag=true,strap=true,act='none',bike=false
   const bodyD=`M0 -560 C150 -560 212 -470 212 -330 L202 -160 C198 -112 160 -90 118 -90 L-118 -90 C-160 -90 -198 -112 -202 -160 L-212 -330 C-212 -470 -150 -560 0 -560Z`;
   const body=`<path d="${bodyD}" fill="${B}"/><clipPath id="${id}-cl"><path d="${bodyD}"/></clipPath><g clip-path="url(#${id}-cl)"><ellipse cx="150" cy="-260" rx="120" ry="260" fill="${D}" opacity=".35"/></g>`;
   const bagG=bag?`<g id="${id}-bag"><rect x="-250" y="-560" width="500" height="330" rx="56" fill="${C.bag}"/><rect x="-250" y="-560" width="500" height="64" rx="32" fill="${C.bag2}"/></g>`:'';
-  const legs=`<path d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/><path d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
+  const legs=`<path id="${id}-lg1" d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/><path id="${id}-lg2" d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
   const armL=`<ellipse cx="-222" cy="-250" rx="40" ry="84" transform="rotate(18 -222 -250)" fill="${D}"/>`;
   const armR=`<ellipse cx="222" cy="-250" rx="40" ry="84" transform="rotate(-18 222 -250)" fill="${D}"/>`;
   let arms=armL+armR;
@@ -178,25 +195,51 @@ function mascot({id,col='yel',cap=true,bag=true,strap=true,act='none',bike=false
   const capG=cap?`<path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="${C.ink}"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#000"/><circle cx="0" cy="-628" r="13" fill="#000"/><rect x="-26" y="-596" width="52" height="40" rx="12" fill="${C.yel}"/>`:'';
   const strapG=strap?`<path d="M204 -250 L-196 -128" stroke="${C.ink}" stroke-width="26" stroke-linecap="round"/>`:'';
   const core=`${arms}${body}${strapG}${eyes}${mouth}${capG}`;
-  if(bike){
-    const wheel=(cx,w)=>`<g id="${id}-${w}"><circle cx="${cx}" cy="0" r="92" fill="none" stroke="#2B2B33" stroke-width="26"/><circle cx="${cx}" cy="0" r="70" fill="#fff" opacity=".55"/><path d="M${cx-68} 0 H${cx+68} M${cx} -68 V68" stroke="#2B2B33" stroke-width="8"/><circle cx="${cx}" cy="0" r="14" fill="#2B2B33"/></g>`;
-    const frame=`<path d="M-230 0 L-40 0 L120 -170 L230 0 M-40 0 L-110 -176 M-230 0 L-110 -176 M120 -170 L104 -250" fill="none" stroke="${C.coral}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/><rect x="-170" y="-198" width="120" height="34" rx="17" fill="#2B2B33"/><rect x="70" y="-270" width="96" height="30" rx="15" fill="#2B2B33"/><circle cx="-40" cy="0" r="22" fill="#2B2B33"/>`;
-    const rider=`<g transform="translate(-70 -112) scale(.8)">${bagG}${body}${strapG}${eyes}${mouth}${capG}</g>`;
-    const limbs=`<path d="M-120 -168 L-70 -16" stroke="${D}" stroke-width="36" stroke-linecap="round"/><path d="M-40 -168 L-14 14" stroke="${D}" stroke-width="36" stroke-linecap="round"/><path d="M60 -250 L118 -255" stroke="${D}" stroke-width="34" stroke-linecap="round"/>`;
-    return `<g id="${id}"><ellipse cx="0" cy="104" rx="330" ry="20" fill="#1B1B1F" opacity=".1"/>${wheel(-230,'w1')}${wheel(230,'w2')}${frame}<g id="${id}-sq">${rider}${limbs}</g></g>`;
-  }
+  if(bike) return bikeRig(id,{bagG,body,strapG,eyes,mouth,capG,D});
   return `<g id="${id}"><ellipse cx="0" cy="4" rx="170" ry="18" fill="#1B1B1F" opacity=".1"/><g id="${id}-sq">${bagG}${legs}${core}</g></g>`;
 }
-function car(id){ // side-view cartoon car, mascot peeking from the window
-  const head=`<g transform="translate(20 -34) scale(.3)"><path d="M0 -560 C150 -560 212 -470 212 -330 L212 -90 L-212 -90 L-212 -330 C-212 -470 -150 -560 0 -560Z" fill="${PAL.yel[0]}"/><ellipse cx="-74" cy="-388" rx="54" ry="60" fill="#fff"/><ellipse cx="74" cy="-388" rx="54" ry="60" fill="#fff"/><circle cx="-60" cy="-380" r="32" fill="#24161E"/><circle cx="88" cy="-380" r="32" fill="#24161E"/><path d="M-104 -290 Q0 -220 104 -290" stroke="#24161E" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="${C.ink}"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#000"/></g>`;
-  return `<g id="${id}"><ellipse cx="0" cy="104" rx="360" ry="20" fill="#1B1B1F" opacity=".1"/>
-   <path d="M-330 40 Q-330 -60 -250 -70 L-160 -80 Q-110 -200 0 -210 L120 -210 Q200 -200 250 -90 L310 -80 Q350 -70 350 0 L350 40 Q350 70 320 70 L-300 70 Q-330 70 -330 40Z" fill="${C.coral}"/>
-   <clipPath id="${id}-win"><path d="M-130 -90 Q-90 -185 0 -190 L110 -190 Q175 -182 215 -90Z"/></clipPath>
-   <path d="M-130 -90 Q-90 -185 0 -190 L110 -190 Q175 -182 215 -90Z" fill="#CFEFFF"/><g clip-path="url(#${id}-win)">${head}</g>
-   <rect x="40" y="-190" width="18" height="100" fill="${C.coral}"/>
-   <rect x="300" y="-40" width="44" height="28" rx="10" fill="#FFE9A8"/><rect x="-328" y="-36" width="30" height="24" rx="8" fill="#FFB1A8"/>
-   <g id="${id}-w1"><circle cx="-190" cy="70" r="78" fill="#2B2B33"/><circle cx="-190" cy="70" r="34" fill="#C9C9D1"/><path d="M-216 70 H-164" stroke="#2B2B33" stroke-width="8"/></g>
-   <g id="${id}-w2"><circle cx="200" cy="70" r="78" fill="#2B2B33"/><circle cx="200" cy="70" r="34" fill="#C9C9D1"/><path d="M174 70 H226" stroke="#2B2B33" stroke-width="8"/></g></g>`;
+// ---------- bicycle (side view, faces RIGHT = direction of travel). Geometry after Fluent Emoji "bicycle" (MIT). ----------
+const BB={x:-10,y:14}, CR=52, LEG=148, HIP_N={x:-82,y:-210}, HIP_F={x:-104,y:-210};
+function legD(h,ang){ const px=BB.x+CR*Math.cos(ang), py=BB.y+CR*Math.sin(ang); const dx=px-h.x, dy=py-h.y;
+  let d=Math.hypot(dx,dy); const dd=Math.min(d,2*LEG-.5), a=dd/2, hh=Math.sqrt(LEG*LEG-a*a);
+  const ux=dx/d, uy=dy/d, mx=h.x+ux*a, my=h.y+uy*a, kx=mx+uy*hh, ky=my-ux*hh;
+  return `M${h.x.toFixed(1)} ${h.y.toFixed(1)} L${kx.toFixed(1)} ${ky.toFixed(1)} L${px.toFixed(1)} ${py.toFixed(1)}`; }
+function bikeRig(id,P){
+  const T='#321b41', G='#9B9B9B';
+  const wheel=(cx,w)=>`<g transform="translate(${cx} 0)"><g id="${id}-${w}"><circle r="92" fill="none" stroke="${T}" stroke-width="20"/><circle r="79" fill="none" stroke="#E6E6E6" stroke-width="5"/>${[0,45,90,135].map(a=>`<path d="M0 -77 V77" stroke="#CFCFD6" stroke-width="5" transform="rotate(${a})"/>`).join('')}<circle r="15" fill="${T}"/></g></g>`;
+  const frame=`<g fill="none" stroke="${C.coral}" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"><path d="M-210 0 L-10 14 L-70 -172 Z"/><path d="M-66 -160 L150 -182 M-10 14 L161 -150"/><path d="M152 -198 L168 -136 L210 0"/></g>`;
+  const parts=`<path d="M-10 -16 L-210 -11 M-10 44 L-210 11" stroke="${G}" stroke-width="5"/><circle cx="-10" cy="14" r="30" fill="#F9C23C"/><circle cx="-10" cy="14" r="11" fill="${T}"/>
+    <path d="M-70 -172 L-77 -206" stroke="${G}" stroke-width="14" stroke-linecap="round"/>
+    <path d="M-130 -214 Q-130 -230 -110 -230 L-42 -224 Q-26 -222 -30 -208 Q-72 -200 -118 -203 Q-130 -204 -130 -214Z" fill="#9D5044"/>
+    <path d="M152 -198 L147 -236 L100 -244" stroke="${G}" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M102 -244 L82 -246" stroke="${T}" stroke-width="20" stroke-linecap="round"/>`;
+  const crank=`<g transform="translate(${BB.x} ${BB.y})"><g id="${id}-crank"><path d="M0 -${CR} V${CR}" stroke="${T}" stroke-width="13" stroke-linecap="round"/><circle r="9" fill="#F9C23C"/></g></g>`;
+  const legN=`<path id="${id}-legN" d="${legD(HIP_N,Math.PI/2)}" stroke="${P.D}" stroke-width="36" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const legF=`<path id="${id}-legF" d="${legD(HIP_F,-Math.PI/2)}" stroke="${P.D}" stroke-width="34" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".75"/>`;
+  const bagSide=P.bagG.replace('<g id="'+id+'-bag">','<g id="'+id+'-bag" transform="translate(-90 10)">');
+  const rider=`<g transform="translate(-58 -168) rotate(6) scale(.52)">${bagSide}${P.body}${P.strapG}${P.eyes}${P.mouth}${P.capG}</g>`;
+  const arm=`<path d="M34 -300 Q70 -268 92 -246" stroke="${P.D}" stroke-width="34" fill="none" stroke-linecap="round"/>`;
+  return `<g id="${id}"><ellipse cx="0" cy="104" rx="320" ry="18" fill="#1B1B1F" opacity=".1"/>${legF}${wheel(-210,'w1')}${wheel(210,'w2')}${frame}${parts}<g id="${id}-sq">${rider}${arm}</g>${crank}${legN}</g>`;
+}
+// pedalling: crank turns, both legs follow the pedals (keyframed IK, deterministic under seek)
+function pedal(id,t0,dur,revs){ const n=Math.max(4,Math.round(revs*12)), dt=dur/n, kN=[], kF=[];
+  for(let i=1;i<=n;i++){const a=Math.PI/2+2*Math.PI*revs*i/n; kN.push({attr:{d:legD(HIP_N,a)},duration:dt,ease:'none'}); kF.push({attr:{d:legD(HIP_F,a+Math.PI)},duration:dt,ease:'none'});}
+  RAW.fromTo(`#${id}-crank`,{rotation:0},{rotation:360*revs,transformOrigin:'50% 50%',duration:dur,ease:'none',immediateRender:false},t0);
+  RAW.to(`#${id}-legN`,{keyframes:kN},t0); RAW.to(`#${id}-legF`,{keyframes:kF},t0);
+  RAW.fromTo([`#${id}-w1`,`#${id}-w2`],{rotation:0},{rotation:360*revs*1.6,transformOrigin:'50% 50%',duration:dur,ease:'none',immediateRender:false},t0); }
+// ---------- car (side view, faces RIGHT). Body after Fluent Emoji "automobile" (MIT), mirrored; own wheels + mascot driver ----------
+function car(id){ const k=22, T='#321b41';
+  const head=`<g transform="translate(70 -105) scale(.3)"><path d="M0 -560 C150 -560 212 -470 212 -330 L212 -60 L-212 -60 L-212 -330 C-212 -470 -150 -560 0 -560Z" fill="${PAL.yel[0]}"/><ellipse cx="-74" cy="-388" rx="54" ry="60" fill="#fff"/><ellipse cx="74" cy="-388" rx="54" ry="60" fill="#fff"/><circle cx="-62" cy="-380" r="32" fill="#24161E"/><circle cx="86" cy="-380" r="32" fill="#24161E"/><path d="M-100 -296 Q0 -226 100 -296" stroke="#24161E" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="${C.ink}"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#000"/><rect x="-26" y="-596" width="52" height="40" rx="12" fill="${C.yel}"/></g>`;
+  const win='m12 12l-4.01 6h7.04c.53 0 .96-.43.96-.96v-4.08a.96.96 0 0 0-.96-.96z';
+  const bodyF=`<g transform="matrix(${-k} 0 0 ${k} ${16*k} ${-25.5*k})">
+    <path fill="#f8312f" d="M24.64 10h-9.66c-1.06.04-2.04.61-2.63 1.49L12 12l-1.434 2.985L7.98 18h-3.1c-1.290 0-2.38.84-2.75 2l.266 1.5L2 23v1l14 1l14-1v-4.49c0-.51-.05-1.02-.14-1.51l-1.315-2.789s-.765-3.111-.785-3.171A3.41 3.41 0 0 0 24.64 10"/>
+    <path fill="#9b9b9b" d="M28.61 26H3.39C2.62 26 2 25.38 2 24.61V24h28v.61c0 .77-.62 1.39-1.39 1.39"/>
+    <path fill="#26c9fc" d="${win}m11.01 6h-4.04a.96.96 0 0 1-.96-.96v-4.08c0-.53.43-.96.96-.96h4.04c.53 0 .96.43.96.96v4.08c0 .53-.43.96-.96.96m4.82-5.790l1.64 4.37c.17.46.3.94.38 1.42h-2.91a.96.96 0 0 1-.96-.96v-4c0-.57.47-1.04 1.040-1.04h.72s.07.15.09.21"/>
+    <clipPath id="${id}-win"><path d="M${win.slice(1)}"/></clipPath>
+    <g clip-path="url(#${id}-win)"><g transform="matrix(${-1/k} 0 0 ${1/k} 16 25.5)">${head}</g></g>
+    <path fill="#FFF3B0" d="M3.99 22v-1c0-.55-.45-1-1-1h-.85c-.1.29-.14.6-.14 1.27V23h.99c.55 0 1-.45 1-1"/>
+    <path fill="#ca0b4a" d="M29.99 20h-.5c-.85 0-1.540.71-1.5 1.57c.04.81.74 1.43 1.55 1.43h.45z"/></g>`;
+  const wheel=(cx,w)=>`<g transform="translate(${cx} 0)"><g id="${id}-${w}"><circle r="77" fill="${T}"/><circle r="36" fill="#E6E6E6"/><path d="M0 -36 V36 M-31 -18 L31 18 M-31 18 L31 -18" stroke="#B9B9C2" stroke-width="7"/><circle r="12" fill="${T}"/></g></g>`;
+  return `<g id="${id}"><ellipse cx="0" cy="84" rx="330" ry="18" fill="#1B1B1F" opacity=".1"/>${bodyF}${wheel(165,'w1')}${wheel(-165,'w2')}</g>`;
 }
 function place(svg,html,id,x,y,s){ el(svg,`<g id="${id}-pos"><g transform="scale(${s})">${html}</g></g>`); gsap.set('#'+id+'-pos',{x,y}); }
 
@@ -211,12 +254,12 @@ place($('#s2fg'),mascot({id:'mB'}),'mB',540,1700,1.45);
   [[90,60],[300,40],[420,120],[640,30],[740,150],[200,180],[520,70],[60,250]].forEach(([x,y])=>{const s=document.createElement('div');s.className='star';Object.assign(s.style,{position:'absolute',left:x+'px',top:y+'px',width:'12px',height:'12px',borderRadius:'3px',background:'#fff',opacity:0});$('#stars').appendChild(s);}); })();
 place($('#s3fg'),mascot({id:'mC',act:'wave'}),'mC',820,1700,.62);
 // S4 movement: three vehicles in one card
-for(let i=0;i<14;i++){const d=document.createElement('div');Object.assign(d.style,{position:'absolute',left:(i*150)+'px',top:'0',width:'90px',height:'16px',borderRadius:'8px',background:'#fff'});$('#dash').appendChild(d);}
+for(let i=0;i<22;i++){const d=document.createElement('div');Object.assign(d.style,{position:'absolute',left:(i*150)+'px',top:'0',width:'90px',height:'16px',borderRadius:'8px',background:'#fff'});$('#dash').appendChild(d);}
 el($('#move'),`<g id="v1-pos"><g transform="scale(.9)">${mascot({id:'mW'})}</g></g><g id="v2-pos"><g transform="scale(.82)">${mascot({id:'mV',bike:true})}</g></g><g id="v3-pos"><g transform="scale(1.05)">${car('mCar')}</g></g>`);
-gsap.set('#v1-pos',{x:444,y:770}); gsap.set('#v2-pos',{x:444,y:700,opacity:0}); gsap.set('#v3-pos',{x:444,y:690,opacity:0});
+gsap.set('#v1-pos',{x:-260,y:770}); gsap.set('#v2-pos',{x:-460,y:700,opacity:0}); gsap.set('#v3-pos',{x:-480,y:700,opacity:0});
 // S5 coins
 const COIN='<svg width="96" height="96" viewBox="0 0 104 104"><circle cx="52" cy="56" r="46" fill="#C98A00"/><circle cx="52" cy="50" r="46" fill="#FFD21F"/><circle cx="52" cy="50" r="33" fill="#F5B400"/><text x="52" y="66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="44" fill="#9A6400">₸</text><path d="M22 34 Q32 14 52 10" stroke="#FFF7C2" stroke-width="7" stroke-linecap="round" fill="none"/></svg>';
-for(let i=0;i<8;i++){const e=document.createElement('div');e.className='coin';e.style.left='322px';e.style.top='934px';e.style.opacity=0;e.innerHTML=COIN;$('#coins').appendChild(e);}
+for(let i=0;i<5;i++){const e=document.createElement('div');e.className='coin';e.style.left='492px';e.style.top='690px';e.style.opacity=0;e.innerHTML=COIN;$('#coins').appendChild(e);}
 // S6 a queue of different couriers, each gets a check
 const Q=[['yel',180],['coral',360],['lime',540],['blue',720],['pink',900]];
 Q.forEach(([c,x],i)=>{ el($('#s6fg'),`<g id="q${i}-pos"><g transform="scale(.36)">${mascot({id:'q'+i,col:c,bag:c==='yel'})}</g></g><g id="ok${i}"><circle cx="0" cy="0" r="44" fill="#1C8C45"/><path d="M-18 2 L-4 16 L20 -12" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`); gsap.set('#q'+i+'-pos',{x,y:1060}); gsap.set('#ok'+i,{x,y:770}); });
@@ -226,6 +269,13 @@ place($('#s8fg'),mascot({id:'mZ',act:'wave'}),'mZ',300,1880,.62);
 // ---------- timeline ----------
 window.__timelines=window.__timelines||{};
 const tl=gsap.timeline({paused:true});
+// Scene starts come from content_<lang>.js (TIMING) so each language fits its own voiceover.
+// Code below is written in the RU-v1 time base (OLD); M() shifts every position into the language's scene.
+const OLD=[0,2,4.5,7,10,13,16,18.5], ST=(window.TIMING&&window.TIMING.starts)||OLD, END=(window.TIMING&&window.TIMING.end)||24;
+const M=t=>{let i=0;for(let j=0;j<8;j++) if(t>=OLD[j]-0.1) i=j; return ST[i]+(t-OLD[i]);};
+const RAW={to:tl.to.bind(tl),from:tl.from.bind(tl),fromTo:tl.fromTo.bind(tl),set:tl.set.bind(tl)};
+const mp=p=>typeof p==='number'?M(p):p;
+tl.to=(a,b,p)=>RAW.to(a,b,mp(p)); tl.from=(a,b,p)=>RAW.from(a,b,mp(p)); tl.set=(a,b,p)=>RAW.set(a,b,mp(p)); tl.fromTo=(a,b,c,p)=>RAW.fromTo(a,b,c,mp(p));
 const E={o3:'power3.out',i3:'power3.in',back:'back.out(1.7)',b2:'back.out(2.2)',io:'power3.inOut'};
 const blink=(id,t)=>tl.to(`#${id}-eyes`,{scaleY:.1,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1},t);
 const hop=(id,t,h=60)=>{tl.to(`#${id}-sq`,{scaleY:.88,scaleX:1.08,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1,ease:'power2.out'},t);tl.to(`#${id}-pos`,{y:`-=${h}`,duration:.22,yoyo:true,repeat:1,ease:'power2.out'},t+.12);};
@@ -235,7 +285,7 @@ const pushUp=(a,b,t)=>{tl.set(b,{opacity:1},t);tl.to(a,{y:-1920,duration:.5,ease
 // S1 (0–2): frame 0 already has the headline + speed lines; courier zooms in and skids
 gsap.set('#mA-pos',{x:-120});
 tl.to('#mA-pos',{x:560,duration:.62,ease:'power3.out'},0);
-tl.to(['#mA-w1','#mA-w2'],{rotation:540,transformOrigin:'50% 50%',duration:.62,ease:'power3.out'},0);
+pedal('mA',0,.6,1.4);
 tl.to('#speed',{x:520,opacity:0,duration:.55,ease:'power2.out'},0);
 tl.fromTo('#mA-pos',{rotation:0},{rotation:-6,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},.55);
 tl.fromTo('.dp',{opacity:0,scale:.3,transformOrigin:'50% 50%'},{opacity:.9,scale:1.3,duration:.3,stagger:.05,ease:'power2.out',immediateRender:false},.55);
@@ -265,36 +315,53 @@ tl.to('.bld',{backgroundColor:'#33336B',duration:.3},5.25); tl.to('.win',{opacit
 tl.to('#mC-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.2,yoyo:true,repeat:5,ease:'sine.inOut'},5.0);
 pushUp('#s3','#s4',6.95);
 
-// S4 (7–10): walk → bike → car
-const mv=(n,t)=>{tl.to(`#mv${n}`,{backgroundColor:'#1B1B1F',color:'#fff',duration:.15},t);tl.fromTo(`#mv${n}`,{scale:1},{scale:1.12,duration:.12,yoyo:true,repeat:1,immediateRender:false},t);};
-tl.from('#t4a',{yPercent:110,duration:.4,ease:E.o3},7.1);
-tl.to('#dash',{x:-1050,duration:2.9,ease:'none'},7.05);
-mv(1,7.3); tl.to('#mW-sq',{y:-28,duration:.16,yoyo:true,repeat:5,ease:'power2.out'},7.25);
-tl.to('#v1-pos',{x:-420,duration:.2,ease:E.i3},7.82); tl.set('#v2-pos',{opacity:1,x:1300},8.0); tl.to('#v2-pos',{x:444,duration:.3,ease:E.o3},8.02);
-tl.to(['#mV-w1','#mV-w2'],{rotation:720,transformOrigin:'50% 50%',duration:1.0,ease:'none'},8.05); mv(2,8.1);
-tl.to('#v2-pos',{x:-520,duration:.2,ease:E.i3},8.82); tl.set('#v3-pos',{opacity:1,x:1400},9.0); tl.to('#v3-pos',{x:444,duration:.3,ease:E.o3},9.02);
-tl.to(['#mCar-w1','#mCar-w2'],{rotation:540,transformOrigin:'50% 50%',duration:.9,ease:'none'},9.05); mv(3,9.1);
-tl.to('#v3-pos',{y:'-=10',duration:.12,yoyo:true,repeat:3,ease:'sine.inOut'},9.4);
+// S4: walk → bike → car. Everyone faces right and travels left → right; the road scrolls left.
+{ const b=ST[3], L=ST[4]-ST[3];
+  const mv=(n,t)=>{RAW.to(`#mv${n}`,{backgroundColor:'#1B1B1F',color:'#fff',duration:.15},t);RAW.fromTo(`#mv${n}`,{scale:1},{scale:1.12,duration:.12,yoyo:true,repeat:1,immediateRender:false},t);};
+  RAW.from('#t4a',{yPercent:110,duration:.4,ease:E.o3},b+.1);
+  RAW.fromTo('#dash',{x:0},{x:-1800,duration:L,ease:'none',immediateRender:false},b);
+  // walk
+  RAW.to('#v1-pos',{x:444,duration:.45,ease:E.o3},b+.02); mv(1,b+.3);
+  for(let i=0;i<8;i++){const t=b+.05+i*.17, lg=i%2?'lg2':'lg1';
+    RAW.to(`#mW-${lg}`,{y:-34,duration:.085,yoyo:true,repeat:1,ease:'power2.out'},t);
+    RAW.to('#mW-sq',{y:-16,rotation:i%2?2.5:-2.5,transformOrigin:'50% 100%',duration:.085,yoyo:true,repeat:1,ease:'sine.out'},t);}
+  RAW.to('#v1-pos',{x:1160,duration:.26,ease:E.i3},b+1.32);
+  // bike
+  RAW.set('#v2-pos',{opacity:1},b+1.4); RAW.to('#v2-pos',{x:444,duration:.36,ease:E.o3},b+1.42);
+  pedal('mV',b+1.42,1.56,3.2); mv(2,b+1.55);
+  RAW.to('#mV-sq',{y:-6,duration:.18,yoyo:true,repeat:5,ease:'sine.inOut'},b+1.8);
+  RAW.to('#v2-pos',{x:1400,duration:.26,ease:E.i3},b+2.72);
+  // car
+  RAW.set('#v3-pos',{opacity:1},b+2.84); RAW.to('#v3-pos',{x:444,duration:.4,ease:E.o3},b+2.86);
+  RAW.fromTo(['#mCar-w1','#mCar-w2'],{rotation:0},{rotation:360*3,transformOrigin:'50% 50%',duration:L-2.86,ease:'none',immediateRender:false},b+2.86); mv(3,b+3.0);
+  RAW.to('#mCar',{y:-8,duration:.14,yoyo:true,repeat:5,ease:'sine.inOut'},b+3.3);
+}
 slideOut('#s4','#s5',9.95);
 
-// S5 (10–13): payout + coins
-tl.from(['#t5a','#t5b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},10.1);
-tl.from('#phone',{y:200,opacity:0,duration:.45,ease:E.o3},10.15);
-tl.from('#bal',{scale:.6,opacity:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},10.45);
-tl.from('#notif',{y:-80,scale:.9,opacity:0,duration:.4,ease:E.back},10.9);
-const burst=[[-260,360],[-130,430],[0,370],[130,450],[260,380],[-200,520],[60,540],[200,520]];
-document.querySelectorAll('#coins .coin').forEach((c,i)=>{const[dx,dy]=burst[i],t0=11.2+i*.04;
-  tl.fromTo(c,{x:0,y:0,scale:.3,opacity:0,rotation:i%2?-25:25},{x:dx,y:dy,scale:1,opacity:1,rotation:0,duration:.42,ease:'back.out(1.6)'},t0);
-  tl.to(c,{x:0,y:0,scale:.3,opacity:0,duration:.28,ease:'power2.in'},11.75+i*.035);});
-tl.to('#nbadge',{scale:1.25,duration:.08,yoyo:true,repeat:5,ease:'power2.out'},12.0);
-tl.to('#balnum',{scale:1.15,transformOrigin:'0% 50%',duration:.12,yoyo:true,repeat:1},12.1);
+// S5: orders done (today) → coins drop onto the card → "paid" notification
+{ const b=ST[4];
+  RAW.from(['#t5a','#t5b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},b+.1);
+  RAW.from('#phone',{y:200,opacity:0,duration:.45,ease:E.o3},b+.15);
+  RAW.from('#rowA',{scale:.7,opacity:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},b+.4);
+  RAW.from('#okA',{scale:0,transformOrigin:'50% 50%',duration:.3,ease:E.b2},b+.62);
+  RAW.from('#flow',{opacity:0,y:-20,duration:.25,ease:E.o3},b+.72);
+  RAW.from('#bal',{scale:.7,opacity:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},b+.78);
+  RAW.set('#okB',{scale:0,transformOrigin:'50% 50%'},b);
+  document.querySelectorAll('#coins .coin').forEach((c,i)=>{const t0=b+1.0+i*.13;
+    RAW.fromTo(c,{y:0,scale:.5,opacity:0,rotation:i%2?-20:20},{y:250,scale:.9,opacity:1,rotation:0,duration:.3,ease:'power2.in'},t0);
+    RAW.to(c,{scale:.2,opacity:0,duration:.1},t0+.3);
+    RAW.to('#bal',{scale:1.035,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1},t0+.3);});
+  RAW.to('#okB',{scale:1,duration:.35,ease:E.b2},b+1.75);
+  RAW.from('#notif',{y:40,scale:.9,opacity:0,duration:.4,ease:E.back},b+1.95);
+  RAW.to('#nbadge',{scale:1.2,duration:.08,yoyo:true,repeat:3,ease:'power2.out'},b+2.2);
+}
 slideOut('#s5','#s6',12.95);
 
 // S6 (13–16): everyone gets a check
 tl.from(['#t6a','#t6b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},13.1);
 Q.forEach((q,i)=>{tl.from(`#q${i}-pos`,{y:'+=520',duration:.4,ease:E.back},13.15+i*.06); tl.from(`#ok${i}`,{scale:0,transformOrigin:'50% 50%',duration:.3,ease:E.b2},13.75+i*.2); tl.to(`#q${i}-sq`,{scaleY:.9,scaleX:1.06,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1},13.75+i*.2);});
 tl.from('#allchip',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},14.9);
-blink('q0',15.2); blink('q3',15.4);
+blink('q0',15.2); blink('q3',15.4); if(ST[6]-ST[5]>3.4){hop('q2',15.75,40); blink('q1',16.0-0.12);}
 pushUp('#s6','#s7',15.95);
 
 // S7 (16–18.5): 15 minutes
@@ -323,7 +390,7 @@ tl.from('#bubble',{scale:0,transformOrigin:'100% 100%',duration:.4,ease:E.b2},20
 tl.to('#cursor',{x:60,y:220,opacity:0,duration:.4,ease:E.i3},21.4);
 tl.to('#wa-ring',{scale:1.04,opacity:.06,transformOrigin:'50% 50%',duration:.5,yoyo:true,repeat:4,ease:'sine.inOut'},21.6);
 tl.to('#wa',{scale:1.03,transformOrigin:'50% 50%',duration:.5,yoyo:true,repeat:4,ease:'sine.inOut'},21.6);
-hop('mZ',22.2,50); blink('mZ',23.0);
+hop('mZ',22.2,50); blink('mZ',23.0); if(END-ST[7]>5){hop('mZ',23.6,40); blink('mZ',24.1);}
 
 window.__timelines['main']=tl;
 </script>
