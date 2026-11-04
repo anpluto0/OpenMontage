@@ -22,6 +22,7 @@ window.CONTENT = {
   "how.l1": "Едешь рядом —",
   "how.l2_pre": "до ",
   "how.l2_accent": "2 км",
+  "map.client": "Клиент",
   "how.badge": "до 2 км",
   "how.done": "Доставлено ✓",
   // Сцена 5 · комната отдыха
