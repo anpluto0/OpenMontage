@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+:root{--ink:#17171C;--paper:#F7F2EB;--white:#FFFFFF;--heart:#FA084E;--orange:#FEA202;--peach:#FFEFD5;--lime:#8CD23C;--lime2:#6DB22A;--block:#EDE6DC;--mute:#8B857C}
+html,body{margin:0;background:#0E0E10}
+.sheet{display:flex;gap:24px;padding:24px;width:max-content}
+.fr{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--paper);font-family:Onest,sans-serif;color:var(--ink);zoom:.5;border-radius:24px}
+.abs{position:absolute}
+.h1{position:absolute;left:96px;font-weight:800;font-size:92px;line-height:104px;letter-spacing:-1.5px}
+.card{position:absolute;background:var(--white);border-radius:36px;box-shadow:0 10px 0 rgba(23,23,28,.06)}
+.chip{position:absolute;height:72px;border-radius:36px;padding:0 30px;font-weight:800;font-size:34px;line-height:72px;white-space:nowrap}
+svg{display:block;overflow:visible}
+</style></head><body><div class="sheet">
+
+<!-- 1 · HOOK: map of the neighbourhood -->
+<div class="fr" id="f1">
+  <div class="h1" style="top:170px">Ищешь подработку</div>
+  <div class="h1" style="top:274px;color:var(--orange)">рядом с домом?</div>
+  <div class="card" style="left:64px;top:470px;width:952px;height:1060px;overflow:hidden;background:#EFE8DE">
+    <svg id="map1" width="952" height="1060"></svg>
+  </div>
+  <div class="abs" style="left:830px;top:1880px"><svg id="c1" width="1" height="1"></svg></div>
+</div>
+
+<!-- 2 · DARKSTORE -->
+<div class="fr" id="f2" style="background:var(--white)">
+  <div class="h1" style="top:170px">Даркстор —</div>
+  <div class="h1" style="top:274px">магазин <span style="color:var(--heart)">только</span></div>
+  <div class="h1" style="top:378px;color:var(--heart)">для доставки</div>
+  <svg class="abs" style="left:0;top:600px" width="1080" height="1320" id="store"></svg>
+</div>
+
+<!-- 3 · HOW IT WORKS: 2 km -->
+<div class="fr" id="f3">
+  <div class="abs" style="left:96px;top:170px;display:flex;gap:14px;align-items:center;font-weight:800;font-size:40px">
+    <span class="step">1</span>Заказ<span style="color:var(--mute)">→</span><span class="step">2</span>Сборка<span style="color:var(--mute)">→</span><span class="step" style="background:var(--heart);color:#fff">3</span>Доставка
+  </div>
+  <div class="h1" style="top:270px">Едешь рядом —</div>
+  <div class="h1" style="top:374px">до <span style="color:var(--heart)">2 км</span></div>
+  <div class="card" style="left:64px;top:560px;width:952px;height:1100px;overflow:hidden;background:#EFE8DE">
+    <svg id="map3" width="952" height="1100"></svg>
+  </div>
+</div>
+
+<!-- 4 · REST ROOM -->
+<div class="fr" id="f4" style="background:var(--peach)">
+  <div class="h1" style="top:170px">Отвёз — и обратно</div>
+  <div class="h1" style="top:274px;color:var(--orange)">в комнату отдыха</div>
+  <svg class="abs" style="left:0;top:470px" width="1080" height="1450" id="lounge"></svg>
+  <div class="chip" style="left:96px;top:1690px;background:var(--ink);color:#fff">Оплата даже без заказов</div>
+  <div class="chip" style="left:96px;top:1782px;background:#fff;color:var(--ink)">Сумка бесплатно</div>
+</div>
+
+</div>
+<style>.step{display:inline-block;width:60px;height:60px;border-radius:20px;background:var(--ink);color:#fff;text-align:center;line-height:60px;font-size:34px}</style>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const C={ink:'#17171C',heart:'#FA084E',orange:'#FEA202',peach:'#FFEFD5',lime:'#8CD23C',lime2:'#6DB22A',lime3:'#4E8A1A',skin:'#F2C29B',skin2:'#E2A97E',hair:'#2B2235',pants:'#2F3140',block:'#FFFFFF',road:'#EFE8DE',tree:'#C9E7A6'};
+const el=(svg,html)=>{svg.insertAdjacentHTML('beforeend',html)};
+
+// ---------- jelly-bean mascot courier (Choco heart colour, glossy) ----------
+let GID=0;
+const PAL={red:['#FA084E','#C7003C','#FF6C93'],orange:['#FEA202','#D47F00','#FFC95C'],lime:['#8CD23C','#5E9A1E','#B9EA7E']};
+function courier({x=0,y=0,s=1,pose='stand',col='red',cap=false,strap=false,act='none'}={}){
+  const OL='#24161E', W=10, [B,D,L]=PAL[col], id='g'+(GID++);
+  const st=''; const ln=`stroke="${OL}" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"`;
+  const by = pose==='sit'? 60 : 0;   // shift body down when sitting (legs hidden by cushion)
+  const defs=`<defs><radialGradient id="${id}" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="${L}"/><stop offset=".45" stop-color="${B}"/><stop offset="1" stop-color="${D}"/></radialGradient></defs>`;
+  const body=`<path d="M0 ${-560+by} C150 ${-560+by} 212 ${-470+by} 212 ${-330+by} L202 ${-160+by} C198 ${-112+by} 160 ${-90+by} 118 ${-90+by} L-118 ${-90+by} C-160 ${-90+by} -198 ${-112+by} -202 ${-160+by} L-212 ${-330+by} C-212 ${-470+by} -150 ${-560+by} 0 ${-560+by}Z" fill="${B}"/>`;
+  const gloss=`<clipPath id="${id}c"><path d="M0 ${-560+by} C150 ${-560+by} 212 ${-470+by} 212 ${-330+by} L202 ${-160+by} C198 ${-112+by} 160 ${-90+by} 118 ${-90+by} L-118 ${-90+by} C-160 ${-90+by} -198 ${-112+by} -202 ${-160+by} L-212 ${-330+by} C-212 ${-470+by} -150 ${-560+by} 0 ${-560+by}Z"/></clipPath>
+    <g clip-path="url(#${id}c)"><ellipse cx="150" cy="${-260+by}" rx="120" ry="260" fill="${D}" opacity=".35"/></g>
+    <rect x="-150" y="${-512+by}" width="90" height="34" rx="17" fill="#fff" opacity=".35" transform="rotate(-24 -105 ${-495+by})"/>`;
+  const legs = pose==='sit'
+    ? `<path d="M-96 0 h64 v66 a32 32 0 0 1 -64 0z" fill="${D}"/><path d="M32 0 h64 v66 a32 32 0 0 1 -64 0z" fill="${D}"/>`
+    : `<path d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}" ${st}/><path d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
+  const armL=(rot=18)=>`<ellipse cx="-222" cy="${-250+by}" rx="40" ry="84" transform="rotate(${rot} -222 ${-250+by})" fill="${D}" ${st}/>`;
+  const armR=(rot=-18)=>`<ellipse cx="222" cy="${-250+by}" rx="40" ry="84" transform="rotate(${rot} 222 ${-250+by})" fill="${D}"/>`;
+  let arms=armL()+armR(), front='';
+  if(act==='wave') arms=armL()+`<ellipse cx="250" cy="${-420+by}" rx="40" ry="84" transform="rotate(-30 250 ${-420+by})" fill="${D}" ${st}/>`;
+  if(act==='phone'){ arms=armL(); front=`<g transform="translate(170 ${-300+by}) rotate(-10)"><rect x="-34" y="-60" width="68" height="112" rx="14" fill="${OL}"/><rect x="-26" y="-50" width="52" height="86" rx="8" fill="#9FD7FF"/></g><ellipse cx="200" cy="${-250+by}" rx="44" ry="40" fill="${D}" ${st}/>`; }
+  if(act==='bag'){ arms=armL(); front=`<g transform="translate(250 ${-190+by})"><path d="M-70 -64 h140 l12 170 h-164z" fill="#EBCFA6"/><path d="M-34 -64 q0 -46 34 -46 q34 0 34 46" fill="none" ${ln}/>
+      <rect x="-52" y="-104" width="24" height="56" rx="8" fill="#FFD43B" ${st} transform="rotate(-14 -40 -76)"/><circle cx="26" cy="-80" r="22" fill="#8CD23C" ${st}/>
+      <path d="M0 46 C-30 22 -26 0 -10 0 C-4 0 0 4 0 9 C0 4 4 0 10 0 C26 0 30 22 0 46Z" fill="${C.heart}"/></g><ellipse cx="236" cy="${-262+by}" rx="42" ry="40" fill="${D}" ${st}/>`; }
+  if(act==='mug'){ arms=''; front=`<g transform="translate(0 ${-200+by})"><rect x="-44" y="-50" width="88" height="90" rx="18" fill="#fff" ${st}/><path d="M44 -30 q28 0 28 22 q0 22 -28 22" fill="none" ${ln}/><rect x="-34" y="-40" width="68" height="16" rx="8" fill="#C98A5A"/></g>
+      <ellipse cx="-70" cy="${-196+by}" rx="40" ry="34" fill="${D}" ${st}/><ellipse cx="70" cy="${-196+by}" rx="40" ry="34" fill="${D}" ${st}/>`; }
+  const ey=-388+by;
+  const face=`<ellipse cx="-74" cy="${ey}" rx="54" ry="60" fill="#fff" ${st}/><ellipse cx="74" cy="${ey}" rx="54" ry="60" fill="#fff" ${st}/>
+    <circle cx="-66" cy="${ey+8}" r="32" fill="${OL}"/><circle cx="66" cy="${ey+8}" r="32" fill="${OL}"/>
+    <circle cx="-56" cy="${ey-6}" r="11" fill="#fff"/><circle cx="76" cy="${ey-6}" r="11" fill="#fff"/>
+    <path d="M-126 ${ey+56} Q-100 ${ey+62} -82 ${ey+56}" stroke="${D}" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M82 ${ey+56} Q100 ${ey+62} 126 ${ey+56}" stroke="${D}" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M-104 ${ey+98} Q0 ${ey+168} 104 ${ey+98}" stroke="${OL}" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M-112 ${ey+92} l-14 12 M112 ${ey+92} l14 12" stroke="${OL}" stroke-width="7" stroke-linecap="round"/>`;
+  const capG=cap?`<path d="M-150 ${-492+by} Q-140 ${-600+by} 0 ${-604+by} Q140 ${-600+by} 150 ${-492+by} Q0 ${-520+by} -150 ${-492+by}Z" fill="${C.lime}" ${st}/><path d="M60 ${-506+by} Q180 ${-524+by} 236 ${-476+by} Q160 ${-462+by} 76 ${-484+by}Z" fill="${C.lime2}" ${st}/><circle cx="0" cy="${-604+by}" r="12" fill="${C.lime2}" ${st}/>`:'';
+  const strapG=strap?`<path d="M204 ${-250+by} L-196 ${-128+by}" stroke="${C.lime}" stroke-width="28" stroke-linecap="round"/><rect x="-30" y="${-214+by}" width="60" height="40" rx="10" fill="${C.lime2}" transform="rotate(-17 0 ${-194+by})"/>`:'';
+  const T=`transform="translate(${x} ${y}) scale(${s})"`;
+  const shadow=pose==='sit'?'':`<ellipse cx="0" cy="4" rx="170" ry="18" fill="#17171C" opacity=".08"/>`;
+  if(pose==='sit') return {back:`<g ${T}>${defs}${arms}${body}${gloss}${strapG}${face}${capG}${front}</g>`, front:`<g ${T}>${legs}</g>`};
+  return `<g ${T}>${defs}${shadow}${legs}${arms}${body}${gloss}${strapG}${face}${capG}${front}</g>`;
+}
+
+// ---------- map ----------
+function map(svg,w,h,{home,store,circle,route}){
+  for(let r=0;r<12;r++)for(let c=0;c<8;c++){
+    const bx=24+c*124, by=24+r*124; const big=((r*3+c*5)%7===0);
+    el(svg,`<rect x="${bx}" y="${by}" width="${big?224:100}" height="100" rx="22" fill="${C.block}"/>`);
+    if((r*5+c*3)%6===0) el(svg,`<circle cx="${bx+50}" cy="${by+50}" r="26" fill="${C.tree}"/>`);
+  }
+  if(circle) el(svg,`<circle cx="${store[0]}" cy="${store[1]}" r="${circle}" fill="${C.heart}" fill-opacity=".07" stroke="${C.heart}" stroke-width="6" stroke-dasharray="18 16"/>`);
+  if(route) el(svg,`<path d="${route}" fill="none" stroke="${C.ink}" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>`);
+  if(home){ const [x,y]=home; el(svg,`<g transform="translate(${x} ${y})"><rect x="-70" y="-70" width="140" height="140" rx="30" fill="${C.orange}"/><path d="M-34 6 L0 -28 L34 6 V36 H-34Z" fill="#fff"/><rect x="-10" y="12" width="20" height="24" rx="4" fill="${C.orange}"/>
+     <g transform="translate(0 -110)"><rect x="-74" y="-34" width="148" height="68" rx="34" fill="${C.ink}"/><text x="0" y="12" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#fff">Дом</text></g></g>`);}
+  if(store){ const [x,y]=store; el(svg,`<g transform="translate(${x} ${y})"><rect x="-78" y="-78" width="156" height="156" rx="40" fill="#fff" stroke="${C.heart}" stroke-width="8"/>
+     <path d="M0 40 C-60 0 -52 -44 -20 -44 C-8 -44 0 -36 0 -26 C0 -36 8 -44 20 -44 C52 -44 60 0 0 40Z" fill="${C.heart}" transform="scale(1.3) translate(0 4)"/></g>`);}
+}
+map(document.getElementById('map1'),952,1060,{home:[300,560],store:[640,340],route:'M300 560 Q470 520 640 340'});
+el(document.getElementById('c1'),courier({x:-40,y:0,s:.82,act:'phone',cap:true,strap:true}));
+
+map(document.getElementById('map3'),952,1100,{store:[476,520],circle:390,home:[740,300],route:'M476 520 L560 520 Q620 520 640 440 L700 330'});
+el(document.getElementById('map3'),`<g transform="translate(476 952)"><rect x="-110" y="-40" width="220" height="80" rx="40" fill="${C.heart}"/><text x="0" y="14" text-anchor="middle" font-family="Onest" font-weight="800" font-size="40" fill="#fff">до 2 км</text></g>`);
+el(document.getElementById('map3'),courier({x:610,y:520,s:.16,cap:true}));
+
+// ---------- darkstore ----------
+(function(){const s=document.getElementById('store');
+  // building
+  el(s,`<rect x="96" y="60" width="888" height="940" rx="48" fill="#F7F2EB"/>`);
+  // sign band — logo centred with breathing room
+  el(s,`<rect x="136" y="100" width="808" height="150" rx="36" fill="#fff"/><image href="../../hyperframes/assets/choco_logo.png" x="300" y="147" width="480" height="55"/>`);
+  // shop window: shelves behind a half-raised shutter
+  el(s,`<rect x="136" y="290" width="520" height="560" rx="32" fill="#fff"/>`);
+  const prod=['#FFD43B','#FF6B6B','#FFFFFF','#8CD23C','#FEA202','#9FD7FF','#FA084E','#F2C29B'];
+  for(let r=0;r<3;r++){ const sy=480+r*130; el(s,`<rect x="160" y="${sy}" width="472" height="16" rx="8" fill="#E2D9CC"/>`);
+    for(let i=0;i<5;i++){const w=64+((i*7+r*3)%3)*10, h=64+((i*5+r)%3)*18; el(s,`<rect x="${172+i*92}" y="${sy-h}" width="${w}" height="${h}" rx="14" fill="${prod[(i+r*3)%8]}" stroke="#17171C" stroke-opacity=".07" stroke-width="3"/>`);} }
+  el(s,`<clipPath id="win"><rect x="136" y="290" width="520" height="560" rx="32"/></clipPath><g clip-path="url(#win)"><rect id="shutter" x="136" y="290" width="520" height="190" fill="#DDD5CA"/>${[0,1,2].map(i=>`<rect x="136" y="${318+i*48}" width="520" height="8" fill="#CBC2B5"/>`).join('')}<rect x="136" y="470" width="520" height="12" fill="#BDB3A5"/></g>`);
+  // door
+  el(s,`<rect x="696" y="420" width="248" height="430" rx="32" fill="${C.ink}"/><rect x="720" y="470" width="200" height="96" rx="20" fill="#fff"/>
+    <text x="820" y="508" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.ink}">Только для</text>
+    <text x="820" y="544" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.heart}">курьеров</text>
+    <circle cx="912" cy="660" r="12" fill="#fff"/>`);
+  el(s,`<rect x="56" y="850" width="968" height="36" rx="18" fill="#E9E2D8"/>`);
+  el(s,courier({x:380,y:1200,s:.82,act:'bag',cap:true,strap:true}));
+})();
+
+// ---------- lounge ----------
+(function(){const s=document.getElementById('lounge');
+  el(s,`<rect x="96" y="60" width="888" height="1100" rx="48" fill="#fff"/>`);
+  el(s,`<g transform="translate(820 200)"><circle r="78" fill="${C.peach}" stroke="${C.ink}" stroke-width="10"/><path d="M0 0 V-46 M0 0 L32 18" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/></g>`);
+  el(s,`<g transform="translate(150 140)"><rect width="380" height="200" rx="32" fill="${C.ink}"/><text x="34" y="62" font-family="Onest" font-weight="500" font-size="28" fill="#B9B4AA">Заказов: 0</text><text x="34" y="132" font-family="Onest" font-weight="800" font-size="46" fill="#fff">Баланс ↑</text><rect x="34" y="152" width="200" height="16" rx="8" fill="${C.lime}"/></g>`);
+  const seat=860;
+  // sofa back + arms
+  el(s,`<rect x="150" y="560" width="780" height="330" rx="64" fill="#FFB938"/><rect x="110" y="720" width="130" height="300" rx="56" fill="#E89200"/><rect x="840" y="720" width="130" height="300" rx="56" fill="#E89200"/>`);
+  const ppl=[courier({x:310,y:seat,s:.5,pose:'sit',col:'orange',act:'mug'}),courier({x:540,y:seat,s:.5,pose:'sit',col:'red',cap:true,act:'mug'}),courier({x:770,y:seat,s:.5,pose:'sit',col:'lime',act:'mug'})];
+  ppl.forEach(p=>el(s,p.back));
+  // seat cushion in front of bodies
+  el(s,`<rect x="200" y="${seat-34}" width="680" height="150" rx="44" fill="${C.orange}"/><rect x="200" y="${seat-34}" width="680" height="26" rx="13" fill="#FFC75A"/>`);
+  ppl.forEach(p=>el(s,p.front));
+  el(s,`<rect x="110" y="1000" width="860" height="30" rx="15" fill="#E89200"/><rect x="170" y="1030" width="40" height="60" rx="12" fill="#C47A00"/><rect x="870" y="1030" width="40" height="60" rx="12" fill="#C47A00"/>`);
+})();
+</script>
+</body></html>

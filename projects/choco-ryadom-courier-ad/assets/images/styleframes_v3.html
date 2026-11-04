@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(fonts/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(fonts/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+:root{--ink:#17171C;--paper:#F7F2EB;--white:#FFFFFF;--heart:#FA084E;--orange:#FEA202;--peach:#FFEFD5;--lime:#8CD23C;--lime2:#6DB22A;--block:#EDE6DC;--mute:#8B857C}
+html,body{margin:0;background:#0E0E10}
+.sheet{display:flex;gap:24px;padding:24px;width:max-content}
+.fr{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--paper);font-family:Onest,sans-serif;color:var(--ink);zoom:.5;border-radius:24px}
+.abs{position:absolute}
+.h1{position:absolute;left:96px;font-weight:800;font-size:92px;line-height:104px;letter-spacing:-1.5px}
+.card{position:absolute;background:var(--white);border-radius:36px;box-shadow:0 10px 0 rgba(23,23,28,.06)}
+.chip{position:absolute;height:72px;border-radius:36px;padding:0 30px;font-weight:800;font-size:34px;line-height:72px;white-space:nowrap}
+svg{display:block;overflow:visible}
+</style></head><body><div class="sheet">
+
+<!-- 1 · HOOK: map of the neighbourhood -->
+<div class="fr" id="f1">
+  <div class="h1" style="top:170px">Ищешь подработку</div>
+  <div class="h1" style="top:274px;color:var(--orange)">рядом с домом?</div>
+  <div class="card" style="left:64px;top:470px;width:952px;height:1060px;overflow:hidden;background:#EFE8DE">
+    <svg id="map1" width="952" height="1060"></svg>
+  </div>
+  <div class="abs" style="left:830px;top:1880px"><svg id="c1" width="1" height="1"></svg></div>
+</div>
+
+<!-- 2 · DARKSTORE -->
+<div class="fr" id="f2" style="background:var(--white)">
+  <div class="h1" style="top:170px">Даркстор —</div>
+  <div class="h1" style="top:274px">магазин <span style="color:var(--heart)">только</span></div>
+  <div class="h1" style="top:378px;color:var(--heart)">для доставки</div>
+  <svg class="abs" style="left:0;top:600px" width="1080" height="1320" id="store"></svg>
+</div>
+
+<!-- 3 · HOW IT WORKS: 2 km -->
+<div class="fr" id="f3">
+  <div class="abs" style="left:96px;top:170px;display:flex;gap:14px;align-items:center;font-weight:800;font-size:40px">
+    <span class="step">1</span>Заказ<span style="color:var(--mute)">→</span><span class="step">2</span>Сборка<span style="color:var(--mute)">→</span><span class="step" style="background:var(--heart);color:#fff">3</span>Доставка
+  </div>
+  <div class="h1" style="top:270px">Едешь рядом —</div>
+  <div class="h1" style="top:374px">до <span style="color:var(--heart)">2 км</span></div>
+  <div class="card" style="left:64px;top:560px;width:952px;height:1100px;overflow:hidden;background:#EFE8DE">
+    <svg id="map3" width="952" height="1100"></svg>
+  </div>
+</div>
+
+<!-- 4 · REST ROOM -->
+<div class="fr" id="f4" style="background:var(--peach)">
+  <div class="h1" style="top:170px">Отвёз — и обратно</div>
+  <div class="h1" style="top:274px;color:var(--orange)">в комнату отдыха</div>
+  <svg class="abs" style="left:0;top:470px" width="1080" height="1450" id="lounge"></svg>
+  <div class="chip" style="left:96px;top:1690px;background:var(--ink);color:#fff">Оплата даже без заказов</div>
+  <div class="chip" style="left:96px;top:1782px;background:#fff;color:var(--ink)">Сумка бесплатно</div>
+</div>
+
+</div>
+<style>.step{display:inline-block;width:60px;height:60px;border-radius:20px;background:var(--ink);color:#fff;text-align:center;line-height:60px;font-size:34px}</style>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const C={ink:'#17171C',heart:'#FA084E',orange:'#FEA202',peach:'#FFEFD5',lime:'#8CD23C',lime2:'#6DB22A',lime3:'#4E8A1A',skin:'#F2C29B',skin2:'#E2A97E',hair:'#2B2235',pants:'#2F3140',block:'#FFFFFF',road:'#EFE8DE',tree:'#C9E7A6'};
+const el=(svg,html)=>{svg.insertAdjacentHTML('beforeend',html)};
+
+// ---------- toy-brick minifigure courier ----------
+// origin: feet centre (stand) or seat line (sit). sit returns {back, front}.
+function courier({x=0,y=0,s=1,pose='stand',skin='#FFCF3E',hair=C.hair,look='cap',act='none',jacket=C.lime}={}){
+  const J=jacket, J2=C.lime2, J3=C.lime3, P=C.pants, P2='#23242F';
+  const base = pose==='sit'? 0 : -150;           // hips bottom
+  const hipT=base-34, tT=hipT-200, nT=tT-16, hT=nT-130;
+  const skinD='#E8B21F';
+  const bag=`<rect x="-130" y="${tT-40}" width="260" height="230" rx="30" fill="${J3}"/><rect x="-130" y="${tT-40}" width="260" height="56" rx="26" fill="${J2}"/>`;
+  const torso=`<path d="M-88 ${tT} H88 L114 ${hipT} H-114 Z" fill="${J}" stroke="${J}" stroke-width="18" stroke-linejoin="round"/>
+    <path d="M-40 ${tT-4} Q0 ${tT+34} 40 ${tT-4}Z" fill="${J2}"/>
+    <rect x="-3" y="${tT+30}" width="6" height="150" rx="3" fill="${J2}"/>
+    <rect x="34" y="${tT+110}" width="46" height="34" rx="8" fill="${J2}" opacity=".7"/>`;
+  const hips=`<rect x="-118" y="${hipT}" width="236" height="38" rx="10" fill="${P2}"/>`;
+  const legs = pose==='sit'
+    ? `<rect x="-112" y="-26" width="104" height="70" rx="14" fill="${P}"/><rect x="8" y="-26" width="104" height="70" rx="14" fill="${P}"/>
+       <rect x="-108" y="30" width="96" height="110" rx="12" fill="${P}"/><rect x="12" y="30" width="96" height="110" rx="12" fill="${P}"/>
+       <rect x="-112" y="126" width="104" height="26" rx="10" fill="${P2}"/><rect x="8" y="126" width="104" height="26" rx="10" fill="${P2}"/>`
+    : `<rect x="-112" y="${base+4}" width="104" height="146" rx="12" fill="${P}"/><rect x="8" y="${base+4}" width="104" height="146" rx="12" fill="${P}"/>
+       <rect x="-116" y="-26" width="112" height="26" rx="10" fill="${P2}"/><rect x="4" y="-26" width="112" height="26" rx="10" fill="${P2}"/>`;
+  const hand=(cx,cy,rot=0)=>`<g transform="translate(${cx} ${cy}) rotate(${rot})"><circle r="26" fill="${skin}"/><path d="M-12 14 A16 16 0 0 0 12 14" stroke="${skinD}" stroke-width="8" fill="none" stroke-linecap="round"/></g>`;
+  const arm=(side,ang,len=150)=>{ // side -1 left, 1 right; ang degrees from vertical (outward +)
+    const sx=side*96, sy=tT+30, r=ang*Math.PI/180, ex=sx+side*Math.sin(r)*len, ey=sy+Math.cos(r)*len;
+    return `<path d="M${sx} ${sy} L${ex.toFixed(1)} ${ey.toFixed(1)}" stroke="${J2}" stroke-width="52" stroke-linecap="round"/>${hand(ex+side*Math.sin(r)*24, ey+Math.cos(r)*24)}`; };
+  let arms;
+  if(act==='wave') arms=arm(-1,12)+arm(1,160,140);
+  else if(act==='phone') arms=arm(-1,12)+`<path d="M96 ${tT+30} L150 ${tT+110} L110 ${tT+60}" stroke="${J2}" stroke-width="52" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <g transform="translate(96 ${tT+40}) rotate(-8)"><rect x="-30" y="-56" width="60" height="98" rx="12" fill="${C.ink}"/><rect x="-23" y="-48" width="46" height="76" rx="7" fill="#9FD7FF"/></g>${hand(100,tT+76)}`;
+  else if(act==='mug') arms=`<path d="M-96 ${tT+30} L-120 ${tT+110} L-40 ${tT+120}" stroke="${J2}" stroke-width="52" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M96 ${tT+30} L120 ${tT+110} L40 ${tT+120}" stroke="${J2}" stroke-width="52" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <g transform="translate(0 ${tT+104})"><rect x="-32" y="-40" width="64" height="70" rx="14" fill="#fff"/><rect x="28" y="-24" width="22" height="34" rx="11" fill="none" stroke="#fff" stroke-width="8"/><rect x="-32" y="-40" width="64" height="16" rx="8" fill="#C98A5A"/></g>${hand(-36,tT+122)}${hand(36,tT+122)}`;
+  else arms=arm(-1,12)+arm(1,12);
+  const eyY=hT+62;
+  const head=`<rect x="-26" y="${nT-2}" width="52" height="22" rx="6" fill="${skinD}"/>
+    <rect x="-76" y="${hT}" width="152" height="132" rx="34" fill="${skin}"/>
+    <rect x="-64" y="${hT+8}" width="18" height="116" rx="9" fill="#fff" opacity=".25"/>
+    <rect x="46" y="${hT+8}" width="22" height="116" rx="11" fill="${skinD}" opacity=".45"/>
+    <rect x="-36" y="${hT-20}" width="72" height="26" rx="8" fill="${skin}"/><rect x="-36" y="${hT-20}" width="72" height="8" rx="4" fill="#fff" opacity=".3"/>
+    <rect x="-38" y="${eyY-26}" width="22" height="7" rx="3.5" fill="${C.ink}"/><rect x="16" y="${eyY-26}" width="22" height="7" rx="3.5" fill="${C.ink}"/>
+    <ellipse cx="-26" cy="${eyY}" rx="8" ry="11" fill="${C.ink}"/><ellipse cx="26" cy="${eyY}" rx="8" ry="11" fill="${C.ink}"/>
+    <path d="M-30 ${eyY+28} Q0 ${eyY+58} 30 ${eyY+28}" stroke="${C.ink}" stroke-width="7" stroke-linecap="round" fill="none"/>`;
+  let top='';
+  if(look==='cap') top=`<path d="M-82 ${hT+36} Q-84 ${hT-30} 0 ${hT-32} Q84 ${hT-30} 82 ${hT+36}Z" fill="${J}"/><rect x="-84" y="${hT+26}" width="168" height="18" rx="9" fill="${J2}"/><rect x="20" y="${hT+30}" width="104" height="20" rx="10" fill="${J2}"/>`;
+  else if(look==='bun') top=`<circle cx="0" cy="${hT-38}" r="34" fill="${hair}"/><path d="M-84 ${hT+60} Q-88 ${hT-26} 0 ${hT-28} Q88 ${hT-26} 84 ${hT+60} Q70 ${hT+20} 20 ${hT+18} Q-30 ${hT+14} -84 ${hT+60}Z" fill="${hair}"/>`;
+  else if(look==='hair') top=`<path d="M-84 ${hT+50} Q-90 ${hT-28} 0 ${hT-30} Q90 ${hT-28} 84 ${hT+50} L70 ${hT+22} L46 ${hT+34} L24 ${hT+16} L0 ${hT+30} L-26 ${hT+14} L-50 ${hT+32} L-72 ${hT+20}Z" fill="${hair}"/>`;
+  const T=`transform="translate(${x} ${y}) scale(${s})"`;
+  if(pose==='sit') return {back:`<g ${T}>${bag}${hips}${torso}${arms}${head}${top}</g>`, front:`<g ${T}>${legs}</g>`};
+  return `<g ${T}>${bag}${legs}${hips}${torso}${arms}${head}${top}</g>`;
+}
+
+// ---------- map ----------
+function map(svg,w,h,{home,store,circle,route}){
+  for(let r=0;r<12;r++)for(let c=0;c<8;c++){
+    const bx=24+c*124, by=24+r*124; const big=((r*3+c*5)%7===0);
+    el(svg,`<rect x="${bx}" y="${by}" width="${big?224:100}" height="100" rx="22" fill="${C.block}"/>`);
+    if((r*5+c*3)%6===0) el(svg,`<circle cx="${bx+50}" cy="${by+50}" r="26" fill="${C.tree}"/>`);
+  }
+  if(circle) el(svg,`<circle cx="${store[0]}" cy="${store[1]}" r="${circle}" fill="${C.heart}" fill-opacity=".07" stroke="${C.heart}" stroke-width="6" stroke-dasharray="18 16"/>`);
+  if(route) el(svg,`<path d="${route}" fill="none" stroke="${C.ink}" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>`);
+  if(home){ const [x,y]=home; el(svg,`<g transform="translate(${x} ${y})"><rect x="-70" y="-70" width="140" height="140" rx="30" fill="${C.orange}"/><path d="M-34 6 L0 -28 L34 6 V36 H-34Z" fill="#fff"/><rect x="-10" y="12" width="20" height="24" rx="4" fill="${C.orange}"/>
+     <g transform="translate(0 -110)"><rect x="-74" y="-34" width="148" height="68" rx="34" fill="${C.ink}"/><text x="0" y="12" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#fff">Дом</text></g></g>`);}
+  if(store){ const [x,y]=store; el(svg,`<g transform="translate(${x} ${y})"><rect x="-78" y="-78" width="156" height="156" rx="40" fill="#fff" stroke="${C.heart}" stroke-width="8"/>
+     <path d="M0 40 C-60 0 -52 -44 -20 -44 C-8 -44 0 -36 0 -26 C0 -36 8 -44 20 -44 C52 -44 60 0 0 40Z" fill="${C.heart}" transform="scale(1.3) translate(0 4)"/></g>`);}
+}
+map(document.getElementById('map1'),952,1060,{home:[300,560],store:[640,340],route:'M300 560 Q470 520 640 340'});
+el(document.getElementById('c1'),courier({x:0,y:0,s:1.05,act:'phone'}));
+
+map(document.getElementById('map3'),952,1100,{store:[476,520],circle:390,home:[740,300],route:'M476 520 L560 520 Q620 520 640 440 L700 330'});
+el(document.getElementById('map3'),`<g transform="translate(476 952)"><rect x="-110" y="-40" width="220" height="80" rx="40" fill="${C.heart}"/><text x="0" y="14" text-anchor="middle" font-family="Onest" font-weight="800" font-size="40" fill="#fff">до 2 км</text></g>`);
+el(document.getElementById('map3'),`<g transform="translate(610 470)"><circle r="46" fill="${C.lime}" stroke="#fff" stroke-width="8"/><circle cy="-8" r="16" fill="${C.skin}"/><rect x="-20" y="10" width="40" height="22" rx="11" fill="${C.lime3}"/></g>`);
+
+// ---------- darkstore ----------
+(function(){const s=document.getElementById('store');
+  // building
+  el(s,`<rect x="96" y="60" width="888" height="940" rx="48" fill="#F7F2EB"/>`);
+  // sign band — logo centred with breathing room
+  el(s,`<rect x="136" y="100" width="808" height="150" rx="36" fill="#fff"/><image href="../../hyperframes/assets/choco_logo.png" x="300" y="147" width="480" height="55"/>`);
+  // shop window: shelves behind a half-raised shutter
+  el(s,`<rect x="136" y="290" width="520" height="560" rx="32" fill="#fff"/>`);
+  const prod=['#FFD43B','#FF6B6B','#FFFFFF','#8CD23C','#FEA202','#9FD7FF','#FA084E','#F2C29B'];
+  for(let r=0;r<3;r++){ const sy=480+r*130; el(s,`<rect x="160" y="${sy}" width="472" height="16" rx="8" fill="#E2D9CC"/>`);
+    for(let i=0;i<5;i++){const w=64+((i*7+r*3)%3)*10, h=64+((i*5+r)%3)*18; el(s,`<rect x="${172+i*92}" y="${sy-h}" width="${w}" height="${h}" rx="14" fill="${prod[(i+r*3)%8]}" stroke="#17171C" stroke-opacity=".07" stroke-width="3"/>`);} }
+  el(s,`<clipPath id="win"><rect x="136" y="290" width="520" height="560" rx="32"/></clipPath><g clip-path="url(#win)"><rect id="shutter" x="136" y="290" width="520" height="190" fill="#DDD5CA"/>${[0,1,2].map(i=>`<rect x="136" y="${318+i*48}" width="520" height="8" fill="#CBC2B5"/>`).join('')}<rect x="136" y="470" width="520" height="12" fill="#BDB3A5"/></g>`);
+  // door
+  el(s,`<rect x="696" y="420" width="248" height="430" rx="32" fill="${C.ink}"/><rect x="720" y="470" width="200" height="96" rx="20" fill="#fff"/>
+    <text x="820" y="508" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.ink}">Только для</text>
+    <text x="820" y="544" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.heart}">курьеров</text>
+    <circle cx="912" cy="660" r="12" fill="#fff"/>`);
+  el(s,`<rect x="56" y="850" width="968" height="36" rx="18" fill="#E9E2D8"/>`);
+  el(s,courier({x:420,y:1180,s:1.05,act:'wave'}));
+})();
+
+// ---------- lounge ----------
+(function(){const s=document.getElementById('lounge');
+  el(s,`<rect x="96" y="60" width="888" height="1100" rx="48" fill="#fff"/>`);
+  el(s,`<g transform="translate(820 200)"><circle r="78" fill="${C.peach}" stroke="${C.ink}" stroke-width="10"/><path d="M0 0 V-46 M0 0 L32 18" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/></g>`);
+  el(s,`<g transform="translate(150 140)"><rect width="380" height="200" rx="32" fill="${C.ink}"/><text x="34" y="62" font-family="Onest" font-weight="500" font-size="28" fill="#B9B4AA">Заказов: 0</text><text x="34" y="132" font-family="Onest" font-weight="800" font-size="46" fill="#fff">Баланс ↑</text><rect x="34" y="152" width="200" height="16" rx="8" fill="${C.lime}"/></g>`);
+  const seat=860;
+  // sofa back + arms
+  el(s,`<rect x="150" y="560" width="780" height="330" rx="64" fill="#FFB938"/><rect x="110" y="720" width="130" height="300" rx="56" fill="#E89200"/><rect x="840" y="720" width="130" height="300" rx="56" fill="#E89200"/>`);
+  const ppl=[courier({x:300,y:seat,s:.7,pose:'sit',look:'bun',act:'mug'}),courier({x:540,y:seat,s:.7,pose:'sit',look:'cap',act:'mug'}),courier({x:780,y:seat,s:.7,pose:'sit',look:'hair',hair:'#1E1A22',act:'mug'})];
+  ppl.forEach(p=>el(s,p.back));
+  // seat cushion in front of bodies
+  el(s,`<rect x="200" y="${seat-34}" width="680" height="150" rx="44" fill="${C.orange}"/><rect x="200" y="${seat-34}" width="680" height="26" rx="13" fill="#FFC75A"/>`);
+  ppl.forEach(p=>el(s,p.front));
+  el(s,`<rect x="110" y="1000" width="860" height="30" rx="15" fill="#E89200"/><rect x="170" y="1030" width="40" height="60" rx="12" fill="#C47A00"/><rect x="870" y="1030" width="40" height="60" rx="12" fill="#C47A00"/>`);
+})();
+</script>
+</body></html>

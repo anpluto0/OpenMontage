@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Choco Рядом — курьер</title>
+<script src="vendor/gsap.min.js"></script>
+<script src="content.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2192,U+2713}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2192,U+2713}
+:root{--ink:#17171C;--paper:#F7F2EB;--white:#FFFFFF;--heart:#FA084E;--orange:#FEA202;--peach:#FFEFD5;--lime:#8CD23C;--lime2:#6DB22A;--mute:#8B857C;--wa:#25D366}
+html,body{margin:0;padding:0;background:var(--ink)}
+body{font-family:Onest,sans-serif;color:var(--ink)}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--paper)}
+.scene{position:absolute;inset:0;width:1080px;height:1920px;opacity:0;overflow:hidden}
+.abs{position:absolute}
+.h1{position:absolute;left:96px;font-weight:800;font-size:92px;line-height:104px;letter-spacing:-1.5px;white-space:nowrap}
+.mask{overflow:hidden;height:116px}
+.mask>div{will-change:transform}
+.card{position:absolute;background:var(--white);border-radius:36px}
+.chip{position:absolute;height:76px;border-radius:38px;padding:0 32px;font-weight:800;font-size:36px;line-height:76px;white-space:nowrap}
+.step{display:inline-block;width:64px;height:64px;border-radius:20px;background:#D9D2C8;color:#fff;text-align:center;line-height:64px;font-size:36px;margin-right:12px}
+.plq{position:absolute;left:96px;width:888px;border-radius:32px;background:var(--paper)}
+.coin{position:absolute;width:96px;height:96px}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="29">
+<section id="stage" class="clip" data-start="0" data-duration="29" data-track-index="1">
+
+  <!-- S1+S2 · neighbourhood map (0–7) -->
+  <div id="s1" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:170px"><div id="t1a"><span data-k="hook.l1">Ищешь подработку</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--orange)"><div id="t1b"><span data-k="hook.l2">рядом с домом?</span></div></div>
+    <div class="h1 mask" style="top:170px"><div id="t2a"><span data-k="answer.l1">Даркстор Choco Рядом —</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--heart)"><div id="t2b"><span data-k="answer.l2">в твоём районе</span></div></div>
+    <div id="map1card" class="card" style="left:64px;top:470px;width:952px;height:1060px;overflow:hidden;background:#EFE8DE"><svg id="map1" width="952" height="1060"></svg></div>
+    <svg id="s1fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S3 · darkstore (7–11) -->
+  <div id="s3" class="scene" style="background:var(--white)">
+    <div class="h1 mask" style="top:170px"><div id="t3a"><span data-k="store.l1">Даркстор —</span></div></div>
+    <div class="h1 mask" style="top:274px"><div id="t3b"><span data-k="store.l2_pre">магазин </span><span style="color:var(--heart)" data-k="store.l2_accent">только</span></div></div>
+    <div class="h1 mask" style="top:378px;color:var(--heart)"><div id="t3c"><span data-k="store.l3">для доставки</span></div></div>
+    <svg id="store" class="abs" style="left:0;top:600px" width="1080" height="1320"></svg>
+    <svg id="s3fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S4 · how it works, 2 km (11–15) -->
+  <div id="s4" class="scene" style="background:var(--paper)">
+    <div class="abs" style="left:96px;top:176px;display:flex;align-items:center;gap:14px;font-weight:800;font-size:40px">
+      <span id="st1" style="display:flex;align-items:center"><span class="step">1</span><span data-k="how.step1">Заказ</span></span><span style="color:var(--mute)">→</span>
+      <span id="st2" style="display:flex;align-items:center"><span class="step">2</span><span data-k="how.step2">Сборка</span></span><span style="color:var(--mute)">→</span>
+      <span id="st3" style="display:flex;align-items:center"><span class="step">3</span><span data-k="how.step3">Доставка</span></span>
+    </div>
+    <div class="h1 mask" style="top:270px"><div id="t4a"><span data-k="how.l1">Едешь рядом —</span></div></div>
+    <div class="h1 mask" style="top:374px"><div id="t4b"><span data-k="how.l2_pre">до </span><span style="color:var(--heart)" data-k="how.l2_accent">2 км</span></div></div>
+    <div id="map3card" class="card" style="left:64px;top:560px;width:952px;height:1100px;overflow:hidden;background:#EFE8DE"><svg id="map3" width="952" height="1100"></svg></div>
+  </div>
+
+  <!-- S5 · rest room (15–19) -->
+  <div id="s5" class="scene" style="background:var(--peach)">
+    <div class="h1 mask" style="top:170px"><div id="t5a"><span data-k="rest.l1">Отвёз — и обратно</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--orange)"><div id="t5b"><span data-k="rest.l2">в комнату отдыха</span></div></div>
+    <svg id="lounge" class="abs" style="left:0;top:470px" width="1080" height="1450"></svg>
+    <div id="ch1" class="chip" style="left:96px;top:1690px;background:var(--ink);color:#fff"><span data-k="rest.chip1">Оплата даже без заказов</span></div>
+    <div id="ch2" class="chip" style="left:96px;top:1786px;background:#fff;color:var(--ink)"><span data-k="rest.chip2">Сумка бесплатно</span></div>
+  </div>
+
+  <!-- S6 · money (19–23) -->
+  <div id="s6" class="scene" style="background:var(--white)">
+    <div class="h1 mask" style="top:170px"><div id="t6a"><span data-k="money.l1">Платят за часы</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--orange)"><div id="t6b"><span data-k="money.l2">и за заказы</span></div></div>
+    <div id="p1" class="plq" style="top:470px;height:170px"><div class="abs" style="left:44px;top:34px;font-weight:800;font-size:48px"><span data-k="money.p1">Почасовая оплата</span></div><div class="abs" style="left:44px;top:100px;font-weight:500;font-size:32px;color:var(--mute)"><span data-k="money.p1_sub">даже без заказов</span></div></div>
+    <div id="p2" class="plq" style="top:664px;height:120px"><div class="abs" style="left:44px;top:0;line-height:120px;font-weight:800;font-size:48px"><span data-k="money.p2">+ за каждый заказ</span></div></div>
+    <div id="p3" class="plq" style="top:808px;height:120px"><div class="abs" style="left:44px;top:0;line-height:120px;font-weight:800;font-size:48px"><span data-k="money.p3">+ чаевые — напрямую тебе</span></div></div>
+    <div id="p4" class="plq" style="top:968px;height:300px;background:var(--heart);color:#fff">
+      <div class="abs" style="left:44px;top:40px;font-weight:800;font-size:44px"><span data-k="money.p4">Бонус новичкам</span></div>
+      <div class="abs" style="left:44px;top:100px;font-weight:800;font-size:110px;line-height:120px;letter-spacing:-2px"><span data-k="money.p4_big">до 40 000 ₸</span></div>
+      <div class="abs" style="left:44px;top:228px;font-weight:500;font-size:32px;opacity:.85"><span data-k="money.p4_sub">за первые 100 заказов</span></div>
+    </div>
+    <div id="coins"></div>
+    <svg id="s6fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S7 · CTA (23–29) -->
+  <div id="s7" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:170px"><div id="t7a"><span data-k="cta.l1">Стань курьером</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--heart)"><div id="t7b"><span data-k="cta.l2">в Choco Рядом</span></div></div>
+    <div id="reg" class="card" style="left:96px;top:450px;width:888px;height:250px">
+      <div class="abs" style="left:0;top:34px;width:888px;text-align:center;font-weight:500;font-size:32px;color:var(--mute)"><span data-k="cta.reg">Регистрация через курьерский центр</span></div>
+      <div class="abs" style="left:0;top:92px;width:888px;height:120px;display:flex;align-items:center;justify-content:center;gap:28px">
+        <img src="assets/ge_mark.svg" style="width:110px;height:110px;display:block"/>
+        <img src="assets/ge_wordmark.svg" style="width:470px;height:auto;display:block;transform:translateY(6px)"/>
+      </div>
+    </div>
+    <div id="wa-ring" class="abs" style="left:86px;top:770px;width:908px;height:196px;border-radius:98px;background:var(--wa);opacity:.22"></div>
+    <div id="wa" class="abs" style="left:96px;top:780px;width:888px;height:176px;border-radius:88px;background:var(--wa);overflow:hidden">
+      <div id="wa-rip" class="abs" style="left:784px;top:70px;width:40px;height:40px;border-radius:20px;background:#fff;opacity:0"></div>
+      <svg class="abs" style="left:76px;top:40px" width="96" height="96" viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+      <div class="abs" style="left:196px;top:0;line-height:176px;font-weight:800;font-size:54px;color:#fff;white-space:nowrap"><span data-k="cta.button">Написать в WhatsApp</span></div>
+    </div>
+    <div id="hint" class="abs" style="left:96px;top:1000px;font-weight:800;font-size:40px;line-height:56px"><span data-k="cta.hint">Подберём склад рядом с домом</span></div>
+    <div id="bubble" class="abs" style="right:96px;top:1086px;height:116px;padding:0 44px;border-radius:40px 40px 10px 40px;background:#DCF8C6;font-weight:800;font-size:46px;line-height:116px;white-space:nowrap"><span data-k="cta.message">Хочу курьером в Рядом</span></div>
+    <svg id="cursor" class="abs" style="left:896px;top:866px" width="92" height="132" viewBox="0 0 42 60"><path d="M2 2 L2 46 L13 36 L21 55 L29 51 L21 33 L36 33 Z" fill="#FFFFFF" stroke="#17171C" stroke-width="3" stroke-linejoin="round"/></svg>
+    <svg id="s7fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <div id="legal" class="abs" style="left:0;width:1080px;top:1830px;text-align:center;font-weight:500;font-size:26px;color:var(--mute)"><span data-k="cta.legal">18+ · смартфон · доход зависит от часов и заказов</span></div>
+  </div>
+
+</section>
+</div>
+
+<script>
+// ---------- copy from content.js ----------
+document.querySelectorAll('[data-k]').forEach(e=>{ const v=(window.CONTENT||{})[e.dataset.k]; if(v!=null) e.textContent=v; });
+const $=s=>document.querySelector(s);
+const el=(svg,html)=>svg.insertAdjacentHTML('beforeend',html);
+const C={ink:'#17171C',heart:'#FA084E',orange:'#FEA202',peach:'#FFEFD5',lime:'#8CD23C',lime2:'#6DB22A',block:'#FFFFFF',tree:'#C9E7A6'};
+
+// ---------- mascot: flat jelly-bean courier ----------
+const PAL={red:['#FA084E','#C7003C'],orange:['#FEA202','#D47F00'],lime:['#8CD23C','#5E9A1E']};
+// parts get ids: {id}-sq (whole body, squash), {id}-eyes (blink), {id}-arm (wave arm)
+function mascot({id,pose='stand',col='red',cap=false,strap=false,act='none'}){
+  const OL='#24161E',[B,D]=PAL[col];
+  const ln=`stroke="${OL}" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"`;
+  const by=pose==='sit'?60:0;
+  const bodyD=`M0 ${-560+by} C150 ${-560+by} 212 ${-470+by} 212 ${-330+by} L202 ${-160+by} C198 ${-112+by} 160 ${-90+by} 118 ${-90+by} L-118 ${-90+by} C-160 ${-90+by} -198 ${-112+by} -202 ${-160+by} L-212 ${-330+by} C-212 ${-470+by} -150 ${-560+by} 0 ${-560+by}Z`;
+  const body=`<path d="${bodyD}" fill="${B}"/><clipPath id="${id}-cl"><path d="${bodyD}"/></clipPath><g clip-path="url(#${id}-cl)"><ellipse cx="150" cy="${-260+by}" rx="120" ry="260" fill="${D}" opacity=".35"/></g>`;
+  const legs=pose==='sit'
+    ?`<path d="M-96 0 h64 v66 a32 32 0 0 1 -64 0z" fill="${D}"/><path d="M32 0 h64 v66 a32 32 0 0 1 -64 0z" fill="${D}"/>`
+    :`<path d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/><path d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
+  const armL=`<ellipse cx="-222" cy="${-250+by}" rx="40" ry="84" transform="rotate(18 -222 ${-250+by})" fill="${D}"/>`;
+  const armR=`<ellipse cx="222" cy="${-250+by}" rx="40" ry="84" transform="rotate(-18 222 ${-250+by})" fill="${D}"/>`;
+  let arms=armL+armR, front='';
+  if(act==='wave') arms=armL+`<g id="${id}-arm"><ellipse cx="250" cy="${-420+by}" rx="40" ry="84" transform="rotate(-30 250 ${-420+by})" fill="${D}"/></g>`;
+  if(act==='phone'){arms=armL;front=`<g transform="translate(170 ${-300+by}) rotate(-10)"><rect x="-34" y="-60" width="68" height="112" rx="14" fill="${OL}"/><rect x="-26" y="-50" width="52" height="86" rx="8" fill="#9FD7FF"/></g><ellipse cx="200" cy="${-250+by}" rx="44" ry="40" fill="${D}"/>`;}
+  if(act==='bag'){arms=armL;front=`<g transform="translate(250 ${-190+by})"><path d="M-70 -64 h140 l12 170 h-164z" fill="#EBCFA6"/><path d="M-34 -64 q0 -46 34 -46 q34 0 34 46" fill="none" ${ln}/><rect x="-52" y="-104" width="24" height="56" rx="8" fill="#FFD43B" transform="rotate(-14 -40 -76)"/><circle cx="26" cy="-80" r="22" fill="#8CD23C"/><path d="M0 46 C-30 22 -26 0 -10 0 C-4 0 0 4 0 9 C0 4 4 0 10 0 C26 0 30 22 0 46Z" fill="${C.heart}"/></g><ellipse cx="236" cy="${-262+by}" rx="42" ry="40" fill="${D}"/>`;}
+  if(act==='mug'){arms='';front=`<g id="${id}-mug"><g transform="translate(0 ${-200+by})"><rect x="-44" y="-50" width="88" height="90" rx="18" fill="#fff"/><path d="M44 -30 q28 0 28 22 q0 22 -28 22" fill="none" ${ln}/><rect x="-34" y="-40" width="68" height="16" rx="8" fill="#C98A5A"/></g><ellipse cx="-70" cy="${-196+by}" rx="40" ry="34" fill="${D}"/><ellipse cx="70" cy="${-196+by}" rx="40" ry="34" fill="${D}"/></g>`;}
+  const ey=-388+by;
+  const eyes=`<g id="${id}-eyes"><ellipse cx="-74" cy="${ey}" rx="54" ry="60" fill="#fff"/><ellipse cx="74" cy="${ey}" rx="54" ry="60" fill="#fff"/><circle cx="-66" cy="${ey+8}" r="32" fill="${OL}"/><circle cx="66" cy="${ey+8}" r="32" fill="${OL}"/><circle cx="-56" cy="${ey-6}" r="11" fill="#fff"/><circle cx="76" cy="${ey-6}" r="11" fill="#fff"/></g>`;
+  const mouth=`<path d="M-104 ${ey+98} Q0 ${ey+168} 104 ${ey+98}" stroke="${OL}" stroke-width="9" fill="none" stroke-linecap="round"/>`;
+  const capG=cap?`<path d="M-150 ${-520+by} A150 108 0 0 1 150 ${-520+by} Z" fill="${C.lime}"/><path d="M0 ${-628+by} V${-522+by}" stroke="${C.lime2}" stroke-width="8" stroke-linecap="round" opacity=".6"/><path d="M-156 ${-524+by} Q0 ${-540+by} 156 ${-524+by} Q158 ${-502+by} 126 ${-494+by} Q0 ${-456+by} -126 ${-494+by} Q-158 ${-502+by} -156 ${-524+by}Z" fill="${C.lime2}"/><circle cx="0" cy="${-628+by}" r="13" fill="${C.lime2}"/>`:'';
+  const strapG=strap?`<path d="M204 ${-250+by} L-196 ${-128+by}" stroke="${C.lime}" stroke-width="28" stroke-linecap="round"/>`:'';
+  const shadow=pose==='sit'?'':`<ellipse cx="0" cy="4" rx="170" ry="18" fill="#17171C" opacity=".08"/>`;
+  if(pose==='sit') return {back:`<g id="${id}"><g id="${id}-sq">${arms}${body}${strapG}${eyes}${mouth}${capG}${front}</g></g>`, front:`<g id="${id}-legs">${legs}</g>`};
+  return `<g id="${id}">${shadow}<g id="${id}-sq">${legs}${arms}${body}${strapG}${eyes}${mouth}${capG}${front}</g></g>`;
+}
+// place a mascot string into svg at x,y,scale (wrapper does the scale; outer id moves)
+function place(svg,html,id,x,y,s){ el(svg,`<g id="${id}-pos"><g transform="scale(${s})">${html}</g></g>`); gsap.set('#'+id+'-pos',{x,y}); }
+
+// ---------- neighbourhood map ----------
+function map(svg,{home,store,circle,dots}){
+  for(let r=0;r<12;r++)for(let c=0;c<8;c++){
+    const bx=24+c*124,by=24+r*124,big=((r*3+c*5)%7===0);
+    el(svg,`<rect class="blk" x="${bx}" y="${by}" width="${big?224:100}" height="100" rx="22" fill="${C.block}"/>`);
+    if((r*5+c*3)%6===0) el(svg,`<circle class="tree" cx="${bx+50}" cy="${by+50}" r="26" fill="${C.tree}"/>`);
+  }
+  if(circle) el(svg,`<g id="${svg.id}-ring"><circle cx="${store[0]}" cy="${store[1]}" r="${circle}" fill="${C.heart}" fill-opacity=".07" stroke="${C.heart}" stroke-width="6" stroke-dasharray="18 16"/></g>`);
+  if(dots) dots.forEach(([x,y])=>el(svg,`<circle class="${svg.id}-dot" cx="${x}" cy="${y}" r="7" fill="${C.ink}"/>`));
+  if(home){const[x,y]=home;el(svg,`<g id="${svg.id}-home"><g transform="translate(${x} ${y})"><rect x="-70" y="-70" width="140" height="140" rx="30" fill="${C.orange}"/><path d="M-34 6 L0 -28 L34 6 V36 H-34Z" fill="#fff"/><rect x="-10" y="12" width="20" height="24" rx="4" fill="${C.orange}"/><g transform="translate(0 -110)"><rect x="-74" y="-34" width="148" height="68" rx="34" fill="${C.ink}"/><text x="0" y="12" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#fff">${(window.CONTENT||{})['map.home']||'Дом'}</text></g></g></g>`);}
+  if(store){const[x,y]=store;el(svg,`<g id="${svg.id}-pulse"><circle cx="${x}" cy="${y}" r="90" fill="none" stroke="${C.heart}" stroke-width="6"/></g><g id="${svg.id}-store"><g transform="translate(${x} ${y})"><rect x="-78" y="-78" width="156" height="156" rx="40" fill="#fff" stroke="${C.heart}" stroke-width="8"/><path d="M0 40 C-60 0 -52 -44 -20 -44 C-8 -44 0 -36 0 -26 C0 -36 8 -44 20 -44 C52 -44 60 0 0 40Z" fill="${C.heart}" transform="scale(1.3) translate(0 4)"/></g></g>`);}
+}
+const curve=(a,c,b,n)=>Array.from({length:n},(_,i)=>{const t=(i+1)/(n+1);return[(1-t)*(1-t)*a[0]+2*(1-t)*t*c[0]+t*t*b[0],(1-t)*(1-t)*a[1]+2*(1-t)*t*c[1]+t*t*b[1]];});
+const poly=(pts,step)=>{const out=[];for(let i=0;i<pts.length-1;i++){const[a,b]=[pts[i],pts[i+1]],d=Math.hypot(b[0]-a[0],b[1]-a[1]),n=Math.max(1,Math.round(d/step));for(let k=1;k<=n;k++)out.push([a[0]+(b[0]-a[0])*k/n,a[1]+(b[1]-a[1])*k/n]);}return out;};
+
+// S1 map
+const R1=curve([300,560],[470,520],[640,340],9);
+map($('#map1'),{home:[300,560],store:[640,340],dots:R1});
+place($('#s1fg'),mascot({id:'mA',act:'phone',cap:true,strap:true}),'mA',830,1880,.82);
+
+// S3 darkstore
+(function(){const s=$('#store');
+  el(s,`<g id="bld"><rect x="96" y="60" width="888" height="940" rx="48" fill="#F7F2EB"/>
+    <g id="sign"><rect x="136" y="100" width="808" height="150" rx="36" fill="#fff"/><image href="assets/choco_logo.png" x="300" y="147" width="480" height="55"/></g>
+    <rect x="136" y="290" width="520" height="560" rx="32" fill="#fff"/></g>`);
+  const prod=['#FFD43B','#FF6B6B','#FFFFFF','#8CD23C','#FEA202','#9FD7FF','#FA084E','#F2C29B'];
+  for(let r=0;r<3;r++){const sy=480+r*130;el(s,`<rect class="shelf" x="160" y="${sy}" width="472" height="16" rx="8" fill="#E2D9CC"/>`);
+    for(let i=0;i<5;i++){const w=64+((i*7+r*3)%3)*10,h=64+((i*5+r)%3)*18;el(s,`<rect class="prod" x="${172+i*92}" y="${sy-h}" width="${w}" height="${h}" rx="14" fill="${prod[(i+r*3)%8]}" stroke="#17171C" stroke-opacity=".07" stroke-width="3"/>`);}}
+  el(s,`<clipPath id="win"><rect x="136" y="290" width="520" height="560" rx="32"/></clipPath><g clip-path="url(#win)"><g id="shutter"><rect x="136" y="290" width="520" height="560" fill="#DDD5CA"/>${[0,1,2,3,4,5,6,7,8,9,10].map(i=>`<rect x="136" y="${318+i*48}" width="520" height="8" fill="#CBC2B5"/>`).join('')}<rect x="136" y="838" width="520" height="12" fill="#BDB3A5"/></g></g>`);
+  el(s,`<g id="door"><rect x="696" y="420" width="248" height="430" rx="32" fill="${C.ink}"/><circle cx="912" cy="660" r="12" fill="#fff"/></g>
+    <g id="dsign"><rect x="720" y="470" width="200" height="96" rx="20" fill="#fff"/><text x="820" y="508" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.ink}">${CONTENT['store.door1']}</text><text x="820" y="544" text-anchor="middle" font-family="Onest" font-weight="800" font-size="26" fill="${C.heart}">${CONTENT['store.door2']}</text></g>`);
+  el(s,`<rect x="56" y="850" width="968" height="36" rx="18" fill="#E9E2D8"/>`);
+})();
+place($('#s3fg'),mascot({id:'mB',act:'bag',cap:true,strap:true}),'mB',420,1800,.82);
+
+// S4 map with 2 km ring
+const R4=poly([[476,520],[560,520],[640,440],[740,300]],34);
+map($('#map3'),{store:[476,520],circle:390,home:[740,300],dots:R4.slice(0,-2)});
+el($('#map3'),`<g id="badge"><g transform="translate(476 952)"><rect x="-120" y="-42" width="240" height="84" rx="42" fill="${C.heart}"/><text x="0" y="15" text-anchor="middle" font-family="Onest" font-weight="800" font-size="40" fill="#fff">${CONTENT['how.badge']}</text></g></g>`);
+el($('#map3'),`<g id="okb"><g transform="translate(740 170)"><rect x="-120" y="-38" width="240" height="76" rx="38" fill="#1C8C45"/><text x="0" y="14" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#fff">${CONTENT['how.done']}</text></g></g>`);
+place($('#map3'),mascot({id:'mK',cap:true}),'mK',476,560,.17);
+
+// S5 lounge
+(function(){const s=$('#lounge');
+  el(s,`<rect x="96" y="60" width="888" height="1100" rx="48" fill="#fff"/>`);
+  el(s,`<g transform="translate(820 200)"><circle r="78" fill="${C.peach}" stroke="${C.ink}" stroke-width="10"/><g id="handM"><path d="M0 0 V-52" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/><circle cy="0" r="1" fill="none"/><path d="M0 0 V52" stroke="none"/></g><g id="handH"><path d="M0 0 L30 0" stroke="${C.ink}" stroke-width="10" stroke-linecap="round"/><path d="M0 0 L-30 0" stroke="none"/></g><circle r="8" fill="${C.ink}"/></g>`);
+  el(s,`<g transform="translate(150 140)"><rect width="400" height="210" rx="32" fill="${C.ink}"/><text x="34" y="62" font-family="Onest" font-weight="500" font-size="28" fill="#B9B4AA">${CONTENT['rest.orders']}</text><text x="34" y="132" font-family="Onest" font-weight="800" font-size="46" fill="#fff">${CONTENT['rest.balance']}</text><rect x="34" y="158" width="330" height="18" rx="9" fill="#33333C"/><rect id="balbar" x="34" y="158" width="330" height="18" rx="9" fill="${C.lime}"/></g>`);
+  el(s,`<g id="plus"></g>`);
+  const seat=860;
+  el(s,`<rect x="150" y="560" width="780" height="330" rx="64" fill="#FFB938"/><rect x="110" y="720" width="130" height="300" rx="56" fill="#E89200"/><rect x="840" y="720" width="130" height="300" rx="56" fill="#E89200"/>`);
+  const a=mascot({id:'mO',pose:'sit',col:'orange',act:'mug'}), b=mascot({id:'mR',pose:'sit',col:'red',cap:true,act:'mug'}), c=mascot({id:'mL',pose:'sit',col:'lime',act:'mug'});
+  [[a,310],[b,540],[c,770]].forEach(([m,x],i)=>{el(s,`<g id="sitb${i}" transform="translate(${x} ${seat}) scale(.5)">${m.back}</g>`);});
+  el(s,`<rect x="200" y="${seat-34}" width="680" height="150" rx="44" fill="${C.orange}"/><rect x="200" y="${seat-34}" width="680" height="26" rx="13" fill="#FFC75A"/>`);
+  [[a,310],[b,540],[c,770]].forEach(([m,x],i)=>{el(s,`<g id="sitf${i}" transform="translate(${x} ${seat}) scale(.5)">${m.front}</g>`);});
+  el(s,`<rect x="110" y="1000" width="860" height="30" rx="15" fill="#E89200"/><rect x="170" y="1030" width="40" height="60" rx="12" fill="#C47A00"/><rect x="870" y="1030" width="40" height="60" rx="12" fill="#C47A00"/>`);
+  // hopping-in red mascot (standing), swaps to the sitting one on landing
+  el(s,`<g id="hopper-pos"><g transform="scale(.5)">${mascot({id:'mH',cap:true,strap:true})}</g></g>`); gsap.set('#hopper-pos',{x:1240,y:930});
+  ['+₸','+₸','+₸'].forEach((t,i)=>el($('#plus'),`<text class="pl" x="${420+i*40}" y="${300}" font-family="Onest" font-weight="800" font-size="40" fill="${C.lime2}">${t}</text>`));
+})();
+
+// S6 coins + jumping mascot
+const COIN='<svg width="96" height="96" viewBox="0 0 104 104"><circle cx="52" cy="56" r="46" fill="#C98A00"/><circle cx="52" cy="50" r="46" fill="#FFD21F"/><circle cx="52" cy="50" r="33" fill="#F5B400"/><text x="52" y="66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="44" fill="#9A6400">₸</text><path d="M22 34 Q32 14 52 10" stroke="#FFF7C2" stroke-width="7" stroke-linecap="round" fill="none"/></svg>';
+for(let i=0;i<8;i++){const e=document.createElement('div');e.className='coin';e.style.left='780px';e.style.top='1090px';e.style.opacity=0;e.innerHTML=COIN;$('#coins').appendChild(e);}
+place($('#s6fg'),mascot({id:'mS',cap:true}),'mS',540,1830,.72);
+
+// S7 waving mascot
+place($('#s7fg'),mascot({id:'mW',act:'wave',cap:true,strap:true}),'mW',300,1760,.78);
+
+// ---------- timeline ----------
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+const E={o3:'power3.out',i3:'power3.in',back:'back.out(1.7)',b2:'back.out(2.2)',io:'power3.inOut'};
+const blink=(id,t)=>tl.to(`#${id}-eyes`,{scaleY:.1,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1},t);
+const hop=(id,t,h=60)=>{tl.to(`#${id}-sq`,{scaleY:.88,scaleX:1.08,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1,ease:'power2.out'},t);tl.to(`#${id}-pos`,{y:`-=${h}`,duration:.22,yoyo:true,repeat:1,ease:'power2.out'},t+.12);};
+const idle=(id,t,n=3)=>tl.to(`#${id}-sq`,{scaleY:.97,scaleX:1.02,transformOrigin:'50% 100%',duration:.45,yoyo:true,repeat:n,ease:'sine.inOut'},t);
+
+// S1 hook (0–3)
+tl.set('#s1',{opacity:1},0);
+gsap.set(['#t2a','#t2b'],{yPercent:110});
+tl.from(['#t1a','#t1b'],{yPercent:110,duration:.55,ease:E.o3,stagger:.1},.05);
+tl.from('#map1card',{y:120,opacity:0,duration:.55,ease:E.o3},.2);
+tl.from('#map1 .blk',{scale:0,transformOrigin:'50% 50%',duration:.3,ease:E.b2,stagger:{each:.004,from:'center'}},.35);
+tl.from('#map1 .tree',{scale:0,transformOrigin:'50% 50%',duration:.3,ease:E.b2,stagger:.02},.6);
+tl.from('#map1-home',{scale:0,transformOrigin:'50% 70%',duration:.45,ease:E.b2},.9);
+tl.from('#mA-pos',{y:'+=700',duration:.7,ease:'back.out(1.4)'},.55);
+idle('mA',1.3,3); blink('mA',2.2);
+// S2 answer (3–7)
+tl.to(['#t1a','#t1b'],{yPercent:-110,duration:.35,ease:E.i3,stagger:.06},2.85);
+tl.to(['#t2a','#t2b'],{yPercent:0,duration:.5,ease:E.o3,stagger:.1},3.1);
+gsap.set('#map1-store',{scale:0,transformOrigin:'50% 50%'}); gsap.set('#map1-pulse',{opacity:0});
+tl.to('#map1-store',{scale:1,duration:.5,ease:E.b2},3.35);
+tl.fromTo('#map1-pulse',{opacity:.9,scale:.8,transformOrigin:'50% 50%'},{opacity:0,scale:2.2,duration:.9,ease:'power2.out',repeat:2,immediateRender:false},3.6);
+gsap.set('.map1-dot',{opacity:0});
+tl.to('.map1-dot',{opacity:1,duration:.08,stagger:.06},3.9);
+hop('mA',4.6,70); blink('mA',5.6);
+tl.to('#map1-home',{scale:1.12,transformOrigin:'50% 70%',duration:.2,yoyo:true,repeat:1},5.2);
+tl.to('#map1-store',{scale:1.12,duration:.2,yoyo:true,repeat:1},5.5);
+// push up to S3
+tl.set('#s3',{opacity:1},6.75);
+tl.to('#s1',{y:-1920,duration:.6,ease:E.io},6.75);
+tl.fromTo('#s3',{y:1920},{y:0,duration:.6,ease:E.io},6.75);
+tl.set('#s1',{opacity:0},7.4);
+
+// S3 darkstore (7–11)
+tl.from(['#t3a','#t3b','#t3c'],{yPercent:110,duration:.5,ease:E.o3,stagger:.09},7.1);
+tl.from('#bld',{y:120,opacity:0,duration:.5,ease:E.o3},7.2);
+tl.from('#sign',{scale:.6,opacity:0,transformOrigin:'50% 50%',duration:.4,ease:E.b2},7.45);
+tl.from(['#door','#dsign'],{opacity:0,duration:.3},7.5);
+tl.from('.prod',{scale:0,transformOrigin:'50% 100%',duration:.25,ease:E.b2,stagger:.025},7.75);
+tl.to('#shutter',{y:-500,duration:.8,ease:'power2.inOut'},7.95);
+tl.from('#dsign',{scale:.6,transformOrigin:'50% 50%',duration:.35,ease:E.b2},8.6);
+gsap.set('#mB-pos',{x:980,opacity:0}); tl.to('#mB-pos',{opacity:1,duration:.15},8.9);
+tl.to('#mB-pos',{keyframes:[{x:'-=190',y:'-=60',duration:.22,ease:'power2.out'},{y:'+=60',duration:.2,ease:'power2.in'},{x:'-=190',y:'-=60',duration:.22,ease:'power2.out'},{y:'+=60',duration:.2,ease:'power2.in'},{x:'-=180',y:'-=50',duration:.22,ease:'power2.out'},{y:'+=50',duration:.2,ease:'power2.in'}]},8.96);
+tl.to('#mB-sq',{scaleY:.9,scaleX:1.06,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1},10.24);
+blink('mB',10.5);
+tl.to('#s3',{x:-1080,duration:.45,ease:E.i3},10.8);
+
+// S4 how (11–15)
+tl.set('#s4',{opacity:1,x:1080},10.85);
+tl.to('#s4',{x:0,duration:.45,ease:E.o3},10.85);
+tl.from(['#t4a','#t4b'],{yPercent:110,duration:.5,ease:E.o3,stagger:.09},11.05);
+['#st1','#st2','#st3'].forEach((s,i)=>{tl.from(s,{opacity:.35,duration:.2},11.05);tl.to(`${s} .step`,{backgroundColor:i===2?'#FA084E':'#17171C',duration:.2},11.2+i*.35);tl.fromTo(`${s} .step`,{scale:1},{scale:1.2,duration:.15,yoyo:true,repeat:1},11.2+i*.35);});
+tl.from('#map3card',{y:120,opacity:0,duration:.5,ease:E.o3},11.1);
+tl.from('#map3-store',{scale:0,transformOrigin:'50% 50%',duration:.45,ease:E.b2},11.4);
+gsap.set('#map3-pulse',{opacity:0});
+tl.from('#map3-ring',{scale:0,transformOrigin:'50% 50%',duration:.7,ease:E.o3},11.6);
+tl.from('#badge',{scale:0,transformOrigin:'50% 50%',duration:.4,ease:E.b2},12.05);
+tl.from('#map3-home',{scale:0,transformOrigin:'50% 70%',duration:.4,ease:E.b2},11.8);
+gsap.set('.map3-dot',{opacity:0}); tl.to('.map3-dot',{opacity:1,duration:.06,stagger:.03},12.2);
+tl.from('#mK-pos',{scale:0,transformOrigin:'50% 100%',duration:.3,ease:E.b2},12.25);
+{const pts=[[560,560],[640,480],[740,340]],seg=[.25,.3,.35];
+ tl.to('#mK-pos',{keyframes:pts.map((p,i)=>({x:p[0],y:p[1],duration:seg[i],ease:'none'}))},12.55);
+ tl.to('#mK-sq',{scaleY:.9,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:7,ease:'sine.inOut'},12.55);
+ tl.from('#okb',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},13.5);
+ tl.to('#okb',{opacity:0,duration:.25},14.3);
+ tl.to('#mK-pos',{keyframes:[...pts].reverse().slice(1).concat([[476,560]]).map((p,i)=>({x:p[0],y:p[1],duration:[.3,.25,.25][i],ease:'none'}))},13.75);}
+tl.to('#s4',{x:-1080,duration:.45,ease:E.i3},14.85);
+
+// S5 rest (15–19)
+tl.set('#s5',{opacity:1,x:1080},14.9);
+tl.to('#s5',{x:0,duration:.45,ease:E.o3},14.9);
+tl.from(['#t5a','#t5b'],{yPercent:110,duration:.5,ease:E.o3,stagger:.09},15.1);
+gsap.set(['#sitb1','#sitf1'],{opacity:0});
+tl.to('#hopper-pos',{keyframes:[{x:900,y:880,duration:.2,ease:'power2.out'},{x:780,y:930,duration:.2,ease:'power2.in'},{x:660,y:870,duration:.2,ease:'power2.out'},{x:540,y:900,duration:.2,ease:'power2.in'}]},15.25);
+tl.set('#hopper-pos',{opacity:0},16.05); tl.set(['#sitb1','#sitf1'],{opacity:1},16.05);
+tl.fromTo('#mR-sq',{scaleY:.86,scaleX:1.1,transformOrigin:'50% 100%'},{scaleY:1,scaleX:1,duration:.4,ease:'elastic.out(1,.5)'},16.05);
+tl.fromTo('#balbar',{scaleX:.08,transformOrigin:'0% 50%'},{scaleX:1,duration:2.6,ease:'none'},16.0);
+tl.fromTo('#handM',{rotation:0,transformOrigin:'50% 50%'},{rotation:720,duration:3.6,ease:'none'},15.2);
+document.querySelectorAll('#plus .pl').forEach((p,i)=>{tl.fromTo(p,{opacity:0,y:0},{opacity:1,y:-40,duration:.35,ease:'power2.out'},16.4+i*.6);tl.to(p,{opacity:0,duration:.25},16.9+i*.6);});
+tl.to('#mO-mug',{y:-14,duration:.25,yoyo:true,repeat:1},16.6); tl.to('#mL-mug',{y:-14,duration:.25,yoyo:true,repeat:1},17.4); tl.to('#mR-mug',{y:-14,duration:.25,yoyo:true,repeat:1},17.9);
+blink('mO',16.9); blink('mL',17.7); blink('mR',18.3);
+tl.from('#ch1',{x:-700,duration:.45,ease:E.back},16.5); tl.from('#ch2',{x:-700,duration:.45,ease:E.back},16.75);
+tl.set('#s6',{opacity:1},18.8);
+tl.to('#s5',{y:-1920,duration:.6,ease:E.io},18.8);
+tl.fromTo('#s6',{y:1920},{y:0,duration:.6,ease:E.io},18.8);
+tl.set('#s5',{opacity:0},19.45);
+
+// S6 money (19–23)
+tl.from(['#t6a','#t6b'],{yPercent:110,duration:.5,ease:E.o3,stagger:.09},19.2);
+tl.from('#p1',{x:600,opacity:0,duration:.45,ease:E.back},19.5);
+tl.from('#p2',{x:600,opacity:0,duration:.45,ease:E.back},19.85);
+tl.from('#p3',{x:600,opacity:0,duration:.45,ease:E.back},20.2);
+tl.from('#p4',{scale:.6,opacity:0,transformOrigin:'50% 50%',duration:.5,ease:'back.out(1.8)'},20.6);
+tl.from('#mS-pos',{y:'+=500',duration:.5,ease:E.back},19.7);
+const burst=[[-600,300],[-470,380],[-330,290],[-200,400],[-560,460],[60,330],[150,420],[-90,470]];
+document.querySelectorAll('#coins .coin').forEach((c,i)=>{const[dx,dy]=burst[i],t0=21.0+i*.04;
+  tl.fromTo(c,{x:0,y:0,scale:.3,opacity:0,rotation:i%2?-25:25},{x:dx,y:dy,scale:1,opacity:1,rotation:0,duration:.45,ease:'back.out(1.6)'},t0);
+  tl.to(c,{x:-240,y:640,scale:.3,opacity:0,duration:.45,ease:'power2.in'},21.65+i*.04);});
+hop('mS',21.05,90); hop('mS',21.65,70); blink('mS',22.3);
+tl.to('#p4',{scale:1.03,transformOrigin:'50% 50%',duration:.3,yoyo:true,repeat:1,ease:'sine.inOut'},21.9);
+tl.to('#s6',{x:-1080,duration:.45,ease:E.i3},22.85);
+
+// S7 CTA (23–29)
+tl.set('#s7',{opacity:1,x:1080},22.9);
+tl.to('#s7',{x:0,duration:.45,ease:E.o3},22.9);
+tl.from(['#t7a','#t7b'],{yPercent:110,duration:.5,ease:E.o3,stagger:.09},23.1);
+tl.from('#reg',{y:80,opacity:0,duration:.45,ease:E.back},23.3);
+tl.from('#wa',{scale:0,transformOrigin:'50% 50%',duration:.5,ease:'back.out(1.6)'},23.6);
+tl.from('#wa-ring',{scale:.8,opacity:0,transformOrigin:'50% 50%',duration:.5,ease:E.o3},23.75);
+tl.from('#hint',{y:40,opacity:0,duration:.4,ease:E.o3},23.95);
+tl.from('#legal',{opacity:0,duration:.4},24.1);
+tl.from('#mW-pos',{y:'+=600',duration:.6,ease:'back.out(1.4)'},23.8);
+tl.to('#mW-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.22,yoyo:true,repeat:9,ease:'sine.inOut'},24.4);
+tl.from('#cursor',{x:-160,y:260,opacity:0,duration:.5,ease:E.o3},24.45);
+tl.to('#cursor',{scale:.86,transformOrigin:'4px 4px',duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},25.0);
+tl.to('#wa',{scale:.96,transformOrigin:'50% 50%',duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},25.02);
+tl.fromTo('#wa-rip',{scale:0,opacity:.55},{scale:30,opacity:0,duration:.6,ease:'power2.out'},25.05);
+tl.from('#bubble',{scale:0,transformOrigin:'100% 100%',duration:.4,ease:E.b2},25.3);
+tl.to('#cursor',{x:60,y:220,opacity:0,duration:.4,ease:E.i3},25.75);
+tl.to('#wa-ring',{scale:1.04,opacity:.06,transformOrigin:'50% 50%',duration:.55,yoyo:true,repeat:5,ease:'sine.inOut'},25.9);
+tl.to('#wa',{scale:1.03,transformOrigin:'50% 50%',duration:.55,yoyo:true,repeat:5,ease:'sine.inOut'},25.9);
+hop('mW',26.4,60); blink('mW',27.4);
+
+window.__timelines['main']=tl;
+</script>
+</body>
+</html>
