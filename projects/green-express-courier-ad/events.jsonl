@@ -14,3 +14,21 @@
 {"ts": "2026-11-04T13:03:30.932341+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/yersultan_v4.mp3", "success": true, "duration_s": 7.65}
 {"ts": "2026-11-04T13:03:31.300308+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/adi_v4.mp3"}
 {"ts": "2026-11-04T13:03:38.964333+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio/voice_samples_kz/adi_v4.mp3", "success": true, "duration_s": 7.66}
+{"ts": "2026-11-04T13:20:48.677092+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K1.mp3"}
+{"ts": "2026-11-04T13:20:51.060738+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K1.mp3", "success": true, "duration_s": 2.38}
+{"ts": "2026-11-04T13:20:51.235827+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K2.mp3"}
+{"ts": "2026-11-04T13:20:52.418409+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K2.mp3", "success": true, "duration_s": 1.18}
+{"ts": "2026-11-04T13:20:52.548389+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K3.mp3"}
+{"ts": "2026-11-04T13:20:54.270421+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K3.mp3", "success": true, "duration_s": 1.72}
+{"ts": "2026-11-04T13:20:54.381554+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K4.mp3"}
+{"ts": "2026-11-04T13:20:56.337907+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K4.mp3", "success": true, "duration_s": 1.96}
+{"ts": "2026-11-04T13:20:56.475402+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K5.mp3"}
+{"ts": "2026-11-04T13:20:58.122281+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K5.mp3", "success": true, "duration_s": 1.65}
+{"ts": "2026-11-04T13:20:58.232041+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K6.mp3"}
+{"ts": "2026-11-04T13:21:00.337661+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K6.mp3", "success": true, "duration_s": 2.11}
+{"ts": "2026-11-04T13:21:00.486418+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K7.mp3"}
+{"ts": "2026-11-04T13:21:02.050280+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K7.mp3", "success": true, "duration_s": 1.56}
+{"ts": "2026-11-04T13:21:02.163322+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K8.mp3"}
+{"ts": "2026-11-04T13:21:04.373585+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/vo/K8.mp3", "success": true, "duration_s": 2.21}
+{"ts": "2026-11-04T13:26:54.214337+00:00", "tool": "music_gen", "event": "start", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/music/bgm_kz.mp3"}
+{"ts": "2026-11-04T13:27:00.272677+00:00", "tool": "music_gen", "event": "finish", "output_path": "projects/green-express-courier-ad/assets/audio_v4_kz/music/bgm_kz.mp3", "success": true, "cost_usd": 0.05, "duration_s": 6.06}
