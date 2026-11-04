@@ -335,7 +335,7 @@ document.querySelectorAll('#snow .sn').forEach((f,i)=>tl.fromTo(f,{y:-40},{y:300
 document.querySelectorAll('.steam').forEach((st,i)=>tl.fromTo(st,{opacity:0,y:10},{opacity:.9,y:-16,duration:.8,ease:'sine.out',repeat:3,yoyo:true},15.6+i*.3));
 tl.to('#mO-mug',{y:-14,duration:.25,yoyo:true,repeat:1},16.6); tl.to('#mL-mug',{y:-14,duration:.25,yoyo:true,repeat:1},17.4); tl.to('#mR-mug',{y:-14,duration:.25,yoyo:true,repeat:1},17.9);
 blink('mO',16.9); blink('mL',17.7); blink('mR',18.3);
-tl.from('#ch1',{x:-700,duration:.45,ease:E.back},16.5); tl.from('#ch2',{x:-700,duration:.45,ease:E.back},16.75);
+tl.from('#ch2',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},16.45); tl.from('#ch1',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},16.75);
 tl.set('#s6',{opacity:1},18.8);
 tl.to('#s5',{y:-1920,duration:.6,ease:E.io},18.8);
 tl.fromTo('#s6',{y:1920},{y:0,duration:.6,ease:E.io},18.8);
