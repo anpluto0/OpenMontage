@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Green Express — курьер Яндекс Еды v4</title>
+<script src="vendor/gsap.min.js"></script>
+<script src="content.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7}
+:root{--ink:#1B1B1F;--ink2:#2E2E35;--paper:#F4F1EA;--white:#FFFFFF;--yel:#FCE000;--yel2:#E3C800;--coral:#FF5A4E;--wa:#25D366;--green:#1B4B2D;--mute:#8A857C}
+html,body{margin:0;padding:0;background:var(--ink)}
+body{font-family:Onest,sans-serif;color:var(--ink)}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--paper)}
+.scene{position:absolute;inset:0;width:1080px;height:1920px;opacity:0;overflow:hidden}
+.abs{position:absolute}
+.h1{position:absolute;left:96px;font-weight:800;font-size:92px;line-height:104px;letter-spacing:-1.5px;white-space:nowrap}
+.mask{overflow:hidden;height:116px}
+.card{position:absolute;background:var(--white);border-radius:36px}
+.chip{height:76px;border-radius:38px;padding:0 32px;font-weight:800;font-size:36px;line-height:76px;white-space:nowrap}
+.coin{position:absolute;width:96px;height:96px}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="24">
+<section id="stage" class="clip" data-start="0" data-duration="24" data-track-index="1">
+
+  <!-- S1 · hook (0–2) — visible from frame 0 -->
+  <div id="s1" class="scene" style="background:var(--paper);opacity:1">
+    <div class="h1" style="top:170px"><span data-k="hook.l1">Ищешь подработку</span></div>
+    <div class="h1" style="top:274px;color:var(--coral)"><span data-k="hook.l2">со свободным</span></div>
+    <div class="h1" style="top:378px;color:var(--coral)"><span data-k="hook.l3">графиком?</span></div>
+    <div class="abs" style="left:0;top:1410px;width:1080px;height:40px;background:#E4DED2"></div>
+    <svg id="s1fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S2 · brand (2–4.5) -->
+  <div id="s2" class="scene" style="background:var(--ink)">
+    <div class="h1 mask" style="top:170px;color:#fff"><div id="t2a"><span data-k="brand.l1">Стань курьером</span></div></div>
+    <div class="abs mask" style="left:96px;top:290px;height:150px"><div id="t2b"><img src="assets/yandex_eda_white.png" style="display:block;width:640px;height:auto;margin-top:8px" alt="Яндекс Еда"/></div></div>
+    <svg id="s2fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S3 · schedule (4.5–7) -->
+  <div id="s3" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:170px"><div id="t3a"><span data-k="sched.l1">Свой график —</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--coral)"><div id="t3b"><span data-k="sched.l2">днём или ночью</span></div></div>
+    <div id="schedcard" class="card" style="left:96px;top:470px;width:888px;height:720px">
+      <div id="sky" class="abs" style="left:40px;top:40px;width:808px;height:460px;border-radius:28px;background:#9FDCFF;overflow:hidden">
+        <div id="stars"></div>
+        <div id="sun" class="abs" style="left:110px;top:70px;width:150px;height:150px;border-radius:48px;background:var(--yel)"></div>
+        <svg id="moon" class="abs" style="left:560px;top:60px" width="150" height="150" viewBox="0 0 150 150"><path d="M96 8 A68 68 0 1 0 142 100 A56 56 0 0 1 96 8Z" fill="#F4F1EA"/></svg>
+        <div id="city"></div>
+      </div>
+      <div class="abs" style="left:40px;top:540px;width:808px;height:140px;border-radius:70px;background:var(--paper)">
+        <div id="sw-k" class="abs" style="left:8px;top:8px;width:396px;height:124px;border-radius:62px;background:var(--yel)"></div>
+        <div id="sw-d" class="abs" style="left:8px;top:0;width:396px;line-height:140px;text-align:center;font-weight:800;font-size:48px;color:var(--ink)"><span data-k="sched.day">Днём</span></div>
+        <div id="sw-n" class="abs" style="left:404px;top:0;width:396px;line-height:140px;text-align:center;font-weight:800;font-size:48px;color:var(--mute)"><span data-k="sched.night">Ночью</span></div>
+      </div>
+    </div>
+    <svg id="s3fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S4 · how you move (7–10) -->
+  <div id="s4" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:170px"><div id="t4a"><span data-k="move.l1">Как тебе удобно:</span></div></div>
+    <div class="abs" style="left:96px;top:300px;display:flex;gap:16px">
+      <div id="mv1" class="chip" style="background:#E4DED2;color:var(--mute)"><span data-k="move.walk">Пешком</span></div>
+      <div id="mv2" class="chip" style="background:#E4DED2;color:var(--mute)"><span data-k="move.bike">Вело</span></div>
+      <div id="mv3" class="chip" style="background:#E4DED2;color:var(--mute)"><span data-k="move.car">Авто</span></div>
+    </div>
+    <div id="movecard" class="card" style="left:96px;top:430px;width:888px;height:960px;overflow:hidden;background:#FFFFFF">
+      <div class="abs" style="left:0;top:760px;width:888px;height:200px;background:#E4DED2"></div>
+      <div id="dash" class="abs" style="left:0;top:850px;width:2000px;height:16px"></div>
+      <svg id="move" class="abs" style="left:0;top:0" width="888" height="960"></svg>
+    </div>
+  </div>
+
+  <!-- S5 · payout (10–13) -->
+  <div id="s5" class="scene" style="background:var(--white)">
+    <div class="h1 mask" style="top:170px;font-size:82px"><div id="t5a"><span data-k="pay.l1">Сегодня заработал —</span></div></div>
+    <div class="h1 mask" style="top:274px;font-size:82px;color:var(--coral)"><div id="t5b"><span data-k="pay.l2">сегодня получил</span></div></div>
+    <div id="phone" class="abs" style="left:240px;top:450px;width:600px;height:820px;border-radius:72px;background:var(--ink)">
+      <div class="abs" style="left:30px;top:30px;width:540px;height:760px;border-radius:50px;background:var(--paper)"></div>
+      <div class="abs" style="left:210px;top:48px;width:180px;height:34px;border-radius:17px;background:var(--ink)"></div>
+      <div id="bal" class="abs" style="left:70px;top:150px;width:460px;height:260px;border-radius:36px;background:var(--yel)">
+        <div class="abs" style="left:40px;top:40px;font-weight:500;font-size:32px">Баланс</div>
+        <div id="balnum" class="abs" style="left:40px;top:96px;font-weight:800;font-size:96px;line-height:110px">₸ ↑</div>
+      </div>
+      <div id="notif" class="abs" style="left:50px;top:460px;width:500px;height:120px;border-radius:30px;background:var(--ink);color:#fff">
+        <div id="nbadge" class="abs" style="left:22px;top:24px;width:72px;height:72px;border-radius:36px;background:#FFD21F;box-shadow:inset 0 -6px 0 #C98A00;font-weight:800;font-size:40px;line-height:68px;text-align:center;color:#9A6400">₸</div>
+        <div class="abs" style="left:116px;top:0;line-height:120px;font-weight:800;font-size:34px;white-space:nowrap"><span data-k="pay.notif">Выплата зачислена ✓</span></div>
+      </div>
+    </div>
+    <div id="coins"></div>
+  </div>
+
+  <!-- S6 · everyone (13–16) -->
+  <div id="s6" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:170px"><div id="t6a"><span data-k="all.l1">Подключаем всех</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--coral)"><div id="t6b"><span data-k="all.l2">от 18 лет</span></div></div>
+    <div class="abs" style="left:96px;top:410px"><div id="allchip" class="chip" style="background:var(--ink);color:#fff"><span data-k="all.chip">Поможем с оформлением</span></div></div>
+    <svg id="s6fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S7 · 15 minutes (16–18.5) -->
+  <div id="s7" class="scene" style="background:var(--ink)">
+    <div class="h1 mask" style="top:170px;color:#fff"><div id="t7a"><span data-k="fast.l1">Подключение —</span></div></div>
+    <div class="h1 mask" style="top:274px;color:var(--yel)"><div id="t7b"><span data-k="fast.l2">за 15 минут</span></div></div>
+    <svg id="timer" class="abs" style="left:290px;top:470px" width="500" height="500" viewBox="0 0 500 500">
+      <circle cx="250" cy="250" r="210" fill="none" stroke="#34343C" stroke-width="44"/>
+      <circle id="tring" cx="250" cy="250" r="210" fill="none" stroke="#FCE000" stroke-width="44" stroke-linecap="round" stroke-dasharray="1319.5" stroke-dashoffset="1319.5" transform="rotate(-90 250 250)"/>
+      <text id="ttext" x="250" y="282" text-anchor="middle" font-family="Onest" font-weight="800" font-size="104" fill="#fff">15:00</text>
+    </svg>
+    <div class="abs" style="left:0;top:1040px;width:1080px;display:flex;justify-content:center;gap:18px">
+      <div id="fc1" class="chip" style="background:#fff;color:var(--ink)">✓ <span data-k="fast.c1">Без опыта</span></div>
+      <div id="fc2" class="chip" style="background:#fff;color:var(--ink)">✓ <span data-k="fast.c2">Бесплатно</span></div>
+    </div>
+    <svg id="s7fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S8 · CTA (18.5–24) -->
+  <div id="s8" class="scene" style="background:var(--ink)">
+    <div id="lg1" class="card" style="left:96px;top:150px;width:888px;height:360px;border-radius:44px">
+      <div class="abs" style="left:0;top:0;width:888px;height:224px;display:flex;align-items:center;justify-content:center;gap:34px">
+        <img src="assets/ge_mark.svg" style="width:132px;height:132px;display:block"/>
+        <img src="assets/ge_wordmark.svg" style="width:560px;height:auto;display:block;transform:translateY(7px)"/>
+      </div>
+      <div class="abs" style="left:72px;top:224px;width:744px;height:2px;background:#ECE8E0"></div>
+      <div id="lg2" class="abs" style="left:0;top:226px;width:888px;height:134px;display:flex;align-items:center;justify-content:center;gap:22px">
+        <div style="font-weight:500;font-size:34px;color:#8A857C;white-space:nowrap"><span data-k="cta.partner">официальный партнёр</span></div>
+        <img src="assets/yandex_eda_black.png" style="height:50px;width:auto;display:block"/>
+      </div>
+    </div>
+    <div class="h1 mask" style="top:580px;color:#fff"><div id="t8a"><span data-k="cta.l1">Пиши</span></div></div>
+    <div class="h1 mask" style="top:690px;color:#fff"><div id="t8b"><span data-k="cta.l2_pre">в </span><span style="color:var(--wa)" data-k="cta.l2_accent">WhatsApp</span></div></div>
+    <div id="wa-ring" class="abs" style="left:86px;top:870px;width:908px;height:196px;border-radius:98px;background:var(--wa);opacity:.22"></div>
+    <div id="wa" class="abs" style="left:96px;top:880px;width:888px;height:176px;border-radius:88px;background:var(--wa);overflow:hidden">
+      <div id="wa-rip" class="abs" style="left:784px;top:70px;width:40px;height:40px;border-radius:20px;background:#fff;opacity:0"></div>
+      <svg class="abs" style="left:76px;top:40px" width="96" height="96" viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+      <div class="abs" style="left:196px;top:0;line-height:176px;font-weight:800;font-size:54px;color:#fff;white-space:nowrap"><span data-k="cta.button">Написать в WhatsApp</span></div>
+    </div>
+    <div id="bubble" class="abs" style="right:96px;top:1100px;height:116px;padding:0 44px;border-radius:40px 40px 10px 40px;background:#DCF8C6;font-weight:800;font-size:46px;line-height:116px;white-space:nowrap"><span data-k="cta.message">Хочу стать курьером</span></div>
+    <svg id="cursor" class="abs" style="left:896px;top:966px" width="92" height="132" viewBox="0 0 42 60"><path d="M2 2 L2 46 L13 36 L21 55 L29 51 L21 33 L36 33 Z" fill="#FFFFFF" stroke="#1B1B1F" stroke-width="3" stroke-linejoin="round"/></svg>
+    <div id="legal" class="abs" style="left:0;width:1080px;top:1262px;text-align:center;font-weight:500;font-size:26px;color:#8A8A93"><span data-k="cta.legal">Green Express — официальный партнёр Яндекс Еды · 18+</span></div>
+    <svg id="s8fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+</section>
+</div>
+
+<script>
+document.querySelectorAll('[data-k]').forEach(e=>{const v=(window.CONTENT||{})[e.dataset.k]; if(v!=null) e.textContent=v;});
+const $=s=>document.querySelector(s);
+const el=(svg,html)=>svg.insertAdjacentHTML('beforeend',html);
+const C={ink:'#1B1B1F',yel:'#FCE000',coral:'#FF5A4E',bag:'#FFB800',bag2:'#E59A00'};
+
+// ---------- mascot (flat jelly-bean, Yandex Eda courier: yellow, dark cap, thermo bag) ----------
+const PAL={yel:['#FCE000','#D9BE00'],coral:['#FF5A4E','#D93A30'],lime:['#8CD23C','#5E9A1E'],blue:['#5B8DEF','#3A68C9'],orange:['#FEA202','#D47F00'],pink:['#FF7EB6','#E0508E']};
+function mascot({id,col='yel',cap=true,bag=true,strap=true,act='none',bike=false}){
+  const OL='#24161E',[B,D]=PAL[col];
+  const bodyD=`M0 -560 C150 -560 212 -470 212 -330 L202 -160 C198 -112 160 -90 118 -90 L-118 -90 C-160 -90 -198 -112 -202 -160 L-212 -330 C-212 -470 -150 -560 0 -560Z`;
+  const body=`<path d="${bodyD}" fill="${B}"/><clipPath id="${id}-cl"><path d="${bodyD}"/></clipPath><g clip-path="url(#${id}-cl)"><ellipse cx="150" cy="-260" rx="120" ry="260" fill="${D}" opacity=".35"/></g>`;
+  const bagG=bag?`<g id="${id}-bag"><rect x="-250" y="-560" width="500" height="330" rx="56" fill="${C.bag}"/><rect x="-250" y="-560" width="500" height="64" rx="32" fill="${C.bag2}"/></g>`:'';
+  const legs=`<path d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/><path d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
+  const armL=`<ellipse cx="-222" cy="-250" rx="40" ry="84" transform="rotate(18 -222 -250)" fill="${D}"/>`;
+  const armR=`<ellipse cx="222" cy="-250" rx="40" ry="84" transform="rotate(-18 222 -250)" fill="${D}"/>`;
+  let arms=armL+armR;
+  if(act==='wave') arms=armL+`<g id="${id}-arm"><ellipse cx="250" cy="-420" rx="40" ry="84" transform="rotate(-30 250 -420)" fill="${D}"/></g>`;
+  const ey=-388;
+  const eyes=`<g id="${id}-eyes"><g id="${id}-eL"><ellipse cx="-74" cy="${ey}" rx="54" ry="60" fill="#fff"/><circle cx="-66" cy="${ey+8}" r="32" fill="${OL}"/><circle cx="-56" cy="${ey-6}" r="11" fill="#fff"/></g><g id="${id}-eR"><ellipse cx="74" cy="${ey}" rx="54" ry="60" fill="#fff"/><circle cx="66" cy="${ey+8}" r="32" fill="${OL}"/><circle cx="76" cy="${ey-6}" r="11" fill="#fff"/></g></g>`;
+  const mouth=`<path d="M-104 ${ey+98} Q0 ${ey+168} 104 ${ey+98}" stroke="${OL}" stroke-width="9" fill="none" stroke-linecap="round"/>`;
+  const capG=cap?`<path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="${C.ink}"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#000"/><circle cx="0" cy="-628" r="13" fill="#000"/><rect x="-26" y="-596" width="52" height="40" rx="12" fill="${C.yel}"/>`:'';
+  const strapG=strap?`<path d="M204 -250 L-196 -128" stroke="${C.ink}" stroke-width="26" stroke-linecap="round"/>`:'';
+  const core=`${arms}${body}${strapG}${eyes}${mouth}${capG}`;
+  if(bike){
+    const wheel=(cx,w)=>`<g id="${id}-${w}"><circle cx="${cx}" cy="0" r="92" fill="none" stroke="#2B2B33" stroke-width="26"/><circle cx="${cx}" cy="0" r="70" fill="#fff" opacity=".55"/><path d="M${cx-68} 0 H${cx+68} M${cx} -68 V68" stroke="#2B2B33" stroke-width="8"/><circle cx="${cx}" cy="0" r="14" fill="#2B2B33"/></g>`;
+    const frame=`<path d="M-230 0 L-40 0 L120 -170 L230 0 M-40 0 L-110 -176 M-230 0 L-110 -176 M120 -170 L104 -250" fill="none" stroke="${C.coral}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/><rect x="-170" y="-198" width="120" height="34" rx="17" fill="#2B2B33"/><rect x="70" y="-270" width="96" height="30" rx="15" fill="#2B2B33"/><circle cx="-40" cy="0" r="22" fill="#2B2B33"/>`;
+    const rider=`<g transform="translate(-70 -112) scale(.8)">${bagG}${body}${strapG}${eyes}${mouth}${capG}</g>`;
+    const limbs=`<path d="M-120 -168 L-70 -16" stroke="${D}" stroke-width="36" stroke-linecap="round"/><path d="M-40 -168 L-14 14" stroke="${D}" stroke-width="36" stroke-linecap="round"/><path d="M60 -250 L118 -255" stroke="${D}" stroke-width="34" stroke-linecap="round"/>`;
+    return `<g id="${id}"><ellipse cx="0" cy="104" rx="330" ry="20" fill="#1B1B1F" opacity=".1"/>${wheel(-230,'w1')}${wheel(230,'w2')}${frame}<g id="${id}-sq">${rider}${limbs}</g></g>`;
+  }
+  return `<g id="${id}"><ellipse cx="0" cy="4" rx="170" ry="18" fill="#1B1B1F" opacity=".1"/><g id="${id}-sq">${bagG}${legs}${core}</g></g>`;
+}
+function car(id){ // side-view cartoon car, mascot peeking from the window
+  const head=`<g transform="translate(20 -34) scale(.3)"><path d="M0 -560 C150 -560 212 -470 212 -330 L212 -90 L-212 -90 L-212 -330 C-212 -470 -150 -560 0 -560Z" fill="${PAL.yel[0]}"/><ellipse cx="-74" cy="-388" rx="54" ry="60" fill="#fff"/><ellipse cx="74" cy="-388" rx="54" ry="60" fill="#fff"/><circle cx="-60" cy="-380" r="32" fill="#24161E"/><circle cx="88" cy="-380" r="32" fill="#24161E"/><path d="M-104 -290 Q0 -220 104 -290" stroke="#24161E" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="${C.ink}"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#000"/></g>`;
+  return `<g id="${id}"><ellipse cx="0" cy="104" rx="360" ry="20" fill="#1B1B1F" opacity=".1"/>
+   <path d="M-330 40 Q-330 -60 -250 -70 L-160 -80 Q-110 -200 0 -210 L120 -210 Q200 -200 250 -90 L310 -80 Q350 -70 350 0 L350 40 Q350 70 320 70 L-300 70 Q-330 70 -330 40Z" fill="${C.coral}"/>
+   <clipPath id="${id}-win"><path d="M-130 -90 Q-90 -185 0 -190 L110 -190 Q175 -182 215 -90Z"/></clipPath>
+   <path d="M-130 -90 Q-90 -185 0 -190 L110 -190 Q175 -182 215 -90Z" fill="#CFEFFF"/><g clip-path="url(#${id}-win)">${head}</g>
+   <rect x="40" y="-190" width="18" height="100" fill="${C.coral}"/>
+   <rect x="300" y="-40" width="44" height="28" rx="10" fill="#FFE9A8"/><rect x="-328" y="-36" width="30" height="24" rx="8" fill="#FFB1A8"/>
+   <g id="${id}-w1"><circle cx="-190" cy="70" r="78" fill="#2B2B33"/><circle cx="-190" cy="70" r="34" fill="#C9C9D1"/><path d="M-216 70 H-164" stroke="#2B2B33" stroke-width="8"/></g>
+   <g id="${id}-w2"><circle cx="200" cy="70" r="78" fill="#2B2B33"/><circle cx="200" cy="70" r="34" fill="#C9C9D1"/><path d="M174 70 H226" stroke="#2B2B33" stroke-width="8"/></g></g>`;
+}
+function place(svg,html,id,x,y,s){ el(svg,`<g id="${id}-pos"><g transform="scale(${s})">${html}</g></g>`); gsap.set('#'+id+'-pos',{x,y}); }
+
+// S1 hook: courier speeds in on a bike
+el($('#s1fg'),`<g id="speed">${[0,1,2,3].map(i=>`<rect class="sl" x="${-420+i*40}" y="${1080+i*60}" width="${260-i*30}" height="16" rx="8" fill="#1B1B1F" opacity=".18"/>`).join('')}</g><g id="dust">${[0,1,2].map(i=>`<circle class="dp" cx="${330-i*50}" cy="${1430-i*16}" r="${30-i*6}" fill="#D9D1C2"/>`).join('')}</g>`);
+place($('#s1fg'),mascot({id:'mA',bike:true}),'mA',560,1330,.95);
+// S2 brand: big mascot winks
+place($('#s2fg'),mascot({id:'mB'}),'mB',540,1700,1.45);
+// S3 schedule: city + stars + small mascot
+(function(){ const city=$('#city'); [[0,150,170],[160,120,250],[290,150,190],[450,110,280],[570,150,210],[730,100,160]].forEach(([x,w,h],i)=>{const b=document.createElement('div');b.className='bld';Object.assign(b.style,{position:'absolute',bottom:'0',left:x+'px',width:w+'px',height:h+'px',borderRadius:'18px 18px 0 0',background:'#6FB6E8'});
+  for(let yy=34;yy<h-40;yy+=52)for(let xx=24;xx<w-30;xx+=44){if((i+xx+yy)%3===0)continue;const wn=document.createElement('div');wn.className='win';Object.assign(wn.style,{position:'absolute',left:xx+'px',top:yy+'px',width:'22px',height:'22px',borderRadius:'6px',background:'#FFE14D',opacity:0});b.appendChild(wn);} city.appendChild(b);});
+  [[90,60],[300,40],[420,120],[640,30],[740,150],[200,180],[520,70],[60,250]].forEach(([x,y])=>{const s=document.createElement('div');s.className='star';Object.assign(s.style,{position:'absolute',left:x+'px',top:y+'px',width:'12px',height:'12px',borderRadius:'3px',background:'#fff',opacity:0});$('#stars').appendChild(s);}); })();
+place($('#s3fg'),mascot({id:'mC',act:'wave'}),'mC',820,1700,.62);
+// S4 movement: three vehicles in one card
+for(let i=0;i<14;i++){const d=document.createElement('div');Object.assign(d.style,{position:'absolute',left:(i*150)+'px',top:'0',width:'90px',height:'16px',borderRadius:'8px',background:'#fff'});$('#dash').appendChild(d);}
+el($('#move'),`<g id="v1-pos"><g transform="scale(.9)">${mascot({id:'mW'})}</g></g><g id="v2-pos"><g transform="scale(.82)">${mascot({id:'mV',bike:true})}</g></g><g id="v3-pos"><g transform="scale(1.05)">${car('mCar')}</g></g>`);
+gsap.set('#v1-pos',{x:444,y:770}); gsap.set('#v2-pos',{x:444,y:700,opacity:0}); gsap.set('#v3-pos',{x:444,y:690,opacity:0});
+// S5 coins
+const COIN='<svg width="96" height="96" viewBox="0 0 104 104"><circle cx="52" cy="56" r="46" fill="#C98A00"/><circle cx="52" cy="50" r="46" fill="#FFD21F"/><circle cx="52" cy="50" r="33" fill="#F5B400"/><text x="52" y="66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="44" fill="#9A6400">₸</text><path d="M22 34 Q32 14 52 10" stroke="#FFF7C2" stroke-width="7" stroke-linecap="round" fill="none"/></svg>';
+for(let i=0;i<8;i++){const e=document.createElement('div');e.className='coin';e.style.left='322px';e.style.top='934px';e.style.opacity=0;e.innerHTML=COIN;$('#coins').appendChild(e);}
+// S6 a queue of different couriers, each gets a check
+const Q=[['yel',180],['coral',360],['lime',540],['blue',720],['pink',900]];
+Q.forEach(([c,x],i)=>{ el($('#s6fg'),`<g id="q${i}-pos"><g transform="scale(.36)">${mascot({id:'q'+i,col:c,bag:c==='yel'})}</g></g><g id="ok${i}"><circle cx="0" cy="0" r="44" fill="#1C8C45"/><path d="M-18 2 L-4 16 L20 -12" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`); gsap.set('#q'+i+'-pos',{x,y:1060}); gsap.set('#ok'+i,{x,y:770}); });
+// S8 waving mascot
+place($('#s8fg'),mascot({id:'mZ',act:'wave'}),'mZ',300,1880,.62);
+
+// ---------- timeline ----------
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+const E={o3:'power3.out',i3:'power3.in',back:'back.out(1.7)',b2:'back.out(2.2)',io:'power3.inOut'};
+const blink=(id,t)=>tl.to(`#${id}-eyes`,{scaleY:.1,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1},t);
+const hop=(id,t,h=60)=>{tl.to(`#${id}-sq`,{scaleY:.88,scaleX:1.08,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1,ease:'power2.out'},t);tl.to(`#${id}-pos`,{y:`-=${h}`,duration:.22,yoyo:true,repeat:1,ease:'power2.out'},t+.12);};
+const slideOut=(a,b,t)=>{tl.to(a,{x:-1080,duration:.38,ease:E.i3},t);tl.set(b,{opacity:1,x:1080},t+.04);tl.to(b,{x:0,duration:.38,ease:E.o3},t+.04);};
+const pushUp=(a,b,t)=>{tl.set(b,{opacity:1},t);tl.to(a,{y:-1920,duration:.5,ease:E.io},t);tl.fromTo(b,{y:1920},{y:0,duration:.5,ease:E.io},t);tl.set(a,{opacity:0},t+.55);};
+
+// S1 (0–2): frame 0 already has the headline + speed lines; courier zooms in and skids
+gsap.set('#mA-pos',{x:-120});
+tl.to('#mA-pos',{x:560,duration:.62,ease:'power3.out'},0);
+tl.to(['#mA-w1','#mA-w2'],{rotation:540,transformOrigin:'50% 50%',duration:.62,ease:'power3.out'},0);
+tl.to('#speed',{x:520,opacity:0,duration:.55,ease:'power2.out'},0);
+tl.fromTo('#mA-pos',{rotation:0},{rotation:-6,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},.55);
+tl.fromTo('.dp',{opacity:0,scale:.3,transformOrigin:'50% 50%'},{opacity:.9,scale:1.3,duration:.3,stagger:.05,ease:'power2.out',immediateRender:false},.55);
+tl.to('.dp',{opacity:0,duration:.3},.9);
+tl.to('#mA-sq',{scaleY:.92,scaleX:1.05,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1},.6);
+blink('mA',1.4);
+slideOut('#s1','#s2',1.95);
+
+// S2 (2–4.5): brand, big mascot pops up and winks
+tl.from('#t2a',{yPercent:110,duration:.45,ease:E.o3},2.1);
+tl.from('#t2b',{y:170,duration:.45,ease:E.o3},2.2);
+tl.from('#mB-pos',{y:'+=900',duration:.55,ease:'back.out(1.5)'},2.25);
+tl.from('#mB-bag',{scale:0,transformOrigin:'50% 100%',duration:.35,ease:E.b2},2.6);
+tl.to('#mB-eR',{scaleY:.1,transformOrigin:'50% 50%',duration:.09,yoyo:true,repeat:1},3.3);
+hop('mB',3.75,50);
+slideOut('#s2','#s3',4.45);
+
+// S3 (4.5–7): day → night → day switch
+tl.from(['#t3a','#t3b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},4.6);
+tl.from('#schedcard',{y:120,opacity:0,duration:.4,ease:E.o3},4.65);
+tl.from('#mC-pos',{y:'+=600',duration:.5,ease:E.back},4.8);
+tl.fromTo('#moon',{y:420},{y:0,duration:.4,ease:E.o3},5.35);
+tl.to('#sw-k',{x:396,duration:.25,ease:'power2.inOut'},5.25);
+tl.to('#sw-d',{color:'#8A857C',duration:.15},5.3); tl.to('#sw-n',{color:'#1B1B1F',duration:.15},5.3);
+tl.to('#sky',{backgroundColor:'#23234A',duration:.3},5.25); tl.to('#sun',{y:440,duration:.35,ease:E.i3},5.25);
+tl.to('.bld',{backgroundColor:'#33336B',duration:.3},5.25); tl.to('.win',{opacity:1,duration:.1,stagger:{each:.01,from:'random'}},5.35); tl.to('.star',{opacity:1,duration:.12,stagger:.02},5.4);
+tl.to('#mC-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.2,yoyo:true,repeat:5,ease:'sine.inOut'},5.0);
+pushUp('#s3','#s4',6.95);
+
+// S4 (7–10): walk → bike → car
+const mv=(n,t)=>{tl.to(`#mv${n}`,{backgroundColor:'#1B1B1F',color:'#fff',duration:.15},t);tl.fromTo(`#mv${n}`,{scale:1},{scale:1.12,duration:.12,yoyo:true,repeat:1,immediateRender:false},t);};
+tl.from('#t4a',{yPercent:110,duration:.4,ease:E.o3},7.1);
+tl.to('#dash',{x:-1050,duration:2.9,ease:'none'},7.05);
+mv(1,7.3); tl.to('#mW-sq',{y:-28,duration:.16,yoyo:true,repeat:5,ease:'power2.out'},7.25);
+tl.to('#v1-pos',{x:-400,duration:.3,ease:E.i3},8.0); tl.set('#v2-pos',{opacity:1,x:1300},8.0); tl.to('#v2-pos',{x:444,duration:.32,ease:E.o3},8.05);
+tl.to(['#mV-w1','#mV-w2'],{rotation:720,transformOrigin:'50% 50%',duration:1.0,ease:'none'},8.05); mv(2,8.1);
+tl.to('#v2-pos',{x:-500,duration:.3,ease:E.i3},9.0); tl.set('#v3-pos',{opacity:1,x:1400},9.0); tl.to('#v3-pos',{x:444,duration:.32,ease:E.o3},9.05);
+tl.to(['#mCar-w1','#mCar-w2'],{rotation:540,transformOrigin:'50% 50%',duration:.9,ease:'none'},9.05); mv(3,9.1);
+tl.to('#v3-pos',{y:'-=10',duration:.12,yoyo:true,repeat:3,ease:'sine.inOut'},9.4);
+slideOut('#s4','#s5',9.95);
+
+// S5 (10–13): payout + coins
+tl.from(['#t5a','#t5b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},10.1);
+tl.from('#phone',{y:200,opacity:0,duration:.45,ease:E.o3},10.15);
+tl.from('#bal',{scale:.6,opacity:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},10.45);
+tl.from('#notif',{y:-80,scale:.9,opacity:0,duration:.4,ease:E.back},10.9);
+const burst=[[-260,360],[-130,430],[0,370],[130,450],[260,380],[-200,520],[60,540],[200,520]];
+document.querySelectorAll('#coins .coin').forEach((c,i)=>{const[dx,dy]=burst[i],t0=11.2+i*.04;
+  tl.fromTo(c,{x:0,y:0,scale:.3,opacity:0,rotation:i%2?-25:25},{x:dx,y:dy,scale:1,opacity:1,rotation:0,duration:.42,ease:'back.out(1.6)'},t0);
+  tl.to(c,{x:0,y:0,scale:.3,opacity:0,duration:.28,ease:'power2.in'},11.75+i*.035);});
+tl.to('#nbadge',{scale:1.25,duration:.08,yoyo:true,repeat:5,ease:'power2.out'},12.0);
+tl.to('#balnum',{scale:1.15,transformOrigin:'0% 50%',duration:.12,yoyo:true,repeat:1},12.1);
+slideOut('#s5','#s6',12.95);
+
+// S6 (13–16): everyone gets a check
+tl.from(['#t6a','#t6b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},13.1);
+Q.forEach((q,i)=>{tl.from(`#q${i}-pos`,{y:'+=520',duration:.4,ease:E.back},13.15+i*.06); tl.from(`#ok${i}`,{scale:0,transformOrigin:'50% 50%',duration:.3,ease:E.b2},13.75+i*.2); tl.to(`#q${i}-sq`,{scaleY:.9,scaleX:1.06,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1},13.75+i*.2);});
+tl.from('#allchip',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},14.9);
+blink('q0',15.2); blink('q3',15.4);
+pushUp('#s6','#s7',15.95);
+
+// S7 (16–18.5): 15 minutes
+tl.from(['#t7a','#t7b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},16.1);
+tl.to('#tring',{strokeDashoffset:0,duration:1.1,ease:'power2.inOut'},16.3);
+tl.fromTo('#ttext',{scale:.6,opacity:0,transformOrigin:'50% 50%'},{scale:1,opacity:1,duration:.4,ease:E.b2,immediateRender:false},16.3);
+tl.to('#ttext',{scale:1.1,transformOrigin:'50% 50%',duration:.12,yoyo:true,repeat:1},17.4);
+tl.from('#fc1',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},17.5); tl.from('#fc2',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},17.75);
+slideOut('#s7','#s8',18.45);
+
+// S8 (18.5–24): CTA
+tl.from('#lg1',{y:-80,opacity:0,duration:.45,ease:E.back},18.6);
+tl.from('#lg1 img',{scale:.6,opacity:0,duration:.4,ease:E.b2},18.75);
+tl.from('#lg2',{y:20,opacity:0,duration:.4,ease:E.o3},18.85);
+tl.from(['#t8a','#t8b'],{yPercent:110,duration:.45,ease:E.o3,stagger:.08},18.9);
+tl.from('#wa',{scale:0,transformOrigin:'50% 50%',duration:.5,ease:'back.out(1.6)'},19.2);
+tl.from('#wa-ring',{scale:.8,opacity:0,transformOrigin:'50% 50%',duration:.5,ease:E.o3},19.35);
+tl.from('#legal',{opacity:0,duration:.4},19.6);
+tl.from('#mZ-pos',{y:'+=600',duration:.55,ease:'back.out(1.4)'},19.5);
+tl.to('#mZ-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.22,yoyo:true,repeat:9,ease:'sine.inOut'},20.0);
+tl.from('#cursor',{x:-160,y:260,opacity:0,duration:.5,ease:E.o3},20.1);
+tl.to('#cursor',{scale:.86,transformOrigin:'4px 4px',duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},20.65);
+tl.to('#wa',{scale:.96,transformOrigin:'50% 50%',duration:.1,yoyo:true,repeat:1,ease:'power2.inOut'},20.67);
+tl.fromTo('#wa-rip',{scale:0,opacity:.55},{scale:30,opacity:0,duration:.6,ease:'power2.out'},20.7);
+tl.from('#bubble',{scale:0,transformOrigin:'100% 100%',duration:.4,ease:E.b2},20.95);
+tl.to('#cursor',{x:60,y:220,opacity:0,duration:.4,ease:E.i3},21.4);
+tl.to('#wa-ring',{scale:1.04,opacity:.06,transformOrigin:'50% 50%',duration:.5,yoyo:true,repeat:4,ease:'sine.inOut'},21.6);
+tl.to('#wa',{scale:1.03,transformOrigin:'50% 50%',duration:.5,yoyo:true,repeat:4,ease:'sine.inOut'},21.6);
+hop('mZ',22.2,50); blink('mZ',23.0);
+
+window.__timelines['main']=tl;
+</script>
+</body>
+</html>
