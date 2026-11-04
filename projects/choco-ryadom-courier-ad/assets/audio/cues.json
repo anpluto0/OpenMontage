@@ -1,5 +1,5 @@
 {
- "_doc": "Звук ролика Choco Рядом. Время — секунды ролика. gain_db SFX — целевой пик. Реплика без файла озвучивается make_voice.py.",
+ "_doc": "Звук ролика Рядом. Время — секунды ролика. gain_db SFX — целевой пик. Реплика без файла озвучивается make_voice.py.",
  "duration": 29,
  "voice": {
   "provider": "elevenlabs",
@@ -10,7 +10,7 @@
   "stability": 0.3,
   "similarity_boost": 0.8,
   "seed": 7,
-  "pronunciation": "«Choco» — «Чоко», «Green Express» — «Грин Экспресс», WhatsApp — «Ватсап»"
+  "pronunciation": "бренд называем просто «Рядом» (без «Choco»), «Green Express» — «Грин Экспресс», WhatsApp — «Ватсап»"
  },
  "lines": [
   {
@@ -22,7 +22,7 @@
   },
   {
    "id": "L2",
-   "text": "Возможно, она уже в твоём районе — в даркстор Чоко Рядом.",
+   "text": "Возможно, она уже в твоём районе — в даркстор Рядом.",
    "file": "vo/L2.wav",
    "start": 2.85,
    "gain_db": 0

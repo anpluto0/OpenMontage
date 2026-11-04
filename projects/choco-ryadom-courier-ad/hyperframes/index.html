@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=1080, height=1920" />
-<title>Choco Рядом — курьер</title>
+<title>Рядом — курьер</title>
 <script src="vendor/gsap.min.js"></script>
 <script src="content.js"></script>
 <style>
@@ -95,7 +95,7 @@ svg{display:block;overflow:visible}
   <!-- S7 · CTA (23–29) -->
   <div id="s7" class="scene" style="background:var(--paper)">
     <div class="h1 mask" style="top:170px"><div id="t7a"><span data-k="cta.l1">Стань курьером</span></div></div>
-    <div class="h1 mask" style="top:274px;color:var(--heart)"><div id="t7b"><span data-k="cta.l2">в Choco Рядом</span></div></div>
+    <div class="h1 mask" style="top:274px;height:112px"><div id="t7b"><img src="assets/ryadom_logo.png" style="display:block;height:84px;width:auto;margin-top:14px" alt="Рядом"/></div></div>
     <div id="reg" class="card" style="left:96px;top:450px;width:888px;height:250px">
       <div class="abs" style="left:0;top:34px;width:888px;text-align:center;font-weight:500;font-size:32px;color:var(--mute)"><span data-k="cta.reg">Регистрация через курьерский центр</span></div>
       <div class="abs" style="left:0;top:92px;width:888px;height:120px;display:flex;align-items:center;justify-content:center;gap:28px">
@@ -197,7 +197,7 @@ place($('#s1fg'),mascot({id:'mA',act:'phone',cap:true,strap:true}),'mA',830,1880
 // S3 darkstore
 (function(){const s=$('#store');
   el(s,`<g id="bld"><rect x="96" y="60" width="888" height="940" rx="48" fill="#F7F2EB"/>
-    <g id="sign"><rect x="136" y="100" width="808" height="150" rx="36" fill="#fff"/><image href="assets/choco_logo.png" x="300" y="147" width="480" height="55"/></g>
+    <g id="sign"><rect x="136" y="100" width="808" height="150" rx="36" fill="#fff"/><image href="assets/ryadom_logo.png" x="341" y="135" width="398" height="80"/></g>
     <rect x="136" y="290" width="520" height="560" rx="32" fill="#fff"/></g>`);
   const prod=['#FFD43B','#FF6B6B','#FFFFFF','#8CD23C','#FEA202','#9FD7FF','#FA084E','#F2C29B'];
   for(let r=0;r<3;r++){const sy=480+r*130;el(s,`<rect class="shelf" x="160" y="${sy}" width="472" height="16" rx="8" fill="#E2D9CC"/>`);
@@ -242,7 +242,7 @@ for(let i=0;i<8;i++){const e=document.createElement('div');e.className='coin';e.
 place($('#s6fg'),mascot({id:'mS',cap:true}),'mS',540,1830,.72);
 
 // S7 waving mascot
-place($('#s7fg'),mascot({id:'mW',act:'wave',cap:true,strap:true}),'mW',300,1760,.78);
+place($('#s7fg'),mascot({id:'mW',act:'wave',cap:true,strap:true}),'mW',300,1880,.68);
 
 // ---------- timeline ----------
 window.__timelines=window.__timelines||{};
