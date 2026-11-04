@@ -15,17 +15,19 @@
  "lines": [
   {
    "id": "K1",
-   "text": "[calm, confident, low voice] Бауырым, қосымша жұмыс іздеп жүрсің бе?",
+   "text": "[confident, upbeat, energetic] Бауырым, қосымша жұмыс іздеп жүрсің бе?",
    "file": "vo/K1.wav",
    "start": 0.15,
-   "gain_db": 0
+   "gain_db": 0,
+   "stability": 0.3
   },
   {
    "id": "K2",
-   "text": "[calm, confident, low voice] Онда Яндекс Едаға курьер болып кел!",
+   "text": "[confident, upbeat, energetic] Онда Яндекс Едаға курьер болып кел!",
    "file": "vo/K2.wav",
    "start": 2.85,
-   "gain_db": 0
+   "gain_db": 0,
+   "stability": 0.3
   },
   {
    "id": "K3",
