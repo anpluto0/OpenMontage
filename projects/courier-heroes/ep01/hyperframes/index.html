@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>Курьер — батыр · Выпуск 1</title>
+<script src="vendor/gsap.min.js"></script>
+<script src="content.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-ext-800-normal.woff2);unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7,U+00AB,U+00BB}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8,U+2713,U+00B7,U+00AB,U+00BB}
+:root{--ink:#1B1B1F;--paper:#F4F1EA;--white:#FFFFFF;--yel:#FCE000;--coral:#FF5A4E;--orange:#FEA202;--wa:#25D366;--mute:#8A857C;--green:#1C8C45}
+html,body{margin:0;padding:0;background:var(--ink)}
+body{font-family:Onest,sans-serif;color:var(--ink)}
+#root{position:relative;width:1080px;height:1920px;overflow:hidden}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--paper)}
+.scene{position:absolute;inset:0;width:1080px;height:1920px;opacity:0;overflow:hidden}
+.abs{position:absolute}
+.h1{position:absolute;left:80px;font-weight:800;font-size:84px;line-height:98px;letter-spacing:-1.5px;white-space:nowrap}
+.mask{overflow:hidden;height:112px}
+.plate{position:absolute;left:80px;top:100px;height:64px;line-height:64px;padding:0 28px;border-radius:32px;font-weight:800;font-size:32px;white-space:nowrap}
+.chip{height:76px;border-radius:38px;padding:0 32px;font-weight:800;font-size:36px;line-height:76px;white-space:nowrap;display:inline-block}
+.card{position:absolute;background:#fff;border-radius:36px}
+.coin{position:absolute;width:90px;height:90px}
+svg{display:block;overflow:visible}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="42.8">
+<section id="stage" class="clip" data-start="0" data-duration="42.8" data-track-index="1">
+
+  <!-- S1 · hook: granny hands the package to the courier (visible from frame 0) -->
+  <div id="s1" class="scene" style="background:var(--paper);opacity:1">
+    <svg id="s1bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <div id="pl1" class="plate" style="background:var(--ink);color:#fff"><span data-k="plate">Алматы · лето 2026</span></div>
+    <div class="h1" style="top:196px"><span data-k="hook.l1">Бабушка чуть не отдала</span></div>
+    <div class="h1" style="top:294px"><span data-k="hook.l2_pre">мошенникам </span><span style="color:var(--coral)" data-k="hook.l2_accent">$3 000</span></div>
+    <div class="h1 mask" style="top:420px;height:120px"><div id="punch" style="display:inline-block;background:var(--coral);color:#fff;border-radius:24px;padding:4px 28px 6px"><span data-k="hook.punch">Её спас курьер</span></div></div>
+    <svg id="s1fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S2 · the scam call -->
+  <div id="s2" class="scene" style="background:var(--ink)">
+    <div class="h1 mask" style="top:196px;color:#fff"><div id="t2a"><span data-k="scam.l1">Мошенники:</span></div></div>
+    <div class="h1 mask" style="top:294px;color:var(--yel)"><div id="t2b"><span data-k="scam.l2">«Задекларируйте деньги»</span></div></div>
+    <div id="phone2" class="abs" style="left:300px;top:560px;width:480px;height:820px;border-radius:70px;background:#0E0E12;box-shadow:0 0 0 10px #34343C">
+      <div class="abs" style="left:24px;top:24px;width:432px;height:772px;border-radius:50px;background:linear-gradient(#3A3550,#1F1C2C)"></div>
+      <div class="abs" style="left:160px;top:42px;width:160px;height:30px;border-radius:15px;background:#0E0E12"></div>
+      <svg id="caller" class="abs" style="left:140px;top:150px" width="200" height="200" viewBox="-100 -100 200 200"><circle r="96" fill="#55506E"/></svg>
+      <div class="abs" style="left:0;top:380px;width:480px;text-align:center;font-weight:800;font-size:38px;color:#fff"><span data-k="scam.call">Неизвестный номер</span></div>
+      <div class="abs" style="left:0;top:432px;width:480px;text-align:center;font-weight:500;font-size:28px;color:#A9A4C2">+7 7•• ••• •• ••</div>
+      <div id="btnNo2" class="abs" style="left:70px;top:640px;width:110px;height:110px;border-radius:55px;background:#FF3B30"></div>
+      <div id="btnYes2" class="abs" style="left:300px;top:640px;width:110px;height:110px;border-radius:55px;background:#34C759"></div>
+      <svg class="abs" style="left:96px;top:668px" width="58" height="58" viewBox="0 0 24 24"><path fill="#fff" d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.956.956 0 0 1 0-1.36C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.72c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
+      <svg class="abs" style="left:326px;top:668px" width="58" height="58" viewBox="0 0 24 24"><path fill="#fff" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+    </div>
+    <div id="say2" class="abs" style="left:110px;top:470px;max-width:620px;background:#fff;border-radius:40px 40px 40px 10px;padding:26px 36px;font-weight:800;font-size:44px;line-height:52px"><span data-k="scam.say">Деньги нужно задекларировать!</span></div>
+    <svg id="s2fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S3 · she is nervous -->
+  <div id="s3" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:196px"><div id="t3a"><span data-k="nerv.l1">Она нервничала</span></div></div>
+    <div class="h1 mask" style="top:294px;color:var(--coral)"><div id="t3b"><span data-k="nerv.l2">и молчала</span></div></div>
+    <svg id="s3fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S4 · he rides off, stops, thinks of his mother -->
+  <div id="s4" class="scene" style="background:linear-gradient(#FFB36B 0%,#FF8A7A 38%,#9E6BB8 100%)">
+    <svg id="s4bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <div id="pl4" class="plate" style="background:#fff;color:var(--ink)"><span data-k="name">Нартай Есимханов</span></div>
+    <div class="h1 mask" style="top:196px;color:#2A1840"><div id="t4a"><span data-k="mama.l1">«А если бы это была</span></div></div>
+    <div class="h1 mask" style="top:294px;color:#FFFFFF;text-shadow:0 4px 0 rgba(90,30,80,.35)"><div id="t4b"><span data-k="mama.l2">моя мама?»</span></div></div>
+    <svg id="s4fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S5 · call 102, money returned -->
+  <div id="s5" class="scene" style="background:var(--paper)">
+    <div class="h1 mask" style="top:196px"><div id="t5a"><span data-k="call.l1">Звонок в 102</span></div></div>
+    <div class="h1 mask" style="top:294px;color:var(--green)"><div id="t5b"><span data-k="call.l2">Деньги вернули</span></div></div>
+    <svg id="s5fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S6 · thank-you letter -->
+  <div id="s6" class="scene" style="background:#FFF4CC">
+    <div class="h1 mask" style="top:196px"><div id="t6a"><span data-k="award.l1">Благодарность</span></div></div>
+    <div class="h1 mask" style="top:294px;color:var(--coral)"><div id="t6b"><span data-k="award.l2">от полиции Алматы</span></div></div>
+    <div id="confetti"></div>
+    <svg id="s6fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S7 · safety tip -->
+  <div id="s7" class="scene" style="background:var(--ink)">
+    <div class="abs" style="left:80px;top:110px"><div id="share" class="chip" style="background:var(--wa);color:#fff">➦ <span data-k="tip.share">Отправьте родителям</span></div></div>
+    <div class="h1 mask" style="top:230px;color:#fff"><div id="t7a"><span data-k="tip.l1">Полиция не просит</span></div></div>
+    <div class="h1 mask" style="top:328px;color:var(--yel)"><div id="t7b"><span data-k="tip.l2">деньги по телефону</span></div></div>
+    <div class="abs" style="left:80px;top:470px"><div id="tip3" class="chip" style="background:#fff;color:var(--ink)"><span data-k="tip.l3">Сомневаетесь? Звоните 102</span></div></div>
+    <svg id="s7fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+  <!-- S8 · the real hero + thanks -->
+  <div id="s8" class="scene" style="background:var(--paper)">
+    <div id="photo" class="abs" style="left:190px;top:150px;width:700px;height:860px;background:#fff;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);padding:22px;box-sizing:border-box">
+      <div class="abs" style="left:22px;top:22px;width:656px;height:690px;border-radius:16px;overflow:hidden;background:url(assets/nartay.jpg) center 20%/cover"></div>
+      <div class="abs" style="left:0;top:728px;width:700px;text-align:center;font-weight:800;font-size:40px"><span data-k="end.cap">Нартай Есимханов, курьер</span></div>
+      <div class="abs" style="left:0;top:786px;width:700px;text-align:center;font-weight:500;font-size:22px;color:#8A857C"><span data-k="end.credit">Фото: ДП г. Алматы · Источники: Tengrinews, NUR.KZ</span></div>
+    </div>
+    <div id="real" class="abs" style="left:0;top:1046px;width:1080px;text-align:center"><div class="chip" style="background:#E4DED2;color:#5E5850;font-size:28px;height:60px;line-height:60px"><span data-k="end.real">Реальная история, по данным СМИ</span></div></div>
+    <div id="thanks" class="card" style="left:90px;top:1140px;width:900px;height:150px;display:flex;align-items:center;justify-content:center;gap:26px;background:var(--ink);color:#fff">
+      <img src="assets/ge_mark.svg" style="width:84px;height:84px;display:block"/>
+      <div style="font-weight:800;font-size:46px;white-space:nowrap"><span data-k="end.thanks">Спасибо таким курьерам!</span></div>
+    </div>
+    <div id="follow" class="abs" style="left:0;top:1316px;width:1080px;text-align:center"><div class="chip" style="background:var(--coral);color:#fff;font-size:32px">🔔 <span data-k="end.follow">Подпишись: больше историй о курьерах-героях</span></div></div>
+    <svg id="s8fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  </div>
+
+</section>
+</div>
+
+<script>
+document.querySelectorAll('[data-k]').forEach(e=>{const v=(window.CONTENT||{})[e.dataset.k]; if(v!=null) e.textContent=v;});
+const $=s=>document.querySelector(s);
+const el=(svg,html)=>svg.insertAdjacentHTML('beforeend',html);
+const OL='#24161E';
+// ---------- mascot (flat jelly-bean, no outlines) ----------
+const PAL={yel:['#FCE000','#D9BE00'],hero:['#FFB13B','#E08A12'],granny:['#B9A6E8','#9580CF'],mom:['#FF9EB8','#E57898'],police:['#5B8DEF','#3A68C9'],scam:['#6E6A80','#4D4960']};
+function mascot({id,col='hero',cap='none',bag=null,glasses=false,scarf=null,face='smile',act='none',bike=false}){
+  const [B,D]=PAL[col];
+  const bodyD=`M0 -560 C150 -560 212 -470 212 -330 L202 -160 C198 -112 160 -90 118 -90 L-118 -90 C-160 -90 -198 -112 -202 -160 L-212 -330 C-212 -470 -150 -560 0 -560Z`;
+  const body=`<path d="${bodyD}" fill="${B}"/><clipPath id="${id}-cl"><path d="${bodyD}"/></clipPath><g clip-path="url(#${id}-cl)"><ellipse cx="150" cy="-260" rx="120" ry="260" fill="${D}" opacity=".35"/></g>`;
+  const bagG=bag?`<g id="${id}-bag"><rect x="-250" y="-560" width="500" height="330" rx="56" fill="${bag[0]}"/><rect x="-250" y="-560" width="500" height="64" rx="32" fill="${bag[1]}"/></g>`:'';
+  const legs=`<path id="${id}-lg1" d="M-100 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/><path id="${id}-lg2" d="M32 -110 h68 v76 a34 34 0 0 1 -68 0z" fill="${D}"/>`;
+  const armL=`<g id="${id}-armL"><ellipse cx="-222" cy="-250" rx="40" ry="84" transform="rotate(18 -222 -250)" fill="${D}"/></g>`;
+  let armR=`<g id="${id}-armR"><ellipse cx="222" cy="-250" rx="40" ry="84" transform="rotate(-18 222 -250)" fill="${D}"/></g>`;
+  if(act==='wave') armR=`<g id="${id}-arm"><ellipse cx="250" cy="-420" rx="40" ry="84" transform="rotate(-30 250 -420)" fill="${D}"/></g>`;
+  if(act==='give') armR=`<g id="${id}-arm"><ellipse cx="270" cy="-300" rx="40" ry="84" transform="rotate(-70 270 -300)" fill="${D}"/></g>`;
+  if(act==='phone') armR=`<g id="${id}-arm"><ellipse cx="200" cy="-400" rx="40" ry="84" transform="rotate(20 200 -400)" fill="${D}"/><rect x="150" y="-500" width="70" height="120" rx="16" fill="#1B1B1F"/><rect x="160" y="-488" width="50" height="90" rx="8" fill="#7FD3FF"/></g>`;
+  const ey=-388;
+  const pupil=(cx)=>`<circle class="${id}-pp" cx="${cx}" cy="${ey+8}" r="32" fill="${OL}"/><circle class="${id}-pp" cx="${cx+10}" cy="${ey-6}" r="11" fill="#fff"/>`;
+  const eyes=`<g id="${id}-eyes"><g id="${id}-eL"><ellipse cx="-74" cy="${ey}" rx="54" ry="60" fill="#fff"/>${pupil(-66)}</g><g id="${id}-eR"><ellipse cx="74" cy="${ey}" rx="54" ry="60" fill="#fff"/>${pupil(66)}</g></g>`;
+  const brows= face==='worried'?`<path d="M-120 -470 L-40 -488 M120 -470 L40 -488" stroke="${OL}" stroke-width="14" stroke-linecap="round"/>`
+             : face==='sly'?`<path d="M-130 -460 L-30 -430 M130 -460 L30 -430" stroke="${OL}" stroke-width="16" stroke-linecap="round"/>`:'';
+  const mouth= face==='worried'?`<path id="${id}-mouth" d="M-60 ${ey+140} Q0 ${ey+110} 60 ${ey+140}" stroke="${OL}" stroke-width="10" fill="none" stroke-linecap="round"/>`
+             : face==='sly'?`<path id="${id}-mouth" d="M-70 ${ey+120} Q20 ${ey+150} 90 ${ey+100}" stroke="${OL}" stroke-width="10" fill="none" stroke-linecap="round"/>`
+             : `<path id="${id}-mouth" d="M-104 ${ey+98} Q0 ${ey+168} 104 ${ey+98}" stroke="${OL}" stroke-width="9" fill="none" stroke-linecap="round"/>`;
+  const gl=glasses?`<g fill="none" stroke="#2A2230" stroke-width="12"><rect x="-140" y="-446" width="132" height="112" rx="30"/><rect x="8" y="-446" width="132" height="112" rx="30"/><path d="M-8 -400 L8 -400 M-140 -400 L-196 -416 M140 -400 L196 -416"/></g>`:'';
+  let capG='';
+  if(cap==='courier') capG=`<path d="M-150 -520 A150 108 0 0 1 150 -520 Z" fill="#46526A"/><path d="M-150 -520 A150 108 0 0 1 -40 -623 Q-112 -590 -128 -520Z" fill="#56637D"/><path d="M-156 -524 Q0 -540 156 -524 Q158 -502 126 -494 Q0 -456 -126 -494 Q-158 -502 -156 -524Z" fill="#2B3344"/><circle cx="0" cy="-622" r="14" fill="#2B3344"/>`;
+  if(cap==='police') capG=`<path d="M-170 -520 Q-170 -650 0 -660 Q170 -650 170 -520Z" fill="#1F2D52"/><rect x="-172" y="-548" width="344" height="34" fill="#E8EDF7"/><path d="M-160 -516 Q0 -530 200 -500 Q190 -478 140 -476 Q0 -470 -150 -490Z" fill="#11182E"/><circle cx="0" cy="-600" r="26" fill="#F2C14E"/>`;
+  const scarfG=scarf?`<path fill-rule="evenodd" d="M-236 -300 C-250 -580 -120 -650 0 -650 C120 -650 250 -580 236 -300 C236 -250 200 -220 160 -214 L-160 -214 C-200 -220 -236 -250 -236 -300Z M0 -520 C-120 -520 -176 -440 -176 -370 C-176 -300 -110 -250 0 -250 C110 -250 176 -300 176 -370 C176 -440 120 -520 0 -520Z" fill="${scarf[0]}"/><path d="M-60 -230 L-120 -120 L-20 -170 L20 -226Z" fill="${scarf[1]}"/>`:'';
+  const core=`${armL}${armR}${body}${eyes}${brows}${mouth}${gl}${scarfG}${capG}`;
+  if(bike) return bikeRig(id,{body,eyes,mouth,gl,capG,D,box:bag||['#7F92A8','#66798F']});
+  return `<g id="${id}"><ellipse cx="0" cy="4" rx="170" ry="18" fill="#1B1B1F" opacity=".1"/><g id="${id}-sq">${bagG}${legs}${core}</g></g>`;
+}
+// ---------- bicycle (side view, faces right); legs follow the pedals ----------
+const BB={x:-10,y:14}, CR=44, LEG=114, HIP_N={x:-38,y:-158}, HIP_F={x:-66,y:-158};
+function legD(h,ang){ const px=BB.x+CR*Math.cos(ang), py=BB.y+CR*Math.sin(ang); const dx=px-h.x, dy=py-h.y;
+  let d=Math.hypot(dx,dy); const dd=Math.min(d,2*LEG-.5), a=dd/2, hh=Math.sqrt(LEG*LEG-a*a);
+  const ux=dx/d, uy=dy/d, mx=h.x+ux*a, my=h.y+uy*a, kx=mx+uy*hh, ky=my-ux*hh;
+  return `M${h.x.toFixed(1)} ${h.y.toFixed(1)} L${kx.toFixed(1)} ${ky.toFixed(1)} L${px.toFixed(1)} ${py.toFixed(1)}`; }
+function bikeRig(id,P){
+  const T='#321b41', G='#9B9B9B';
+  const wheel=(cx,w)=>`<g transform="translate(${cx} 0)"><g id="${id}-${w}"><circle r="92" fill="none" stroke="${T}" stroke-width="20"/><circle r="79" fill="none" stroke="#E6E6E6" stroke-width="5"/>${[0,45,90,135].map(a=>`<path d="M0 -77 V77" stroke="#CFCFD6" stroke-width="5" transform="rotate(${a})"/>`).join('')}<circle r="15" fill="${T}"/></g></g>`;
+  const frame=`<g fill="none" stroke="#3FA7A0" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"><path d="M-210 0 L-10 14 L-62 -118 Z"/><path d="M-58 -106 L154 -138 M-10 14 L161 -118"/><path d="M152 -160 L165 -108 L210 0"/></g>`;
+  const rack=`<path d="M-210 0 L-196 -128 M-66 -124 L-236 -128" stroke="${G}" stroke-width="10" stroke-linecap="round" fill="none"/><rect x="-266" y="-292" width="168" height="160" rx="24" fill="${P.box[0]}"/><rect x="-266" y="-292" width="168" height="38" rx="19" fill="${P.box[1]}"/>`;
+  const parts=`<path d="M-10 -14 L-210 -10 M-10 40 L-210 10" stroke="${G}" stroke-width="5"/><circle cx="-10" cy="14" r="28" fill="#F9C23C"/><circle cx="-10" cy="14" r="10" fill="${T}"/>
+    <path d="M-62 -118 L-66 -142" stroke="${G}" stroke-width="14" stroke-linecap="round"/><path d="M-118 -150 Q-118 -164 -98 -164 L-36 -158 Q-20 -156 -24 -144 Q-62 -136 -106 -139 Q-118 -140 -118 -150Z" fill="#9D5044"/>
+    <path d="M152 -160 L148 -196 L104 -202" stroke="${G}" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 -202 L86 -204" stroke="${T}" stroke-width="20" stroke-linecap="round"/>`;
+  const crank=`<g transform="translate(${BB.x} ${BB.y})"><g id="${id}-crank"><path d="M0 -${CR} V${CR}" stroke="${T}" stroke-width="13" stroke-linecap="round"/><circle r="9" fill="#F9C23C"/></g></g>`;
+  const shoe=(n,o,a)=>`<g id="${id}-sh${n}" transform="translate(${BB.x+CR*Math.cos(a)} ${BB.y+CR*Math.sin(a)})"><ellipse cx="10" cy="4" rx="32" ry="17" fill="#1B1B1F" opacity="${o}"/></g>`;
+  const legN=`<path id="${id}-legN" d="${legD(HIP_N,Math.PI/2)}" stroke="${P.D}" stroke-width="40" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const legF=`<path id="${id}-legF" d="${legD(HIP_F,-Math.PI/2)}" stroke="${P.D}" stroke-width="38" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>`;
+  const rider=`<g transform="translate(-52 -98) rotate(4) scale(.6)">${P.body}${P.eyes}${P.mouth}${P.gl}${P.capG}</g>`;
+  const arm=`<path d="M48 -236 Q76 -222 94 -206" stroke="${P.D}" stroke-width="36" fill="none" stroke-linecap="round"/>`;
+  return `<g id="${id}"><ellipse cx="0" cy="104" rx="320" ry="18" fill="#1B1B1F" opacity=".12"/>${legF}${shoe('F',.7,-Math.PI/2)}${wheel(-210,'w1')}${wheel(210,'w2')}${rack}${frame}${parts}<g id="${id}-sq">${rider}${arm}</g>${crank}${legN}${shoe('N',1,Math.PI/2)}</g>`;
+}
+function place(svg,html,id,x,y,s){ el(svg,`<g id="${id}-pos"><g transform="scale(${s})">${html}</g></g>`); gsap.set('#'+id+'-pos',{x,y}); }
+const SCARF=['#FFFFFF','#E9E4DA'];
+const HERO={col:'hero',cap:'courier',glasses:true,bag:['#7F92A8','#66798F']};
+const pkg=(id)=>`<g id="${id}"><rect x="-58" y="-76" width="116" height="126" rx="14" fill="#C99A62"/><path d="M-58 -50 H58" stroke="#B0844F" stroke-width="6"/><g id="${id}-cash"><rect x="-36" y="-104" width="72" height="44" rx="6" fill="#6DBF7B"/><text x="0" y="-72" text-anchor="middle" font-family="Onest" font-weight="800" font-size="30" fill="#1C5A2A">$</text></g></g>`;
+
+// ---------- S1 scenery: Almaty mountains, apartment entrance ----------
+(function(){ let s=`<path d="M0 900 L170 700 L260 780 L420 600 L560 760 L700 640 L860 800 L1080 680 L1080 1000 L0 1000Z" fill="#D9E2EC"/><path d="M420 600 L470 660 L440 650 L405 680 L385 645Z M700 640 L740 690 L712 684 L690 700 L672 676Z" fill="#fff"/>
+  <rect x="0" y="820" width="1080" height="700" fill="#E7DFD1"/>`;
+  for(let r=0;r<2;r++)for(let c=0;c<6;c++){const x=40+c*180,y=860+r*150; if(c===2||c===3)continue; s+=`<rect x="${x}" y="${y}" width="110" height="96" rx="12" fill="#F7D774"/>`;}
+  s+=`<rect x="400" y="1040" width="280" height="440" rx="16" fill="#B9A68C"/><rect x="430" y="1070" width="220" height="410" rx="12" fill="#8C7A62"/><circle cx="540" cy="1015" r="20" fill="#FFE7A3"/><rect x="0" y="1480" width="1080" height="440" fill="#D4CBBB"/>`;
+  el($('#s1bg'),s); })();
+place($('#s1fg'),mascot({id:'g1',col:'granny',scarf:SCARF,act:'give'}),'g1',320,1490,.6);
+place($('#s1fg'),mascot({id:'c1',...HERO}),'c1',790,1490,.62);
+el($('#s1fg'),`<g id="pk1-pos">${pkg('pk1')}</g>`); gsap.set('#pk1-pos',{x:470,y:1400,scale:.8});
+// S2 · caller avatar + jeans + bag
+el($('#caller'),`<g transform="translate(0 70) scale(.3)">${mascot({id:'sc',col:'scam',face:'sly'})}</g>`);
+el($('#s2fg'),`<g id="jeans" opacity="0"><path d="M-130 -200 H130 L150 200 H30 L0 -20 L-30 200 H-150Z" fill="#3D6FB6"/><path d="M-130 -200 H130 V-160 H-130Z" fill="#2F5A96"/><path d="M60 -150 Q100 -150 110 -110" stroke="#F2C14E" stroke-width="6" fill="none"/>
+  <g id="cash2"><rect x="40" y="-210" width="90" height="56" rx="8" fill="#6DBF7B" transform="rotate(-14 85 -182)"/><rect x="50" y="-230" width="90" height="56" rx="8" fill="#84D18F" transform="rotate(8 95 -202)"/><text x="98" y="-188" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#1C5A2A">$</text></g></g>
+  <g id="bag2" opacity="0"><rect x="-150" y="-180" width="300" height="340" rx="26" fill="#C99A62"/><path d="M-150 -120 H150" stroke="#B0844F" stroke-width="10"/></g>`);
+gsap.set(['#jeans','#bag2'],{x:540,y:1000});
+// S3 · granny close-up + courier with a question
+place($('#s3fg'),mascot({id:'g3',col:'granny',scarf:SCARF,face:'worried'}),'g3',380,1520,1.05);
+place($('#s3fg'),mascot({id:'c3',...HERO}),'c3',930,1560,.7);
+el($('#s3fg'),`<g id="sweat"><path d="M0 -40 Q26 0 0 20 Q-26 0 0 -40Z" fill="#7FD3FF"/></g><g id="qm"><circle r="70" fill="#fff"/><text y="30" text-anchor="middle" font-family="Onest" font-weight="800" font-size="90" fill="${OL}">?</text></g>`);
+gsap.set('#sweat',{x:560,y:1000}); gsap.set('#qm',{x:880,y:1060});
+// S4 · evening street, bike, mother thought
+(function(){ el($('#s4bg'),`<path d="M0 1080 L180 880 L300 960 L470 790 L620 940 L760 830 L920 960 L1080 860 L1080 1300 L0 1300Z" fill="#7A4E8C" opacity=".75"/><path d="M470 790 L520 850 L490 840 L455 870 L435 835Z M760 830 L800 880 L772 874 L750 890 L732 866Z" fill="#FFE3EA"/>
+  <circle cx="830" cy="640" r="70" fill="#FFF1C9"/><rect x="0" y="1300" width="1080" height="620" fill="#4B3B66"/>`);
+  let d=''; for(let i=0;i<22;i++) d+=`<rect x="${i*150}" y="1420" width="90" height="14" rx="7" fill="#fff" opacity=".55"/>`; el($('#s4bg'),`<g id="dash4">${d}</g>`); })();
+place($('#s4fg'),mascot({id:'cb',...HERO,bike:true}),'cb',-400,1310,.95);
+el($('#s4fg'),`<g id="dust4">${[0,1,2].map(i=>`<circle class="d4" cx="${-60-i*50}" cy="${80-i*14}" r="${30-i*6}" fill="#E9D6E8" opacity="0"/>`).join('')}</g>
+  <g id="bub4"><ellipse cx="0" cy="0" rx="250" ry="210" fill="#fff"/><circle cx="-150" cy="240" r="34" fill="#fff"/><circle cx="-200" cy="310" r="18" fill="#fff"/><g transform="translate(0 150) scale(.5)">${mascot({id:'mom',col:'mom',scarf:['#FFF6E8','#EFE3CF']})}</g><path id="heart4" d="M150 -150 C150 -180 190 -190 200 -160 C210 -190 250 -180 250 -150 C250 -110 200 -90 200 -80 C200 -90 150 -110 150 -150Z" fill="#FF5A7A"/></g>`);
+gsap.set('#dust4',{x:540,y:1310}); gsap.set('#bub4',{x:770,y:660});
+// S5 · courier calls 102; policeman returns the money to granny
+place($('#s5fg'),mascot({id:'c5',...HERO,act:'phone'}),'c5',190,1520,.5);
+place($('#s5fg'),mascot({id:'p5',col:'police',cap:'police',act:'give'}),'p5',560,1500,.58);
+place($('#s5fg'),mascot({id:'g5',col:'granny',scarf:SCARF}),'g5',900,1500,.58);
+el($('#s5fg'),`<g id="pk5-pos">${pkg('pk5')}</g><g id="call102"><rect x="-120" y="-50" width="240" height="100" rx="50" fill="#34C759"/><text x="0" y="20" text-anchor="middle" font-family="Onest" font-weight="800" font-size="56" fill="#fff">102</text></g>
+  <g id="hearts5">${[0,1,2].map(i=>`<path class="h5" d="M${-40+i*40} 0 c0-20 26-26 32-6 c6-20 32-14 32 6 c0 26-32 38-32 44 c0-6-32-18-32-44Z" fill="#FF5A7A" opacity="0"/>`).join('')}</g>`);
+gsap.set('#pk5-pos',{x:700,y:1270}); gsap.set('#call102',{x:200,y:1000}); gsap.set('#hearts5',{x:880,y:1060});
+// S6 · award: framed letter + gift bag
+place($('#s6fg'),mascot({id:'c6',...HERO}),'c6',540,1560,.85);
+el($('#s6fg'),`<g id="letter"><rect x="-120" y="-160" width="240" height="320" rx="10" fill="#6B5B4B"/><rect x="-100" y="-140" width="200" height="280" fill="#FFFDF5"/><path d="M-70 -90 H70 M-70 -50 H70 M-70 -10 H40 M-70 30 H60" stroke="#C9C1B1" stroke-width="10" stroke-linecap="round"/><circle cx="50" cy="90" r="26" fill="#F2C14E"/></g>
+  <g id="gift"><rect x="-80" y="-90" width="160" height="180" rx="16" fill="#3FA7A0"/><path d="M-30 -90 Q0 -150 30 -90" stroke="#C9A06A" stroke-width="10" fill="none"/></g>`);
+gsap.set('#letter',{x:800,y:1180}); gsap.set('#gift',{x:290,y:1440});
+(function(){ const cols=['#FF5A4E','#FCE000','#3FA7A0','#5B8DEF','#FF9EB8']; for(let i=0;i<26;i++){const d=document.createElement('div');d.className='cf';Object.assign(d.style,{position:'absolute',left:(60+((i*397)%960))+'px',top:'-40px',width:(14+(i%3)*6)+'px',height:(26+(i%2)*10)+'px',borderRadius:'4px',background:cols[i%5]});$('#confetti').appendChild(d);} })();
+// S7 · granny declines the scam call
+place($('#s7fg'),mascot({id:'g7',col:'granny',scarf:SCARF,act:'phone'}),'g7',540,1500,.75);
+el($('#s7fg'),`<g id="ring7"><circle r="60" fill="none" stroke="#FFFFFF" stroke-width="8" opacity=".6"/><circle r="100" fill="none" stroke="#FFFFFF" stroke-width="6" opacity=".35"/></g>
+  <g id="no7"><circle r="70" fill="#FF3B30"/><path d="M-28 -28 L28 28 M28 -28 L-28 28" stroke="#fff" stroke-width="16" stroke-linecap="round"/></g>`);
+gsap.set('#ring7',{x:690,y:1200}); gsap.set('#no7',{x:820,y:1000,scale:0});
+// S8 · hero peeks next to the real photo
+place($('#s8fg'),mascot({id:'c8',...HERO,act:'wave'}),'c8',150,1040,.4);
+
+// headlines wider than the safe area shrink to fit
+const tw=e=>{let l=1e9,r=-1e9;e.querySelectorAll('span').forEach(sp=>{const b=sp.getBoundingClientRect();if(b.width){l=Math.min(l,b.left);r=Math.max(r,b.right);}});return r>l?r-l:0;};
+function fitH1(){document.querySelectorAll('.h1').forEach(e=>{let fs=parseFloat(getComputedStyle(e).fontSize);while(tw(e)>920&&fs>50){fs-=2;e.style.fontSize=fs+'px';}});}
+fitH1(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitH1);
+// ---------- timeline ----------
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+const E={o3:'power3.out',i3:'power3.in',back:'back.out(1.7)',b2:'back.out(2.2)',io:'power3.inOut'};
+const ST=window.TIMING.starts;
+const blink=(id,t)=>tl.to(`#${id}-eyes`,{scaleY:.1,transformOrigin:'50% 50%',duration:.07,yoyo:true,repeat:1},t);
+const hop=(id,t,h=60)=>{tl.to(`#${id}-sq`,{scaleY:.88,scaleX:1.08,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1,ease:'power2.out'},t);tl.to(`#${id}-pos`,{y:`-=${h}`,duration:.22,yoyo:true,repeat:1,ease:'power2.out'},t+.12);};
+const slideOut=(a,b,t)=>{tl.to(a,{x:-1080,duration:.38,ease:E.i3},t);tl.set(b,{opacity:1,x:1080},t+.04);tl.to(b,{x:0,duration:.38,ease:E.o3},t+.04);};
+const pushUp=(a,b,t)=>{tl.set(b,{opacity:1},t);tl.to(a,{y:-1920,duration:.5,ease:E.io},t);tl.fromTo(b,{y:1920},{y:0,duration:.5,ease:E.io},t);tl.set(a,{opacity:0},t+.55);};
+const reveal=(sel,t)=>tl.from(sel,{yPercent:110,duration:.45,ease:E.o3,stagger:.08},t);
+function pedal(id,t0,dur,revs){ const n=Math.max(4,Math.round(revs*12)), dt=dur/n, kN=[], kF=[], sN=[], sF=[];
+  for(let i=1;i<=n;i++){const a=Math.PI/2+2*Math.PI*revs*i/n; kN.push({attr:{d:legD(HIP_N,a)},duration:dt,ease:'none'}); kF.push({attr:{d:legD(HIP_F,a+Math.PI)},duration:dt,ease:'none'});
+    sN.push({x:BB.x+CR*Math.cos(a),y:BB.y+CR*Math.sin(a),duration:dt,ease:'none'}); sF.push({x:BB.x+CR*Math.cos(a+Math.PI),y:BB.y+CR*Math.sin(a+Math.PI),duration:dt,ease:'none'});}
+  gsap.set(`#${id}-shN`,{x:BB.x,y:BB.y+CR}); gsap.set(`#${id}-shF`,{x:BB.x,y:BB.y-CR});
+  tl.fromTo(`#${id}-crank`,{rotation:0},{rotation:360*revs,transformOrigin:'50% 50%',duration:dur,ease:'none',immediateRender:false},t0);
+  tl.to(`#${id}-legN`,{keyframes:kN},t0); tl.to(`#${id}-legF`,{keyframes:kF},t0); tl.to(`#${id}-shN`,{keyframes:sN},t0); tl.to(`#${id}-shF`,{keyframes:sF},t0);
+  tl.fromTo([`#${id}-w1`,`#${id}-w2`],{rotation:0},{rotation:360*revs*1.6,transformOrigin:'50% 50%',duration:dur,ease:'none',immediateRender:false},t0); }
+
+// S1 (0–7.6) — frame 0 already shows the plate, the headline and both characters
+tl.from('#pk1-pos',{y:1440,duration:.5,ease:E.o3},2.6);
+tl.to('#g1-arm',{rotation:-14,transformOrigin:'0% 50%',duration:.3,yoyo:true,repeat:1},2.6);
+tl.fromTo('#pk1-cash',{y:0},{y:-18,duration:.25,yoyo:true,repeat:3,ease:'sine.inOut',immediateRender:false},3.4);
+tl.to('#pk1-pos',{x:650,duration:.55,ease:E.io},4.4);
+blink('g1',1.4); blink('c1',2.0); blink('g1',4.9);
+tl.from('#punch',{yPercent:120,duration:.4,ease:E.back},6.1);
+hop('c1',6.2,70);
+slideOut('#s1','#s2',ST[1]-.05);
+
+// S2 (7.6–14.2) — the scam call, then the cash goes into jeans and a bag
+reveal(['#t2a','#t2b'],ST[1]+.1);
+tl.from('#phone2',{y:300,opacity:0,duration:.45,ease:E.o3},ST[1]+.15);
+tl.to('#phone2',{rotation:2.5,duration:.06,yoyo:true,repeat:13,ease:'none'},ST[1]+.5);
+tl.to('#btnYes2',{scale:1.15,transformOrigin:'50% 50%',duration:.3,yoyo:true,repeat:3,ease:'sine.inOut'},ST[1]+.5);
+tl.from('#say2',{scale:0,transformOrigin:'0% 100%',duration:.4,ease:E.b2},ST[1]+.7);
+tl.to(['#phone2','#say2'],{y:'-=60',opacity:0,duration:.35,ease:E.i3},ST[1]+3.85);
+tl.to('#jeans',{opacity:1,duration:.01},ST[1]+4.1); tl.from('#jeans',{scale:.6,transformOrigin:'50% 50%',duration:.4,ease:E.b2},ST[1]+4.1);
+tl.from('#cash2',{y:-300,opacity:0,duration:.45,ease:'bounce.out'},ST[1]+4.3);
+tl.to('#jeans',{scale:.45,y:'+=90',duration:.4,ease:E.i3},ST[1]+5.3);
+tl.to('#bag2',{opacity:1,duration:.01},ST[1]+5.35); tl.from('#bag2',{y:'+=200',duration:.35,ease:E.o3},ST[1]+5.35);
+tl.to('#jeans',{opacity:0,duration:.1},ST[1]+5.7);
+tl.to('#bag2',{scaleY:.94,transformOrigin:'50% 100%',duration:.1,yoyo:true,repeat:1},ST[1]+5.7);
+slideOut('#s2','#s3',ST[2]-.05);
+
+// S3 (14.2–18.4) — nervous granny, courier wonders
+reveal(['#t3a','#t3b'],ST[2]+.1);
+tl.from('#g3-pos',{y:'+=500',duration:.45,ease:E.o3},ST[2]+.1);
+tl.from('#c3-pos',{x:'+=300',duration:.45,ease:E.o3},ST[2]+.3);
+tl.to('.g3-pp',{x:-16,duration:.12,yoyo:true,repeat:5,ease:'power1.inOut'},ST[2]+.7);
+tl.to('#g3-sq',{x:8,duration:.06,yoyo:true,repeat:11,ease:'none'},ST[2]+.9);
+tl.fromTo('#sweat',{opacity:0,y:1000},{opacity:1,y:1080,duration:.8,ease:'power1.in',immediateRender:false},ST[2]+1.3);
+tl.to('#sweat',{opacity:0,duration:.2},ST[2]+2.1);
+tl.from('#qm',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},ST[2]+1.6);
+tl.to('#qm',{rotation:12,transformOrigin:'50% 50%',duration:.2,yoyo:true,repeat:5,ease:'sine.inOut'},ST[2]+2.0);
+blink('c3',ST[2]+2.6);
+pushUp('#s3','#s4',ST[3]-.05);
+
+// S4 (18.4–25.7) — rides off, brakes, silence, thinks of mom
+tl.from('#pl4',{x:-500,duration:.4,ease:E.o3},ST[3]+.2);
+tl.fromTo('#dash4',{x:0},{x:-1500,duration:2.2,ease:'power1.out',immediateRender:false},ST[3]);
+tl.to('#cb-pos',{x:520,duration:1.9,ease:'power2.out'},ST[3]+.2);
+pedal('cb',ST[3]+.2,1.8,3.2);
+tl.to('#cb-pos',{rotation:-5,transformOrigin:'50% 100%',duration:.14,yoyo:true,repeat:1},ST[3]+2.0);
+tl.to('.d4',{opacity:.9,duration:.15,stagger:.05},ST[3]+2.0); tl.to('.d4',{opacity:0,duration:.4},ST[3]+2.5);
+tl.from('#bub4',{scale:0,transformOrigin:'30% 100%',duration:.5,ease:E.b2},ST[3]+3.1);
+tl.to('#heart4',{scale:1.25,transformOrigin:'50% 50%',duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},ST[3]+3.6);
+reveal(['#t4a','#t4b'],ST[3]+4.9);
+tl.to('#cb-sq',{y:-8,duration:.4,yoyo:true,repeat:5,ease:'sine.inOut'},ST[3]+3.2);
+slideOut('#s4','#s5',ST[4]-.05);
+
+// S5 (25.7–29.3) — 102, money back, granny relieved
+reveal(['#t5a','#t5b'],ST[4]+.1);
+tl.from('#call102',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},ST[4]+.2);
+tl.to('#call102',{scale:1.1,transformOrigin:'50% 50%',duration:.2,yoyo:true,repeat:3,ease:'sine.inOut'},ST[4]+.6);
+tl.from(['#p5-pos','#g5-pos'],{y:'+=500',duration:.45,ease:E.o3,stagger:.1},ST[4]+.3);
+tl.to('#pk5-pos',{x:820,y:1300,duration:.5,ease:E.io},ST[4]+1.9);
+hop('g5',ST[4]+2.5,50);
+tl.to('.h5',{opacity:1,y:-60,duration:.6,stagger:.1,ease:'power2.out'},ST[4]+2.5);
+pushUp('#s5','#s6',ST[5]-.05);
+
+// S6 (29.3–32.6) — the thank-you letter
+reveal(['#t6a','#t6b'],ST[5]+.1);
+tl.from('#c6-pos',{y:'+=600',duration:.5,ease:E.back},ST[5]+.15);
+tl.from('#letter',{scale:0,rotation:-20,transformOrigin:'50% 50%',duration:.45,ease:E.b2},ST[5]+.6);
+tl.from('#gift',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[5]+.9);
+document.querySelectorAll('.cf').forEach((c,i)=>tl.fromTo(c,{y:-60,rotation:0},{y:1500+((i*137)%400),rotation:(i%2?1:-1)*(200+i*20),duration:2.2,ease:'power1.in',immediateRender:false},ST[5]+.6+(i%7)*.05));
+hop('c6',ST[5]+1.4,60); blink('c6',ST[5]+2.4);
+slideOut('#s6','#s7',ST[6]-.05);
+
+// S7 (32.6–37.3) — tip: police never ask for money by phone
+tl.from('#share',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+.15);
+reveal(['#t7a','#t7b'],ST[6]+1.6);
+tl.from('#g7-pos',{y:'+=600',duration:.45,ease:E.o3},ST[6]+.2);
+tl.fromTo('#ring7',{scale:.6,opacity:1},{scale:1.4,opacity:0,duration:.6,repeat:3,ease:'power1.out',immediateRender:false},ST[6]+.5);
+tl.to('#no7',{scale:1,duration:.35,ease:E.b2},ST[6]+2.8);
+tl.set('#ring7',{opacity:0},ST[6]+2.9);
+hop('g7',ST[6]+3.0,40);
+tl.from('#tip3',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+3.3);
+pushUp('#s7','#s8',ST[7]-.05);
+
+// S8 (37.3–42.8) — the real hero, thanks, follow
+tl.from('#photo',{y:200,rotation:-6,opacity:0,duration:.55,ease:E.back},ST[7]+.1);
+tl.to('#photo',{rotation:-2,duration:.6,ease:'sine.inOut'},ST[7]+.65);
+tl.from('#c8-pos',{x:'-=300',duration:.45,ease:E.o3},ST[7]+.6);
+tl.to('#c8-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.22,yoyo:true,repeat:9,ease:'sine.inOut'},ST[7]+1.0);
+tl.from('#real',{opacity:0,duration:.4},ST[7]+.8);
+tl.from('#thanks',{y:80,opacity:0,duration:.45,ease:E.back},ST[7]+.2);
+tl.from('#follow',{scale:0,transformOrigin:'50% 50%',duration:.45,ease:E.b2},ST[7]+1.95);
+tl.to('#follow',{scale:1.04,transformOrigin:'50% 50%',duration:.45,yoyo:true,repeat:5,ease:'sine.inOut'},ST[7]+2.5);
+tl.to({},{duration:.01},window.TIMING.end-.01);
+
+window.__timelines['main']=tl;
+</script>
+</body>
+</html>

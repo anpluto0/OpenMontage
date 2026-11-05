@@ -1,0 +1,297 @@
+{
+ "_doc": "Курьер-батыр ep01 (RU). Время — секунды ролика.",
+ "duration": 42.8,
+ "voice": {
+  "provider": "elevenlabs",
+  "voice_id": "ogi2DyUAKJb7CEdqqvlU",
+  "voice_name": "Stanislav",
+  "model_id": "eleven_v4",
+  "language_code": "ru",
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "seed": 7
+ },
+ "lines": [
+  {
+   "id": "R1",
+   "text": "Алматы, лето двадцать шестого. Бабушка чуть не отдала мошенникам три тысячи долларов. Её спас курьер.",
+   "file": "vo/R1.wav",
+   "start": 0.2,
+   "gain_db": 0
+  },
+  {
+   "id": "R2",
+   "text": "Мошенники убедили пенсионерку «задекларировать» сбережения. Она спрятала их в джинсы и отдала курьеру.",
+   "file": "vo/R2.wav",
+   "start": 7.75,
+   "gain_db": 0
+  },
+  {
+   "id": "R3",
+   "text": "Курьер заметил: она сильно нервничает и не говорит, что в пакете.",
+   "file": "vo/R3.wav",
+   "start": 14.35,
+   "gain_db": 0
+  },
+  {
+   "id": "R4",
+   "text": "Нартай Есимханов отъехал и остановился. «Я вспомнил свою маму. А если бы на её месте оказалась она?»",
+   "file": "vo/R4.wav",
+   "start": 18.55,
+   "gain_db": 0
+  },
+  {
+   "id": "R5",
+   "text": "Он позвонил в полицию. Деньги вернули владелице.",
+   "file": "vo/R5.wav",
+   "start": 25.9,
+   "gain_db": 0
+  },
+  {
+   "id": "R6",
+   "text": "А Нартаю вручили благодарственное письмо и подарок.",
+   "file": "vo/R6.wav",
+   "start": 29.45,
+   "gain_db": 0
+  },
+  {
+   "id": "R7",
+   "text": "Отправьте это родителям. Полиция никогда не просит деньги по телефону.",
+   "file": "vo/R7.wav",
+   "start": 32.8,
+   "gain_db": 0
+  },
+  {
+   "id": "R8",
+   "text": "Спасибо таким курьерам. Больше таких историй у нас в аккаунте.",
+   "file": "vo/R8.wav",
+   "start": 37.45,
+   "gain_db": 0
+  }
+ ],
+ "music": {
+  "file": "music/bgm_v1_dip.wav",
+  "gain_db": -19,
+  "fade_out_at": 41.0,
+  "duck": {
+   "threshold": 0.02,
+   "ratio": 8,
+   "attack": 10,
+   "release": 300
+  }
+ },
+ "sfx": [
+  {
+   "file": "pop",
+   "at": 2.6,
+   "gain_db": -21,
+   "note": "пакет"
+  },
+  {
+   "file": "pop",
+   "at": 6.1,
+   "gain_db": -15,
+   "note": "«Её спас курьер»"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 7.55,
+   "gain_db": -17,
+   "note": "→ звонок"
+  },
+  {
+   "file": "ringtone",
+   "at": 8.0,
+   "gain_db": -19,
+   "note": "звонок мошенников",
+   "lp": 5000,
+   "max": 2.4
+  },
+  {
+   "file": "pop",
+   "at": 8.3,
+   "gain_db": -21,
+   "note": "реплика мошенника"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 11.45,
+   "gain_db": -21,
+   "note": "телефон уходит"
+  },
+  {
+   "file": "pop",
+   "at": 11.75,
+   "gain_db": -20,
+   "note": "джинсы"
+  },
+  {
+   "file": "coin_collect",
+   "at": 11.95,
+   "gain_db": -24,
+   "note": "деньги в карман",
+   "lp": 4000,
+   "max": 0.6
+  },
+  {
+   "file": "pop",
+   "at": 13.3,
+   "gain_db": -22,
+   "note": "пакет"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 14.15,
+   "gain_db": -17,
+   "note": "→ нервничала"
+  },
+  {
+   "file": "pop",
+   "at": 15.8,
+   "gain_db": -21,
+   "note": "вопрос"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 18.35,
+   "gain_db": -17,
+   "note": "→ велосипед"
+  },
+  {
+   "file": "bike_bell",
+   "at": 18.7,
+   "gain_db": -25,
+   "note": "звонок велосипеда",
+   "lp": 3500,
+   "max": 0.8
+  },
+  {
+   "file": "brake",
+   "at": 20.4,
+   "gain_db": -20,
+   "note": "тормоз",
+   "max": 1.2
+  },
+  {
+   "file": "chime",
+   "at": 21.5,
+   "gain_db": -23,
+   "note": "мысль о маме",
+   "lp": 5000,
+   "max": 1.2
+  },
+  {
+   "file": "whoosh-short",
+   "at": 25.65,
+   "gain_db": -17,
+   "note": "→ 102"
+  },
+  {
+   "file": "ping",
+   "at": 25.95,
+   "gain_db": -20,
+   "note": "102"
+  },
+  {
+   "file": "pop",
+   "at": 27.6,
+   "gain_db": -20,
+   "note": "деньги вернули"
+  },
+  {
+   "file": "pop",
+   "at": 28.2,
+   "gain_db": -23,
+   "note": "сердечки"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 29.25,
+   "gain_db": -17,
+   "note": "→ благодарность"
+  },
+  {
+   "file": "pop",
+   "at": 29.9,
+   "gain_db": -18,
+   "note": "письмо"
+  },
+  {
+   "file": "chime",
+   "at": 30.0,
+   "gain_db": -21,
+   "note": "конфетти",
+   "lp": 5000,
+   "max": 1.2
+  },
+  {
+   "file": "whoosh-short",
+   "at": 32.55,
+   "gain_db": -17,
+   "note": "→ совет"
+  },
+  {
+   "file": "pop",
+   "at": 32.75,
+   "gain_db": -20,
+   "note": "«Отправьте родителям»"
+  },
+  {
+   "file": "ringtone",
+   "at": 33.1,
+   "gain_db": -25,
+   "note": "звонок бабушке",
+   "lp": 5000,
+   "max": 1.6
+  },
+  {
+   "file": "decline",
+   "at": 35.4,
+   "gain_db": -18,
+   "note": "сброс"
+  },
+  {
+   "file": "pop",
+   "at": 35.9,
+   "gain_db": -21,
+   "note": "«Звоните 102»"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 37.25,
+   "gain_db": -17,
+   "note": "→ финал"
+  },
+  {
+   "file": "pop",
+   "at": 37.4,
+   "gain_db": -19,
+   "note": "фото"
+  },
+  {
+   "file": "notification",
+   "at": 39.25,
+   "gain_db": -20,
+   "note": "подписка",
+   "lp": 5000,
+   "max": 1.2
+  }
+ ],
+ "sfx_peak_db": {
+  "bike_bell": -2.7,
+  "brake": -0.4,
+  "chime": -9.3,
+  "coin_collect": -4.4,
+  "decline": 0.0,
+  "notification": -2.7,
+  "ping": -6.2,
+  "pop": -3.2,
+  "ringtone": -1.0,
+  "whoosh-short": -2.1
+ },
+ "master": {
+  "lufs": -14,
+  "true_peak": -1.5
+ },
+ "sfx_lowpass": 6000
+}
