@@ -143,6 +143,7 @@ function mascot({id,col='hero',cap='none',bag=null,glasses=false,scarf=null,face
   const armL=`<g id="${id}-armL"><ellipse cx="-222" cy="-250" rx="40" ry="84" transform="rotate(18 -222 -250)" fill="${D}"/></g>`;
   let armR=`<g id="${id}-armR"><ellipse cx="222" cy="-250" rx="40" ry="84" transform="rotate(-18 222 -250)" fill="${D}"/></g>`;
   if(act==='wave') armR=`<g id="${id}-arm"><ellipse cx="250" cy="-420" rx="40" ry="84" transform="rotate(-30 250 -420)" fill="${D}"/></g>`;
+  if(act==='hold') armR=`<g id="${id}-arm"><ellipse cx="250" cy="-420" rx="40" ry="92" transform="rotate(-28 250 -420)" fill="${D}"/></g>`;
   if(act==='give') armR=`<g id="${id}-arm"><ellipse cx="270" cy="-300" rx="40" ry="84" transform="rotate(-70 270 -300)" fill="${D}"/></g>`;
   if(act==='phone') armR=`<g id="${id}-arm"><ellipse cx="200" cy="-400" rx="40" ry="84" transform="rotate(20 200 -400)" fill="${D}"/><rect x="150" y="-500" width="70" height="120" rx="16" fill="#1B1B1F"/><rect x="160" y="-488" width="50" height="90" rx="8" fill="#7FD3FF"/></g>`;
   const ey=-388;
@@ -225,10 +226,10 @@ el($('#s2fg'),`<g id="jeans" opacity="0"><path d="M-130 -200 H130 L150 200 H30 L
   <g id="bag2" opacity="0"><rect x="-150" y="-180" width="300" height="340" rx="26" fill="#C99A62"/><path d="M-150 -120 H150" stroke="#B0844F" stroke-width="10"/><rect id="tape2" x="-30" y="-182" width="60" height="120" fill="#E9D7A8" opacity="0"/></g>`);
 gsap.set(['#jeans','#bag2'],{x:540,y:1020,scale:1.7});
 // S3 · granny close-up + courier with a question
-place($('#s3fg'),mascot({id:'g3',col:'granny',scarf:SCARF,face:'worried'}),'g3',350,1500,1.0);
-place($('#s3fg'),mascot({id:'c3',...HERO,face:['puzzled']}),'c3',790,1500,.72);
+place($('#s3fg'),mascot({id:'g3',col:'granny',scarf:SCARF,face:'worried'}),'g3',320,1480,.85);
+place($('#s3fg'),mascot({id:'c3',...HERO,face:['puzzled']}),'c3',770,1480,.85);
 el($('#s3fg'),`<g id="sweat"><path d="M0 -40 Q26 0 0 20 Q-26 0 0 -40Z" fill="#7FD3FF"/></g><g id="qm"><circle r="70" fill="#fff"/><text y="30" text-anchor="middle" font-family="Onest" font-weight="800" font-size="90" fill="${OL}">?</text></g>`);
-gsap.set('#sweat',{x:520,y:990}); gsap.set('#qm',{x:880,y:950});
+gsap.set('#sweat',{x:470,y:990}); gsap.set('#qm',{x:900,y:880});
 // S4 · evening street, bike, mother thought
 (function(){ el($('#s4bg'),`<path d="M0 1080 L180 880 L300 960 L470 790 L620 940 L760 830 L920 960 L1080 860 L1080 1300 L0 1300Z" fill="#7A4E8C" opacity=".75"/><path d="M470 790 L520 850 L490 840 L455 870 L435 835Z M760 830 L800 880 L772 874 L750 890 L732 866Z" fill="#FFE3EA"/>
   <circle cx="830" cy="640" r="70" fill="#FFF1C9"/><rect x="0" y="1300" width="1080" height="620" fill="#4B3B66"/>`);
@@ -245,10 +246,10 @@ el($('#s5fg'),`<g id="pk5-pos">${pkg('pk5')}</g><g id="call102"><path d="M-20 46
   <g id="hearts5">${[0,1,2].map(i=>`<path class="h5" d="M${-40+i*40} 0 c0-20 26-26 32-6 c6-20 32-14 32 6 c0 26-32 38-32 44 c0-6-32-18-32-44Z" fill="#FF5A7A" opacity="0"/>`).join('')}</g>`);
 gsap.set('#pk5-pos',{x:705,y:1330,scale:.85}); gsap.set('#call102',{x:220,y:930}); gsap.set('#hearts5',{x:860,y:960});
 // S6 · award: framed letter + gift bag
-place($('#s6fg'),mascot({id:'c6',...HERO,face:['smile','happy']}),'c6',540,1560,.85);
+place($('#s6fg'),mascot({id:'c6',...HERO,act:'hold',face:['smile','happy']}),'c6',500,1560,.85);
 el($('#s6fg'),`<g id="letter"><rect x="-120" y="-160" width="240" height="320" rx="10" fill="#6B5B4B"/><rect x="-100" y="-140" width="200" height="280" fill="#FFFDF5"/><path d="M-70 -90 H70 M-70 -50 H70 M-70 -10 H40 M-70 30 H60" stroke="#C9C1B1" stroke-width="10" stroke-linecap="round"/><circle cx="50" cy="90" r="26" fill="#F2C14E"/></g>
   <g id="gift"><rect x="-80" y="-90" width="160" height="180" rx="16" fill="#3FA7A0"/><path d="M-30 -90 Q0 -150 30 -90" stroke="#C9A06A" stroke-width="10" fill="none"/></g>`);
-gsap.set('#letter',{x:800,y:1180}); gsap.set('#gift',{x:230,y:1470,scale:1.25});
+gsap.set('#letter',{x:790,y:1050}); gsap.set('#gift',{x:200,y:1452,scale:1.2});
 (function(){ const cols=['#FF5A4E','#FCE000','#3FA7A0','#5B8DEF','#FF9EB8']; for(let i=0;i<26;i++){const d=document.createElement('div');d.className='cf';Object.assign(d.style,{position:'absolute',left:(60+((i*397)%960))+'px',top:'-40px',width:(14+(i%3)*6)+'px',height:(26+(i%2)*10)+'px',borderRadius:'4px',background:cols[i%5]});$('#confetti').appendChild(d);} })();
 // S7 · granny declines the scam call
 place($('#s7fg'),mascot({id:'g7',col:'granny',scarf:SCARF,act:'phone',face:['worried','relief']}),'g7',540,1460,1.0);
@@ -292,7 +293,7 @@ tl.fromTo('#amt',{scale:1.45},{scale:1,transformOrigin:'50% 60%',duration:.35,ea
 tl.fromTo('#pk1-cash',{y:0},{y:-22,duration:.18,yoyo:true,repeat:3,ease:'sine.inOut',immediateRender:false},.1);
 tl.from('#punch',{yPercent:120,duration:.4,ease:E.back},1.05);
 // idle breathing so nobody freezes
-tl.to(['#g1-sq','#c1-sq'],{scaleY:1.025,transformOrigin:'50% 100%',duration:.6,yoyo:true,repeat:9,ease:'sine.inOut',stagger:.3},1.4);
+tl.to(['#g1','#c1'],{scaleY:1.025,transformOrigin:'50% 100%',duration:.6,yoyo:true,repeat:9,ease:'sine.inOut',stagger:.3},1.4);
 // hand-over with anticipation, take with squash
 tl.to('#pk1-pos',{x:'-=36',y:'+=10',duration:.22,ease:'power2.out'},3.2);
 tl.to('#g1-arm',{rotation:10,transformOrigin:'0% 50%',duration:.25,ease:'power2.out'},3.2);
@@ -336,7 +337,7 @@ tl.from('#g3-pos',{y:'+=500',duration:.45,ease:E.o3},ST[2]+.1);
 tl.from('#c3-pos',{x:'+=300',duration:.45,ease:E.o3},ST[2]+.3);
 tl.to('.g3-pp',{x:-16,duration:.12,yoyo:true,repeat:5,ease:'power1.inOut'},ST[2]+.7);
 tl.to('#g3-sq',{x:8,duration:.06,yoyo:true,repeat:11,ease:'none'},ST[2]+.9);
-tl.fromTo('#sweat',{opacity:0,y:1000},{opacity:1,y:1080,duration:.8,ease:'power1.in',immediateRender:false},ST[2]+1.3);
+tl.fromTo('#sweat',{opacity:0,y:990},{opacity:1,y:1070,duration:.8,ease:'power1.in',immediateRender:false},ST[2]+1.3);
 tl.to('#sweat',{opacity:0,duration:.2},ST[2]+2.1);
 tl.from('#qm',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},ST[2]+1.6);
 tl.to('#qm',{rotation:12,transformOrigin:'50% 50%',duration:.2,yoyo:true,repeat:5,ease:'sine.inOut'},ST[2]+2.0);
@@ -376,7 +377,7 @@ pushUp('#s5','#s6',ST[5]-.05);
 // S6 (29.3–32.6) — the thank-you letter
 reveal(['#t6a','#t6b'],ST[5]+.1);
 tl.from('#c6-pos',{y:'+=600',duration:.5,ease:E.back},ST[5]+.15);
-tl.from('#letter',{scale:0,rotation:-20,transformOrigin:'50% 50%',duration:.45,ease:E.b2},ST[5]+.6);
+tl.from('#letter',{scale:0,rotation:-20,transformOrigin:'0% 100%',duration:.45,ease:E.b2},ST[5]+.6); tl.from('#c6-arm',{rotation:60,transformOrigin:'20% 90%',duration:.4,ease:E.o3},ST[5]+.5);
 tl.from('#gift',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[5]+.9);
 document.querySelectorAll('.cf').forEach((c,i)=>tl.fromTo(c,{y:-60,rotation:0},{y:1500+((i*137)%400),rotation:(i%2?1:-1)*(200+i*20),duration:2.2,ease:'power1.in',immediateRender:false},ST[5]+.9+(i%7)*.05));
 hop('c6',ST[5]+1.4,60); face('c6','happy',ST[5]+1.3); blink('c6',ST[5]+2.4);
