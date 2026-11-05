@@ -1,0 +1,226 @@
+{
+ "_doc": "Курьер-батыр ep01 (RU). Время — секунды ролика.",
+ "duration": 42.1,
+ "voice": {
+  "provider": "elevenlabs",
+  "voice_id": "ogi2DyUAKJb7CEdqqvlU",
+  "voice_name": "Stanislav",
+  "model_id": "eleven_v4",
+  "language_code": "ru",
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "seed": 7
+ },
+ "lines": [
+  {
+   "id": "R1",
+   "text": "Алматы, лето две тысячи двадцать шестого. Бабушка чуть не отдала мошенникам три тысячи долларов. Но курьер их не довёз.",
+   "file": "vo/R1.wav",
+   "start": 0.15,
+   "gain_db": 0
+  },
+  {
+   "id": "R2",
+   "text": "Мошенники велели ей «задекларировать» сбережения. Она спрятала деньги в джинсы и отправила их с курьером.",
+   "file": "vo/R2.wav",
+   "start": 8.1,
+   "gain_db": 0
+  },
+  {
+   "id": "R3",
+   "text": "Он заметил: она нервничает и уходит от ответа.",
+   "file": "vo/R3.wav",
+   "start": 14.75,
+   "gain_db": 0
+  },
+  {
+   "id": "R4",
+   "text": "Нартай Есимханов отъехал и решил не везти посылку. «Я вспомнил свою маму… А если бы на её месте оказалась она?»",
+   "file": "vo/R4.wav",
+   "start": 17.9,
+   "gain_db": 0
+  },
+  {
+   "id": "R5",
+   "text": "Он позвонил в сто два. Деньги вернули бабушке.",
+   "file": "vo/R5.wav",
+   "start": 25.85,
+   "gain_db": 0
+  },
+  {
+   "id": "R6",
+   "text": "А Нартаю вручили благодарственное письмо и подарок.",
+   "file": "vo/R6.wav",
+   "start": 29.1,
+   "gain_db": 0
+  },
+  {
+   "id": "R7",
+   "text": "Отправьте это родителям. Никто не «декларирует» деньги через курьера.",
+   "file": "vo/R7.wav",
+   "start": 32.3,
+   "gain_db": 0
+  },
+  {
+   "id": "R8",
+   "text": "Спасибо таким курьерам! Подпишитесь, чтобы не пропустить следующего героя.",
+   "file": "vo/R8.wav",
+   "start": 36.4,
+   "gain_db": 0
+  }
+ ],
+ "music": {
+  "file": "music/bgm_v2_dip.wav",
+  "gain_db": -90,
+  "fade_out_at": 40.3,
+  "duck": {
+   "threshold": 0.02,
+   "ratio": 8,
+   "attack": 10,
+   "release": 300
+  }
+ },
+ "sfx": [
+  {
+   "file": "whoosh-short",
+   "at": 0.05,
+   "gain_db": -17,
+   "note": "хук: наезд"
+  },
+  {
+   "file": "impact-bass-1",
+   "at": 0.16,
+   "gain_db": -15,
+   "note": "хук: вспышка, $3 000",
+   "max": 1.0,
+   "lp": 4000
+  },
+  {
+   "file": "pop",
+   "at": 1.05,
+   "gain_db": -20,
+   "note": "«…но курьер их не довёз»"
+  },
+  {
+   "file": "pop",
+   "at": 6.35,
+   "gain_db": -22,
+   "note": "курьер решает"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 7.95,
+   "gain_db": -18,
+   "note": "→ звонок"
+  },
+  {
+   "file": "ringtone",
+   "at": 8.3,
+   "gain_db": -19,
+   "note": "звонок мошенников",
+   "lp": 5000,
+   "max": 2.4
+  },
+  {
+   "file": "coin_collect",
+   "at": 12.45,
+   "gain_db": -24,
+   "note": "деньги в карман",
+   "lp": 4000,
+   "max": 0.6
+  },
+  {
+   "file": "whoosh-short",
+   "at": 14.35,
+   "gain_db": -21,
+   "note": "коробка уезжает"
+  },
+  {
+   "file": "pop",
+   "at": 16.25,
+   "gain_db": -22,
+   "note": "вопрос"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 17.75,
+   "gain_db": -18,
+   "note": "→ велосипед"
+  },
+  {
+   "file": "brake",
+   "at": 19.95,
+   "gain_db": -19,
+   "note": "тормоз",
+   "max": 1.2
+  },
+  {
+   "file": "chime",
+   "at": 21.6,
+   "gain_db": -24,
+   "note": "мысль о маме",
+   "lp": 5000,
+   "max": 1.2
+  },
+  {
+   "file": "ping",
+   "at": 26.0,
+   "gain_db": -21,
+   "note": "102"
+  },
+  {
+   "file": "chime",
+   "at": 29.9,
+   "gain_db": -23,
+   "note": "письмо",
+   "lp": 5000,
+   "max": 1.2
+  },
+  {
+   "file": "ringtone",
+   "at": 32.6,
+   "gain_db": -26,
+   "note": "звонок бабушке",
+   "lp": 5000,
+   "max": 1.6
+  },
+  {
+   "file": "decline",
+   "at": 35.0,
+   "gain_db": -18,
+   "note": "сброс"
+  },
+  {
+   "file": "whoosh-short",
+   "at": 36.25,
+   "gain_db": -19,
+   "note": "→ финал"
+  },
+  {
+   "file": "notification",
+   "at": 38.7,
+   "gain_db": -21,
+   "note": "подписка",
+   "lp": 5000,
+   "max": 1.2
+  }
+ ],
+ "sfx_peak_db": {
+  "bike_bell": -2.7,
+  "brake": -0.4,
+  "chime": -9.3,
+  "coin_collect": -4.4,
+  "decline": 0.0,
+  "notification": -2.7,
+  "ping": -6.2,
+  "pop": -3.2,
+  "ringtone": -1.0,
+  "whoosh-short": -2.1,
+  "impact-bass-1": -0.4
+ },
+ "master": {
+  "lufs": -14,
+  "true_peak": -1.5
+ },
+ "sfx_lowpass": 6000
+}

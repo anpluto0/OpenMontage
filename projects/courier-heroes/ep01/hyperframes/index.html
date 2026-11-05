@@ -287,7 +287,7 @@ gsap.set('#cam1',camS1(2.4,505,1380,540,1180));
 tl.to('#cam1',{...camS1(2.55,505,1380,540,1180),duration:.85,ease:'sine.out'},0);
 tl.to('#cam1',{...camS1(1.45,555,1300,540,1140),duration:.6,ease:'power3.inOut'},.85);
 tl.fromTo('#flash',{opacity:.75},{opacity:0,duration:.1,ease:'power1.out',immediateRender:false},.16);
-tl.to('#s1',{x:16,y:-6,duration:.035,yoyo:true,repeat:5,ease:'none'},.16);
+tl.to('#s1bg',{x:16,duration:.035,yoyo:true,repeat:5,ease:'none'},.16);
 tl.fromTo('#amt',{scale:1.45},{scale:1,transformOrigin:'50% 60%',duration:.35,ease:'back.out(3)',immediateRender:false},.18);
 tl.fromTo('#pk1-cash',{y:0},{y:-22,duration:.18,yoyo:true,repeat:3,ease:'sine.inOut',immediateRender:false},.1);
 tl.from('#punch',{yPercent:120,duration:.4,ease:E.back},1.05);
@@ -395,7 +395,7 @@ tl.set('#s8',{opacity:0},ST[7]-.25); tl.to('#s8',{opacity:1,duration:.22,ease:'p
 
 // S8 (37.3–42.8) — the real hero, thanks, follow
 tl.from('#photo',{scale:.92,transformOrigin:'50% 50%',duration:.45,ease:E.o3},ST[7]-.2);
-tl.from('#c8-sq',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[7]+.45); tl.to('#photo',{scale:1.03,transformOrigin:'50% 50%',duration:5,ease:'sine.inOut'},ST[7]+.6); tl.from('#note8',{opacity:0,duration:.4},ST[7]+.9); tl.to('#wm',{opacity:0,duration:.2},ST[7]-.1); tl.from('#rubric',{opacity:0,y:20,duration:.4},ST[7]+.5);
+tl.from('#c8-pos',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[7]+.45); tl.to('#photo',{scale:1.03,transformOrigin:'50% 50%',duration:5,ease:'sine.inOut'},ST[7]+.6); tl.from('#note8',{opacity:0,duration:.4},ST[7]+.9); tl.to('#wm',{opacity:0,duration:.2},ST[7]-.1); tl.from('#rubric',{opacity:0,y:20,duration:.4},ST[7]+.5);
 tl.to('#c8-arm',{rotation:-26,transformOrigin:'30% 90%',duration:.4,yoyo:true,repeat:9,ease:'sine.inOut'},ST[7]+.9); hop('c8',ST[7]+4.9,22); tl.to('#c8-sq',{scaleY:1.03,transformOrigin:'50% 100%',duration:.5,yoyo:true,repeat:7,ease:'sine.inOut'},ST[7]+1.0);
 tl.from('#real',{opacity:0,duration:.4},ST[7]+.8);
 tl.from('#thanks',{y:80,opacity:0,duration:.45,ease:E.back},ST[7]+.2);
