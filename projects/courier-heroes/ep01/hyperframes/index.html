@@ -135,7 +135,7 @@ svg{display:block;overflow:visible}
     const id=sc.id, T=document.createElement('div'), F=document.createElement('div');
     T.className='abs safeT'; F.className='abs safeF';
     const base='left:0;top:0;width:1080px;height:1920px;';
-    T.style.cssText=base+(id=='s8'?'transform-origin:540px 100px;transform:translateY(90px) scale('+K+')':'transform-origin:540px 196px;transform:translateY(50px) scale('+K+')');
+    T.style.cssText=base+(id=='s8'?'transform-origin:540px 100px;transform:translateY(90px) scale('+K+')':'transform-origin:540px 196px;transform:translateY(90px) scale('+K+')');
     F.style.cssText=base+'transform-origin:540px '+FLOOR[id]+'px;transform:scale('+K+')';
     [...sc.children].forEach(ch=>{
       if(/bg$/.test(ch.id)||ch.id=='confetti') return;
@@ -144,7 +144,14 @@ svg{display:block;overflow:visible}
     sc.appendChild(F); sc.appendChild(T);
   });
   [['t2b',72],['t7a',78],['t7b',78]].forEach(([i,f])=>{const e=document.getElementById(i); if(e) e.parentElement.style.fontSize=f+'px';});
-  const wm=document.getElementById('wm'); if(wm) wm.style.display='none';
+  // centre headlines, plates and chips for symmetry
+  document.querySelectorAll('.safeT .h1').forEach(h=>{h.style.left='0px';h.style.width='1080px';h.style.textAlign='center';});
+  ['pl1','pl4'].forEach(i=>{const pl=document.getElementById(i); if(!pl) return; const w=document.createElement('div'); w.className='abs';
+    w.style.cssText='left:0;top:'+getComputedStyle(pl).top+';width:1080px;display:flex;justify-content:center';
+    pl.parentNode.insertBefore(w,pl); pl.style.position='relative'; pl.style.left='auto'; pl.style.top='auto'; w.appendChild(pl);});
+  const t3=document.getElementById('tip3'); if(t3){const pa=t3.parentElement; pa.style.left='0px'; pa.style.width='1080px'; pa.style.textAlign='center';}
+  // brand mark back in the top-right corner, inside the visible area and below the TikTok search icon
+  const wm=document.getElementById('wm'); if(wm){wm.style.right='110px'; wm.style.top='186px'; wm.style.width='64px'; wm.style.height='64px'; wm.style.borderRadius='18px'; wm.querySelector('img').style.width='46px'; wm.querySelector('img').style.height='46px';}
 })();
 </script>
 <script>
@@ -411,7 +418,7 @@ tl.fromTo('#ring7',{scale:.6,opacity:1},{scale:1.4,opacity:0,duration:.6,repeat:
 tl.to('#g7-arm',{rotation:28,transformOrigin:'20% 90%',duration:.3,ease:'power2.out'},ST[6]+2.5); tl.to('#no7',{scale:1,duration:.35,ease:E.b2},ST[6]+2.8);
 tl.set('#ring7',{opacity:0},ST[6]+2.9);
 hop('g7',ST[6]+3.0,40); tl.to('#share',{scale:1.06,transformOrigin:'50% 50%',duration:.18,yoyo:true,repeat:1},ST[6]+2.85); face('g7','relief',ST[6]+2.85);
-tl.from('#tip3',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+3.3);
+tl.from('#tip3',{scale:0,transformOrigin:'50% 50%',duration:.4,ease:E.b2},ST[6]+3.3);
 tl.set('#s8',{opacity:0},ST[7]-.25); tl.to('#s8',{opacity:1,duration:.22,ease:'power1.inOut'},ST[7]-.25); tl.to('#s7',{opacity:0,duration:.22},ST[7]-.15);
 
 // S8 (37.3–42.8) — the real hero, thanks, follow
