@@ -31,19 +31,21 @@ svg{display:block;overflow:visible}
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="43">
+<div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="42.6">
 <div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0;z-index:50;pointer-events:none"></div>
 <div id="wm" style="position:absolute;right:40px;top:96px;z-index:40;width:72px;height:72px;border-radius:20px;background:#fff;box-shadow:0 4px 14px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center"><img src="assets/ge_mark.svg" style="width:52px;height:52px"/></div>
-<section id="stage" class="clip" data-start="0" data-duration="43" data-track-index="1">
+<section id="stage" class="clip" data-start="0" data-duration="42.6" data-track-index="1">
 
   <!-- S1 · hook: granny hands the package to the courier (visible from frame 0) -->
   <div id="s1" class="scene" style="background:var(--paper);opacity:1">
+    <div id="cam1" class="abs" style="left:0;top:0;width:1080px;height:1920px">
     <svg id="s1bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <svg id="s1fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    </div>
     <div id="pl1" class="plate" style="background:var(--ink);color:#fff"><span data-k="plate">Алматы · лето 2026</span></div>
     <div class="h1" style="top:196px"><span data-k="hook.l1">Бабушка чуть не отдала</span></div>
     <div class="h1" style="top:294px"><span data-k="hook.l2_pre">мошенникам </span><span id="amt" style="color:var(--coral);display:inline-block" data-k="hook.l2_accent">$3 000</span></div>
     <div class="h1 mask" style="top:420px;height:120px"><div id="punch" style="display:inline-block;background:var(--coral);color:#fff;border-radius:24px;padding:4px 28px 6px"><span data-k="hook.punch">Её спас курьер</span></div></div>
-    <svg id="s1fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
   <!-- S2 · the scam call -->
@@ -77,8 +79,9 @@ svg{display:block;overflow:visible}
     <svg id="s4bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
     <div id="pl4" class="plate" style="background:#fff;color:var(--ink)"><span data-k="name">Нартай Есимханов</span></div>
     <div class="h1 mask" style="top:196px;color:#2A1840"><div id="t4a"><span data-k="mama.l1">«А если бы это была</span></div></div>
-    <div class="abs" style="left:80px;top:300px"><div id="t4b" class="chip" style="background:#fff;color:#2A1840;font-size:56px;height:96px;line-height:96px;border-radius:48px;padding:0 36px"><span data-k="mama.l2">А если бы это была она?»</span></div></div>
-    <svg id="s4fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+    <div class="h1 mask" style="top:294px;color:#2A1840"><div id="t4b"><span data-k="mama.l2">А если бы на её месте</span></div></div>
+    <div class="h1 mask" style="top:392px;color:#2A1840"><div id="t4c"><span data-k="mama.l3">оказалась она?»</span></div></div>
+    <div id="cam4" class="abs" style="left:0;top:0;width:1080px;height:1920px"><svg id="s4fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg></div>
   </div>
 
   <!-- S5 · call 102, money returned -->
@@ -92,13 +95,13 @@ svg{display:block;overflow:visible}
   <div id="s6" class="scene" style="background:#F3EAD3">
     <div class="h1 mask" style="top:196px"><div id="t6a"><span data-k="award.l1">Благодарность</span></div></div>
     <div class="h1 mask" style="top:294px;color:var(--coral)"><div id="t6b"><span data-k="award.l2">от полиции Алматы</span></div></div>
-    <div id="confetti"></div>
+    <div id="confetti" style="position:absolute;left:0;top:560px;width:1080px;height:1360px;overflow:hidden"></div>
     <svg id="s6fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
   <!-- S7 · safety tip -->
   <div id="s7" class="scene" style="background:var(--ink)">
-    <div class="abs" style="left:80px;top:110px"><div id="share" class="chip" style="background:var(--wa);color:#fff">➦ <span data-k="tip.share">Отправьте родителям</span></div></div>
+    <div class="abs" style="left:80px;top:110px"><div id="share" class="chip" style="background:var(--wa);color:#fff;font-size:44px;height:92px;line-height:92px;border-radius:46px">➦ <span data-k="tip.share">Отправьте маме и папе</span></div></div>
     <div class="h1 mask" style="top:230px;color:#fff"><div id="t7a"><span data-k="tip.l1">Полиция не просит</span></div></div>
     <div class="h1 mask" style="top:328px;color:var(--yel)"><div id="t7b"><span data-k="tip.l2">деньги по телефону</span></div></div>
     <div class="abs" style="left:80px;top:470px"><div id="tip3" class="chip" style="background:#fff;color:var(--ink)"><span data-k="tip.l3">Сомневаетесь? Звоните 102</span></div></div>
@@ -107,16 +110,17 @@ svg{display:block;overflow:visible}
 
   <!-- S8 · the real hero + thanks -->
   <div id="s8" class="scene" style="background:var(--paper)">
-    <div id="photo" class="abs" style="left:60px;top:120px;width:960px;height:740px;background:#1B1F2A;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.22);padding:16px;box-sizing:border-box">
-      <div class="abs" style="left:16px;top:16px;width:928px;height:668px;border-radius:16px;overflow:hidden;background:url(assets/news1.jpg) center top/cover"></div>
-      <div class="abs" style="left:0;top:692px;width:960px;text-align:center;font-weight:500;font-size:24px;color:#B9BDC9"><span data-k="end.credit">Фото: polisia.kz · Источник: zakon.kz</span></div>
+    <div id="photo" class="abs" style="left:60px;top:110px;width:960px;height:700px;background:#1B1F2A;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.22);padding:16px;box-sizing:border-box">
+      <div class="abs" style="left:16px;top:16px;width:928px;height:628px;border-radius:16px;overflow:hidden;background:url(assets/news1.jpg) center top/cover"></div>
+      <div class="abs" style="left:0;top:652px;width:960px;text-align:center;font-weight:500;font-size:24px;color:#B9BDC9"><span data-k="end.credit">Фото: polisia.kz · Источник: zakon.kz</span></div>
     </div>
-    <div id="real" class="abs" style="left:0;top:890px;width:1080px;text-align:center"><div class="chip" style="background:#E4DED2;color:#5E5850;font-size:28px;height:60px;line-height:60px"><span data-k="end.cap">Нартай Есимханов, курьер</span> · <span data-k="end.real">реальная история</span></div></div>
-    <div id="thanks" class="card" style="left:90px;top:970px;width:900px;height:124px;display:flex;align-items:center;justify-content:center;gap:26px;background:var(--ink);color:#fff">
+    <div id="real" class="abs" style="left:0;top:830px;width:1080px;text-align:center"><div class="chip" style="background:#E4DED2;color:#5E5850;font-size:28px;height:60px;line-height:60px"><span data-k="end.cap">Нартай Есимханов, курьер</span> · <span data-k="end.real">реальная история</span></div></div>
+    <div id="thanks" class="card" style="left:90px;top:906px;width:900px;height:110px;display:flex;align-items:center;justify-content:center;gap:26px;background:var(--ink);color:#fff">
       <div style="font-weight:800;font-size:50px;white-space:nowrap"><span data-k="end.thanks">Спасибо таким курьерам!</span></div>
     </div>
-    <div id="rubric" class="abs" style="left:0;top:1112px;width:1080px;display:flex;justify-content:center;align-items:center;gap:14px;font-weight:800;font-size:30px;color:#5E5850"><img src="assets/ge_mark.svg" style="width:44px;height:44px"/><span>Рубрика «Курьер — батыр» · Green Express</span></div>
-    <div id="follow" class="abs" style="left:0;top:1190px;width:1080px;text-align:center"><div class="chip" style="background:var(--coral);color:#fff;font-size:32px">🔔 <span data-k="end.follow">Подпишись: больше историй о курьерах-героях</span></div></div>
+    <div id="rubric" class="abs" style="left:0;top:1034px;width:1080px;display:flex;justify-content:center;align-items:center;gap:14px;font-weight:800;font-size:30px;color:#5E5850"><img src="assets/ge_mark.svg" style="width:44px;height:44px"/><span>Рубрика «Курьер — батыр» · Green Express</span></div>
+    <div id="note8" class="abs" style="left:0;top:1086px;width:1080px;text-align:center;font-weight:500;font-size:24px;color:#8A857C">Нартай — не сотрудник Green Express. Мы просто гордимся такими курьерами</div>
+    <div id="follow" class="abs" style="left:0;top:1136px;width:1080px;text-align:center"><div class="chip" style="background:var(--coral);color:#fff;font-size:32px">🔔 <span data-k="end.follow">Подпишись: больше историй о курьерах-героях</span></div></div>
     <svg id="s8fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
@@ -218,7 +222,7 @@ el($('#s1fg'),`<g id="pk1-pos">${pkg('pk1')}</g>`); gsap.set('#pk1-pos',{x:505,y
 el($('#caller'),`<g transform="translate(0 70) scale(.3)">${mascot({id:'sc',col:'scam',face:'sly'})}</g>`);
 el($('#s2fg'),`<g id="jeans" opacity="0"><path d="M-130 -200 H130 L150 200 H30 L0 -20 L-30 200 H-150Z" fill="#3D6FB6"/><path d="M-130 -200 H130 V-160 H-130Z" fill="#2F5A96"/><path d="M60 -150 Q100 -150 110 -110" stroke="#F2C14E" stroke-width="6" fill="none"/>
   <g id="cash2"><rect x="40" y="-210" width="90" height="56" rx="8" fill="#6DBF7B" transform="rotate(-14 85 -182)"/><rect x="50" y="-230" width="90" height="56" rx="8" fill="#84D18F" transform="rotate(8 95 -202)"/><text x="98" y="-188" text-anchor="middle" font-family="Onest" font-weight="800" font-size="34" fill="#1C5A2A">$</text></g></g>
-  <g id="bag2" opacity="0"><rect x="-150" y="-180" width="300" height="340" rx="26" fill="#C99A62"/><path d="M-150 -120 H150" stroke="#B0844F" stroke-width="10"/></g>`);
+  <g id="bag2" opacity="0"><rect x="-150" y="-180" width="300" height="340" rx="26" fill="#C99A62"/><path d="M-150 -120 H150" stroke="#B0844F" stroke-width="10"/><rect id="tape2" x="-30" y="-182" width="60" height="120" fill="#E9D7A8" opacity="0"/></g>`);
 gsap.set(['#jeans','#bag2'],{x:540,y:1020,scale:1.7});
 // S3 · granny close-up + courier with a question
 place($('#s3fg'),mascot({id:'g3',col:'granny',scarf:SCARF,face:'worried'}),'g3',350,1500,1.0);
@@ -232,7 +236,7 @@ gsap.set('#sweat',{x:520,y:990}); gsap.set('#qm',{x:880,y:950});
 place($('#s4fg'),mascot({id:'cb',...HERO,bike:true,face:['pensive','sad']}),'cb',-400,1310,.95);
 el($('#s4fg'),`<g id="dust4">${[0,1,2].map(i=>`<circle class="d4" cx="${-60-i*50}" cy="${80-i*14}" r="${30-i*6}" fill="#E9D6E8" opacity="0"/>`).join('')}</g>
   <g id="bub4"><ellipse cx="0" cy="0" rx="250" ry="210" fill="#fff"/><circle cx="-150" cy="240" r="34" fill="#fff"/><circle cx="-200" cy="310" r="18" fill="#fff"/><g transform="translate(0 150) scale(.5)">${mascot({id:'mom',col:'mom',scarf:['#FFF6E8','#EFE3CF'],face:'happy'})}</g><path id="heart4" d="M150 -150 C150 -180 190 -190 200 -160 C210 -190 250 -180 250 -150 C250 -110 200 -90 200 -80 C200 -90 150 -110 150 -150Z" fill="#FF5A7A"/></g>`);
-gsap.set('#dust4',{x:540,y:1310}); gsap.set('#bub4',{x:800,y:770});
+gsap.set('#dust4',{x:540,y:1310}); gsap.set('#bub4',{x:800,y:800});
 // S5 · courier calls 102; policeman returns the money to granny
 place($('#s5fg'),mascot({id:'c5',...HERO,act:'phone',face:'calm'}),'c5',220,1440,.62);
 place($('#s5fg'),mascot({id:'p5',col:'police',cap:'police',act:'give',face:'smile'}),'p5',540,1440,.62);
@@ -244,7 +248,7 @@ gsap.set('#pk5-pos',{x:705,y:1250,scale:.85}); gsap.set('#call102',{x:220,y:930}
 place($('#s6fg'),mascot({id:'c6',...HERO,face:['smile','happy']}),'c6',540,1560,.85);
 el($('#s6fg'),`<g id="letter"><rect x="-120" y="-160" width="240" height="320" rx="10" fill="#6B5B4B"/><rect x="-100" y="-140" width="200" height="280" fill="#FFFDF5"/><path d="M-70 -90 H70 M-70 -50 H70 M-70 -10 H40 M-70 30 H60" stroke="#C9C1B1" stroke-width="10" stroke-linecap="round"/><circle cx="50" cy="90" r="26" fill="#F2C14E"/></g>
   <g id="gift"><rect x="-80" y="-90" width="160" height="180" rx="16" fill="#3FA7A0"/><path d="M-30 -90 Q0 -150 30 -90" stroke="#C9A06A" stroke-width="10" fill="none"/></g>`);
-gsap.set('#letter',{x:800,y:1180}); gsap.set('#gift',{x:290,y:1440});
+gsap.set('#letter',{x:800,y:1180}); gsap.set('#gift',{x:230,y:1470,scale:1.25});
 (function(){ const cols=['#FF5A4E','#FCE000','#3FA7A0','#5B8DEF','#FF9EB8']; for(let i=0;i<26;i++){const d=document.createElement('div');d.className='cf';Object.assign(d.style,{position:'absolute',left:(60+((i*397)%960))+'px',top:'-40px',width:(14+(i%3)*6)+'px',height:(26+(i%2)*10)+'px',borderRadius:'4px',background:cols[i%5]});$('#confetti').appendChild(d);} })();
 // S7 · granny declines the scam call
 place($('#s7fg'),mascot({id:'g7',col:'granny',scarf:SCARF,act:'phone',face:['worried','relief']}),'g7',540,1460,1.0);
@@ -252,7 +256,7 @@ el($('#s7fg'),`<g id="ring7"><circle r="60" fill="none" stroke="#FFFFFF" stroke-
   <g id="no7"><circle r="70" fill="#FF3B30"/><path d="M-28 -28 L28 28 M28 -28 L-28 28" stroke="#fff" stroke-width="16" stroke-linecap="round"/></g>`);
 gsap.set('#ring7',{x:740,y:1000}); gsap.set('#no7',{x:880,y:820,scale:0});
 // S8 · hero peeks next to the real photo
-place($('#s8fg'),mascot({id:'c8',...HERO,act:'wave',face:'happy'}),'c8',150,905,.3);
+place($('#s8fg'),mascot({id:'c8',...HERO,act:'wave',face:'happy'}),'c8',540,1450,.36);
 
 // headlines wider than the safe area shrink to fit
 const tw=e=>{let l=1e9,r=-1e9;e.querySelectorAll('span').forEach(sp=>{const b=sp.getBoundingClientRect();if(b.width){l=Math.min(l,b.left);r=Math.max(r,b.right);}});return r>l?r-l:0;};
@@ -279,9 +283,9 @@ function pedal(id,t0,dur,revs){ const n=Math.max(4,Math.round(revs*12)), dt=dur/
 
 // S1 hook: tight shot on the cash held ~0.9 s, flash + "$3 000" slam, then an eased pull-out to a close two-shot
 const camS1=(sc,px,py,sx,sy)=>({scale:sc,x:sx-px*sc,y:sy-py*sc,transformOrigin:'0px 0px'});
-gsap.set(['#s1bg','#s1fg'],camS1(2.4,505,1380,540,1180));
-tl.to(['#s1bg','#s1fg'],{...camS1(2.55,505,1380,540,1180),duration:.85,ease:'sine.out'},0);
-tl.to(['#s1bg','#s1fg'],{...camS1(1.45,555,1300,540,1140),duration:.6,ease:'power3.inOut'},.85);
+gsap.set('#cam1',camS1(2.4,505,1380,540,1180));
+tl.to('#cam1',{...camS1(2.55,505,1380,540,1180),duration:.85,ease:'sine.out'},0);
+tl.to('#cam1',{...camS1(1.45,555,1300,540,1140),duration:.6,ease:'power3.inOut'},.85);
 tl.fromTo('#flash',{opacity:.9},{opacity:0,duration:.35,ease:'power2.out',immediateRender:false},.16);
 tl.to('#s1',{x:12,duration:.04,yoyo:true,repeat:5,ease:'none'},.18);
 tl.fromTo('#amt',{scale:1.6},{scale:1,transformOrigin:'50% 60%',duration:.4,ease:'back.out(3)',immediateRender:false},.16);
@@ -296,8 +300,13 @@ tl.to('#pk1-pos',{x:615,duration:.45,ease:'back.out(1.6)'},3.45);
 tl.to('#g1-arm',{rotation:-16,transformOrigin:'0% 50%',duration:.35,ease:'power2.out'},3.45);
 tl.to('#c1-sq',{rotation:-5,scaleY:.93,scaleX:1.05,transformOrigin:'50% 100%',duration:.15,yoyo:true,repeat:1,ease:'power2.out'},3.85);
 blink('g1',2.2); blink('c1',2.6); blink('g1',5.0);
-// "…а курьер отказался их везти": he steps back, determined
-face('c1','brave',6.4); tl.to('#c1-pos',{x:'+=30',duration:.3,ease:'power2.out'},6.4); tl.to('#pk1-pos',{x:'+=30',duration:.3,ease:'power2.out'},6.4);
+// shot 2: close on the hand-over; shot 3: the courier; back to the two-shot on the twist
+tl.to('#cam1',{...camS1(1.85,505,1330,540,1180),duration:.5,ease:'power2.inOut'},2.8);
+tl.to('#cam1',{...camS1(1.95,720,1200,560,1120),duration:.5,ease:'power2.inOut'},4.4);
+tl.to('.c1-pp',{x:-12,duration:.2,yoyo:true,repeat:1},5.0);
+tl.to('#cam1',{...camS1(1.45,555,1300,540,1140),duration:.45,ease:'power2.inOut'},6.2);
+// "Но курьер не довёз…": he steps back, determined
+face('c1','brave',6.35); tl.to('#c1-pos',{x:'+=30',duration:.3,ease:'power2.out'},6.4); tl.to('#pk1-pos',{x:'+=30',duration:.3,ease:'power2.out'},6.4);
 tl.to('#c1-sq',{rotation:4,transformOrigin:'50% 100%',duration:.2,yoyo:true,repeat:1},6.5);
 slideOut('#s1','#s2',ST[1]-.05);
 
@@ -306,17 +315,18 @@ reveal(['#t2a','#t2b'],ST[1]+.1);
 gsap.set('#phone2',{scale:1.1,transformOrigin:'50% 0%'});
 tl.from('#phone2',{y:300,opacity:0,duration:.45,ease:E.o3},ST[1]+.15);
 tl.to('#phone2',{x:'+=5',duration:.04,yoyo:true,repeat:19,ease:'none'},ST[1]+.5);
+tl.to('#phone2',{scale:1.18,duration:2.6,ease:'sine.inOut'},ST[1]+1.2);
 tl.to('#caller',{scaleY:1.06,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:15,ease:'sine.inOut'},ST[1]+.8);
 tl.to('#phone2',{rotation:2.5,duration:.06,yoyo:true,repeat:13,ease:'none'},ST[1]+.5);
 tl.to('#btnYes2',{scale:1.15,transformOrigin:'50% 50%',duration:.3,yoyo:true,repeat:3,ease:'sine.inOut'},ST[1]+.5);
 tl.from('#say2',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[1]+.7);
 tl.to(['#phone2','#say2'],{y:'-=60',opacity:0,duration:.35,ease:E.i3},ST[1]+3.85);
 tl.to('#jeans',{opacity:1,duration:.01},ST[1]+4.1); tl.from('#jeans',{scale:.6,transformOrigin:'50% 50%',duration:.4,ease:E.b2},ST[1]+4.1);
-tl.from('#cash2',{x:-320,duration:.5,ease:'power1.inOut'},ST[1]+4.3); tl.from('#cash2',{y:-380,rotation:-40,opacity:0,duration:.5,ease:'power2.in'},ST[1]+4.3); tl.to('#jeans',{scaleY:1.62,duration:.1,yoyo:true,repeat:1},ST[1]+4.8);
+tl.from('#cash2',{x:-320,duration:.5,ease:'power1.inOut'},ST[1]+4.3); tl.from('#cash2',{y:-200,rotation:-40,opacity:0,duration:.5,ease:'power2.in'},ST[1]+4.3); tl.to('#jeans',{scaleY:1.62,duration:.1,yoyo:true,repeat:1},ST[1]+4.8);
 tl.to('#jeans',{scale:.8,y:'+=150',duration:.4,ease:E.i3},ST[1]+5.3);
 tl.to('#bag2',{opacity:1,duration:.01},ST[1]+5.35); tl.from('#bag2',{y:'+=200',duration:.35,ease:E.o3},ST[1]+5.35);
 tl.to('#jeans',{opacity:0,duration:.1},ST[1]+5.7);
-tl.to('#bag2',{scaleY:1.55,scaleX:1.82,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1},ST[1]+5.7);
+tl.to('#bag2',{scaleY:1.55,scaleX:1.82,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1},ST[1]+5.7); tl.to('#tape2',{opacity:1,duration:.15},ST[1]+6.0); tl.to('#bag2',{x:'+=900',rotation:12,duration:.25,ease:'power3.in'},ST[2]-.3);
 slideOut('#s2','#s3',ST[2]-.05);
 
 // S3 (14.2–18.4) — nervous granny, courier wonders
@@ -338,18 +348,18 @@ tl.fromTo('#dash4',{x:0},{x:-1300,duration:2.3,ease:'power2.out',immediateRender
 tl.to('#cb-pos',{x:520,duration:2.15,ease:'power2.out'},ST[3]+.1);
 pedal('cb',ST[3]+.1,1.9,3.0);
 // brake at "…и решил не везти посылку": body pitches forward, overshoots back, settles
-const BR=ST[3]+2.3;
+const BR=ST[3]+2.2;
 tl.to('#cb-sq',{rotation:9,transformOrigin:'40% 100%',duration:.16,ease:'power2.out'},BR);
 tl.to('#cb-sq',{rotation:-3,duration:.18,ease:'power2.inOut'},BR+.16);
 tl.to('#cb-sq',{rotation:0,duration:.15,ease:'power2.out'},BR+.34);
 tl.to('.d4',{opacity:.9,duration:.12,stagger:.04},BR); tl.to('.d4',{opacity:0,duration:.4},BR+.45);
 // silence: slow push-in, he remembers his mother
-tl.to('#s4fg',{scale:1.14,transformOrigin:'520px 1150px',duration:3.2,ease:'sine.inOut'},ST[3]+3.7);
-face('cb','sad',ST[3]+4.1);
-tl.from('#bub4',{scale:0,transformOrigin:'30% 100%',duration:.5,ease:E.b2},ST[3]+4.1);
-tl.to('#heart4',{scale:1.25,transformOrigin:'50% 50%',duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},ST[3]+4.6);
-tl.from('#t4a',{yPercent:110,duration:.45,ease:E.o3},ST[3]+4.2);
-tl.from('#t4b',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[3]+6.1);
+tl.to('#cam4',{scale:1.14,transformOrigin:'520px 1150px',duration:3.2,ease:'sine.inOut'},ST[3]+3.5);
+face('cb','sad',ST[3]+3.8);
+tl.from('#bub4',{scale:0,transformOrigin:'30% 100%',duration:.5,ease:E.b2},ST[3]+3.8);
+tl.to('#heart4',{scale:1.25,transformOrigin:'50% 50%',duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},ST[3]+4.3);
+tl.from('#t4a',{yPercent:110,duration:.45,ease:E.o3},ST[3]+3.93);
+tl.from(['#t4b','#t4c'],{yPercent:110,duration:.45,ease:E.o3,stagger:.1},ST[3]+5.72);
 slideOut('#s4','#s5',ST[4]-.05);
 
 // S5 (25.7–29.3) — 102, money back, granny relieved
@@ -358,7 +368,7 @@ tl.from('#call102',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},ST
 tl.to('#call102',{scale:1.1,transformOrigin:'50% 50%',duration:.2,yoyo:true,repeat:3,ease:'sine.inOut'},ST[4]+.6);
 tl.from(['#p5-pos','#g5-pos'],{y:'+=500',duration:.45,ease:E.o3,stagger:.1},ST[4]+.3);
 tl.to('#pk5-pos',{x:790,duration:.55,ease:'power1.inOut'},ST[4]+1.5); tl.to('#pk5-pos',{y:1150,duration:.27,ease:'power2.out',yoyo:true,repeat:1},ST[4]+1.5); tl.to('#c5-sq',{rotation:5,transformOrigin:'50% 100%',duration:.18,yoyo:true,repeat:1},ST[4]+2.2);
-tl.to('#g5-sq',{scaleY:.9,scaleX:1.06,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1},ST[4]+2.05); hop('g5',ST[4]+2.3,50); face('g5','happy',ST[4]+2.05);
+tl.to('#g5-sq',{scaleY:.9,scaleX:1.06,transformOrigin:'50% 100%',duration:.12,yoyo:true,repeat:1},ST[4]+2.05); hop('g5',ST[4]+2.3,50); face('g5','happy',ST[4]+1.75); tl.to('#p5-arm',{rotation:-95,transformOrigin:'20% 80%',duration:.3,ease:'power2.out'},ST[4]+2.3);
 tl.to('.h5',{opacity:1,y:-60,duration:.6,stagger:.1,ease:'power2.out'},ST[4]+2.2);
 pushUp('#s5','#s6',ST[5]-.05);
 
@@ -367,7 +377,7 @@ reveal(['#t6a','#t6b'],ST[5]+.1);
 tl.from('#c6-pos',{y:'+=600',duration:.5,ease:E.back},ST[5]+.15);
 tl.from('#letter',{scale:0,rotation:-20,transformOrigin:'50% 50%',duration:.45,ease:E.b2},ST[5]+.6);
 tl.from('#gift',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[5]+.9);
-document.querySelectorAll('.cf').forEach((c,i)=>tl.fromTo(c,{y:-60,rotation:0},{y:1500+((i*137)%400),rotation:(i%2?1:-1)*(200+i*20),duration:2.2,ease:'power1.in',immediateRender:false},ST[5]+.6+(i%7)*.05));
+document.querySelectorAll('.cf').forEach((c,i)=>tl.fromTo(c,{y:-60,rotation:0},{y:1500+((i*137)%400),rotation:(i%2?1:-1)*(200+i*20),duration:2.2,ease:'power1.in',immediateRender:false},ST[5]+.9+(i%7)*.05));
 hop('c6',ST[5]+1.4,60); face('c6','happy',ST[5]+1.3); blink('c6',ST[5]+2.4);
 slideOut('#s6','#s7',ST[6]-.05);
 
@@ -378,18 +388,18 @@ tl.from('#g7-pos',{y:'+=600',duration:.45,ease:E.o3},ST[6]+.2);
 tl.fromTo('#ring7',{scale:.6,opacity:1},{scale:1.4,opacity:0,duration:.6,repeat:3,ease:'power1.out',immediateRender:false},ST[6]+.5);
 tl.to('#g7-arm',{rotation:28,transformOrigin:'20% 90%',duration:.3,ease:'power2.out'},ST[6]+2.5); tl.to('#no7',{scale:1,duration:.35,ease:E.b2},ST[6]+2.8);
 tl.set('#ring7',{opacity:0},ST[6]+2.9);
-hop('g7',ST[6]+3.0,40); face('g7','relief',ST[6]+2.85);
+hop('g7',ST[6]+3.0,40); tl.to('#share',{scale:1.08,transformOrigin:'0% 50%',duration:.18,yoyo:true,repeat:1},ST[6]+2.85); face('g7','relief',ST[6]+2.85);
 tl.from('#tip3',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+3.3);
 pushUp('#s7','#s8',ST[7]-.05);
 
 // S8 (37.3–42.8) — the real hero, thanks, follow
 tl.from('#photo',{y:200,rotation:-4,opacity:0,duration:.55,ease:E.back},ST[7]+.1);
-tl.from('#c8-pos',{x:'-=300',duration:.45,ease:E.o3},ST[7]+.6); tl.to('#wm',{opacity:0,duration:.2},ST[7]-.1); tl.from('#rubric',{opacity:0,y:20,duration:.4},ST[7]+.5);
+tl.from('#c8-pos',{y:'+=420',duration:.45,ease:E.back},ST[7]+.6); tl.to('#photo',{scale:1.03,transformOrigin:'50% 50%',duration:5,ease:'sine.inOut'},ST[7]+.6); tl.from('#note8',{opacity:0,duration:.4},ST[7]+.9); tl.to('#wm',{opacity:0,duration:.2},ST[7]-.1); tl.from('#rubric',{opacity:0,y:20,duration:.4},ST[7]+.5);
 tl.to('#c8-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.22,yoyo:true,repeat:9,ease:'sine.inOut'},ST[7]+1.0);
 tl.from('#real',{opacity:0,duration:.4},ST[7]+.8);
 tl.from('#thanks',{y:80,opacity:0,duration:.45,ease:E.back},ST[7]+.2);
 tl.from('#follow',{scale:0,transformOrigin:'50% 50%',duration:.45,ease:E.b2},ST[7]+1.9);
-tl.to('#follow',{scale:1.04,transformOrigin:'50% 50%',duration:.45,yoyo:true,repeat:5,ease:'sine.inOut'},ST[7]+2.5);
+tl.fromTo('#follow',{scale:1},{scale:1.1,transformOrigin:'50% 50%',duration:.16,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},ST[7]+2.4); tl.fromTo('#follow',{scale:1},{scale:1.1,transformOrigin:'50% 50%',duration:.16,yoyo:true,repeat:1,ease:'power2.out',immediateRender:false},ST[7]+4.2);
 tl.to({},{duration:.01},window.TIMING.end-.01);
 
 window.__timelines['main']=tl;

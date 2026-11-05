@@ -44,3 +44,9 @@
 {"ts": "2026-11-05T12:13:57.657357+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R5.mp3", "success": true, "duration_s": 1.55}
 {"ts": "2026-11-05T12:13:57.805388+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R8.mp3"}
 {"ts": "2026-11-05T12:13:59.853370+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R8.mp3", "success": true, "duration_s": 2.05}
+{"ts": "2026-11-05T12:20:43.194195+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R1.mp3"}
+{"ts": "2026-11-05T12:20:46.507926+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R1.mp3", "success": true, "duration_s": 3.31}
+{"ts": "2026-11-05T12:20:46.666370+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R3.mp3"}
+{"ts": "2026-11-05T12:20:48.262182+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R3.mp3", "success": true, "duration_s": 1.6}
+{"ts": "2026-11-05T12:20:48.399118+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R4.mp3"}
+{"ts": "2026-11-05T12:20:51.329629+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R4.mp3", "success": true, "duration_s": 2.93}
