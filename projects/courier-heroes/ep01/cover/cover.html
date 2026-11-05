@@ -23,7 +23,7 @@ svg{display:block;overflow:visible}
 </style></head>
 <body><div id="c">
   <svg id="bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
-  <div class="abs top"><div class="rubric"><img src="assets/ge_mark.svg" alt=""/>КУРЬЕР — БАТЫР<b>№1</b></div></div>
+  <div class="abs top"><div class="rubric"><img src="assets/ge_mark.svg" alt=""/>КУРЬЕР — БАТЫР<b>ЧАСТЬ 1</b></div></div>
   <div class="abs line" id="l1" style="top:440px" data-w="540">Спас</div>
   <div class="abs line" id="l2" style="top:642px" data-w="700"><span class="chip">$3 000</span></div>
   <div class="abs line" id="l3" style="top:884px" data-w="800">бабушки</div>
@@ -40,7 +40,6 @@ add($('#fg'),`<g transform="translate(700 1725) scale(1.08)">${mascot({id:'h',..
 add($('#fg'),`<g transform="translate(985 1315) rotate(10) scale(.9)"><rect x="-74" y="-130" width="148" height="260" rx="30" fill="var(--ink)"/><rect x="-60" y="-110" width="120" height="212" rx="18" fill="#3A3550"/><circle cx="0" cy="-40" r="30" fill="#6E6A80"/><circle cx="-26" cy="62" r="18" fill="var(--red)"/><circle cx="26" cy="62" r="18" fill="#34C759"/></g>
   <g transform="translate(935 1195)"><rect x="-84" y="-46" width="168" height="92" rx="46" fill="#1E5BD8" stroke="#fff" stroke-width="8"/><text x="0" y="22" text-anchor="middle" font-family="Onest" font-weight="800" font-size="56" fill="#fff">102</text></g>`);
 add($('#fg'),`<g transform="translate(285 1735) scale(.98)">${mascot({id:'g',col:'granny',scarf:SCARF,face:'worried'})}</g>`);
-add($('#fg'),`<g transform="translate(790 1540) rotate(-4)"><rect x="-50" y="-50" width="100" height="100" rx="22" fill="#fff"/><image href="assets/ge_mark.svg" x="-40" y="-40" width="80" height="80"/></g>`);
 // fit each headline line to its target width
 document.fonts.ready.then(()=>{document.querySelectorAll('.line').forEach(el=>{
   const target=+el.dataset.w; let fs=300; el.style.fontSize=fs+'px';
