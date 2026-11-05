@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "d8dd1119-993f-4435-a860-6c6e572274c8",
-  "currentRevision": null,
+  "currentRevision": "69029b32-bc59-45a1-abcc-28e36b815984",
   "pendingChanges": false,
   "files": {
     "assets/ge_mark.svg": {
@@ -41,19 +41,47 @@
       "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/d0/d025c32df5f8761205db79b4f29235b5b8a9f3e4103ec9d1e4403d9ce0e47943"
     },
     "content.js": {
-      "hash": "791391186a8466da63c2df8194213e38ed5033531ee99fa95d3dd09277044b19",
-      "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/79/791391186a8466da63c2df8194213e38ed5033531ee99fa95d3dd09277044b19"
+      "hash": "e38ae4321b6a059d17ab3866e66a4d35e6aef550a788cc818a80ede248364e4d",
+      "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/e3/e38ae4321b6a059d17ab3866e66a4d35e6aef550a788cc818a80ede248364e4d"
     },
     "index.html": {
-      "hash": "f95b9d04a9aa2b90e7bfb308d4dd9d5f4b4d46764616be6419d117bbbc588b64",
-      "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/f9/f95b9d04a9aa2b90e7bfb308d4dd9d5f4b4d46764616be6419d117bbbc588b64"
+      "hash": "38d43279f02d6d5eaa0f720fb753f1ce1bf547f906e5bee11e6d45480eb2d7d6",
+      "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/38/38d43279f02d6d5eaa0f720fb753f1ce1bf547f906e5bee11e6d45480eb2d7d6"
     },
     "vendor/gsap.min.js": {
       "hash": "96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6",
       "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/96/96c01b81f44a3290e2b4532f55e2c9534b2adc43273a19f3756b2cb41f0fd0b6"
+    },
+    "assets/news1.jpg": {
+      "hash": "84f26acfe3b91471fe093075e95cc2e6e9de97fd607f4a06157c40c2a91ab572",
+      "content": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/84/84f26acfe3b91471fe093075e95cc2e6e9de97fd607f4a06157c40c2a91ab572"
     }
   },
-  "revisions": {},
+  "revisions": {
+    "69029b32-bc59-45a1-abcc-28e36b815984": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793879107973,
+      "endedAt": 1793879107985,
+      "files": {
+        "assets/news1.jpg": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/84/84f26acfe3b91471fe093075e95cc2e6e9de97fd607f4a06157c40c2a91ab572"
+        },
+        "content.js": {
+          "before": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/79/791391186a8466da63c2df8194213e38ed5033531ee99fa95d3dd09277044b19",
+          "after": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/e3/e38ae4321b6a059d17ab3866e66a4d35e6aef550a788cc818a80ede248364e4d"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/f9/f95b9d04a9aa2b90e7bfb308d4dd9d5f4b4d46764616be6419d117bbbc588b64",
+          "after": "/root/.cache/hyperframes/history/d8dd1119-993f-4435-a860-6c6e572274c8/blobs/38/38d43279f02d6d5eaa0f720fb753f1ce1bf547f906e5bee11e6d45480eb2d7d6"
+        }
+      }
+    }
+  },
   "checks": {
     "latest": null,
     "revisions": {},
