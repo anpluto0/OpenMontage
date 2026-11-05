@@ -1,0 +1,97 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2)}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+20B8}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2)}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027}
+html,body{margin:0}body{width:1080px;height:1920px;overflow:hidden;font-family:Onest}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden}
+.t{position:absolute;left:80px;right:80px;font-weight:800;font-size:84px;line-height:96px;letter-spacing:-1px}
+.plate{position:absolute;left:80px;top:96px;padding:0 26px;height:62px;line-height:62px;border-radius:31px;font-weight:800;font-size:30px}
+svg{position:absolute;left:0;top:0}
+/* ink mode: line-art of the same shapes */
+.ink svg .f{fill:#FBF8F1!important;stroke:#1A1A1A!important;stroke-width:6!important;stroke-linejoin:round;stroke-linecap:round}
+.ink svg .acc{fill:#F2A23A!important}
+.ink svg .acc2{fill:#7BC47F!important}
+.ink svg .skip{display:none}
+</style>
+<script src="mascot.js"></script></head><body><div id="st"></div>
+<script>
+const q=new URLSearchParams(location.search), S=q.get('style')||'B', F=q.get('f')||'1';
+const st=document.getElementById('st'); if(S==='C') st.classList.add('ink');
+const P = S==='A'? {bg:'#F4F1EA',ink:'#1B1B1F',acc:'#FF5A4E'} : S==='B'? {bg:'#1E2346',ink:'#FFFFFF',acc:'#FFB347'} : {bg:'#FBF8F1',ink:'#1A1A1A',acc:'#E8742A'};
+st.style.background=P.bg;
+let svg=`<svg width="1080" height="1920" viewBox="0 0 1080 1920"><defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="${S==='C'?7:0}"/></filter>
+<radialGradient id="glow"><stop offset="0" stop-color="#FFD27A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient></defs><g filter="url(#rough)">`;
+// ---------- scenery ----------
+function nightCity(){ // Almaty: mountains + houses + windows
+  let s=`<rect class="f skip" x="0" y="0" width="1080" height="1920" fill="${S==='A'?'#F4F1EA':'#1E2346'}"/>`;
+  if(S!=='A'){ s+=`<circle class="f" cx="860" cy="560" r="58" fill="#FFF3C9"/>`;
+    [[120,520],[300,470],[520,540],[700,480],[960,520],[220,640],[620,610]].forEach(([x,y])=>s+=`<circle class="skip" cx="${x}" cy="${y}" r="4" fill="#fff" opacity=".8"/>`);}
+  s+=`<path class="f" d="M0 900 L170 700 L260 780 L420 600 L560 760 L700 640 L860 800 L1080 680 L1080 1000 L0 1000Z" fill="${S==='A'?'#D9E2EC':'#2E3566'}"/>
+      <path class="f" d="M420 600 L470 660 L440 650 L405 680 L385 645Z M700 640 L740 690 L712 684 L690 700 L672 676Z" fill="#E9EEF7"/>`;
+  return s;}
+function entrance(){ // apartment entrance with lamp
+  let s=`<rect class="f" x="0" y="820" width="1080" height="700" fill="${S==='A'?'#E7DFD1':'#3A3F6E'}"/>`;
+  for(let r=0;r<2;r++)for(let c=0;c<6;c++){const x=40+c*180,y=860+r*150; if(c===2||c===3)continue; s+=`<rect class="f" x="${x}" y="${y}" width="110" height="96" rx="10" fill="${S==='A'?'#F7D774':'#FFC85C'}"/>`;}
+  s+=`<circle class="skip" cx="540" cy="1010" r="300" fill="url(#glow)"/>
+      <rect class="f" x="400" y="1040" width="280" height="440" rx="14" fill="${S==='A'?'#B9A68C':'#5B4A72'}"/><rect class="f" x="430" y="1070" width="220" height="410" rx="10" fill="${S==='A'?'#8C7A62':'#433556'}"/>
+      <circle class="f" cx="540" cy="1015" r="20" fill="#FFE7A3"/><rect class="f" x="0" y="1480" width="1080" height="440" fill="${S==='A'?'#D4CBBB':'#272B52'}"/>
+      <rect class="f" x="360" y="1470" width="360" height="26" rx="8" fill="${S==='A'?'#C9BEA9':'#4A4F80'}"/>`;
+  return s;}
+// ---------- people (style B / C) ----------
+function person({x,y,s=1,skin='#E2AC85',hair='#1E1A22',top='#3E5C76',bottom='#2C2F4A',scarf=null,glasses=false,box=false,arms='hold',flip=false,face='calm',bun=false}){
+  const tr=`translate(${x} ${y}) scale(${flip?-s:s} ${s})`;
+  let g=`<g transform="${tr}">`;
+  if(box) g+=`<rect class="f" x="-150" y="-470" width="130" height="150" rx="16" fill="#6C7F93"/><rect class="f" x="-150" y="-470" width="130" height="30" rx="12" fill="#55677A"/>`;
+  g+=`<path class="f" d="M-40 -150 L-44 0 L-14 0 L-6 -150Z M6 -150 L14 0 L44 0 L40 -150Z" fill="${bottom}"/>
+      <ellipse class="f" cx="-30" cy="4" rx="30" ry="12" fill="#2A2228"/><ellipse class="f" cx="32" cy="4" rx="30" ry="12" fill="#2A2228"/>
+      <path class="f" d="M-78 -150 Q-86 -350 -60 -390 Q0 -420 60 -390 Q86 -350 78 -150Z" fill="${top}"/>`;
+  if(arms==='hold') g+=`<path class="f" d="M60 -370 Q130 -300 150 -250 L128 -238 Q100 -290 50 -330Z" fill="${top}"/><path class="f" d="M-60 -370 Q10 -290 120 -262 L118 -238 Q-10 -262 -70 -320Z" fill="${top}"/><circle class="f" cx="140" cy="-246" r="18" fill="${skin}"/>`;
+  else if(arms==='down') g+=`<path class="f" d="M60 -380 Q96 -290 92 -200 L68 -200 Q66 -290 44 -340Z M-60 -380 Q-96 -290 -92 -200 L-68 -200 Q-66 -290 -44 -340Z" fill="${top}"/><circle class="f" cx="80" cy="-192" r="17" fill="${skin}"/><circle class="f" cx="-80" cy="-192" r="17" fill="${skin}"/>`;
+  else if(arms==='chin') g+=`<path class="f" d="M-60 -380 Q-96 -290 -92 -200 L-68 -200 Q-66 -290 -44 -340Z" fill="${top}"/><circle class="f" cx="-80" cy="-192" r="17" fill="${skin}"/><path class="f" d="M60 -380 Q110 -330 60 -440 L44 -432 Q80 -350 40 -350Z" fill="${top}"/><circle class="f" cx="52" cy="-448" r="17" fill="${skin}"/>`;
+  g+=`<rect class="f" x="-16" y="-430" width="32" height="40" fill="${skin}"/><ellipse class="f" cx="0" cy="-478" rx="58" ry="66" fill="${skin}"/>`;
+  if(scarf) g+=`<path class="f" fill-rule="evenodd" d="M-66 -470 Q-70 -560 0 -566 Q70 -560 66 -470 Q60 -420 30 -404 L-30 -404 Q-60 -420 -66 -470 Q-48 -530 0 -534 Q48 -530 50 -470 Q50 -440 36 -428 L-36 -428 Q-50 -440 -50 -470Z" fill="${scarf}"/><path class="f" d="M-20 -410 L-40 -360 L-6 -372 L6 -404Z" fill="${scarf}"/>`;
+  else g+= bun? `<path class="f" d="M-60 -480 Q-64 -556 0 -560 Q64 -556 60 -480 Q40 -526 0 -528 Q-40 -526 -60 -480Z" fill="${hair}"/><circle class="f" cx="0" cy="-566" r="26" fill="${hair}"/>`
+        : `<path class="f" d="M-60 -476 Q-66 -560 6 -560 Q66 -552 60 -486 Q40 -520 -10 -514 Q-40 -512 -60 -476Z" fill="${hair}"/>`;
+  const eyes = face==='worried'? `<path d="M-34 -494 L-12 -504 M34 -494 L12 -504" stroke="#2A1E22" stroke-width="5" stroke-linecap="round"/><circle cx="-22" cy="-478" r="6" fill="#2A1E22"/><circle cx="22" cy="-478" r="6" fill="#2A1E22"/><path d="M-12 -446 Q0 -452 12 -446" stroke="#2A1E22" stroke-width="5" fill="none" stroke-linecap="round"/>`
+             : `<circle cx="-22" cy="-478" r="6" fill="#2A1E22"/><circle cx="22" cy="-478" r="6" fill="#2A1E22"/><path d="M-14 -450 Q0 -440 14 -450" stroke="#2A1E22" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  g+=eyes;
+  if(glasses) g+=`<rect x="-42" y="-492" width="34" height="26" rx="8" fill="none" stroke="#2A1E22" stroke-width="4"/><rect x="8" y="-492" width="34" height="26" rx="8" fill="none" stroke="#2A1E22" stroke-width="4"/><path d="M-8 -480 L8 -480" stroke="#2A1E22" stroke-width="4"/>`;
+  return g+`</g>`;}
+function pkg(x,y,s=1){return `<g transform="translate(${x} ${y}) scale(${s})"><rect class="f" x="-55" y="-70" width="110" height="120" rx="12" fill="#C99A62"/><rect class="f acc2" x="-34" y="-96" width="68" height="40" rx="6" fill="#6DBF7B"/><text x="0" y="-66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="28" fill="#1C5A2A">$</text></g>`;}
+function bike(x,y,s){ // simple side bike facing right
+  return `<g transform="translate(${x} ${y}) scale(${s})"><circle class="f" cx="-190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/><circle class="f" cx="190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/>
+   <path class="f" d="M-190 0 L-10 10 L-60 -150 Z M-56 -140 L140 -160 M-10 10 L148 -130 M140 -175 L190 0" fill="none" stroke="${S==='A'?'#FF5A4E':'#F08A3C'}" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+   <path class="f" d="M-100 -176 L-30 -170" stroke="#5A3A2E" stroke-width="18" stroke-linecap="round"/><path class="f" d="M140 -175 L136 -210 L96 -214" fill="none" stroke="#9B9B9B" stroke-width="12" stroke-linecap="round"/></g>`;}
+function bubble(cx,cy,inner){return `<g><ellipse class="f" cx="${cx}" cy="${cy}" rx="230" ry="190" fill="#FFFFFF" opacity="${S==='B'?.95:1}"/><circle class="f" cx="${cx+120}" cy="${cy+210}" r="30" fill="#FFFFFF"/><circle class="f" cx="${cx+170}" cy="${cy+268}" r="16" fill="#FFFFFF"/>${inner}</g>`;}
+// ---------- mascots (style A) ----------
+function mas(o,x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})">${mascot(o)}</g>`;}
+function grannyMascot(id,x,y,s){ // lavender jelly with white headscarf
+  let m=mascot({id,col:'blue',cap:false,bag:false,strap:false});
+  m=m.replace(/#5B8DEF/g,'#B9A6E8').replace(/#3A68C9/g,'#9580CF');
+  const scarf=`<path fill-rule="evenodd" d="M-236 -300 C-250 -580 -120 -650 0 -650 C120 -650 250 -580 236 -300 C236 -250 200 -220 160 -214 L-160 -214 C-200 -220 -236 -250 -236 -300Z M0 -520 C-120 -520 -176 -440 -176 -370 C-176 -300 -110 -250 0 -250 C110 -250 176 -300 176 -370 C176 -440 120 -520 0 -520Z" fill="#F4F1EA"/><path d="M-60 -230 L-120 -120 L-20 -170 L20 -226Z" fill="#E6E0D4"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})">${m}${scarf}</g>`;}
+
+// ---------- frames ----------
+let txt='',plate='';
+if(F==='1'){
+  plate='Алматы · лето 2026';
+  txt=`<div class="t" style="top:200px;color:${P.ink}">Бабушка чуть не отдала мошенникам <span style="color:${P.acc}">$3 000</span></div><div class="t" style="top:520px;color:${S==='B'?'#FFB347':P.acc};font-size:76px">Её спас курьер</div>`;
+  svg+=nightCity()+entrance();
+  if(S==='A'){ svg+=grannyMascot('g1',330,1500,.62)+mas({id:'c1',col:'yel',cap:true,bag:true,strap:true},790,1500,.66)+pkg(560,1260,1.1).replace('translate(560','translate(560'); }
+  else { svg+=person({x:330,y:1490,s:1.05,skin:'#E3B28E',top:'#8E3B46',bottom:'#3A2E4F',scarf:'#F3EFE6',face:'worried',arms:'hold'})
+             +person({x:780,y:1490,s:1.1,skin:'#D9A27A',top:'#3E5C76',bottom:'#232744',glasses:true,box:true,arms:'hold',flip:true})+pkg(545,1236,1.05); }
+} else {
+  plate='Нартай Есимханов';
+  txt=`<div class="t" style="top:200px;color:${P.ink}">«А если бы это была</div><div class="t" style="top:296px;color:${S==='B'?'#FFB347':P.acc}">моя мама?»</div>`;
+  svg+=nightCity()+`<rect class="f" x="0" y="1380" width="1080" height="540" fill="${S==='A'?'#E4DED2':'#272B52'}"/><path class="skip" d="M0 1500 H1080" stroke="#fff" stroke-width="10" stroke-dasharray="70 60" opacity=".35"/>`;
+  svg+=`<rect class="f" x="140" y="760" width="22" height="640" fill="${S==='A'?'#9A948A':'#4A4F80'}"/><circle class="f" cx="151" cy="760" r="34" fill="#FFE7A3"/><circle class="skip" cx="151" cy="800" r="260" fill="url(#glow)"/>`;
+  if(S==='A'){ svg+=bike(560,1380,.95)+mas({id:'c2',col:'yel',cap:true,bag:false,strap:false,act:'none'},505,1235,.5)
+             +bubble(700,820,grannyMascot('m2',700,980,.42).replace(/#B9A6E8/g,'#FFB3C7').replace(/#9580CF/g,'#E68AA6')); }
+  else { svg+=bike(600,1380,.95)+person({x:420,y:1390,s:1.0,skin:'#D9A27A',top:'#3E5C76',bottom:'#232744',glasses:true,box:true,arms:'chin',face:'calm'})
+             +bubble(720,820,person({x:720,y:980,s:.62,skin:'#E3B28E',top:'#C2564E',bottom:'#4A3A5C',bun:true,hair:'#2A2228',arms:'down'})); }
+}
+svg+=`</g></svg>`;
+st.innerHTML=svg+txt+`<div class="plate" style="background:${S==='B'?'#FFB347':P.ink};color:${S==='B'?'#1E2346':'#fff'}">${plate}</div>`;
+</script></body></html>
