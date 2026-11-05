@@ -32,6 +32,7 @@ svg{display:block;overflow:visible}
 </head>
 <body>
 <div id="root" data-composition-id="main" data-width="1080" data-height="1920" data-duration="42.8">
+<div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0;z-index:50;pointer-events:none"></div>
 <section id="stage" class="clip" data-start="0" data-duration="42.8" data-track-index="1">
 
   <!-- S1 · hook: granny hands the package to the courier (visible from frame 0) -->
@@ -48,7 +49,7 @@ svg{display:block;overflow:visible}
   <div id="s2" class="scene" style="background:var(--ink)">
     <div class="h1 mask" style="top:196px;color:#fff"><div id="t2a"><span data-k="scam.l1">Мошенники:</span></div></div>
     <div class="h1 mask" style="top:294px;color:var(--yel)"><div id="t2b"><span data-k="scam.l2">«Задекларируйте деньги»</span></div></div>
-    <div id="phone2" class="abs" style="left:300px;top:560px;width:480px;height:820px;border-radius:70px;background:#0E0E12;box-shadow:0 0 0 10px #34343C">
+    <div id="phone2" class="abs" style="left:300px;top:660px;width:480px;height:820px;border-radius:70px;background:#0E0E12;box-shadow:0 0 0 10px #34343C">
       <div class="abs" style="left:24px;top:24px;width:432px;height:772px;border-radius:50px;background:linear-gradient(#3A3550,#1F1C2C)"></div>
       <div class="abs" style="left:160px;top:42px;width:160px;height:30px;border-radius:15px;background:#0E0E12"></div>
       <svg id="caller" class="abs" style="left:140px;top:150px" width="200" height="200" viewBox="-100 -100 200 200"><circle r="96" fill="#55506E"/></svg>
@@ -59,7 +60,7 @@ svg{display:block;overflow:visible}
       <svg class="abs" style="left:96px;top:668px" width="58" height="58" viewBox="0 0 24 24"><path fill="#fff" d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.956.956 0 0 1 0-1.36C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.72c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
       <svg class="abs" style="left:326px;top:668px" width="58" height="58" viewBox="0 0 24 24"><path fill="#fff" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
     </div>
-    <div id="say2" class="abs" style="left:110px;top:470px;max-width:620px;background:#fff;border-radius:40px 40px 40px 10px;padding:26px 36px;font-weight:800;font-size:44px;line-height:52px"><span data-k="scam.say">Деньги нужно задекларировать!</span></div>
+    <div id="say2" class="abs" style="left:0;top:470px;width:1080px;display:flex;justify-content:center"><div style="position:relative;background:#fff;border-radius:40px;padding:26px 44px;font-weight:800;font-size:46px;line-height:54px;white-space:nowrap"><span data-k="scam.say">Деньги нужно задекларировать!</span><div style="position:absolute;left:50%;bottom:-34px;margin-left:-26px;width:0;height:0;border-left:26px solid transparent;border-right:26px solid transparent;border-top:36px solid #fff"></div></div></div>
     <svg id="s2fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
@@ -153,14 +154,14 @@ function mascot({id,col='hero',cap='none',bag=null,glasses=false,scarf=null,face
     raise:`<path d="M-122 -478 L-34 -480 M30 -500 Q74 -532 120 -504" stroke="${OL}" stroke-width="13" fill="none" stroke-linecap="round"/>`,
     sly:`<path d="M-130 -460 L-30 -430 M130 -460 L30 -430" stroke="${OL}" stroke-width="16" stroke-linecap="round"/>`};
   const MOUTHS={smile:`<path d="M-104 ${ey+98} Q0 ${ey+168} 104 ${ey+98}" stroke="${OL}" stroke-width="9" fill="none" stroke-linecap="round"/>`,
-    big:`<path d="M-104 ${ey+92} Q0 ${ey+210} 104 ${ey+92}Z" fill="${OL}"/><ellipse cx="0" cy="${ey+150}" rx="44" ry="20" fill="#FF7A8A"/>`,
+    big:`<path d="M-96 ${ey+96} Q0 ${ey+190} 96 ${ey+96}Z" fill="${OL}"/>`,
     worried:`<path d="M-60 ${ey+140} Q0 ${ey+110} 60 ${ey+140}" stroke="${OL}" stroke-width="10" fill="none" stroke-linecap="round"/>`,
     o:`<ellipse cx="0" cy="${ey+128}" rx="30" ry="38" fill="${OL}"/>`,
     flat:`<path d="M-46 ${ey+124} L56 ${ey+114}" stroke="${OL}" stroke-width="10" stroke-linecap="round"/>`,
     soft:`<path d="M-50 ${ey+112} Q0 ${ey+142} 50 ${ey+112}" stroke="${OL}" stroke-width="10" fill="none" stroke-linecap="round"/>`,
     sly:`<path d="M-70 ${ey+120} Q20 ${ey+150} 90 ${ey+100}" stroke="${OL}" stroke-width="10" fill="none" stroke-linecap="round"/>`};
   const blush=`<ellipse cx="-150" cy="${ey+90}" rx="34" ry="18" fill="#FF8FA3" opacity=".55"/><ellipse cx="150" cy="${ey+90}" rx="34" ry="18" fill="#FF8FA3" opacity=".55"/>`;
-  const PRE={smile:['open','none','smile'],happy:['happy','none','big',1],worried:['small','worried','worried'],shock:['wide','up','o'],
+  const PRE={calm:['open','none','soft'],brave:['open','determined','soft'],pensive:['look','none','flat'],sad:['glossy','worried','worried',1],smile:['open','none','smile'],happy:['happy','none','big',1],worried:['small','worried','worried'],shock:['wide','up','o'],
     puzzled:['look','raise','flat'],tender:['glossy','worried','soft',1],proud:['open','determined','big'],sly:['sly','sly','sly'],relief:['happy','worried','smile',1]};
   const FACES=(Array.isArray(face)?face:[face]);
   const faceG=FACES.map((n,i)=>{const [e,br,m,bl]=PRE[n]; return `<g class="${id}-face" id="${id}-f-${n}" opacity="${i?0:1}"><g class="${id}-eyes">${EYES[e]()}</g>${BROWS[br]}${MOUTHS[m]}${bl?blush:''}</g>`;}).join('');
@@ -210,7 +211,7 @@ const pkg=(id)=>`<g id="${id}"><rect x="-58" y="-76" width="116" height="126" rx
   s+=`<rect x="400" y="1040" width="280" height="440" rx="16" fill="#B9A68C"/><rect x="430" y="1070" width="220" height="410" rx="12" fill="#8C7A62"/><circle cx="540" cy="1015" r="20" fill="#FFE7A3"/><rect x="0" y="1480" width="1080" height="440" fill="#D4CBBB"/>`;
   el($('#s1bg'),s); })();
 place($('#s1fg'),mascot({id:'g1',col:'granny',scarf:SCARF,act:'give',face:['worried','relief']}),'g1',320,1490,.6);
-place($('#s1fg'),mascot({id:'c1',...HERO,face:['smile','proud']}),'c1',790,1490,.62);
+place($('#s1fg'),mascot({id:'c1',...HERO,face:['calm','brave']}),'c1',790,1490,.62);
 el($('#s1fg'),`<g id="pk1-pos">${pkg('pk1')}</g>`); gsap.set('#pk1-pos',{x:470,y:1400,scale:.8});
 // S2 · caller avatar + jeans + bag
 el($('#caller'),`<g transform="translate(0 70) scale(.3)">${mascot({id:'sc',col:'scam',face:'sly'})}</g>`);
@@ -227,17 +228,17 @@ gsap.set('#sweat',{x:560,y:1000}); gsap.set('#qm',{x:880,y:1060});
 (function(){ el($('#s4bg'),`<path d="M0 1080 L180 880 L300 960 L470 790 L620 940 L760 830 L920 960 L1080 860 L1080 1300 L0 1300Z" fill="#7A4E8C" opacity=".75"/><path d="M470 790 L520 850 L490 840 L455 870 L435 835Z M760 830 L800 880 L772 874 L750 890 L732 866Z" fill="#FFE3EA"/>
   <circle cx="830" cy="640" r="70" fill="#FFF1C9"/><rect x="0" y="1300" width="1080" height="620" fill="#4B3B66"/>`);
   let d=''; for(let i=0;i<22;i++) d+=`<rect x="${i*150}" y="1420" width="90" height="14" rx="7" fill="#fff" opacity=".55"/>`; el($('#s4bg'),`<g id="dash4">${d}</g>`); })();
-place($('#s4fg'),mascot({id:'cb',...HERO,bike:true,face:['smile','shock','tender']}),'cb',-400,1310,.95);
+place($('#s4fg'),mascot({id:'cb',...HERO,bike:true,face:['pensive','sad']}),'cb',-400,1310,.95);
 el($('#s4fg'),`<g id="dust4">${[0,1,2].map(i=>`<circle class="d4" cx="${-60-i*50}" cy="${80-i*14}" r="${30-i*6}" fill="#E9D6E8" opacity="0"/>`).join('')}</g>
   <g id="bub4"><ellipse cx="0" cy="0" rx="250" ry="210" fill="#fff"/><circle cx="-150" cy="240" r="34" fill="#fff"/><circle cx="-200" cy="310" r="18" fill="#fff"/><g transform="translate(0 150) scale(.5)">${mascot({id:'mom',col:'mom',scarf:['#FFF6E8','#EFE3CF'],face:'happy'})}</g><path id="heart4" d="M150 -150 C150 -180 190 -190 200 -160 C210 -190 250 -180 250 -150 C250 -110 200 -90 200 -80 C200 -90 150 -110 150 -150Z" fill="#FF5A7A"/></g>`);
 gsap.set('#dust4',{x:540,y:1310}); gsap.set('#bub4',{x:770,y:660});
 // S5 · courier calls 102; policeman returns the money to granny
-place($('#s5fg'),mascot({id:'c5',...HERO,act:'phone'}),'c5',190,1520,.5);
-place($('#s5fg'),mascot({id:'p5',col:'police',cap:'police',act:'give',face:'smile'}),'p5',560,1500,.58);
-place($('#s5fg'),mascot({id:'g5',col:'granny',scarf:SCARF,face:['worried','happy']}),'g5',900,1500,.58);
-el($('#s5fg'),`<g id="pk5-pos">${pkg('pk5')}</g><g id="call102"><rect x="-120" y="-50" width="240" height="100" rx="50" fill="#34C759"/><text x="0" y="20" text-anchor="middle" font-family="Onest" font-weight="800" font-size="56" fill="#fff">102</text></g>
+place($('#s5fg'),mascot({id:'c5',...HERO,act:'phone',face:'calm'}),'c5',220,1440,.62);
+place($('#s5fg'),mascot({id:'p5',col:'police',cap:'police',act:'give',face:'smile'}),'p5',540,1440,.62);
+place($('#s5fg'),mascot({id:'g5',col:'granny',scarf:SCARF,face:['worried','happy']}),'g5',860,1440,.62);
+el($('#s5fg'),`<g id="pk5-pos">${pkg('pk5')}</g><g id="call102"><path d="M-20 46 L0 80 L20 46Z" fill="#34C759"/><rect x="-120" y="-50" width="240" height="100" rx="50" fill="#34C759"/><text x="0" y="20" text-anchor="middle" font-family="Onest" font-weight="800" font-size="56" fill="#fff">102</text></g>
   <g id="hearts5">${[0,1,2].map(i=>`<path class="h5" d="M${-40+i*40} 0 c0-20 26-26 32-6 c6-20 32-14 32 6 c0 26-32 38-32 44 c0-6-32-18-32-44Z" fill="#FF5A7A" opacity="0"/>`).join('')}</g>`);
-gsap.set('#pk5-pos',{x:700,y:1270}); gsap.set('#call102',{x:200,y:1000}); gsap.set('#hearts5',{x:880,y:1060});
+gsap.set('#pk5-pos',{x:705,y:1250,scale:.85}); gsap.set('#call102',{x:220,y:930}); gsap.set('#hearts5',{x:860,y:960});
 // S6 · award: framed letter + gift bag
 place($('#s6fg'),mascot({id:'c6',...HERO,face:['smile','happy']}),'c6',540,1560,.85);
 el($('#s6fg'),`<g id="letter"><rect x="-120" y="-160" width="240" height="320" rx="10" fill="#6B5B4B"/><rect x="-100" y="-140" width="200" height="280" fill="#FFFDF5"/><path d="M-70 -90 H70 M-70 -50 H70 M-70 -10 H40 M-70 30 H60" stroke="#C9C1B1" stroke-width="10" stroke-linecap="round"/><circle cx="50" cy="90" r="26" fill="#F2C14E"/></g>
@@ -245,7 +246,7 @@ el($('#s6fg'),`<g id="letter"><rect x="-120" y="-160" width="240" height="320" r
 gsap.set('#letter',{x:800,y:1180}); gsap.set('#gift',{x:290,y:1440});
 (function(){ const cols=['#FF5A4E','#FCE000','#3FA7A0','#5B8DEF','#FF9EB8']; for(let i=0;i<26;i++){const d=document.createElement('div');d.className='cf';Object.assign(d.style,{position:'absolute',left:(60+((i*397)%960))+'px',top:'-40px',width:(14+(i%3)*6)+'px',height:(26+(i%2)*10)+'px',borderRadius:'4px',background:cols[i%5]});$('#confetti').appendChild(d);} })();
 // S7 · granny declines the scam call
-place($('#s7fg'),mascot({id:'g7',col:'granny',scarf:SCARF,act:'phone',face:['worried','proud']}),'g7',540,1500,.75);
+place($('#s7fg'),mascot({id:'g7',col:'granny',scarf:SCARF,act:'phone',face:['worried','relief']}),'g7',540,1500,.75);
 el($('#s7fg'),`<g id="ring7"><circle r="60" fill="none" stroke="#FFFFFF" stroke-width="8" opacity=".6"/><circle r="100" fill="none" stroke="#FFFFFF" stroke-width="6" opacity=".35"/></g>
   <g id="no7"><circle r="70" fill="#FF3B30"/><path d="M-28 -28 L28 28 M28 -28 L-28 28" stroke="#fff" stroke-width="16" stroke-linecap="round"/></g>`);
 gsap.set('#ring7',{x:690,y:1200}); gsap.set('#no7',{x:820,y:1000,scale:0});
@@ -275,14 +276,20 @@ function pedal(id,t0,dur,revs){ const n=Math.max(4,Math.round(revs*12)), dt=dur/
   tl.to(`#${id}-legN`,{keyframes:kN},t0); tl.to(`#${id}-legF`,{keyframes:kF},t0); tl.to(`#${id}-shN`,{keyframes:sN},t0); tl.to(`#${id}-shF`,{keyframes:sF},t0);
   tl.fromTo([`#${id}-w1`,`#${id}-w2`],{rotation:0},{rotation:360*revs*1.6,transformOrigin:'50% 50%',duration:dur,ease:'none',immediateRender:false},t0); }
 
-// S1 (0–7.6) — frame 0 already shows the plate, the headline and both characters
+// S1 hook: frame 0 is a tight shot on the cash; flash + punch-out + shake
+gsap.set(['#s1bg','#s1fg'],{scale:1.9,transformOrigin:'44% 70%'});
+tl.to(['#s1bg','#s1fg'],{scale:1,duration:.6,ease:'power3.out'},.18);
+tl.fromTo('#flash',{opacity:.9},{opacity:0,duration:.35,ease:'power2.out',immediateRender:false},.16);
+tl.to('#s1',{x:14,duration:.05,yoyo:true,repeat:5,ease:'none'},.2);
+tl.fromTo('#pk1-cash',{scale:1},{scale:1.4,transformOrigin:'50% 50%',duration:.15,yoyo:true,repeat:1,immediateRender:false},.05);
+// S1 (0–7.6) — headline and characters
 tl.from('#pk1-pos',{y:1440,duration:.5,ease:E.o3},2.6);
 tl.to('#g1-arm',{rotation:-14,transformOrigin:'0% 50%',duration:.3,yoyo:true,repeat:1},2.6);
 tl.fromTo('#pk1-cash',{y:0},{y:-18,duration:.25,yoyo:true,repeat:3,ease:'sine.inOut',immediateRender:false},3.4);
 tl.to('#pk1-pos',{x:650,duration:.55,ease:E.io},4.4);
 blink('g1',1.4); blink('c1',2.0); blink('g1',4.9);
 tl.from('#punch',{yPercent:120,duration:.4,ease:E.back},6.1);
-hop('c1',6.2,70); face('c1','proud',6.1);
+hop('c1',6.2,50); face('c1','brave',6.1);
 slideOut('#s1','#s2',ST[1]-.05);
 
 // S2 (7.6–14.2) — the scam call, then the cash goes into jeans and a bag
@@ -290,7 +297,7 @@ reveal(['#t2a','#t2b'],ST[1]+.1);
 tl.from('#phone2',{y:300,opacity:0,duration:.45,ease:E.o3},ST[1]+.15);
 tl.to('#phone2',{rotation:2.5,duration:.06,yoyo:true,repeat:13,ease:'none'},ST[1]+.5);
 tl.to('#btnYes2',{scale:1.15,transformOrigin:'50% 50%',duration:.3,yoyo:true,repeat:3,ease:'sine.inOut'},ST[1]+.5);
-tl.from('#say2',{scale:0,transformOrigin:'0% 100%',duration:.4,ease:E.b2},ST[1]+.7);
+tl.from('#say2',{scale:0,transformOrigin:'50% 100%',duration:.4,ease:E.b2},ST[1]+.7);
 tl.to(['#phone2','#say2'],{y:'-=60',opacity:0,duration:.35,ease:E.i3},ST[1]+3.85);
 tl.to('#jeans',{opacity:1,duration:.01},ST[1]+4.1); tl.from('#jeans',{scale:.6,transformOrigin:'50% 50%',duration:.4,ease:E.b2},ST[1]+4.1);
 tl.from('#cash2',{y:-300,opacity:0,duration:.45,ease:'bounce.out'},ST[1]+4.3);
@@ -319,7 +326,7 @@ tl.fromTo('#dash4',{x:0},{x:-1500,duration:2.2,ease:'power1.out',immediateRender
 tl.to('#cb-pos',{x:520,duration:1.9,ease:'power2.out'},ST[3]+.2);
 pedal('cb',ST[3]+.2,1.8,3.2);
 tl.to('#cb-pos',{rotation:-5,transformOrigin:'50% 100%',duration:.14,yoyo:true,repeat:1},ST[3]+2.0);
-tl.to('.d4',{opacity:.9,duration:.15,stagger:.05},ST[3]+2.0); face('cb','shock',ST[3]+2.0); face('cb','tender',ST[3]+3.1); tl.to('.d4',{opacity:0,duration:.4},ST[3]+2.5);
+tl.to('.d4',{opacity:.9,duration:.15,stagger:.05},ST[3]+2.0); face('cb','sad',ST[3]+3.1); tl.to('.d4',{opacity:0,duration:.4},ST[3]+2.5);
 tl.from('#bub4',{scale:0,transformOrigin:'30% 100%',duration:.5,ease:E.b2},ST[3]+3.1);
 tl.to('#heart4',{scale:1.25,transformOrigin:'50% 50%',duration:.25,yoyo:true,repeat:5,ease:'sine.inOut'},ST[3]+3.6);
 reveal(['#t4a','#t4b'],ST[3]+4.9);
@@ -331,7 +338,7 @@ reveal(['#t5a','#t5b'],ST[4]+.1);
 tl.from('#call102',{scale:0,transformOrigin:'50% 50%',duration:.35,ease:E.b2},ST[4]+.2);
 tl.to('#call102',{scale:1.1,transformOrigin:'50% 50%',duration:.2,yoyo:true,repeat:3,ease:'sine.inOut'},ST[4]+.6);
 tl.from(['#p5-pos','#g5-pos'],{y:'+=500',duration:.45,ease:E.o3,stagger:.1},ST[4]+.3);
-tl.to('#pk5-pos',{x:820,y:1300,duration:.5,ease:E.io},ST[4]+1.9);
+tl.to('#pk5-pos',{x:790,y:1290,duration:.5,ease:E.io},ST[4]+1.9);
 hop('g5',ST[4]+2.5,50); face('g5','happy',ST[4]+2.4);
 tl.to('.h5',{opacity:1,y:-60,duration:.6,stagger:.1,ease:'power2.out'},ST[4]+2.5);
 pushUp('#s5','#s6',ST[5]-.05);
@@ -352,7 +359,7 @@ tl.from('#g7-pos',{y:'+=600',duration:.45,ease:E.o3},ST[6]+.2);
 tl.fromTo('#ring7',{scale:.6,opacity:1},{scale:1.4,opacity:0,duration:.6,repeat:3,ease:'power1.out',immediateRender:false},ST[6]+.5);
 tl.to('#no7',{scale:1,duration:.35,ease:E.b2},ST[6]+2.8);
 tl.set('#ring7',{opacity:0},ST[6]+2.9);
-hop('g7',ST[6]+3.0,40); face('g7','proud',ST[6]+2.85);
+hop('g7',ST[6]+3.0,40); face('g7','relief',ST[6]+2.85);
 tl.from('#tip3',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+3.3);
 pushUp('#s7','#s8',ST[7]-.05);
 
