@@ -70,8 +70,8 @@
   }
  ],
  "music": {
-  "file": "music/bgm_v1_dip.wav",
-  "gain_db": -19,
+  "file": "music/bgm_v2_dip.wav",
+  "gain_db": -17,
   "fade_out_at": 41.0,
   "duck": {
    "threshold": 0.02,
@@ -84,25 +84,25 @@
   {
    "file": "pop",
    "at": 2.6,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "пакет"
   },
   {
    "file": "pop",
    "at": 6.1,
-   "gain_db": -15,
+   "gain_db": -17,
    "note": "«Её спас курьер»"
   },
   {
    "file": "whoosh-short",
    "at": 7.55,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ звонок"
   },
   {
    "file": "ringtone",
    "at": 8.0,
-   "gain_db": -19,
+   "gain_db": -21,
    "note": "звонок мошенников",
    "lp": 5000,
    "max": 2.4
@@ -110,25 +110,25 @@
   {
    "file": "pop",
    "at": 8.3,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "реплика мошенника"
   },
   {
    "file": "whoosh-short",
    "at": 11.45,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "телефон уходит"
   },
   {
    "file": "pop",
    "at": 11.75,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "джинсы"
   },
   {
    "file": "coin_collect",
    "at": 11.95,
-   "gain_db": -24,
+   "gain_db": -26,
    "note": "деньги в карман",
    "lp": 4000,
    "max": 0.6
@@ -136,31 +136,31 @@
   {
    "file": "pop",
    "at": 13.3,
-   "gain_db": -22,
+   "gain_db": -24,
    "note": "пакет"
   },
   {
    "file": "whoosh-short",
    "at": 14.15,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ нервничала"
   },
   {
    "file": "pop",
    "at": 15.8,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "вопрос"
   },
   {
    "file": "whoosh-short",
    "at": 18.35,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ велосипед"
   },
   {
    "file": "bike_bell",
    "at": 18.7,
-   "gain_db": -25,
+   "gain_db": -27,
    "note": "звонок велосипеда",
    "lp": 3500,
    "max": 0.8
@@ -168,14 +168,14 @@
   {
    "file": "brake",
    "at": 20.4,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "тормоз",
    "max": 1.2
   },
   {
    "file": "chime",
    "at": 21.5,
-   "gain_db": -23,
+   "gain_db": -25,
    "note": "мысль о маме",
    "lp": 5000,
    "max": 1.2
@@ -183,43 +183,43 @@
   {
    "file": "whoosh-short",
    "at": 25.65,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ 102"
   },
   {
    "file": "ping",
    "at": 25.95,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "102"
   },
   {
    "file": "pop",
    "at": 27.6,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "деньги вернули"
   },
   {
    "file": "pop",
    "at": 28.2,
-   "gain_db": -23,
+   "gain_db": -25,
    "note": "сердечки"
   },
   {
    "file": "whoosh-short",
    "at": 29.25,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ благодарность"
   },
   {
    "file": "pop",
    "at": 29.9,
-   "gain_db": -18,
+   "gain_db": -20,
    "note": "письмо"
   },
   {
    "file": "chime",
    "at": 30.0,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "конфетти",
    "lp": 5000,
    "max": 1.2
@@ -227,19 +227,19 @@
   {
    "file": "whoosh-short",
    "at": 32.55,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ совет"
   },
   {
    "file": "pop",
    "at": 32.75,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "«Отправьте родителям»"
   },
   {
    "file": "ringtone",
    "at": 33.1,
-   "gain_db": -25,
+   "gain_db": -27,
    "note": "звонок бабушке",
    "lp": 5000,
    "max": 1.6
@@ -247,31 +247,31 @@
   {
    "file": "decline",
    "at": 35.4,
-   "gain_db": -18,
+   "gain_db": -20,
    "note": "сброс"
   },
   {
    "file": "pop",
    "at": 35.9,
-   "gain_db": -21,
+   "gain_db": -23,
    "note": "«Звоните 102»"
   },
   {
    "file": "whoosh-short",
    "at": 37.25,
-   "gain_db": -17,
+   "gain_db": -19,
    "note": "→ финал"
   },
   {
    "file": "pop",
    "at": 37.4,
-   "gain_db": -19,
+   "gain_db": -21,
    "note": "фото"
   },
   {
    "file": "notification",
    "at": 39.25,
-   "gain_db": -20,
+   "gain_db": -22,
    "note": "подписка",
    "lp": 5000,
    "max": 1.2
