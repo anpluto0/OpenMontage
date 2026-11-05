@@ -28,3 +28,5 @@
 {"ts": "2026-11-05T11:37:14.281577+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R8.mp3", "success": true, "duration_s": 1.96}
 {"ts": "2026-11-05T11:41:58.058053+00:00", "tool": "music_gen", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v1.mp3"}
 {"ts": "2026-11-05T11:42:03.825508+00:00", "tool": "music_gen", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v1.mp3", "success": true, "cost_usd": 0.0767, "duration_s": 5.77}
+{"ts": "2026-11-05T11:56:27.066718+00:00", "tool": "music_gen", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v2_piano.mp3"}
+{"ts": "2026-11-05T11:56:33.726849+00:00", "tool": "music_gen", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v2_piano.mp3", "success": true, "cost_usd": 0.0767, "duration_s": 6.66}
