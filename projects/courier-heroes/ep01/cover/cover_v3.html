@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>Обложка · Курьер — батыр №1</title>
+<script src="mascot_lib.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2);unicode-range:U+0400-045F}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+00AB,U+00BB}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2);unicode-range:U+0400-045F}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+00AB,U+00BB}
+/* Tokens — flat, block-based, 5 colours (ui-ux-pro-max: Social Media App → Vibrant & Block-based; styles.csv → Flat Design) */
+:root{--bg:#F4EDE1;--ink:#1B1B1F;--accent:#E8574B;--accent-ink:#FFFFFF;--money:#3E9E5A;--sun:#F6D27A;--muted:#6A6258}
+html,body{margin:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Onest,sans-serif;background:var(--bg);color:var(--ink)}
+#c{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.abs{position:absolute}
+.rubric{left:50%;transform:translateX(-50%);top:330px;display:flex;align-items:center;gap:16px;height:72px;padding:0 30px 0 14px;border-radius:36px;background:var(--ink);color:#fff;font-weight:800;font-size:32px;white-space:nowrap}
+.rubric img{width:48px;height:48px;border-radius:12px;background:#fff;padding:4px;box-sizing:border-box}
+.h{left:0;width:1080px;white-space:nowrap;text-align:center;font-weight:800;letter-spacing:-2px;line-height:1}
+.money{left:50%;transform:translateX(-50%) rotate(-4deg);top:792px;background:var(--money);color:#fff;font-weight:800;font-size:104px;line-height:1;padding:16px 36px 20px;border-radius:30px}
+.meta{left:0;width:1080px;top:1560px;text-align:center;font-weight:500;font-size:34px;color:var(--muted)}
+svg{display:block;overflow:visible}
+</style></head>
+<body><div id="c">
+  <svg id="bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs rubric"><img src="assets/ge_mark.svg" alt=""/>КУРЬЕР — БАТЫР · №1</div>
+  <div class="abs h" style="top:448px;font-size:104px">Курьер спас</div>
+  <div class="abs h" style="top:552px;font-size:104px">бабушку</div>
+  <div class="abs h" style="top:656px;font-size:104px;color:var(--accent)">от мошенников</div>
+  <div class="abs money">$3 000</div>
+  <svg id="fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs meta">Реальная история · Алматы, 2026</div>
+</div>
+<script>
+const $=s=>document.querySelector(s), add=(s,h)=>s.insertAdjacentHTML('beforeend',h);
+// background: soft sunburst behind the heroes (flat, no gradients)
+let rays=''; for(let i=0;i<16;i++){const a=i*22.5; rays+=`<path d="M540 1220 L${540+1400*Math.cos((a-5)*Math.PI/180)} ${1220+1400*Math.sin((a-5)*Math.PI/180)} L${540+1400*Math.cos((a+5)*Math.PI/180)} ${1220+1400*Math.sin((a+5)*Math.PI/180)}Z" fill="#EFE3CF"/>`;}
+add($('#bg'),rays+`<circle cx="540" cy="1220" r="330" fill="var(--sun)" opacity=".55"/><rect x="0" y="1480" width="1080" height="440" fill="#E6DCCB"/>`);
+// heroes: determined courier holding the parcel, relieved granny, scam phone crossed out
+add($('#fg'),`<g transform="translate(330 1490) scale(.78)">${mascot({id:'g',col:'granny',scarf:SCARF,face:'relief'})}</g>`);
+add($('#fg'),`<g transform="translate(730 1490) scale(.86)">${mascot({id:'h',...HERO,face:'proud'})}</g>`);
+add($('#fg'),`<g transform="translate(560 1330) scale(1.1)"><rect x="-58" y="-76" width="116" height="126" rx="14" fill="#C99A62"/><path d="M-58 -50 H58" stroke="#B0844F" stroke-width="6"/><rect x="-36" y="-104" width="72" height="44" rx="6" fill="#6DBF7B"/><text x="0" y="-72" text-anchor="middle" font-family="Onest" font-weight="800" font-size="30" fill="#1C5A2A">$</text></g>`);
+add($('#fg'),`<g transform="translate(905 900) rotate(12)"><rect x="-70" y="-120" width="140" height="240" rx="28" fill="#1B1B1F"/><rect x="-56" y="-100" width="112" height="190" rx="16" fill="#3A3550"/><circle cx="0" cy="-30" r="30" fill="#6E6A80"/></g>
+  <g transform="translate(955 830)"><circle r="56" fill="var(--accent)"/><path d="M-22 -22 L22 22 M22 -22 L-22 22" stroke="#fff" stroke-width="14" stroke-linecap="round"/></g>
+  <g fill="#E8576B"><path d="M210 940 c0-24 32-32 40-8 c8-24 40-16 40 8 c0 32-40 46-40 54 c0-8-40-22-40-54Z"/><path d="M150 1010 c0-14 18-18 23-4 c5-14 23-10 23 4 c0 18-23 26-23 31 c0-5-23-13-23-31Z"/></g>`);
+</script></body></html>
