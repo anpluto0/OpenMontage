@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>Обложка · Курьер — батыр №1</title>
+<script src="mascot_lib.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2);unicode-range:U+0400-045F}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+00AB,U+00BB,U+2116}
+/* Grid-first cover: everything that matters sits in the 3:4 centre (y 240–1680) and reads at ~130 pt tile width. */
+:root{--bg:#1C6B3A;--ray:#22783F;--ground:#155530;--white:#FFFFFF;--ink:#1B1B1F;--yel:#FFD54A;--red:#E5483C}
+html,body{margin:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Onest,sans-serif;background:var(--bg)}
+#c{position:relative;width:1080px;height:1920px;overflow:hidden}
+.abs{position:absolute}
+.top{left:0;right:0;top:300px;display:flex;justify-content:center}
+.rubric{display:flex;align-items:center;gap:16px;height:106px;padding:0 40px 0 18px;border-radius:53px;background:var(--white);color:var(--ink);font-weight:800;font-size:51px;white-space:nowrap}
+.rubric img{width:72px;height:72px}
+.rubric b{background:var(--yel);border-radius:30px;padding:2px 16px;margin-left:6px}
+.line{left:0;width:1080px;text-align:center;font-weight:800;text-transform:uppercase;white-space:nowrap;letter-spacing:-2px;line-height:1;color:var(--white);
+  text-shadow:0 8px 0 rgba(0,0,0,.28)}
+.foot{left:0;width:1080px;top:1792px;text-align:center;font-weight:800;font-size:30px;line-height:1.4;color:rgba(255,255,255,.85)}
+.chip{display:inline-block;background:var(--yel);color:var(--ink);border-radius:36px;padding:10px 40px 18px;transform:rotate(-3deg);text-shadow:none;box-shadow:0 10px 0 rgba(0,0,0,.25)}
+svg{display:block;overflow:visible}
+</style></head>
+<body><div id="c">
+  <svg id="bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs top"><div class="rubric"><img src="assets/ge_mark.svg" alt=""/>КУРЬЕР — БАТЫР<b>№1</b></div></div>
+  <div class="abs line" id="l1" style="top:440px" data-w="540">Спас</div>
+  <div class="abs line" id="l2" style="top:642px" data-w="700"><span class="chip">$3 000</span></div>
+  <div class="abs line" id="l3" style="top:884px" data-w="800">бабушки</div>
+  <div class="abs foot">Реальная история · Алматы, 2026<br>Герой — не сотрудник Green Express</div>
+  <svg id="fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+</div>
+<script>
+const $=s=>document.querySelector(s), add=(s,h)=>s.insertAdjacentHTML('beforeend',h);
+let rays=''; for(let i=0;i<18;i++){const a=i*20, r=1700, cx=540, cy=1350, d=Math.PI/180;
+  rays+=`<path d="M${cx} ${cy} L${cx+r*Math.cos((a-5)*d)} ${cy+r*Math.sin((a-5)*d)} L${cx+r*Math.cos((a+5)*d)} ${cy+r*Math.sin((a+5)*d)}Z" fill="var(--ray)"/>`;}
+add($('#bg'),rays+`<rect x="0" y="1700" width="1080" height="220" fill="var(--ground)"/>`);
+// Big, close characters: granny (worried) and courier (resolve, palm out = "stop"), scam phone crossed out
+add($('#fg'),`<g transform="translate(700 1725) scale(1.08)">${mascot({id:'h',...HERO,bag:['#FFD54A','#E3B92E'],act:'give',face:'resolve'})}</g>`);
+add($('#fg'),`<g transform="translate(985 1315) rotate(10) scale(.9)"><rect x="-74" y="-130" width="148" height="260" rx="30" fill="var(--ink)"/><rect x="-60" y="-110" width="120" height="212" rx="18" fill="#3A3550"/><circle cx="0" cy="-40" r="30" fill="#6E6A80"/><circle cx="-26" cy="62" r="18" fill="var(--red)"/><circle cx="26" cy="62" r="18" fill="#34C759"/></g>
+  <g transform="translate(935 1195)"><rect x="-84" y="-46" width="168" height="92" rx="46" fill="#1E5BD8" stroke="#fff" stroke-width="8"/><text x="0" y="22" text-anchor="middle" font-family="Onest" font-weight="800" font-size="56" fill="#fff">102</text></g>`);
+add($('#fg'),`<g transform="translate(285 1735) scale(.98)">${mascot({id:'g',col:'granny',scarf:SCARF,face:'worried'})}</g>`);
+add($('#fg'),`<g transform="translate(790 1540) rotate(-4)"><rect x="-50" y="-50" width="100" height="100" rx="22" fill="#fff"/><image href="assets/ge_mark.svg" x="-40" y="-40" width="80" height="80"/></g>`);
+// fit each headline line to its target width
+document.fonts.ready.then(()=>{document.querySelectorAll('.line').forEach(el=>{
+  const target=+el.dataset.w; let fs=300; el.style.fontSize=fs+'px';
+  const span=document.createElement('span'); span.style.display='inline-block'; while(el.firstChild) span.appendChild(el.firstChild); el.appendChild(span);
+  fs=Math.floor(fs*target/span.getBoundingClientRect().width); el.style.fontSize=fs+'px'; el.dataset.fs=fs;});
+  let y=448; document.querySelectorAll('.line').forEach(el=>{el.style.top=y+'px'; y+=el.getBoundingClientRect().height+(el.id=='l1'?6:22);}); document.body.dataset.ready=1;});
+</script></body></html>

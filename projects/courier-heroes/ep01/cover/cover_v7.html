@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<title>Обложка · Курьер — батыр №1</title>
+<script src="mascot_lib.js"></script>
+<style>
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-cyrillic-800-normal.woff2);unicode-range:U+0400-045F}
+@font-face{font-family:Onest;font-weight:800;src:url(assets/onest-latin-800-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+00AB,U+00BB,U+2116}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-cyrillic-400-normal.woff2);unicode-range:U+0400-045F}
+@font-face{font-family:Onest;font-weight:500;src:url(assets/onest-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+2010-2027,U+00AB,U+00BB}
+/* Series template tokens (ui-ux-pro-max: ui-reasoning «Social Media App» → Vibrant & Block-based; styles «Flat Design» → ≤6 colours, no gradients)
+   bg = Green Express green, rays = lighter green, ink/white text, yellow accent, red alert. */
+:root{--bg:#1C6B3A;--ray:#22783F;--ground:#155530;--white:#FFFFFF;--ink:#1B1B1F;--yel:#FFD54A;--red:#E5483C}
+html,body{margin:0}
+body{width:1080px;height:1920px;overflow:hidden;font-family:Onest,sans-serif;background:var(--bg);color:var(--white)}
+#c{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--bg)}
+.abs{position:absolute}
+.rubric{left:80px;top:446px;display:flex;align-items:center;gap:14px;height:80px;padding:0 30px 0 14px;border-radius:40px;background:var(--white);color:var(--ink);font-weight:800;font-size:36px;white-space:nowrap}
+.rubric img{width:56px;height:56px}
+.num{right:80px;top:438px;width:96px;height:96px;border-radius:48px;background:var(--yel);color:var(--ink);font-weight:800;font-size:46px;line-height:96px;text-align:center}
+.h{left:80px;font-weight:800;font-size:96px;line-height:1.08;letter-spacing:-2.5px;white-space:nowrap}
+.ne{display:inline-block;background:var(--yel);color:var(--ink);border-radius:20px;padding:0 18px;margin:0 4px;line-height:1.02}
+.money{left:80px;top:760px;transform:rotate(-3deg);transform-origin:0 50%;background:var(--white);color:var(--bg);font-weight:800;font-size:88px;line-height:1;padding:14px 32px 18px;border-radius:26px}
+.sub{z-index:2;left:80px;top:892px;font-weight:800;font-size:80px;line-height:1.05;letter-spacing:-1.5px;color:var(--yel);white-space:nowrap}
+.foot{left:80px;width:920px;top:1700px;text-align:center;font-weight:500;font-size:28px;line-height:1.35;color:#FFFFFF}
+#fg ellipse[fill="#1B1B1F"]{display:none}
+svg{display:block;overflow:visible}
+</style></head>
+<body><div id="c">
+  <svg id="bg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs rubric"><img src="assets/ge_mark.svg" alt=""/>КУРЬЕР — БАТЫР</div>
+  <div class="abs num">№1</div>
+  <div class="abs h" style="top:532px">Курьер <span class="ne">НЕ</span> довёз</div>
+  <div class="abs h" style="top:636px">посылку</div>
+  <div class="abs money">$3 000</div>
+  <div class="abs sub">…и спас бабушку</div>
+  <svg id="fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
+  <div class="abs foot">Реальная история · Алматы, 2026<br>Герой — не сотрудник Green Express</div>
+</div>
+<script>
+const $=s=>document.querySelector(s), add=(s,h)=>s.insertAdjacentHTML('beforeend',h);
+let rays=''; for(let i=0;i<18;i++){const a=i*20, r=1600, cx=540, cy=1290, d=Math.PI/180;
+  rays+=`<path d="M${cx} ${cy} L${cx+r*Math.cos((a-5)*d)} ${cy+r*Math.sin((a-5)*d)} L${cx+r*Math.cos((a+5)*d)} ${cy+r*Math.sin((a+5)*d)}Z" fill="var(--ray)"/>`;}
+add($('#bg'),rays+`<rect x="0" y="1650" width="1080" height="270" fill="var(--ground)"/>`);
+// granny (worried, behind) — courier (determined, palm out) — scam phone with its line
+add($('#fg'),`<g transform="translate(610 1650) scale(.9)">${mascot({id:'h',...HERO,act:'give',face:'resolve'})}</g>`);
+add($('#fg'),`<g transform="translate(249 1650) scale(.82)">${mascot({id:'g',col:'granny',scarf:SCARF,face:'worried'})}</g>`);
+add($('#fg'),`<g transform="translate(440 1480) scale(.88)"><rect x="-58" y="-76" width="116" height="126" rx="14" fill="#C99A62"/><path d="M-58 -50 H58" stroke="#B0844F" stroke-width="6"/><rect x="-36" y="-104" width="72" height="44" rx="6" fill="#6DBF7B"/><text x="0" y="-72" text-anchor="middle" font-family="Onest" font-weight="800" font-size="30" fill="#1C5A2A">$</text></g>`);
+add($('#fg'),`<g transform="translate(951 1300) rotate(10)"><rect x="-74" y="-130" width="148" height="260" rx="30" fill="var(--ink)"/><rect x="-60" y="-110" width="120" height="212" rx="18" fill="#3A3550"/><circle cx="0" cy="-40" r="30" fill="#6E6A80"/><rect x="-44" y="6" width="88" height="10" rx="5" fill="#fff" opacity=".8"/><circle cx="-26" cy="62" r="18" fill="var(--red)"/><circle cx="26" cy="62" r="18" fill="#34C759"/></g>
+  <g transform="translate(986 1170)"><circle r="40" fill="var(--red)"/><path d="M-15 -15 L15 15 M15 -15 L-15 15" stroke="#fff" stroke-width="10" stroke-linecap="round"/></g>
+  <g transform="translate(832 1075)"><rect x="-180" y="-70" width="360" height="132" rx="30" fill="var(--white)"/><path d="M90 58 L120 100 L50 58Z" fill="var(--white)"/><text x="0" y="-12" text-anchor="middle" font-family="Onest" font-weight="800" font-size="32" fill="var(--ink)">«Срочно</text><text x="0" y="34" text-anchor="middle" font-family="Onest" font-weight="800" font-size="32" fill="var(--ink)">передайте деньги!»</text></g>`);
+</script></body></html>
