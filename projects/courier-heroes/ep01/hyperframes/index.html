@@ -103,17 +103,16 @@ svg{display:block;overflow:visible}
 
   <!-- S8 · the real hero + thanks -->
   <div id="s8" class="scene" style="background:var(--paper)">
-    <div id="photo" class="abs" style="left:190px;top:150px;width:700px;height:860px;background:#fff;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.18);padding:22px;box-sizing:border-box">
-      <div class="abs" style="left:22px;top:22px;width:656px;height:690px;border-radius:16px;overflow:hidden;background:url(assets/nartay.jpg) center 20%/cover"></div>
-      <div class="abs" style="left:0;top:728px;width:700px;text-align:center;font-weight:800;font-size:40px"><span data-k="end.cap">Нартай Есимханов, курьер</span></div>
-      <div class="abs" style="left:0;top:786px;width:700px;text-align:center;font-weight:500;font-size:22px;color:#8A857C"><span data-k="end.credit">Фото: ДП г. Алматы · Источники: Tengrinews, NUR.KZ</span></div>
+    <div id="photo" class="abs" style="left:60px;top:120px;width:960px;height:740px;background:#1B1F2A;border-radius:28px;box-shadow:0 18px 50px rgba(0,0,0,.22);padding:16px;box-sizing:border-box">
+      <div class="abs" style="left:16px;top:16px;width:928px;height:668px;border-radius:16px;overflow:hidden;background:url(assets/news1.jpg) center top/cover"></div>
+      <div class="abs" style="left:0;top:692px;width:960px;text-align:center;font-weight:500;font-size:24px;color:#B9BDC9"><span data-k="end.credit">Фото: polisia.kz · Источник: zakon.kz</span></div>
     </div>
-    <div id="real" class="abs" style="left:0;top:1046px;width:1080px;text-align:center"><div class="chip" style="background:#E4DED2;color:#5E5850;font-size:28px;height:60px;line-height:60px"><span data-k="end.real">Реальная история, по данным СМИ</span></div></div>
-    <div id="thanks" class="card" style="left:90px;top:1140px;width:900px;height:150px;display:flex;align-items:center;justify-content:center;gap:26px;background:var(--ink);color:#fff">
+    <div id="real" class="abs" style="left:0;top:890px;width:1080px;text-align:center"><div class="chip" style="background:#E4DED2;color:#5E5850;font-size:28px;height:60px;line-height:60px"><span data-k="end.cap">Нартай Есимханов, курьер</span> · <span data-k="end.real">реальная история</span></div></div>
+    <div id="thanks" class="card" style="left:90px;top:990px;width:900px;height:150px;display:flex;align-items:center;justify-content:center;gap:26px;background:var(--ink);color:#fff">
       <img src="assets/ge_mark.svg" style="width:84px;height:84px;display:block"/>
       <div style="font-weight:800;font-size:46px;white-space:nowrap"><span data-k="end.thanks">Спасибо таким курьерам!</span></div>
     </div>
-    <div id="follow" class="abs" style="left:0;top:1316px;width:1080px;text-align:center"><div class="chip" style="background:var(--coral);color:#fff;font-size:32px">🔔 <span data-k="end.follow">Подпишись: больше историй о курьерах-героях</span></div></div>
+    <div id="follow" class="abs" style="left:0;top:1166px;width:1080px;text-align:center"><div class="chip" style="background:var(--coral);color:#fff;font-size:32px">🔔 <span data-k="end.follow">Подпишись: больше историй о курьерах-героях</span></div></div>
     <svg id="s8fg" class="abs" style="left:0;top:0" width="1080" height="1920"></svg>
   </div>
 
@@ -229,7 +228,7 @@ el($('#s7fg'),`<g id="ring7"><circle r="60" fill="none" stroke="#FFFFFF" stroke-
   <g id="no7"><circle r="70" fill="#FF3B30"/><path d="M-28 -28 L28 28 M28 -28 L-28 28" stroke="#fff" stroke-width="16" stroke-linecap="round"/></g>`);
 gsap.set('#ring7',{x:690,y:1200}); gsap.set('#no7',{x:820,y:1000,scale:0});
 // S8 · hero peeks next to the real photo
-place($('#s8fg'),mascot({id:'c8',...HERO,act:'wave'}),'c8',150,1040,.4);
+place($('#s8fg'),mascot({id:'c8',...HERO,act:'wave'}),'c8',540,1450,.36);
 
 // headlines wider than the safe area shrink to fit
 const tw=e=>{let l=1e9,r=-1e9;e.querySelectorAll('span').forEach(sp=>{const b=sp.getBoundingClientRect();if(b.width){l=Math.min(l,b.left);r=Math.max(r,b.right);}});return r>l?r-l:0;};
@@ -335,9 +334,8 @@ tl.from('#tip3',{scale:0,transformOrigin:'0% 50%',duration:.4,ease:E.b2},ST[6]+3
 pushUp('#s7','#s8',ST[7]-.05);
 
 // S8 (37.3–42.8) — the real hero, thanks, follow
-tl.from('#photo',{y:200,rotation:-6,opacity:0,duration:.55,ease:E.back},ST[7]+.1);
-tl.to('#photo',{rotation:-2,duration:.6,ease:'sine.inOut'},ST[7]+.65);
-tl.from('#c8-pos',{x:'-=300',duration:.45,ease:E.o3},ST[7]+.6);
+tl.from('#photo',{y:200,rotation:-4,opacity:0,duration:.55,ease:E.back},ST[7]+.1);
+tl.from('#c8-pos',{y:'+=400',duration:.45,ease:E.o3},ST[7]+.6);
 tl.to('#c8-arm',{rotation:-22,transformOrigin:'30% 90%',duration:.22,yoyo:true,repeat:9,ease:'sine.inOut'},ST[7]+1.0);
 tl.from('#real',{opacity:0,duration:.4},ST[7]+.8);
 tl.from('#thanks',{y:80,opacity:0,duration:.45,ease:E.back},ST[7]+.2);
