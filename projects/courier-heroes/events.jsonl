@@ -10,3 +10,21 @@
 {"ts": "2026-11-05T11:21:02.581057+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/5_Marina_female.mp3", "success": true, "duration_s": 8.62}
 {"ts": "2026-11-05T11:21:02.581627+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/6_Kari_female_Kazakhstan.mp3"}
 {"ts": "2026-11-05T11:21:12.197075+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/6_Kari_female_Kazakhstan.mp3", "success": true, "duration_s": 9.62}
+{"ts": "2026-11-05T11:36:55.070364+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R1.mp3"}
+{"ts": "2026-11-05T11:36:58.126582+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R1.mp3", "success": true, "duration_s": 3.06}
+{"ts": "2026-11-05T11:36:58.757880+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R2.mp3"}
+{"ts": "2026-11-05T11:37:01.353530+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R2.mp3", "success": true, "duration_s": 2.6}
+{"ts": "2026-11-05T11:37:01.536989+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R3.mp3"}
+{"ts": "2026-11-05T11:37:03.515691+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R3.mp3", "success": true, "duration_s": 1.98}
+{"ts": "2026-11-05T11:37:03.635357+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R4.mp3"}
+{"ts": "2026-11-05T11:37:06.442644+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R4.mp3", "success": true, "duration_s": 2.81}
+{"ts": "2026-11-05T11:37:06.587169+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R5.mp3"}
+{"ts": "2026-11-05T11:37:08.127283+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R5.mp3", "success": true, "duration_s": 1.54}
+{"ts": "2026-11-05T11:37:08.241754+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R6.mp3"}
+{"ts": "2026-11-05T11:37:10.050332+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R6.mp3", "success": true, "duration_s": 1.81}
+{"ts": "2026-11-05T11:37:10.164435+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R7.mp3"}
+{"ts": "2026-11-05T11:37:12.196379+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R7.mp3", "success": true, "duration_s": 2.03}
+{"ts": "2026-11-05T11:37:12.320468+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/vo/R8.mp3"}
+{"ts": "2026-11-05T11:37:14.281577+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/vo/R8.mp3", "success": true, "duration_s": 1.96}
+{"ts": "2026-11-05T11:41:58.058053+00:00", "tool": "music_gen", "event": "start", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v1.mp3"}
+{"ts": "2026-11-05T11:42:03.825508+00:00", "tool": "music_gen", "event": "finish", "output_path": "projects/courier-heroes/ep01/audio/music/bgm_v1.mp3", "success": true, "cost_usd": 0.0767, "duration_s": 5.77}
