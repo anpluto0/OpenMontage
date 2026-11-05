@@ -14,29 +14,50 @@ svg{position:absolute;left:0;top:0}
 .ink svg .acc{fill:#F2A23A!important}
 .ink svg .acc2{fill:#7BC47F!important}
 .ink svg .skip{display:none}
+
+/* E · Shadow Cut: silhouettes on a dramatic sky */
+.shadow svg .f{fill:#120F1C!important;stroke:none!important}
+.shadow svg .win,.shadow svg .lamp{fill:#FFC85C!important}
+.shadow svg .acc2{fill:#7BE38B!important}
+.shadow svg .wheel{fill:none!important;stroke:#120F1C!important;stroke-width:18!important}.shadow svg .bike{fill:none!important;stroke:#120F1C!important}
+.shadow svg .wall{fill:#6B3A5C!important}.shadow svg .bub{fill:#FFE9C7!important}.shadow svg .bub ~ g .f{fill:#6B3A5C!important}
+/* H · Paper cut-out: layered paper with soft shadows */
+.paper svg .f{filter:drop-shadow(0 7px 0 rgba(60,40,20,.20))}
+/* D · Comic: thick ink outlines */
+.comic svg .f{stroke:#111!important;stroke-width:7!important;stroke-linejoin:round}
+.grain:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .9 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
 </style>
 <script src="mascot.js"></script></head><body><div id="st"></div>
 <script>
 const q=new URLSearchParams(location.search), S=q.get('style')||'B', F=q.get('f')||'1';
-const st=document.getElementById('st'); if(S==='C') st.classList.add('ink');
-const P = S==='A'? {bg:'#F4F1EA',ink:'#1B1B1F',acc:'#FF5A4E'} : S==='B'? {bg:'#1E2346',ink:'#FFFFFF',acc:'#FFB347'} : {bg:'#FBF8F1',ink:'#1A1A1A',acc:'#E8742A'};
+const st=document.getElementById('st'); if(S==='C') st.classList.add('ink'); if(S==='E') st.classList.add('shadow'); if(S==='H') st.classList.add('paper','grain'); if(S==='D') st.classList.add('comic'); if(S==='F'||S==='G') st.classList.add('grain');
+const PX={D:{bg:'#FFF6E0',ink:'#111',acc:'#E63946'},E:{bg:'#2A1B3D',ink:'#FFF4E0',acc:'#FFB347'},F:{bg:'#14183A',ink:'#FFFFFF',acc:'#FFC46B'},G:{bg:'#0F5257',ink:'#FFF8E7',acc:'#F2C14E'},H:{bg:'#F3E7D3',ink:'#3B2A20',acc:'#D9572B'}};
+const P = PX[S]? PX[S] : S==='A'? {bg:'#F4F1EA',ink:'#1B1B1F',acc:'#FF5A4E'} : S==='B'? {bg:'#1E2346',ink:'#FFFFFF',acc:'#FFB347'} : {bg:'#FBF8F1',ink:'#1A1A1A',acc:'#E8742A'};
 st.style.background=P.bg;
-let svg=`<svg width="1080" height="1920" viewBox="0 0 1080 1920"><defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="${S==='C'?7:0}"/></filter>
+let svg0=`<svg width="1080" height="1920" viewBox="0 0 1080 1920"><defs><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="${S==='C'?7:0}"/></filter>
 <radialGradient id="glow"><stop offset="0" stop-color="#FFD27A" stop-opacity=".55"/><stop offset="1" stop-color="#FFD27A" stop-opacity="0"/></radialGradient></defs><g filter="url(#rough)">`;
+let svg=svg0+skyFor();
 // ---------- scenery ----------
+function skyFor(){
+  if(S==='E') return `<defs><linearGradient id="skyE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1B3D"/><stop offset=".45" stop-color="#7A2E4E"/><stop offset=".75" stop-color="#E8743B"/><stop offset="1" stop-color="#F7B267"/></linearGradient></defs><rect x="0" y="0" width="1080" height="1920" fill="url(#skyE)"/><circle cx="540" cy="900" r="250" fill="#FFD9A0" opacity=".9"/>`;
+  if(S==='F') return `<defs><linearGradient id="skyF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1230"/><stop offset=".7" stop-color="#2B2F6B"/><stop offset="1" stop-color="#5B3F7A"/></linearGradient><radialGradient id="moonF"><stop offset="0" stop-color="#FFF6D8"/><stop offset=".35" stop-color="#FFE7A3" stop-opacity=".6"/><stop offset="1" stop-color="#FFE7A3" stop-opacity="0"/></radialGradient></defs><rect width="1080" height="1920" fill="url(#skyF)"/><circle cx="860" cy="560" r="200" fill="url(#moonF)"/>`;
+  if(S==='G'){ let o=`<defs><pattern id="oyu" width="120" height="120" patternUnits="userSpaceOnUse"><path d="M60 20 C40 20 30 40 44 52 C54 60 66 50 60 40 M60 20 C80 20 90 40 76 52 C66 60 54 50 60 40 M60 100 C40 100 30 80 44 68 C54 60 66 70 60 80 M60 100 C80 100 90 80 76 68 C66 60 54 70 60 80" fill="none" stroke="#F2C14E" stroke-width="5" stroke-linecap="round" opacity=".35"/></pattern></defs><rect width="1080" height="1920" fill="#0F5257"/><rect width="1080" height="1920" fill="url(#oyu)"/>`; return o; }
+  if(S==='H') return `<rect width="1080" height="1920" fill="#F3E7D3"/>`;
+  if(S==='D') return `<defs><pattern id="ht" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="8" cy="8" r="3.2" fill="#F4C9A0"/></pattern></defs><rect width="1080" height="1920" fill="#FFF6E0"/><rect width="1080" height="1920" fill="url(#ht)" opacity=".7"/>`;
+  return '';}
 function nightCity(){ // Almaty: mountains + houses + windows
-  let s=`<rect class="f skip" x="0" y="0" width="1080" height="1920" fill="${S==='A'?'#F4F1EA':'#1E2346'}"/>`;
-  if(S!=='A'){ s+=`<circle class="f" cx="860" cy="560" r="58" fill="#FFF3C9"/>`;
+  let s=skyFor()? '' : `<rect class="f skip" x="0" y="0" width="1080" height="1920" fill="${S==='A'?'#F4F1EA':'#1E2346'}"/>`;
+  if(S!=='A'){ s+=`<circle class="f lamp" cx="860" cy="560" r="58" fill="#FFF3C9"/>`;
     [[120,520],[300,470],[520,540],[700,480],[960,520],[220,640],[620,610]].forEach(([x,y])=>s+=`<circle class="skip" cx="${x}" cy="${y}" r="4" fill="#fff" opacity=".8"/>`);}
   s+=`<path class="f" d="M0 900 L170 700 L260 780 L420 600 L560 760 L700 640 L860 800 L1080 680 L1080 1000 L0 1000Z" fill="${S==='A'?'#D9E2EC':'#2E3566'}"/>
       <path class="f" d="M420 600 L470 660 L440 650 L405 680 L385 645Z M700 640 L740 690 L712 684 L690 700 L672 676Z" fill="#E9EEF7"/>`;
   return s;}
 function entrance(){ // apartment entrance with lamp
-  let s=`<rect class="f" x="0" y="820" width="1080" height="700" fill="${S==='A'?'#E7DFD1':'#3A3F6E'}"/>`;
-  for(let r=0;r<2;r++)for(let c=0;c<6;c++){const x=40+c*180,y=860+r*150; if(c===2||c===3)continue; s+=`<rect class="f" x="${x}" y="${y}" width="110" height="96" rx="10" fill="${S==='A'?'#F7D774':'#FFC85C'}"/>`;}
+  let s=`<rect class="f wall" x="0" y="820" width="1080" height="700" fill="${S==='A'?'#E7DFD1':'#3A3F6E'}"/>`;
+  for(let r=0;r<2;r++)for(let c=0;c<6;c++){const x=40+c*180,y=860+r*150; if(c===2||c===3)continue; s+=`<rect class="f win" x="${x}" y="${y}" width="110" height="96" rx="10" fill="${S==='A'?'#F7D774':'#FFC85C'}"/>`;}
   s+=`<circle class="skip" cx="540" cy="1010" r="300" fill="url(#glow)"/>
       <rect class="f" x="400" y="1040" width="280" height="440" rx="14" fill="${S==='A'?'#B9A68C':'#5B4A72'}"/><rect class="f" x="430" y="1070" width="220" height="410" rx="10" fill="${S==='A'?'#8C7A62':'#433556'}"/>
-      <circle class="f" cx="540" cy="1015" r="20" fill="#FFE7A3"/><rect class="f" x="0" y="1480" width="1080" height="440" fill="${S==='A'?'#D4CBBB':'#272B52'}"/>
+      <circle class="f lamp" cx="540" cy="1015" r="20" fill="#FFE7A3"/><rect class="f" x="0" y="1480" width="1080" height="440" fill="${S==='A'?'#D4CBBB':'#272B52'}"/>
       <rect class="f" x="360" y="1470" width="360" height="26" rx="8" fill="${S==='A'?'#C9BEA9':'#4A4F80'}"/>`;
   return s;}
 // ---------- people (style B / C) ----------
@@ -61,10 +82,10 @@ function person({x,y,s=1,skin='#E2AC85',hair='#1E1A22',top='#3E5C76',bottom='#2C
   return g+`</g>`;}
 function pkg(x,y,s=1){return `<g transform="translate(${x} ${y}) scale(${s})"><rect class="f" x="-55" y="-70" width="110" height="120" rx="12" fill="#C99A62"/><rect class="f acc2" x="-34" y="-96" width="68" height="40" rx="6" fill="#6DBF7B"/><text x="0" y="-66" text-anchor="middle" font-family="Onest" font-weight="800" font-size="28" fill="#1C5A2A">$</text></g>`;}
 function bike(x,y,s){ // simple side bike facing right
-  return `<g transform="translate(${x} ${y}) scale(${s})"><circle class="f" cx="-190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/><circle class="f" cx="190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/>
-   <path class="f" d="M-190 0 L-10 10 L-60 -150 Z M-56 -140 L140 -160 M-10 10 L148 -130 M140 -175 L190 0" fill="none" stroke="${S==='A'?'#FF5A4E':'#F08A3C'}" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+  return `<g transform="translate(${x} ${y}) scale(${s})"><circle class="f wheel" cx="-190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/><circle class="f wheel" cx="190" cy="0" r="86" fill="none" stroke="#1E1E2A" stroke-width="18"/>
+   <path class="f bike" d="M-190 0 L-10 10 L-60 -150 Z M-56 -140 L140 -160 M-10 10 L148 -130 M140 -175 L190 0" fill="none" stroke="${S==='A'?'#FF5A4E':'#F08A3C'}" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
    <path class="f" d="M-100 -176 L-30 -170" stroke="#5A3A2E" stroke-width="18" stroke-linecap="round"/><path class="f" d="M140 -175 L136 -210 L96 -214" fill="none" stroke="#9B9B9B" stroke-width="12" stroke-linecap="round"/></g>`;}
-function bubble(cx,cy,inner){return `<g><ellipse class="f" cx="${cx}" cy="${cy}" rx="230" ry="190" fill="#FFFFFF" opacity="${S==='B'?.95:1}"/><circle class="f" cx="${cx+120}" cy="${cy+210}" r="30" fill="#FFFFFF"/><circle class="f" cx="${cx+170}" cy="${cy+268}" r="16" fill="#FFFFFF"/>${inner}</g>`;}
+function bubble(cx,cy,inner){return `<g><ellipse class="f bub" cx="${cx}" cy="${cy}" rx="230" ry="190" fill="#FFFFFF" opacity="${S==='B'?.95:1}"/><circle class="f bub" cx="${cx+120}" cy="${cy+210}" r="30" fill="#FFFFFF"/><circle class="f bub" cx="${cx+170}" cy="${cy+268}" r="16" fill="#FFFFFF"/>${inner}</g>`;}
 // ---------- mascots (style A) ----------
 function mas(o,x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})">${mascot(o)}</g>`;}
 function grannyMascot(id,x,y,s){ // lavender jelly with white headscarf
@@ -86,12 +107,21 @@ if(F==='1'){
   plate='Нартай Есимханов';
   txt=`<div class="t" style="top:200px;color:${P.ink}">«А если бы это была</div><div class="t" style="top:296px;color:${S==='B'?'#FFB347':P.acc}">моя мама?»</div>`;
   svg+=nightCity()+`<rect class="f" x="0" y="1380" width="1080" height="540" fill="${S==='A'?'#E4DED2':'#272B52'}"/><path class="skip" d="M0 1500 H1080" stroke="#fff" stroke-width="10" stroke-dasharray="70 60" opacity=".35"/>`;
-  svg+=`<rect class="f" x="140" y="760" width="22" height="640" fill="${S==='A'?'#9A948A':'#4A4F80'}"/><circle class="f" cx="151" cy="760" r="34" fill="#FFE7A3"/><circle class="skip" cx="151" cy="800" r="260" fill="url(#glow)"/>`;
+  svg+=`<rect class="f" x="140" y="760" width="22" height="640" fill="${S==='A'?'#9A948A':'#4A4F80'}"/><circle class="f lamp" cx="151" cy="760" r="34" fill="#FFE7A3"/><circle class="skip" cx="151" cy="800" r="260" fill="url(#glow)"/>`;
   if(S==='A'){ svg+=bike(560,1380,.95)+mas({id:'c2',col:'yel',cap:true,bag:false,strap:false,act:'none'},505,1235,.5)
              +bubble(700,820,grannyMascot('m2',700,980,.42).replace(/#B9A6E8/g,'#FFB3C7').replace(/#9580CF/g,'#E68AA6')); }
   else { svg+=bike(600,1380,.95)+person({x:420,y:1390,s:1.0,skin:'#D9A27A',top:'#3E5C76',bottom:'#232744',glasses:true,box:true,arms:'chin',face:'calm'})
              +bubble(720,820,person({x:720,y:980,s:.62,skin:'#E3B28E',top:'#C2564E',bottom:'#4A3A5C',bun:true,hair:'#2A2228',arms:'down'})); }
 }
 svg+=`</g></svg>`;
-st.innerHTML=svg+txt+`<div class="plate" style="background:${S==='B'?'#FFB347':P.ink};color:${S==='B'?'#1E2346':'#fff'}">${plate}</div>`;
+const SW={G:{'#3A3F6E':'#0B3E42','#2E3566':'#13686E','#272B52':'#0A3236','#5B4A72':'#8C2F39','#433556':'#6E1F2A','#3E5C76':'#D9572B','#8E3B46':'#B23A48','#4A4F80':'#1C7C82'},
+ H:{'#3A3F6E':'#E8D2B0','#2E3566':'#C9B79C','#272B52':'#B89F80','#5B4A72':'#8C6A4F','#433556':'#6E5040','#3E5C76':'#3F7CAC','#8E3B46':'#C4553D','#4A4F80':'#A08868','#FFC85C':'#F6C453','#E9EEF7':'#FFFFFF'},
+ F:{'#3A3F6E':'#2A2F66','#2E3566':'#3A3577','#272B52':'#1B1F45'},
+ D:{'#3A3F6E':'#9FC5E8','#2E3566':'#B9D7EA','#272B52':'#E9D8B4','#5B4A72':'#C0392B','#433556':'#922B21','#4A4F80':'#D9C49A','#E9EEF7':'#FFFFFF'}};
+if(SW[S]) for(const [a,b] of Object.entries(SW[S])) svg=svg.split(a).join(b);
+let extra='';
+if(S==='D'){ extra=`<div style="position:absolute;left:40px;top:640px;width:1000px;height:1000px;border:10px solid #111;border-radius:6px;pointer-events:none"></div>`+
+  (F==='1'?`<div style="position:absolute;left:600px;top:700px;background:#fff;border:7px solid #111;border-radius:40px;padding:22px 30px;font-weight:800;font-size:38px;line-height:44px;width:360px">«Деньги нужно задекларировать!»<div style="position:absolute;left:40px;bottom:-40px;width:0;height:0;border-left:24px solid transparent;border-right:24px solid transparent;border-top:40px solid #111"></div></div>`:''); }
+if(S==='G'){ extra=`<div style="position:absolute;left:40px;top:620px;width:1000px;height:1020px;border:14px solid #F2C14E;border-radius:40px;box-shadow:inset 0 0 0 10px #0F5257, inset 0 0 0 16px #F2C14E;pointer-events:none"></div>`; }
+st.innerHTML=svg+extra+txt+`<div class="plate" style="background:${S==='B'||S==='F'?'#FFB347':S==='G'?'#F2C14E':S==='E'?'#FFB347':S==='D'?'#FFE14D':P.ink};color:${['B','F','G','E','D'].includes(S)?'#1B1B1F':'#fff'};${S==='D'?'border:5px solid #111;border-radius:6px;':''}">${plate}</div>`;
 </script></body></html>
