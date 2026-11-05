@@ -1,0 +1,12 @@
+{"ts": "2026-11-05T11:20:18.873165+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/1_PrinceNur_Smooth.mp3"}
+{"ts": "2026-11-05T11:20:28.173993+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/1_PrinceNur_Smooth.mp3", "success": true, "duration_s": 9.3}
+{"ts": "2026-11-05T11:20:28.175117+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/2_Stanislav_warm.mp3"}
+{"ts": "2026-11-05T11:20:36.619707+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/2_Stanislav_warm.mp3", "success": true, "duration_s": 8.44}
+{"ts": "2026-11-05T11:20:36.620484+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/3_AlexBell_deep.mp3"}
+{"ts": "2026-11-05T11:20:45.147488+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/3_AlexBell_deep.mp3", "success": true, "duration_s": 8.53}
+{"ts": "2026-11-05T11:20:45.148189+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/4_Sergey_captivating.mp3"}
+{"ts": "2026-11-05T11:20:53.958336+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/4_Sergey_captivating.mp3", "success": true, "duration_s": 8.81}
+{"ts": "2026-11-05T11:20:53.959025+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/5_Marina_female.mp3"}
+{"ts": "2026-11-05T11:21:02.581057+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/5_Marina_female.mp3", "success": true, "duration_s": 8.62}
+{"ts": "2026-11-05T11:21:02.581627+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/courier-heroes/assets/audio/voice_samples/6_Kari_female_Kazakhstan.mp3"}
+{"ts": "2026-11-05T11:21:12.197075+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/courier-heroes/assets/audio/voice_samples/6_Kari_female_Kazakhstan.mp3", "success": true, "duration_s": 9.62}
